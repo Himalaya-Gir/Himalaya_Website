@@ -1,0 +1,25 @@
+---
+/**
+ * SectionBordered - Section avec bordure gauche colorée
+ * Utilisé pour les sections secondaires ou sous-sections
+ *
+ * Props:
+ * - title: string - Le titre de la section
+ * - borderColor: string - Couleur de la bordure gauche (ex: "border-[#669bbc]")
+ */
+
+interface Props {
+  title: string;
+  borderColor?: string;
+}
+
+const {
+  title,
+  borderColor = "border-[#669bbc]"
+} = Astro.props;
+---
+
+<div class={`border-l-4 ${borderColor} pl-8 py-6`}>
+  <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">{title}</h2>
+  <slot />
+</div>
