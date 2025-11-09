@@ -4,9 +4,10 @@ import { t, type Language } from '../i18n/translations';
 interface Props {
   lang: Language;
   currentPath?: string;
+  spacerBg?: string;
 }
 
-const { lang, currentPath = '/' } = Astro.props;
+const { lang, currentPath = '/', spacerBg = 'bg-transparent' } = Astro.props;
 
 const navItems = [
   { href: lang === 'fr' ? '/fr' : '/', label: t('nav.home', lang) },
@@ -89,7 +90,7 @@ const switchUrl = lang === 'fr'
 </nav>
 
 <!-- Spacer to prevent content from going under fixed nav -->
-<div class="h-20 bg-transparent"></div>
+<div class={`h-20 ${spacerBg}`}></div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
