@@ -222,8 +222,16 @@ const lang = 'en';
   // Load references on page load
   async function loadReferences() {
     try {
+      console.log('🔍 Attempting to load references.json...');
       const response = await fetch('/references.json');
+      console.log('📡 Response status:', response.status, response.statusText);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log('✅ Data loaded successfully, references count:', data.references.length);
       allReferences = data.references;
 
       updateCategoryCounts();
@@ -231,10 +239,12 @@ const lang = 'en';
 
       document.getElementById('loading').classList.add('hidden');
       document.getElementById('resultsCount').classList.remove('hidden');
+      console.log('✅ References displayed successfully');
     } catch (error) {
-      console.error('Error loading references:', error);
+      console.error('❌ Error loading references:', error);
+      console.error('Error details:', error.message);
       document.getElementById('loading').innerHTML =
-        '<div class="text-center"><p class="font-figtree text-lg text-[#780000] mb-4">Error loading references.</p><p class="font-figtree text-sm text-[#003049]/70">Try: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac) to hard refresh, or restart the dev server.</p></div>';
+        '<div class="text-center"><p class="font-figtree text-lg text-[#780000] mb-4">Error loading references.</p><p class="font-figtree text-sm text-[#003049]/70 mb-4">Error: ' + error.message + '</p><p class="font-figtree text-sm text-[#003049]/70">Try: Cmd+Shift+R to hard refresh, or restart npm run dev</p><p class="font-figtree text-xs text-[#003049]/50 mt-4">Check browser console (Cmd+Option+I) for details</p></div>';
     }
   }
 
