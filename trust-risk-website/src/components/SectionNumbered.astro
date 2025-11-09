@@ -1,0 +1,50 @@
+---
+/**
+ * SectionNumbered - Section avec grand numéro vertical sur fond coloré
+ * Utilisé pour les sections principales avec un numéro d'identification
+ *
+ * Props:
+ * - number: string - Le numéro à afficher (ex: "01", "02")
+ * - title: string - Le titre de la section
+ * - bgColor: string - Couleur de fond (ex: "bg-[#780000]")
+ * - textColor: string - Couleur du texte du numéro (ex: "text-[#FFF9ED]")
+ */
+
+interface Props {
+  number: string;
+  title: string;
+  bgColor?: string;
+  textColor?: string;
+}
+
+const {
+  number,
+  title,
+  bgColor = "bg-[#780000]",
+  textColor = "text-[#FFF9ED]"
+} = Astro.props;
+---
+
+<div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
+  <!-- Split background -->
+  <div class="grid grid-cols-12">
+    <!-- Numéro vertical -->
+    <div class={`col-span-3 ${bgColor} p-10 flex items-center justify-center`}>
+      <div class={`font-figtree text-7xl font-black ${textColor}`}
+           style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">
+        {number}
+      </div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="col-span-9 bg-[#FFF9ED] p-10">
+      <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6"
+          style="text-wrap: balance; letter-spacing: -0.02em;">
+        {title}
+      </h2>
+      <div class="space-y-4">
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>

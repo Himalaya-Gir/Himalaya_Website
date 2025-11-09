@@ -13,6 +13,7 @@ export const translations = {
     'nav.home': 'Home',
     'nav.journey': 'Research Journey',
     'nav.about': 'About',
+    'nav.references': 'References',
     'nav.explore': 'Explore the Research',
     'nav.language': 'FR',
 
@@ -83,6 +84,7 @@ export const translations = {
     'nav.home': 'Accueil',
     'nav.journey': 'Parcours de Recherche',
     'nav.about': 'À Propos',
+    'nav.references': 'Références',
     'nav.explore': 'Explorer la Recherche',
     'nav.language': 'EN',
 
