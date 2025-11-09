@@ -1,0 +1,102 @@
+---
+import { t, type Language } from '../i18n/translations';
+
+interface Props {
+  lang: Language;
+  currentPath?: string;
+}
+
+const { lang, currentPath = '/' } = Astro.props;
+
+const navItems = [
+  { href: lang === 'fr' ? '/fr' : '/', label: t('nav.home', lang) },
+  { href: lang === 'fr' ? '/fr/journey' : '/journey', label: t('nav.journey', lang) },
+  { href: lang === 'fr' ? '/fr/about' : '/about', label: t('nav.about', lang) },
+];
+
+const otherLang = lang === 'fr' ? 'en' : 'fr';
+const otherLangLabel = lang === 'fr' ? 'EN' : 'FR';
+
+// Map current path to other language
+const switchUrl = lang === 'fr'
+  ? currentPath.replace(/^\/fr/, '') || '/'
+  : `/fr${currentPath}`;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#003049] shadow-lg">
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo/Title -->
+      <a href={lang === 'fr' ? '/fr' : '/'} class="font-figtree text-xl font-bold text-[#FFF9ED] hover:text-[#669bbc] transition-colors">
+        Himalaya Girard
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center gap-8">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class={`font-figtree font-medium transition-colors ${
+              currentPath === item.href
+                ? 'text-[#669bbc] border-b-2 border-[#669bbc] pb-1'
+                : 'text-[#FFF9ED] hover:text-[#669bbc]'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+
+        <!-- Language Switcher -->
+        <a
+          href={switchUrl}
+          class="font-figtree px-3 py-1 border-2 border-[#669bbc] text-[#FFF9ED] rounded hover:bg-[#669bbc] transition-colors text-sm font-medium"
+        >
+          {otherLangLabel}
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden p-2 text-[#FFF9ED]">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 space-y-3">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class={`font-figtree block font-medium transition-colors ${
+            currentPath === item.href
+              ? 'text-[#669bbc]'
+              : 'text-[#FFF9ED] hover:text-[#669bbc]'
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href={switchUrl}
+        class="font-figtree block px-3 py-2 border-2 border-[#669bbc] text-[#FFF9ED] rounded hover:bg-[#669bbc] transition-colors text-sm font-medium text-center"
+      >
+        {otherLangLabel}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer to prevent content from going under fixed nav -->
+<div class="h-20 bg-transparent"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+  });
+</script>

@@ -1,0 +1,154 @@
+---
+import { t, type Language } from '../i18n/translations';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+const steps = [
+  { num: 1, color: 'bg-[#D41F00]', textColor: 'text-[#D41F00]' },
+  { num: 2, color: 'bg-[#475573]', textColor: 'text-[#475573]' },
+  { num: 3, color: 'bg-[#D41F00]', textColor: 'text-[#D41F00]' },
+  { num: 4, color: 'bg-[#475573]', textColor: 'text-[#475573]' },
+  { num: 5, color: 'bg-slate-400', textColor: 'text-slate-400' },
+];
+---
+
+<section class="py-20 px-6 bg-white" id="process">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-[#475573] mb-4 text-center">{t('process.title', lang)}</h2>
+    <p class="text-lg text-slate-600 mb-12 text-center max-w-3xl mx-auto">{t('process.subtitle', lang)}</p>
+
+    <!-- Desktop Timeline -->
+    <div class="hidden lg:block relative">
+      <!-- Horizontal line -->
+      <div class="absolute top-12 left-0 right-0 h-1 bg-slate-200"></div>
+
+      <!-- Timeline steps -->
+      <div class="grid grid-cols-5 gap-4 relative">
+        {steps.map((step) => (
+          <div class="timeline-step cursor-pointer" data-step={step.num}>
+            <!-- Circle -->
+            <div class="flex justify-center mb-6">
+              <div class={`w-24 h-24 ${step.color} rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg transition-transform hover:scale-110 relative z-10`}>
+                {step.num}
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="text-center">
+              <div class={`text-xs font-semibold ${step.textColor} mb-2 uppercase tracking-wide`}>
+                {t(`process.step${step.num}.period`, lang)}
+              </div>
+              <h3 class="text-lg font-bold text-slate-800 mb-2">
+                {t(`process.step${step.num}.title`, lang)}
+              </h3>
+
+              <!-- Expandable description -->
+              <div class="timeline-desc hidden opacity-0 transition-all duration-300 ease-in-out">
+                <p class="text-sm text-slate-600 leading-relaxed mt-4 p-4 bg-slate-50 rounded-lg border-2 border-slate-200">
+                  {t(`process.step${step.num}.desc`, lang)}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile Timeline (Vertical) -->
+    <div class="lg:hidden space-y-8">
+      {steps.map((step) => (
+        <div class="timeline-step-mobile relative pl-16" data-step={step.num}>
+          <!-- Circle -->
+          <div class={`absolute left-0 top-0 w-12 h-12 ${step.color} rounded-full flex items-center justify-center text-white font-bold shadow-lg`}>
+            {step.num}
+          </div>
+
+          <!-- Vertical line (except last) -->
+          {step.num < 5 && (
+            <div class="absolute left-6 top-12 w-0.5 h-full bg-slate-200"></div>
+          )}
+
+          <!-- Content -->
+          <div>
+            <div class={`text-xs font-semibold ${step.textColor} mb-1 uppercase tracking-wide`}>
+              {t(`process.step${step.num}.period`, lang)}
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">
+              {t(`process.step${step.num}.title`, lang)}
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              {t(`process.step${step.num}.desc`, lang)}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Interactive timeline for desktop
+  document.addEventListener('DOMContentLoaded', () => {
+    const steps = document.querySelectorAll('.timeline-step');
+
+    steps.forEach(step => {
+      step.addEventListener('click', () => {
+        const desc = step.querySelector('.timeline-desc');
+
+        if (desc) {
+          // Close all other descriptions
+          document.querySelectorAll('.timeline-desc').forEach(d => {
+            if (d !== desc) {
+              d.classList.add('hidden');
+              d.classList.remove('opacity-100');
+              d.classList.add('opacity-0');
+            }
+          });
+
+          // Toggle current description
+          if (desc.classList.contains('hidden')) {
+            desc.classList.remove('hidden');
+            setTimeout(() => {
+              desc.classList.remove('opacity-0');
+              desc.classList.add('opacity-100');
+            }, 10);
+          } else {
+            desc.classList.remove('opacity-100');
+            desc.classList.add('opacity-0');
+            setTimeout(() => {
+              desc.classList.add('hidden');
+            }, 300);
+          }
+        }
+      });
+
+      // Hover effect
+      step.addEventListener('mouseenter', () => {
+        step.style.transform = 'translateY(-4px)';
+      });
+
+      step.addEventListener('mouseleave', () => {
+        step.style.transform = 'translateY(0)';
+      });
+    });
+  });
+</script>
+
+<style>
+  .timeline-step {
+    transition: transform 0.3s ease;
+  }
+
+  .timeline-desc {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .timeline-desc:not(.hidden) {
+    max-height: 500px;
+  }
+</style>

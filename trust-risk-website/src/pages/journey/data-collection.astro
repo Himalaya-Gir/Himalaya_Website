@@ -1,0 +1,310 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { t } from '../../i18n/translations';
+import '../../styles/global.css';
+
+const lang = 'en';
+---
+
+<Layout title="Data Collection | Research Journey">
+  <Navigation lang={lang} currentPath="/journey" />
+
+  <main class="min-h-screen bg-[#FFF9ED]">
+    <!-- Hero Section -->
+    <section class="py-16 px-6">
+      <div class="max-w-5xl mx-auto">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+          <a href="/journey" class="text-sm text-[#003049] hover:text-[#780000] transition-colors inline-flex items-center gap-1.5 font-figtree font-medium">
+            <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Research Journey
+          </a>
+        </div>
+
+        <!-- Title -->
+        <div class="mb-8">
+          <div class="text-sm font-semibold text-[#669bbc] mb-3 uppercase tracking-wide font-figtree">Phase 5 • Upcoming</div>
+          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Data Collection</h1>
+          <p class="text-lg text-[#003049]/70 leading-relaxed font-figtree max-w-3xl">
+            Planned recruitment and testing phase to <em class="italic">empirically validate</em> the theoretical framework with <strong>real participants</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 px-6">
+      <div class="max-w-5xl mx-auto space-y-12">
+
+        <!-- Overview -->
+        <div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
+          <!-- Split background -->
+          <div class="grid grid-cols-12">
+            <div class="col-span-3 bg-[#669bbc] p-10 flex items-center justify-center">
+              <div class="font-figtree text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">01</div>
+            </div>
+            <div class="col-span-9 bg-[#FFF9ED] p-10">
+              <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">The Final Test</h2>
+              <div class="space-y-4">
+                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                  After months of <em class="italic">theoretical work</em>, <strong>experimental design</strong>, and <em class="italic">optimization</em>, it's time to test the framework with real human behavior.
+                </p>
+                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                  Can <strong>Prospect Theory</strong> explain trust decisions? Or do we need additional <em class="italic">social preference</em> parameters?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recruitment Plan -->
+        <div class="border-l-4 border-[#669bbc] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Recruitment Strategy</h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Target Sample -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-4">Target Sample</h3>
+              <div class="space-y-3 font-figtree text-[#003049]/80">
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Sample Size:</strong> N = 200 participants
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Demographics:</strong> Adults aged 18-65, balanced gender distribution
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Recruitment:</strong> University participant pool + online platforms
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Duration:</strong> ~45 minutes per participant
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Compensation -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-4">Compensation Structure</h3>
+              <div class="space-y-3 font-figtree text-[#003049]/80">
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Base Payment:</strong> €8 for participation
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Performance Bonus:</strong> Based on actual outcomes from 10 randomly selected trials
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Expected Total:</strong> €8-€15 per participant
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Incentive Compatibility:</strong> Real stakes ensure <em class="italic">genuine decision-making</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 bg-[#669bbc]/10 border border-[#669bbc]/30 p-6 rounded-lg">
+            <h3 class="font-figtree text-lg font-semibold text-[#003049] mb-3">Power Analysis</h3>
+            <p class="font-figtree text-sm text-[#003049]/80 leading-relaxed">
+              With N=200 participants and 286 trials per person, we'll have <strong>57,200 total observations</strong>. Power analysis indicates this provides <strong>&gt;95% power</strong> to detect <em class="italic">medium effect sizes</em> (Cohen's d = 0.5) in parameter differences between Trust and Risk games.
+            </p>
+          </div>
+        </div>
+
+        <!-- Study Phases -->
+        <div class="bg-[#003049] px-8 py-8 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">Study Phases</h2>
+
+          <div class="space-y-6">
+            <div class="grid md:grid-cols-3 gap-6">
+              <!-- Phase 1 -->
+              <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-lg">
+                <div class="font-figtree text-4xl font-bold text-[#669bbc] mb-3">1</div>
+                <h3 class="font-figtree text-lg font-semibold text-[#FFF9ED] mb-3">Instructions & Tutorial</h3>
+                <p class="font-figtree text-sm text-[#FFF9ED]/75">
+                  Participants learn the three game types with <em class="italic">interactive examples</em> and comprehension checks.
+                </p>
+              </div>
+
+              <!-- Phase 2 -->
+              <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-lg">
+                <div class="font-figtree text-4xl font-bold text-[#669bbc] mb-3">2</div>
+                <h3 class="font-figtree text-lg font-semibold text-[#FFF9ED] mb-3">Main Experiment</h3>
+                <p class="font-figtree text-sm text-[#FFF9ED]/75">
+                  286 trials across Trust, Risk, and Inverted Trust games. <strong>Order randomized</strong> to prevent order effects.
+                </p>
+              </div>
+
+              <!-- Phase 3 -->
+              <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-lg">
+                <div class="font-figtree text-4xl font-bold text-[#669bbc] mb-3">3</div>
+                <h3 class="font-figtree text-lg font-semibold text-[#FFF9ED] mb-3">Post-Study Questionnaire</h3>
+                <p class="font-figtree text-sm text-[#FFF9ED]/75">
+                  Demographics, <em class="italic">attention checks</em>, and debriefing. Payment calculation shown transparently.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-[#FFF9ED]/20">
+              <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-4">Inclusion/Exclusion Criteria</h3>
+              <div class="grid md:grid-cols-2 gap-6 font-figtree text-sm text-[#FFF9ED]/85">
+                <div>
+                  <p class="font-semibold text-[#FFF9ED] mb-2">Include:</p>
+                  <ul class="space-y-1">
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#669bbc]">✓</span>
+                      <span>Passed comprehension checks</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#669bbc]">✓</span>
+                      <span>Response times within plausible range</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#669bbc]">✓</span>
+                      <span>Completed &gt;90% of trials</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#FFF9ED] mb-2">Exclude:</p>
+                  <ul class="space-y-1">
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#780000]">✗</span>
+                      <span>Failed attention checks</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#780000]">✗</span>
+                      <span>Suspiciously fast responses (&lt;200ms)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <span class="text-[#780000]">✗</span>
+                      <span>Invariant responding (same answer every trial)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analysis Plan -->
+        <div class="border-l-4 border-[#780000] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Planned Analyses</h2>
+
+          <div class="space-y-6">
+            <!-- Primary -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Primary Analysis</h3>
+              <p class="font-figtree text-[#003049]/80 leading-relaxed mb-4">
+                <strong>Hierarchical model comparison</strong> of 32 nested Prospect Theory models, testing whether Trust and Risk games share the same parameters or require <em class="italic">distinct</em> parameter values.
+              </p>
+              <div class="bg-[#003049]/5 border border-[#003049]/10 p-4 rounded-lg font-mono text-sm text-[#003049]/80">
+                H₀: θ<sub>trust</sub> = θ<sub>risk</sub> (Same parameters)<br/>
+                H₁: θ<sub>trust</sub> ≠ θ<sub>risk</sub> (Different parameters)
+              </div>
+            </div>
+
+            <!-- Secondary -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Secondary Analyses</h3>
+              <div class="space-y-3 font-figtree text-[#003049]/80">
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Parameter Recovery Validation:</strong> How well can we estimate individual-level parameters?
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Individual Differences:</strong> Do certain personality traits correlate with parameter values?
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Inverted Trust Validation:</strong> Does reciprocity in Inverted Trust Game match Trust Game returns?
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preregistration -->
+            <div class="bg-[#669bbc]/10 border border-[#669bbc]/30 p-6 rounded-lg">
+              <h3 class="font-figtree text-lg font-semibold text-[#003049] mb-3">Open Science Commitment</h3>
+              <p class="font-figtree text-sm text-[#003049]/80 leading-relaxed mb-3">
+                This study will be <strong>preregistered</strong> on the Open Science Framework (OSF) before data collection begins. All analysis code, anonymized data, and materials will be made <em class="italic">publicly available</em> upon publication.
+              </p>
+              <div class="flex items-center gap-2 text-xs text-[#003049]/70">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Preregistration planned • Open data • Reproducible code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="bg-[#669bbc]/5 border border-[#669bbc]/20 px-8 py-8 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Projected Timeline</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-6">
+              <div class="font-figtree text-sm font-semibold text-[#669bbc] min-w-[120px]">Q1 2025</div>
+              <div class="font-figtree text-sm text-[#003049]/80">Ethics approval + Preregistration</div>
+            </div>
+            <div class="flex items-start gap-6">
+              <div class="font-figtree text-sm font-semibold text-[#669bbc] min-w-[120px]">Q2 2025</div>
+              <div class="font-figtree text-sm text-[#003049]/80">Pilot testing (N=20) + Platform refinement</div>
+            </div>
+            <div class="flex items-start gap-6">
+              <div class="font-figtree text-sm font-semibold text-[#669bbc] min-w-[120px]">Q3-Q4 2025</div>
+              <div class="font-figtree text-sm text-[#003049]/80">Main data collection (N=200)</div>
+            </div>
+            <div class="flex items-start gap-6">
+              <div class="font-figtree text-sm font-semibold text-[#669bbc] min-w-[120px]">Q1 2026</div>
+              <div class="font-figtree text-sm text-[#003049]/80">Data analysis + Manuscript preparation</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-[#003049] text-[#FFF9ED]">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-figtree text-lg mb-4 font-semibold">Himalaya Girard</p>
+      <p class="font-figtree text-[#669bbc] mb-6">{t('footer.position', lang)}</p>
+      <p class="font-figtree text-sm text-[#669bbc]/70 mt-8">
+        {t('footer.rights', lang)}
+      </p>
+    </div>
+  </footer>
+</Layout>

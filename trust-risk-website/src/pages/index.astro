@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import { t } from '../i18n/translations';
+import '../styles/global.css';
+
+const lang = 'en';
+---
+
+<Layout title="Deconvolving Trust and Risk | Himalaya Girard">
+	<Navigation lang={lang} currentPath="/" />
+	<main class="min-h-screen bg-[#FFF9ED]">
+		<!-- Hero Section -->
+		<section class="relative min-h-screen flex items-center justify-center">
+			<div class="max-w-4xl mx-auto px-6 text-center">
+				<h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight" set:html={t('hero.title', lang)} />
+				<p class="font-figtree text-xl md:text-2xl text-[#003049]/70 mb-8">
+					<em class="italic">{t('hero.subtitle', lang)}</em>
+				</p>
+				<p class="font-figtree text-lg text-[#003049]/80 max-w-2xl mx-auto leading-relaxed" set:html={t('hero.intro', lang)} />
+
+				<div class="mt-12 flex gap-4 justify-center flex-wrap">
+					<a href="#question" class="font-figtree px-8 py-3 bg-[#003049] text-[#FFF9ED] rounded-lg hover:bg-[#002033] transition-colors font-medium">
+						{t('nav.explore', lang)}
+					</a>
+					<a href="/journey" class="font-figtree px-8 py-3 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#5a0000] transition-colors font-medium">
+						{t('nav.journey', lang)}
+					</a>
+					<a href="/about" class="font-figtree px-8 py-3 border-2 border-[#669bbc] text-[#003049] rounded-lg hover:bg-[#669bbc] hover:text-[#FFF9ED] transition-colors font-medium">
+						{t('nav.about', lang)}
+					</a>
+				</div>
+			</div>
+
+			<!-- Scroll indicator -->
+			<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+				<svg class="w-6 h-6 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+				</svg>
+			</div>
+		</section>
+
+		<!-- The Question Section -->
+		<section id="question" class="py-20 px-6 bg-[#003049]">
+			<div class="max-w-5xl mx-auto">
+				<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-8 text-center">
+					{t('question.title', lang)}
+				</h2>
+
+				<div class="grid md:grid-cols-2 gap-8 mt-12">
+					<!-- Trust Game -->
+					<div class="p-8 border-l-4 border-[#780000] bg-[#FFF9ED] rounded-lg">
+						<h3 class="font-figtree text-2xl font-bold text-[#780000] mb-4">{t('question.trust.title', lang)}</h3>
+						<div class="space-y-3 font-figtree text-[#003049]/80">
+							<p>{t('question.trust.step1', lang)}</p>
+							<p set:html={t('question.trust.step2', lang)} />
+							<p set:html={t('question.trust.step3', lang)} />
+							<p set:html={t('question.trust.step4', lang)} />
+						</div>
+						<div class="mt-6 p-4 bg-[#003049]/5 rounded-lg border border-[#003049]/10">
+							<p class="font-figtree text-sm font-semibold text-[#780000]">{t('question.trust.uncertainty', lang)}</p>
+							<p class="font-figtree text-[#003049]/80">{t('question.trust.uncertaintyDesc', lang)}</p>
+						</div>
+					</div>
+
+					<!-- Risk Game -->
+					<div class="p-8 border-l-4 border-[#669bbc] bg-[#FFF9ED] rounded-lg">
+						<h3 class="font-figtree text-2xl font-bold text-[#669bbc] mb-4">{t('question.risk.title', lang)}</h3>
+						<div class="space-y-3 font-figtree text-[#003049]/80">
+							<p>{t('question.risk.step1', lang)}</p>
+							<p set:html={t('question.risk.step2', lang)} />
+							<p set:html={t('question.risk.step3', lang)} />
+							<p set:html={t('question.risk.step4', lang)} />
+						</div>
+						<div class="mt-6 p-4 bg-[#003049]/5 rounded-lg border border-[#003049]/10">
+							<p class="font-figtree text-sm font-semibold text-[#669bbc]">{t('question.risk.uncertainty', lang)}</p>
+							<p class="font-figtree text-[#003049]/80">{t('question.risk.uncertaintyDesc', lang)}</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-12 p-6 bg-[#669bbc]/20 rounded-lg border border-[#669bbc]/30">
+					<p class="font-figtree text-lg text-[#FFF9ED] text-center">
+						<em class="italic">{t('question.quote', lang)}</em>
+					</p>
+					<p class="font-figtree text-sm text-[#669bbc] text-center mt-2">
+						{t('question.quoteAuthor', lang)}
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="py-12 px-6 bg-[#003049] text-[#FFF9ED]">
+			<div class="max-w-4xl mx-auto text-center">
+				<p class="font-figtree text-lg mb-4 font-semibold">Himalaya Girard</p>
+				<p class="font-figtree text-[#669bbc] mb-6">{t('footer.position', lang)}</p>
+				<div class="flex justify-center gap-6">
+					<a href="mailto:himalaya.girard@donders.ru.nl" class="font-figtree hover:text-[#780000] transition-colors">
+						Email
+					</a>
+					<a href="https://www.linkedin.com/in/himalaya-girard" target="_blank" rel="noopener" class="font-figtree hover:text-[#780000] transition-colors">
+						LinkedIn
+					</a>
+				</div>
+				<p class="font-figtree text-sm text-[#669bbc]/70 mt-8">
+					{t('footer.rights', lang)}
+				</p>
+			</div>
+		</footer>
+	</main>
+</Layout>

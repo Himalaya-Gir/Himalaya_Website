@@ -1,0 +1,257 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { t } from '../../i18n/translations';
+import '../../styles/global.css';
+
+const lang = 'en';
+---
+
+<Layout title="Implementation | Research Journey">
+  <Navigation lang={lang} currentPath="/journey" />
+
+  <main class="min-h-screen bg-[#FFF9ED]">
+    <!-- Hero Section -->
+    <section class="py-16 px-6">
+      <div class="max-w-5xl mx-auto">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+          <a href="/journey" class="text-sm text-[#003049] hover:text-[#780000] transition-colors inline-flex items-center gap-1.5 font-figtree font-medium">
+            <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Research Journey
+          </a>
+        </div>
+
+        <!-- Title -->
+        <div class="mb-8">
+          <div class="text-sm font-semibold text-[#780000] mb-3 uppercase tracking-wide font-figtree">Phase 4</div>
+          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Implementation</h1>
+          <p class="text-lg text-[#003049]/70 leading-relaxed font-figtree max-w-3xl">
+            Building a <strong>robust experimental platform</strong> with <em class="italic">real-time validation</em>, computational modeling pipeline, and participant-friendly interface.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 px-6">
+      <div class="max-w-5xl mx-auto space-y-12">
+
+        <!-- Overview -->
+        <div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
+          <!-- Split background -->
+          <div class="grid grid-cols-12">
+            <div class="col-span-3 bg-[#780000] p-10 flex items-center justify-center">
+              <div class="font-figtree text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">01</div>
+            </div>
+            <div class="col-span-9 bg-[#FFF9ED] p-10">
+              <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">From Theory to Practice</h2>
+              <div class="space-y-4">
+                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                  With <strong>286 optimized trials</strong> across <strong>3 game types</strong> and <strong>32 computational models</strong> to test, we needed a platform that could handle complex experimental logic while remaining <em class="italic">intuitive</em> for participants.
+                </p>
+                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                  The challenge: <strong>zero tolerance for errors</strong> — one bug could invalidate months of data collection.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="border-l-4 border-[#669bbc] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Technology Stack</h2>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Frontend -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Frontend</h3>
+              <div class="space-y-3 font-figtree text-[#003049]/80">
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">React + TypeScript</strong>
+                    <p class="text-sm">Type-safe component architecture for <em class="italic">reliability</em></p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Tailwind CSS</strong>
+                    <p class="text-sm">Responsive, accessible design system</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">React Router</strong>
+                    <p class="text-sm">Seamless navigation between game phases</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Backend & Data</h3>
+              <div class="space-y-3 font-figtree text-[#003049]/80">
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">Python (FastAPI)</strong>
+                    <p class="text-sm">High-performance API for <em class="italic">real-time validation</em></p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">PostgreSQL</strong>
+                    <p class="text-sm">Robust data storage with ACID guarantees</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#780000] mt-1">•</span>
+                  <div>
+                    <strong class="text-[#003049]">JAX + NumPy</strong>
+                    <p class="text-sm">Computational modeling pipeline</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="bg-[#003049] px-8 py-8 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">Key Features</h2>
+
+          <div class="space-y-8">
+            <!-- Feature 1 -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-3">Real-Time Data Validation</h3>
+              <p class="font-figtree text-[#FFF9ED]/85 leading-relaxed mb-4">
+                Every decision is <em class="italic">validated</em> before being stored. Checks include:
+              </p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded">
+                  <p class="font-figtree text-sm text-[#FFF9ED] font-semibold mb-2">Response Time Monitoring</p>
+                  <p class="font-figtree text-xs text-[#FFF9ED]/75">Flag <em class="italic">suspiciously fast</em> responses (&lt;200ms) as potential bots</p>
+                </div>
+                <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded">
+                  <p class="font-figtree text-sm text-[#FFF9ED] font-semibold mb-2">Choice Consistency</p>
+                  <p class="font-figtree text-xs text-[#FFF9ED]/75">Verify choices are valid given trial parameters</p>
+                </div>
+                <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded">
+                  <p class="font-figtree text-sm text-[#FFF9ED] font-semibold mb-2">Duplicate Prevention</p>
+                  <p class="font-figtree text-xs text-[#FFF9ED]/75">Block multiple submissions for same trial</p>
+                </div>
+                <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded">
+                  <p class="font-figtree text-sm text-[#FFF9ED] font-semibold mb-2">Session Integrity</p>
+                  <p class="font-figtree text-xs text-[#FFF9ED]/75">Track completion rates and detect drop-offs</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-3">Participant Experience</h3>
+              <div class="space-y-3 font-figtree text-[#FFF9ED]/85">
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc]">→</span>
+                  <div>
+                    <strong>Clear Instructions</strong>: Step-by-step tutorial with comprehension checks
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc]">→</span>
+                  <div>
+                    <strong>Progress Tracking</strong>: Visual feedback on completion (e.g., "Trial 42/286")
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc]">→</span>
+                  <div>
+                    <strong>Responsive Design</strong>: Works on desktop, tablet, and mobile devices
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-[#669bbc]">→</span>
+                  <div>
+                    <strong>Accessibility</strong>: WCAG 2.1 AA compliant for <em class="italic">inclusive participation</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div>
+              <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-3">Computational Modeling Pipeline</h3>
+              <p class="font-figtree text-[#FFF9ED]/85 leading-relaxed mb-3">
+                Automated pipeline for fitting <strong>32 nested models</strong> to participant data:
+              </p>
+              <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded font-mono text-sm text-[#FFF9ED]/90">
+                Data → Preprocessing → Model Fitting (JAX) → <br/>
+                Parameter Estimation → Model Comparison (BIC/AIC) → <br/>
+                Visualization & Reporting
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testing & Quality Assurance -->
+        <div class="border-l-4 border-[#780000] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Testing & Quality Assurance</h2>
+
+          <div class="space-y-6">
+            <div class="grid md:grid-cols-3 gap-6">
+              <div>
+                <div class="font-figtree text-4xl font-bold text-[#780000] mb-2">500+</div>
+                <div class="font-figtree text-sm text-[#003049] font-semibold mb-2">Unit Tests</div>
+                <p class="font-figtree text-xs text-[#003049]/70">
+                  Testing individual functions and components
+                </p>
+              </div>
+
+              <div>
+                <div class="font-figtree text-4xl font-bold text-[#780000] mb-2">50+</div>
+                <div class="font-figtree text-sm text-[#003049] font-semibold mb-2">Integration Tests</div>
+                <p class="font-figtree text-xs text-[#003049]/70">
+                  Verifying game flow and data pipelines
+                </p>
+              </div>
+
+              <div>
+                <div class="font-figtree text-4xl font-bold text-[#780000] mb-2">20+</div>
+                <div class="font-figtree text-sm text-[#003049] font-semibold mb-2">Pilot Participants</div>
+                <p class="font-figtree text-xs text-[#003049]/70">
+                  <em class="italic">Real-world testing</em> before launch
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-[#669bbc]/10 border border-[#669bbc]/30 p-6 rounded-lg">
+              <h3 class="font-figtree text-lg font-semibold text-[#003049] mb-3">Simulation Testing</h3>
+              <p class="font-figtree text-sm text-[#003049]/80 leading-relaxed">
+                Before collecting real data, we ran <strong>Monte Carlo simulations</strong> with <em class="italic">synthetic agents</em> following known parameter values to verify that our modeling pipeline could <strong>recover the true parameters</strong>. This validated both the experimental design and the computational methods.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-[#003049] text-[#FFF9ED]">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-figtree text-lg mb-4 font-semibold">Himalaya Girard</p>
+      <p class="font-figtree text-[#669bbc] mb-6">{t('footer.position', lang)}</p>
+      <p class="font-figtree text-sm text-[#669bbc]/70 mt-8">
+        {t('footer.rights', lang)}
+      </p>
+    </div>
+  </footer>
+</Layout>
