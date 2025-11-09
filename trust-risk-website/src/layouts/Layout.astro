@@ -1,0 +1,54 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Deconvolving trust and risk using computational modeling and Prospect Theory" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-[#FFF9ED] text-slate-900 font-sans">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-barn-red: #780000;
+		--color-cream: #FFF9ED;
+		--color-blue: #669bbc;
+		--color-dark-blue: #003049;
+	}
+
+	html {
+		font-family: 'Figtree', system-ui, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Figtree', system-ui, sans-serif;
+		font-weight: 700;
+	}
+
+	.font-figtree {
+		font-family: 'Figtree', system-ui, sans-serif;
+	}
+
+	em.italic {
+		font-family: 'Merriweather', Georgia, serif;
+		font-style: italic;
+	}
+</style>

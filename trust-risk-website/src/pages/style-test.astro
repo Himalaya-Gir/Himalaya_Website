@@ -1,0 +1,616 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
+const lang = 'en';
+---
+
+<Layout title="Style Comparison | Himalaya Girard">
+  <Navigation lang={lang} currentPath="/journey" />
+
+  <main class="min-h-screen py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-4xl font-bold text-[#475573] mb-12 text-center">Section Style Options</h1>
+
+      <!-- STYLE 1: Top Border with Background -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 1: Top Border with Subtle Background</h2>
+
+        <div class="border-t-4 border-[#D41F00] bg-slate-50 p-8 rounded-b-lg">
+          <h3 class="text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 2: Accent Corner -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 2: Corner Accent</h2>
+
+        <div class="relative p-8 border border-slate-200 rounded-lg">
+          <!-- Corner accent -->
+          <div class="absolute top-0 left-0 w-16 h-16 bg-[#D41F00] rounded-tl-lg"></div>
+          <div class="absolute top-0 left-0 w-12 h-12 bg-white rounded-tl-lg translate-x-1 translate-y-1"></div>
+
+          <h3 class="text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 3: Title with Underline Accent -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 3: Underlined Title</h2>
+
+        <div class="p-8 bg-white rounded-lg border border-slate-200">
+          <div class="mb-6">
+            <h3 class="text-3xl font-bold text-[#475573] mb-2 inline-block">Overview</h3>
+            <div class="h-1 w-24 bg-[#D41F00] rounded"></div>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 4: Minimal with Icon -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 4: Icon Accent</h2>
+
+        <div class="p-8">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-[#D41F00] rounded-lg flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              1
+            </div>
+            <h3 class="text-3xl font-bold text-[#475573] pt-1">Overview</h3>
+          </div>
+          <div class="space-y-4 ml-16">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 5: Header Band -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 5: Colored Header Band</h2>
+
+        <div class="border border-slate-200 rounded-lg overflow-hidden">
+          <div class="bg-[#D41F00] px-8 py-4">
+            <h3 class="text-3xl font-bold text-white">Overview</h3>
+          </div>
+          <div class="p-8 space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 6: Modern SaaS Card -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 6: Modern SaaS Card</h2>
+
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-slate-100 overflow-hidden">
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-1.5 h-8 bg-gradient-to-b from-[#D41F00] to-[#ff6b47] rounded-full"></div>
+              <h3 class="text-3xl font-bold text-[#475573]">Overview</h3>
+            </div>
+            <div class="space-y-4">
+              <p class="text-lg text-slate-700 leading-relaxed">
+                The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+              </p>
+              <p class="text-lg text-slate-700 leading-relaxed">
+                Traditional experimental design would require thousands of trials. We needed a smarter approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 7: Gradient Accent Bar -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 7: Gradient Accent Bar</h2>
+
+        <div class="relative bg-white rounded-lg shadow-sm border border-slate-200 p-8 overflow-hidden">
+          <!-- Gradient bar on left -->
+          <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D41F00] via-[#475573] to-slate-300"></div>
+
+          <div class="ml-6">
+            <h3 class="text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+            <div class="space-y-4">
+              <p class="text-lg text-slate-700 leading-relaxed">
+                The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+              </p>
+              <p class="text-lg text-slate-700 leading-relaxed">
+                Traditional experimental design would require thousands of trials. We needed a smarter approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 8: Pill Badge Title -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 8: Pill Badge Title</h2>
+
+        <div class="bg-gradient-to-br from-slate-50 to-white rounded-xl p-8 border border-slate-200">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="px-4 py-1.5 bg-[#D41F00] text-white text-sm font-semibold rounded-full">Section 1</span>
+            <h3 class="text-3xl font-bold text-[#475573]">Overview</h3>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 9: Subtle Glow Card -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 9: Subtle Glow Card</h2>
+
+        <div class="relative bg-white rounded-xl p-8 border border-slate-200 shadow-lg" style="box-shadow: 0 4px 20px rgba(212, 31, 0, 0.08), 0 0 40px rgba(212, 31, 0, 0.03);">
+          <div class="mb-6">
+            <h3 class="text-3xl font-bold text-[#475573] mb-2">Overview</h3>
+            <div class="h-0.5 w-16 bg-gradient-to-r from-[#D41F00] to-transparent rounded-full" style="box-shadow: 0 0 10px rgba(212, 31, 0, 0.4);"></div>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 10: Glowing Border -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 10: Glowing Border</h2>
+
+        <div class="relative bg-white rounded-xl p-8" style="box-shadow: 0 0 0 1px rgba(212, 31, 0, 0.1), 0 0 20px rgba(212, 31, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.05);">
+          <h3 class="text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 11: Inner Glow Title -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 11: Inner Glow Title</h2>
+
+        <div class="bg-white rounded-xl p-8 border border-slate-200 shadow-sm">
+          <div class="relative inline-block mb-6">
+            <h3 class="text-3xl font-bold text-[#475573] relative z-10">Overview</h3>
+            <div class="absolute inset-0 bg-[#D41F00] opacity-5 blur-xl rounded-lg -z-10" style="filter: blur(20px);"></div>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 12: Dual Color Glow -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 12: Dual Color Glow</h2>
+
+        <div class="relative bg-white rounded-xl p-8" style="box-shadow: 0 0 30px rgba(212, 31, 0, 0.1), 0 0 60px rgba(71, 85, 115, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-2 h-2 rounded-full bg-[#D41F00]" style="box-shadow: 0 0 12px rgba(212, 31, 0, 0.6);"></div>
+            <h3 class="text-3xl font-bold text-[#475573]">Overview</h3>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 13: Rounded Card with Poppins (Clean) -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 13: Rounded Card with Poppins (Clean)</h2>
+
+        <div class="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-[#D41F00]/30 transition-all duration-300">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 14: Rounded Card with Poppins + Subtle Glow -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 14: Rounded Card with Poppins + Subtle Glow</h2>
+
+        <div class="bg-white rounded-2xl p-8 shadow-lg" style="box-shadow: 0 4px 24px rgba(71, 85, 115, 0.08), 0 0 40px rgba(212, 31, 0, 0.04);">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 15: Rounded with Accent Dot + Poppins -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 15: Rounded with Accent Dot + Poppins</h2>
+
+        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#D41F00]"></div>
+            <h3 class="font-poppins text-3xl font-bold text-[#475573]">Overview</h3>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 16: Rounded Gradient Border + Poppins -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 16: Rounded Gradient Border + Poppins</h2>
+
+        <div class="relative bg-white rounded-2xl p-8" style="box-shadow: 0 0 0 2px #f1f5f9, 0 0 0 3px rgba(212, 31, 0, 0.15), 0 8px 24px rgba(0, 0, 0, 0.06);">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 17: Rounded Modern SaaS + Poppins + Glow -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 17: Rounded Modern SaaS + Poppins + Glow</h2>
+
+        <div class="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-8 border border-slate-200" style="box-shadow: 0 4px 20px rgba(71, 85, 115, 0.1), 0 0 30px rgba(212, 31, 0, 0.05);">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-1.5 h-10 bg-gradient-to-b from-[#D41F00] to-[#ff6b47] rounded-full" style="box-shadow: 0 0 15px rgba(212, 31, 0, 0.3);"></div>
+            <h3 class="font-poppins text-3xl font-bold text-[#475573]">Overview</h3>
+          </div>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 18: Ultra-Rounded Minimalist + Poppins -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 18: Ultra-Rounded Minimalist + Poppins</h2>
+
+        <div class="bg-white rounded-3xl p-10 shadow-md hover:shadow-lg transition-all duration-300">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 19: Kinhive-Inspired Notched Corner -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 19: Kinhive-Inspired Notched Corner</h2>
+
+        <div class="relative bg-white p-8 shadow-md" style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 20: Kinhive Notched with Border -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 20: Kinhive Notched with Border</h2>
+
+        <div class="relative bg-white p-8" style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%); box-shadow: 0 0 0 2px #475573, 0 4px 12px rgba(0, 0, 0, 0.08);">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 21: Kinhive Notched with Accent Color -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 21: Kinhive Notched with Accent Color</h2>
+
+        <div class="relative bg-gradient-to-br from-white to-slate-50 p-8" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%); box-shadow: 0 0 0 2px rgba(212, 31, 0, 0.2), 0 6px 16px rgba(212, 31, 0, 0.08);">
+          <!-- Accent notch indicator -->
+          <div class="absolute top-0 right-0 w-8 h-8 bg-[#D41F00]" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 22: Kinhive Double Notch -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 22: Kinhive Double Notch</h2>
+
+        <div class="relative bg-white p-8 shadow-lg" style="clip-path: polygon(24px 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px), 0 24px);">
+          <h3 class="font-poppins text-3xl font-bold text-[#475573] mb-6">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 23: Kinhive Minimal Notch + Clean Typography -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 23: Kinhive Minimal Notch + Clean Typography</h2>
+
+        <div class="relative bg-white p-10 border border-slate-200" style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);">
+          <div class="mb-2">
+            <span class="font-poppins text-xs font-bold text-[#D41F00] uppercase tracking-widest">Section 01</span>
+          </div>
+          <h3 class="font-poppins text-4xl font-bold text-[#475573] mb-6" style="text-wrap: balance;">Overview</h3>
+          <div class="space-y-4">
+            <p class="text-lg text-slate-700 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 24: Kinhive Geometric Card -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#475573] mb-8">Style 24: Kinhive Geometric Card</h2>
+
+        <div class="relative overflow-hidden" style="clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));">
+          <!-- Background with gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#475573]/5 to-[#D41F00]/5"></div>
+
+          <div class="relative bg-white/90 backdrop-blur-sm p-10 border border-slate-200/50">
+            <h3 class="font-poppins text-4xl font-bold text-[#475573] mb-6">Overview</h3>
+            <div class="space-y-4">
+              <p class="text-lg text-slate-700 leading-relaxed">
+                The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+              </p>
+              <p class="text-lg text-slate-700 leading-relaxed">
+                Traditional experimental design would require thousands of trials. We needed a smarter approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 25: Kinhive-Inspired with New Colors (Minimal) -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#003049] mb-8">Style 25: Kinhive-Inspired with New Colors (Minimal)</h2>
+
+        <div class="relative bg-white p-10 border border-[#669bbc]/30" style="clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);">
+          <div class="mb-2">
+            <span class="font-poppins text-xs font-bold text-[#780000] uppercase tracking-widest">Section 01</span>
+          </div>
+          <h3 class="font-poppins text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">Overview</h3>
+          <div class="space-y-4">
+            <p class="font-poppins text-lg text-[#003049]/80 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="font-poppins text-lg text-[#003049]/80 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 26: Kinhive Full Color Background -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#003049] mb-8">Style 26: Kinhive Full Color Background</h2>
+
+        <div class="relative bg-gradient-to-br from-[#003049] to-[#669bbc] p-12" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
+          <div class="mb-2">
+            <span class="font-poppins text-xs font-bold text-[#780000] bg-[#FFF9ED] px-3 py-1 uppercase tracking-widest inline-block">Section 01</span>
+          </div>
+          <h3 class="font-poppins font-bold text-[#FFF9ED] mb-6" style="font-size: clamp(2rem, 5vw, 3.5rem); text-wrap: balance; letter-spacing: -0.03em;">Overview</h3>
+          <div class="space-y-4">
+            <p class="font-poppins text-lg text-[#FFF9ED]/95 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="font-poppins text-lg text-[#FFF9ED]/95 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 27: Kinhive Bold Accent Section -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#003049] mb-8">Style 27: Kinhive Bold Accent Section</h2>
+
+        <div class="relative overflow-hidden" style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);">
+          <!-- Bold colored accent strip -->
+          <div class="absolute top-0 left-0 right-0 h-2 bg-[#780000]"></div>
+
+          <div class="bg-[#FFF9ED] p-10 border-l-4 border-[#780000]">
+            <div class="mb-2">
+              <span class="font-poppins text-xs font-semibold text-[#780000] uppercase tracking-widest">Section 01</span>
+            </div>
+            <h3 class="font-poppins text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">Overview</h3>
+            <div class="space-y-4">
+              <p class="font-poppins text-lg text-[#003049]/85 leading-relaxed">
+                The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+              </p>
+              <p class="font-poppins text-lg text-[#003049]/85 leading-relaxed">
+                Traditional experimental design would require thousands of trials. We needed a smarter approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 28: Kinhive Alternating Colors -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#003049] mb-8">Style 28: Kinhive Alternating Colors</h2>
+
+        <div class="relative bg-white p-10" style="clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));">
+          <!-- Accent notch in barn red -->
+          <div class="absolute top-0 right-0 w-10 h-10 bg-[#780000]" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
+
+          <div class="mb-3">
+            <span class="font-poppins text-xs font-bold text-[#FFF9ED] bg-[#669bbc] px-3 py-1.5 uppercase tracking-widest inline-block rounded-sm">Section 01</span>
+          </div>
+          <h3 class="font-poppins font-bold text-[#003049] mb-6" style="font-size: clamp(2rem, 5vw, 3.5rem); text-wrap: balance; letter-spacing: -0.03em;">Overview</h3>
+          <div class="space-y-4">
+            <p class="font-poppins text-lg text-[#003049]/80 leading-relaxed">
+              The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+            </p>
+            <p class="font-poppins text-lg text-[#003049]/80 leading-relaxed">
+              Traditional experimental design would require thousands of trials. We needed a smarter approach.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 29: Kinhive Two-Tone Split -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#003049] mb-8">Style 29: Kinhive Two-Tone Split</h2>
+
+        <div class="relative overflow-hidden" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
+          <!-- Split background -->
+          <div class="grid grid-cols-12">
+            <div class="col-span-3 bg-[#780000] p-10 flex items-center justify-center">
+              <div class="font-poppins text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">01</div>
+            </div>
+            <div class="col-span-9 bg-[#FFF9ED] p-10">
+              <h3 class="font-poppins text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">Overview</h3>
+              <div class="space-y-4">
+                <p class="font-poppins text-lg text-[#003049]/80 leading-relaxed">
+                  The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+                </p>
+                <p class="font-poppins text-lg text-[#003049]/80 leading-relaxed">
+                  Traditional experimental design would require thousands of trials. We needed a smarter approach.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 30: Kinhive Vibrant Card -->
+      <div class="mb-20">
+        <h2 class="text-2xl font-bold text-[#003049] mb-8">Style 30: Kinhive Vibrant Card</h2>
+
+        <div class="relative overflow-hidden shadow-xl" style="clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);">
+          <!-- Gradient background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#669bbc] via-[#003049] to-[#780000]"></div>
+
+          <div class="relative p-12">
+            <div class="mb-3">
+              <span class="font-poppins text-xs font-bold text-[#003049] bg-[#FFF9ED] px-4 py-2 uppercase tracking-widest inline-block">Section 01</span>
+            </div>
+            <h3 class="font-poppins font-black text-[#FFF9ED] mb-6" style="font-size: clamp(2.5rem, 6vw, 4rem); text-wrap: balance; letter-spacing: -0.04em;">Overview</h3>
+            <div class="space-y-5">
+              <p class="font-poppins text-xl text-[#FFF9ED] leading-relaxed font-light">
+                The challenge: how do you design an experiment that can distinguish between 32 different computational models of decision-making, each with up to 6 parameters?
+              </p>
+              <p class="font-poppins text-xl text-[#FFF9ED]/90 leading-relaxed font-light">
+                Traditional experimental design would require thousands of trials. We needed a smarter approach.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</Layout>
