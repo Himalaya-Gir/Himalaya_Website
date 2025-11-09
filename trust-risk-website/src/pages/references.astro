@@ -1,0 +1,443 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import { t } from '../i18n/translations';
+import '../styles/global.css';
+
+const lang = 'en';
+---
+
+<Layout title="References | Research Library">
+  <Navigation lang={lang} currentPath="/references" />
+
+  <main class="min-h-screen bg-[#FFF9ED]">
+    <!-- Hero Section -->
+    <section class="py-16 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6">
+          Interactive Reference Library
+        </h1>
+        <p class="font-figtree text-xl text-[#003049]/80 max-w-4xl mx-auto leading-relaxed">
+          Explore the research landscape behind <em class="italic">"Deconvolving Trust and Risk: A Computational Approach"</em>.
+          Filter by topic, search by keyword, and discover the foundational work shaping our understanding of trust and risk.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filters & Search Section -->
+    <section class="py-8 px-6 bg-white/50 backdrop-blur-sm sticky top-0 z-40 border-b-2 border-[#003049]/10">
+      <div class="max-w-6xl mx-auto">
+        <!-- Search Bar -->
+        <div class="mb-6">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by author, title, keyword, or year..."
+            class="w-full px-6 py-4 font-figtree text-lg border-2 border-[#003049]/20 rounded-lg focus:border-[#780000] focus:outline-none focus:ring-2 focus:ring-[#780000]/20 bg-white transition-all"
+          />
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-3">
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105 active"
+            data-category="all"
+          >
+            All References (<span class="count">69</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Core Reading"
+          >
+            ⭐ Core Reading (<span class="count">0</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Trust & Trust Game"
+          >
+            Trust & Trust Game (<span class="count">0</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Risk & Decision Theory"
+          >
+            Risk & Decision Theory (<span class="count">0</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Trust-Risk Relationship"
+          >
+            Trust-Risk Relationship (<span class="count">0</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Social Preferences"
+          >
+            Social Preferences (<span class="count">0</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Neuroscience"
+          >
+            Neuroscience (<span class="count">0</span>)
+          </button>
+          <button
+            class="filter-btn font-figtree px-4 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+            data-category="Methods & Computational"
+          >
+            Methods & Computational (<span class="count">0</span>)
+          </button>
+        </div>
+
+        <!-- Active filters display -->
+        <div id="activeFilters" class="mt-4 font-figtree text-sm text-[#003049]/70 hidden">
+          Filtering by: <span id="filterList" class="font-semibold text-[#780000]"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- References Grid -->
+    <section class="py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <!-- Loading state -->
+        <div id="loading" class="text-center py-12">
+          <div class="inline-block w-12 h-12 border-4 border-[#003049]/20 border-t-[#780000] rounded-full animate-spin"></div>
+          <p class="font-figtree text-[#003049]/70 mt-4">Loading references...</p>
+        </div>
+
+        <!-- No results message -->
+        <div id="noResults" class="hidden text-center py-12">
+          <p class="font-figtree text-xl text-[#003049]/70">No references found matching your criteria.</p>
+          <button
+            onclick="resetFilters()"
+            class="mt-4 font-figtree px-6 py-3 bg-[#780000] text-white rounded-lg hover:bg-[#780000]/90 transition-colors font-semibold"
+          >
+            Clear all filters
+          </button>
+        </div>
+
+        <!-- Results count -->
+        <div id="resultsCount" class="hidden mb-6 font-figtree text-[#003049]/70">
+          Showing <span id="countNumber" class="font-bold text-[#780000]">0</span> references
+        </div>
+
+        <!-- References container -->
+        <div id="referencesContainer" class="space-y-6"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-[#003049] text-[#FFF9ED]">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-figtree text-lg mb-4 font-semibold">Himalaya Girard</p>
+      <p class="font-figtree text-[#669bbc] mb-6">{t('footer.position', lang)}</p>
+      <p class="font-figtree text-sm text-[#669bbc]/70 mt-8">
+        {t('footer.rights', lang)}
+      </p>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Filter button styles */
+  .filter-btn {
+    background-color: white;
+    border: 2px solid #003049;
+    color: #003049;
+  }
+
+  .filter-btn:hover {
+    background-color: #003049;
+    color: white;
+  }
+
+  .filter-btn.active {
+    background-color: #780000;
+    border-color: #780000;
+    color: white;
+  }
+
+  /* Category tag colors - NO RED ON BLUE! */
+  .tag-core {
+    background-color: #780000;
+    color: #FFF9ED;
+  }
+
+  .tag-trust {
+    background-color: #003049;
+    color: #FFF9ED;
+  }
+
+  .tag-risk {
+    background-color: #669bbc;
+    color: white;
+  }
+
+  .tag-relationship {
+    background-color: #780000;
+    color: #FFF9ED;
+  }
+
+  .tag-social {
+    background-color: #669bbc;
+    color: white;
+  }
+
+  .tag-neuro {
+    background-color: #003049;
+    color: #FFF9ED;
+  }
+
+  .tag-methods {
+    background-color: #669bbc;
+    color: white;
+  }
+</style>
+
+<script>
+  // Global variables
+  let allReferences = [];
+  let activeCategories = new Set(['all']);
+  let searchQuery = '';
+
+  // Category tag mapping
+  const categoryTagClass = {
+    'Core Reading': 'tag-core',
+    'Trust & Trust Game': 'tag-trust',
+    'Risk & Decision Theory': 'tag-risk',
+    'Trust-Risk Relationship': 'tag-relationship',
+    'Social Preferences': 'tag-social',
+    'Neuroscience': 'tag-neuro',
+    'Methods & Computational': 'tag-methods'
+  };
+
+  // Load references on page load
+  async function loadReferences() {
+    try {
+      const response = await fetch('/references.json');
+      const data = await response.json();
+      allReferences = data.references;
+
+      updateCategoryCounts();
+      displayReferences(allReferences);
+
+      document.getElementById('loading').classList.add('hidden');
+      document.getElementById('resultsCount').classList.remove('hidden');
+    } catch (error) {
+      console.error('Error loading references:', error);
+      document.getElementById('loading').innerHTML =
+        '<p class="font-figtree text-red-600">Error loading references. Please refresh the page.</p>';
+    }
+  }
+
+  // Update category counts
+  function updateCategoryCounts() {
+    const counts = {
+      'all': allReferences.length,
+      'Core Reading': 0,
+      'Trust & Trust Game': 0,
+      'Risk & Decision Theory': 0,
+      'Trust-Risk Relationship': 0,
+      'Social Preferences': 0,
+      'Neuroscience': 0,
+      'Methods & Computational': 0
+    };
+
+    allReferences.forEach(ref => {
+      ref.categories.forEach(cat => {
+        if (counts[cat] !== undefined) {
+          counts[cat]++;
+        }
+      });
+    });
+
+    // Update button counts
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      const category = btn.dataset.category;
+      const countSpan = btn.querySelector('.count');
+      if (countSpan && counts[category] !== undefined) {
+        countSpan.textContent = counts[category];
+      }
+    });
+  }
+
+  // Filter references
+  function filterReferences() {
+    let filtered = allReferences;
+
+    // Apply category filter
+    if (!activeCategories.has('all') && activeCategories.size > 0) {
+      filtered = filtered.filter(ref =>
+        ref.categories.some(cat => activeCategories.has(cat))
+      );
+    }
+
+    // Apply search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(ref =>
+        ref.authors.toLowerCase().includes(query) ||
+        ref.title.toLowerCase().includes(query) ||
+        ref.year.toString().includes(query) ||
+        ref.relevance.toLowerCase().includes(query) ||
+        ref.categories.some(cat => cat.toLowerCase().includes(query))
+      );
+    }
+
+    displayReferences(filtered);
+  }
+
+  // Display references
+  function displayReferences(references) {
+    const container = document.getElementById('referencesContainer');
+    const noResults = document.getElementById('noResults');
+    const resultsCount = document.getElementById('resultsCount');
+    const countNumber = document.getElementById('countNumber');
+
+    if (references.length === 0) {
+      container.innerHTML = '';
+      noResults.classList.remove('hidden');
+      resultsCount.classList.add('hidden');
+      return;
+    }
+
+    noResults.classList.add('hidden');
+    resultsCount.classList.remove('hidden');
+    countNumber.textContent = references.length;
+
+    container.innerHTML = references.map(ref => createReferenceCard(ref)).join('');
+  }
+
+  // Create reference card HTML
+  function createReferenceCard(ref) {
+    const doiLink = ref.doi ? `https://doi.org/${ref.doi}` : '#';
+
+    const categoryTags = ref.categories.map(cat => {
+      const tagClass = categoryTagClass[cat] || 'bg-gray-500 text-white';
+      return `<span class="inline-block px-3 py-1 rounded-full text-xs font-semibold ${tagClass}">${cat}</span>`;
+    }).join(' ');
+
+    return `
+      <div class="reference-card bg-white border-l-4 border-[#780000] rounded-lg p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+        <!-- Citation -->
+        <div class="font-figtree mb-4">
+          <p class="text-[#003049] font-semibold text-lg mb-2">
+            ${ref.authors} (${ref.year})
+          </p>
+          <p class="text-[#003049]/90 italic mb-2">
+            ${ref.title}
+          </p>
+          ${ref.journal ? `<p class="text-[#003049]/70 text-sm">${ref.journal}${ref.volume ? `, ${ref.volume}` : ''}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
+          ${ref.book ? `<p class="text-[#003049]/70 text-sm">In: ${ref.book}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
+          ${ref.publisher ? `<p class="text-[#003049]/70 text-sm">${ref.publisher}</p>` : ''}
+        </div>
+
+        <!-- DOI Link -->
+        ${ref.doi ? `
+          <a href="${doiLink}" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 font-figtree text-sm font-semibold text-[#780000] hover:text-[#780000]/80 transition-colors mb-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Read paper (DOI: ${ref.doi})
+          </a>
+        ` : ''}
+
+        <!-- Category Tags -->
+        <div class="flex flex-wrap gap-2 mb-4">
+          ${categoryTags}
+        </div>
+
+        <!-- Relevance -->
+        <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-4 rounded">
+          <p class="font-figtree text-sm text-[#003049]">
+            <strong class="text-[#780000]">Why this matters:</strong> ${ref.relevance}
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // Handle filter button clicks
+  function setupFilterButtons() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+
+        if (category === 'all') {
+          // Clear all filters and activate "All"
+          activeCategories.clear();
+          activeCategories.add('all');
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        } else {
+          // Remove "All" filter
+          activeCategories.delete('all');
+          document.querySelector('.filter-btn[data-category="all"]').classList.remove('active');
+
+          // Toggle category
+          if (activeCategories.has(category)) {
+            activeCategories.delete(category);
+            btn.classList.remove('active');
+          } else {
+            activeCategories.add(category);
+            btn.classList.add('active');
+          }
+
+          // If no categories selected, reactivate "All"
+          if (activeCategories.size === 0) {
+            activeCategories.add('all');
+            document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+          }
+        }
+
+        updateActiveFiltersDisplay();
+        filterReferences();
+      });
+    });
+  }
+
+  // Update active filters display
+  function updateActiveFiltersDisplay() {
+    const activeFiltersDiv = document.getElementById('activeFilters');
+    const filterList = document.getElementById('filterList');
+
+    if (activeCategories.has('all') || activeCategories.size === 0) {
+      activeFiltersDiv.classList.add('hidden');
+    } else {
+      activeFiltersDiv.classList.remove('hidden');
+      filterList.textContent = Array.from(activeCategories).join(', ');
+    }
+  }
+
+  // Handle search input
+  function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      filterReferences();
+    });
+  }
+
+  // Reset all filters
+  window.resetFilters = function() {
+    activeCategories.clear();
+    activeCategories.add('all');
+    searchQuery = '';
+
+    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+
+    updateActiveFiltersDisplay();
+    filterReferences();
+  };
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    loadReferences();
+    setupFilterButtons();
+    setupSearch();
+  });
+</script>
