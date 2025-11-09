@@ -10,8 +10,39 @@ const lang = 'en';
 <Layout title="Deconvolving Trust and Risk | Himalaya Girard">
 	<Navigation lang={lang} currentPath="/" />
 	<main class="min-h-screen bg-[#FFF9ED]">
+		<!-- About Me Section -->
+		<section class="py-20 px-6 bg-[#FFF9ED]">
+			<div class="max-w-4xl mx-auto">
+				<div class="flex flex-col md:flex-row items-center gap-12">
+					<!-- Photo -->
+					<div class="flex-shrink-0">
+						<img
+							src="/images/himalaya-photo.png"
+							alt="Himalaya Girard"
+							class="w-64 h-64 rounded-lg shadow-xl object-cover border-4 border-[#003049]"
+						/>
+					</div>
+
+					<!-- Text -->
+					<div>
+						<h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-6">
+							Hi, I'm Himalaya Girard
+						</h1>
+						<p class="font-figtree text-lg text-[#003049]/80 mb-4 leading-relaxed">
+							I'm a research assistant in cognitive neuroscience at the
+							<strong>Donders Institute</strong>, fascinated by why humans trust—or don't.
+						</p>
+						<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+							Working with <span class="font-semibold">Elijah Galvan</span>, <span class="font-semibold">Cătălina Rățală</span>, and <span class="font-semibold">Alan Sanfey</span>,
+							I'm applying <strong>Prospect Theory</strong>—a Nobel Prize-winning framework—to trust for the first time.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Hero Section -->
-		<section class="relative min-h-screen flex items-center justify-center">
+		<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#FFF9ED] to-[#003049]/5">
 			<div class="max-w-4xl mx-auto px-6 text-center">
 				<h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight" set:html={t('hero.title', lang)} />
 				<p class="font-figtree text-xl md:text-2xl text-[#003049]/70 mb-8">
