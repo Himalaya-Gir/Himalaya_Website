@@ -11,6 +11,7 @@ const { lang, currentPath = '/' } = Astro.props;
 const navItems = [
   { href: lang === 'fr' ? '/fr' : '/', label: t('nav.home', lang) },
   { href: lang === 'fr' ? '/fr/journey' : '/journey', label: t('nav.journey', lang) },
+  { href: lang === 'fr' ? '/fr/references' : '/references', label: t('nav.references', lang) },
   { href: lang === 'fr' ? '/fr/about' : '/about', label: t('nav.about', lang) },
 ];
 

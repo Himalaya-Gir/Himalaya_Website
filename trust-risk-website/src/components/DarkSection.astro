@@ -1,0 +1,25 @@
+---
+/**
+ * DarkSection - Section avec fond foncé et texte clair
+ * Utilisé pour mettre en valeur des sections importantes
+ *
+ * Props:
+ * - title: string - Le titre de la section
+ * - bgColor: string - Couleur de fond (ex: "bg-[#003049]")
+ */
+
+interface Props {
+  title: string;
+  bgColor?: string;
+}
+
+const {
+  title,
+  bgColor = "bg-[#003049]"
+} = Astro.props;
+---
+
+<div class={`${bgColor} px-8 py-8 rounded-lg`}>
+  <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">{title}</h2>
+  <slot />
+</div>
