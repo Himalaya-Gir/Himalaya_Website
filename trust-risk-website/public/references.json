@@ -690,31 +690,31 @@
   "categories": [
     {
       "name": "Core Reading",
-      "description": "Essential papers for understanding trust-risk relationship",
+      "description": "Essential papers for understanding trust-risk relationship"
     },
     {
       "name": "Trust & Trust Game",
-      "description": "Foundational studies on trust and the Trust Game paradigm",
+      "description": "Foundational studies on trust and the Trust Game paradigm"
     },
     {
       "name": "Risk & Decision Theory",
-      "description": "Prospect Theory, decision under uncertainty, decision theory",
+      "description": "Prospect Theory, decision under uncertainty, decision theory"
     },
     {
       "name": "Trust-Risk Relationship",
-      "description": "Studies directly comparing trust and risk",
+      "description": "Studies directly comparing trust and risk"
     },
     {
       "name": "Social Preferences",
-      "description": "SVO, altruism, cooperation, social preferences",
+      "description": "SVO, altruism, cooperation, social preferences"
     },
     {
       "name": "Neuroscience",
-      "description": "fMRI, neural bases of trust and risk",
+      "description": "fMRI, neural bases of trust and risk"
     },
     {
       "name": "Methods & Computational",
-      "description": "Modeling, statistics, experimental methods",
+      "description": "Modeling, statistics, experimental methods"
     }
   ]
 }
