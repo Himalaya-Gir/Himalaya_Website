@@ -43,7 +43,7 @@ export const translations = {
 
     // About Section
     'about.title': 'About This Research',
-    'about.intro': 'This research project investigates whether <strong>Prospect Theory</strong> — a <em class="italic">Nobel Prize-winning</em> framework for understanding risk decisions — can explain trust behavior when we properly control for the type of <em class="italic">uncertainty</em> involved.',
+    'about.intro': 'This research project investigates whether <strong>Prospect Theory</strong>, a <em class="italic">Nobel Prize-winning</em> framework for understanding risk decisions, can explain trust behavior when we properly control for the type of <em class="italic">uncertainty</em> involved.',
     'about.stat1': 'Nested Models<br/>Tested',
     'about.stat2': 'Optimally Selected<br/>Trials',
     'about.stat3': 'Parameters<br/>Estimated',
@@ -114,7 +114,7 @@ export const translations = {
 
     // About Section
     'about.title': 'À Propos de Cette Recherche',
-    'about.intro': 'Ce projet de recherche étudie si la <strong>Théorie des Perspectives</strong> — un cadre théorique <em class="italic">primé par le prix Nobel</em> pour comprendre les décisions risquées — peut expliquer le comportement de confiance lorsque nous contrôlons correctement le type d\'<em class="italic">incertitude</em> impliquée.',
+    'about.intro': 'Ce projet de recherche étudie si la <strong>Théorie des Perspectives</strong>, un cadre théorique <em class="italic">primé par le prix Nobel</em> pour comprendre les décisions risquées, peut expliquer le comportement de confiance lorsque nous contrôlons correctement le type d\'<em class="italic">incertitude</em> impliquée.',
     'about.stat1': 'Modèles Imbriqués<br/>Testés',
     'about.stat2': 'Essais Optimalement<br/>Sélectionnés',
     'about.stat3': 'Paramètres<br/>Estimés',

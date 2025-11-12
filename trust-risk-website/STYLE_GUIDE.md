@@ -250,6 +250,7 @@ focus:ring-[#780000]/20
 4. **Emojis** - Utiliser des mots ou icônes SVG
 5. **Polices différentes** - Uniquement Figtree
 6. **Couleurs hors palette** - Uniquement #FFF9ED, #003049, #780000, #669bbc
+7. **Tirets cadratin (—)** - Toujours remplacer par des virgules
 
 ### ✅ TOUJOURS:
 1. **Figtree** pour toute typographie
@@ -296,6 +297,7 @@ focus:ring-[#780000]/20
 - [ ] Aucun `bg-white`
 - [ ] Aucun emoji
 - [ ] Aucun `rounded-full`
+- [ ] Aucun tiret cadratin (—)
 - [ ] Uniquement palette de couleurs autorisée
 - [ ] Uniquement `font-figtree`
 - [ ] Pas de rouge sur bleu
