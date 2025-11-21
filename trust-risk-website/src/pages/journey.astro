@@ -6,6 +6,7 @@ import '../styles/global.css';
 
 const lang = 'en';
 
+const base = import.meta.env.BASE_URL;
 const phases = [
   {
     num: 1,
@@ -66,7 +67,7 @@ const phases = [
         <div class="grid grid-cols-5 gap-4 relative">
           {phases.map((phase) => (
             <a
-              href={`/journey/${phase.slug}`}
+              href={`${base}/journey/${phase.slug}`}
               class="timeline-phase group cursor-pointer flex flex-col items-center relative"
             >
               <!-- Progress indicator dot on line -->
@@ -106,7 +107,7 @@ const phases = [
       <div class="max-w-2xl mx-auto space-y-12">
         {phases.map((phase) => (
           <a
-            href={`/journey/${phase.slug}`}
+            href={`${base}/journey/${phase.slug}`}
             class="block group"
           >
             <div class="relative pl-24">
