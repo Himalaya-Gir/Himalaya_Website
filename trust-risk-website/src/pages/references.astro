@@ -140,6 +140,10 @@ const base = import.meta.env.BASE_URL;
   </footer>
 </Layout>
 
+<script is:inline define:vars={{ base }}>
+  window.__BASE_URL__ = base;
+</script>
+
 <style>
   /* Filter button styles */
   .filter-btn {
@@ -203,7 +207,7 @@ const base = import.meta.env.BASE_URL;
   }
 </style>
 
-<script define:vars={{ base }}>
+<script>
   // Global variables
   let allReferences = [];
   let activeCategories = new Set(['all']);
@@ -224,6 +228,7 @@ const base = import.meta.env.BASE_URL;
   async function loadReferences() {
     try {
       console.log('🔍 Attempting to load references.json...');
+      const base = window.__BASE_URL__ || '';
       const response = await fetch(base + '/references.json');
       console.log('📡 Response status:', response.status, response.statusText);
 
