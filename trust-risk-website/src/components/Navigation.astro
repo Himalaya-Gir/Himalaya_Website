@@ -11,11 +11,11 @@ const { lang, currentPath = '/', spacerBg = 'bg-transparent' } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 const navItems = [
-  { href: base + (lang === 'fr' ? 'fr' : ''), label: t('nav.home', lang) },
-  { href: base + (lang === 'fr' ? 'fr/explore' : 'explore'), label: 'Explore' },
-  { href: base + (lang === 'fr' ? 'fr/journey' : 'journey'), label: t('nav.journey', lang) },
-  { href: base + (lang === 'fr' ? 'fr/references' : 'references'), label: t('nav.references', lang) },
-  { href: base + (lang === 'fr' ? 'fr/about' : 'about'), label: t('nav.about', lang) },
+  { href: base + (lang === 'fr' ? '/fr' : '/'), label: t('nav.home', lang) },
+  { href: base + (lang === 'fr' ? '/fr/explore' : '/explore'), label: 'Explore' },
+  { href: base + (lang === 'fr' ? '/fr/journey' : '/journey'), label: t('nav.journey', lang) },
+  { href: base + (lang === 'fr' ? '/fr/references' : '/references'), label: t('nav.references', lang) },
+  { href: base + (lang === 'fr' ? '/fr/about' : '/about'), label: t('nav.about', lang) },
 ];
 
 const otherLang = lang === 'fr' ? 'en' : 'fr';
@@ -31,7 +31,7 @@ const switchUrl = lang === 'fr'
   <div class="max-w-6xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo/Title -->
-      <a href={base + (lang === 'fr' ? 'fr' : '')} class="font-figtree text-xl font-bold text-[#FFF9ED] hover:text-[#669bbc] transition-colors">
+      <a href={base + (lang === 'fr' ? '/fr' : '/')} class="font-figtree text-xl font-bold text-[#FFF9ED] hover:text-[#669bbc] transition-colors">
         Himalaya Girard
       </a>
 
