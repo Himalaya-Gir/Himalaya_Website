@@ -17,7 +17,7 @@ const lang = 'en';
 					<!-- Photo -->
 					<div class="flex-shrink-0">
 						<img
-							src="/images/himalaya-photo.png"
+							src={import.meta.env.BASE_URL + "images/himalaya-photo.png"}
 							alt="Himalaya Girard"
 							class="w-96 h-96 md:w-[28rem] md:h-[28rem] rounded-lg shadow-xl object-cover border-4 border-[#003049]"
 						/>
@@ -58,13 +58,13 @@ const lang = 'en';
 				<p class="font-figtree text-lg text-[#003049]/80 max-w-2xl mx-auto leading-relaxed" set:html={t('hero.intro', lang)} />
 
 				<div class="mt-12 flex gap-4 justify-center flex-wrap">
-					<a href="/explore" class="font-figtree px-8 py-3 bg-[#003049] text-[#FFF9ED] rounded-lg hover:bg-[#002033] transition-colors font-medium">
+					<a href={import.meta.env.BASE_URL + "explore"} class="font-figtree px-8 py-3 bg-[#003049] text-[#FFF9ED] rounded-lg hover:bg-[#002033] transition-colors font-medium">
 						Explore Prospect Theory
 					</a>
-					<a href="/journey" class="font-figtree px-8 py-3 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#5a0000] transition-colors font-medium">
+					<a href={import.meta.env.BASE_URL + "journey"} class="font-figtree px-8 py-3 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#5a0000] transition-colors font-medium">
 						{t('nav.journey', lang)}
 					</a>
-					<a href="/about" class="font-figtree px-8 py-3 border-2 border-[#669bbc] text-[#003049] rounded-lg hover:bg-[#669bbc] hover:text-[#FFF9ED] transition-colors font-medium">
+					<a href={import.meta.env.BASE_URL + "about"} class="font-figtree px-8 py-3 border-2 border-[#669bbc] text-[#003049] rounded-lg hover:bg-[#669bbc] hover:text-[#FFF9ED] transition-colors font-medium">
 						{t('nav.about', lang)}
 					</a>
 				</div>
