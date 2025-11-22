@@ -205,6 +205,56 @@ const base = import.meta.env.BASE_URL;
     background-color: #669bbc;
     color: white;
   }
+
+  /* Flip card styles */
+  .flip-card {
+    perspective: 1000px;
+    height: 400px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .flip-card-front {
+    background-color: #FFF9ED;
+    border-left: 4px solid #780000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .flip-card-back {
+    background-color: #003049;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hover-hint {
+    opacity: 0.7;
+    font-size: 0.75rem;
+    color: #669bbc;
+    margin-top: 0.5rem;
+  }
 </style>
 
 <script is:inline>
@@ -344,41 +394,64 @@ const base = import.meta.env.BASE_URL;
     }).join(' ');
 
     return `
-      <div class="reference-card bg-[#FFF9ED] border-l-4 border-[#780000] rounded-lg p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
-        <!-- Citation -->
-        <div class="font-figtree mb-4">
-          <p class="text-[#003049] font-semibold text-lg mb-2">
-            ${ref.authors} (${ref.year})
-          </p>
-          <p class="text-[#003049]/90 italic mb-2">
-            ${ref.title}
-          </p>
-          ${ref.journal ? `<p class="text-[#003049]/70 text-sm">${ref.journal}${ref.volume ? `, ${ref.volume}` : ''}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
-          ${ref.book ? `<p class="text-[#003049]/70 text-sm">In: ${ref.book}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
-          ${ref.publisher ? `<p class="text-[#003049]/70 text-sm">${ref.publisher}</p>` : ''}
-        </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <!-- FRONT SIDE -->
+          <div class="flip-card-front">
+            <!-- Citation -->
+            <div class="font-figtree mb-4">
+              <p class="text-[#003049] font-semibold text-lg mb-2">
+                ${ref.authors} (${ref.year})
+              </p>
+              <p class="text-[#003049]/90 italic mb-2 leading-snug">
+                ${ref.title}
+              </p>
+              ${ref.journal ? `<p class="text-[#003049]/70 text-sm">${ref.journal}${ref.volume ? `, ${ref.volume}` : ''}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
+              ${ref.book ? `<p class="text-[#003049]/70 text-sm">In: ${ref.book}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
+              ${ref.publisher ? `<p class="text-[#003049]/70 text-sm">${ref.publisher}</p>` : ''}
+            </div>
 
-        <!-- DOI Link -->
-        ${ref.doi ? `
-          <a href="${doiLink}" target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2 font-figtree text-sm font-semibold text-[#780000] hover:text-[#780000]/80 transition-colors mb-4">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-            Read paper (DOI: ${ref.doi})
-          </a>
-        ` : ''}
+            <!-- Category Tags -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              ${categoryTags}
+            </div>
 
-        <!-- Category Tags -->
-        <div class="flex flex-wrap gap-2 mb-4">
-          ${categoryTags}
-        </div>
+            <!-- DOI Link -->
+            ${ref.doi ? `
+              <a href="${doiLink}" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 font-figtree text-sm font-semibold text-[#780000] hover:text-[#780000]/80 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+                Read paper
+              </a>
+            ` : ''}
 
-        <!-- Relevance -->
-        <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-4 rounded">
-          <p class="font-figtree text-sm text-[#003049]">
-            <strong class="text-[#780000]">Why this matters:</strong> ${ref.relevance}
-          </p>
+            <!-- Hover hint -->
+            <p class="hover-hint font-figtree italic text-center absolute bottom-4 left-0 right-0">
+              Hover out to return
+            </p>
+          </div>
+
+          <!-- BACK SIDE -->
+          <div class="flip-card-back">
+            <div>
+              <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-4 flex items-center gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                Why This Matters
+              </h3>
+              <p class="font-figtree text-[#FFF9ED] leading-relaxed text-base">
+                ${ref.relevance}
+              </p>
+            </div>
+
+            <!-- Hover hint -->
+            <p class="hover-hint font-figtree italic text-center text-[#669bbc] mt-6">
+              Hover out to return
+            </p>
+          </div>
         </div>
       </div>
     `;
