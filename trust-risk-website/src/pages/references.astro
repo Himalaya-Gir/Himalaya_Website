@@ -13,28 +13,46 @@ const base = import.meta.env.BASE_URL;
 
   <main class="min-h-screen bg-[#FFF9ED]">
     <!-- Hero Section -->
-    <section class="py-24 px-6">
-      <div class="max-w-6xl mx-auto text-center">
-        <h1 class="font-figtree text-5xl md:text-7xl font-bold text-[#003049] mb-8 tracking-tight">
+    <section class="py-24 px-6 bg-gradient-to-br from-[#003049] via-[#669bbc] to-[#780000] relative overflow-hidden">
+      <!-- Decorative circles -->
+      <div class="absolute top-10 right-10 w-64 h-64 bg-[#FFF9ED]/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-96 h-96 bg-[#780000]/10 rounded-full blur-3xl"></div>
+
+      <div class="max-w-6xl mx-auto text-center relative z-10">
+        <h1 class="font-figtree text-5xl md:text-7xl font-bold text-[#FFF9ED] mb-8 tracking-tight drop-shadow-lg">
           Interactive References
         </h1>
-        <p class="font-figtree text-xl md:text-2xl text-[#003049]/70 max-w-3xl mx-auto leading-relaxed font-light">
-          Explore the research landscape behind <em class="italic font-serif text-[#780000]">"Deconvolving Trust and Risk"</em>.
+        <p class="font-figtree text-xl md:text-2xl text-[#FFF9ED]/95 max-w-3xl mx-auto leading-relaxed font-light">
+          Explore the research landscape behind <em class="italic font-serif text-[#FFF9ED] font-bold">"Deconvolving Trust and Risk"</em>.
           Discover the foundational work shaping our understanding.
         </p>
+
+        <!-- Stats badges -->
+        <div class="flex gap-6 justify-center mt-12 flex-wrap">
+          <div class="bg-[#FFF9ED]/10 backdrop-blur-sm border border-[#FFF9ED]/20 px-6 py-3 rounded-lg">
+            <p class="font-figtree text-3xl font-bold text-[#FFF9ED]">69</p>
+            <p class="font-figtree text-sm text-[#FFF9ED]/80">References</p>
+          </div>
+          <div class="bg-[#FFF9ED]/10 backdrop-blur-sm border border-[#FFF9ED]/20 px-6 py-3 rounded-lg">
+            <p class="font-figtree text-3xl font-bold text-[#FFF9ED]">7</p>
+            <p class="font-figtree text-sm text-[#FFF9ED]/80">Categories</p>
+          </div>
+          <div class="bg-[#FFF9ED]/10 backdrop-blur-sm border border-[#FFF9ED]/20 px-6 py-3 rounded-lg">
+            <p class="font-figtree text-3xl font-bold text-[#FFF9ED]">1995-2024</p>
+            <p class="font-figtree text-sm text-[#FFF9ED]/80">Time Span</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Filters & Search Section -->
-    <section class="py-8 px-6 sticky top-0 z-40 transition-all duration-300" id="filterSection">
-      <div class="absolute inset-0 bg-[#FFF9ED]/95 backdrop-blur-md border-b border-[#003049]/5 shadow-sm"></div>
-      
-      <div class="max-w-6xl mx-auto relative z-10">
+    <section class="py-8 px-6 sticky top-0 z-40 transition-all duration-300 bg-[#669bbc]/10 backdrop-blur-md border-b-4 border-[#669bbc]/30 shadow-lg" id="filterSection">
+      <div class="max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row gap-6 items-center justify-between mb-8">
           <!-- Search Bar -->
-          <div class="w-full md:w-1/3 relative group">
+          <div class="w-full md:w-1/2 relative group">
             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <svg class="h-5 w-5 text-[#003049]/40 group-focus-within:text-[#780000] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="h-6 w-6 text-[#669bbc] group-focus-within:text-[#780000] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
@@ -42,46 +60,46 @@ const base = import.meta.env.BASE_URL;
               type="text"
               id="searchInput"
               placeholder="Search by author, title, or keyword..."
-              class="w-full pl-12 pr-6 py-4 font-figtree text-lg bg-[#FFF9ED] border-2 border-[#003049]/20 rounded-lg focus:border-[#780000] focus:outline-none focus:ring-4 focus:ring-[#780000]/5 text-[#003049] placeholder:text-[#003049]/40 transition-all shadow-sm hover:shadow-md"
+              class="w-full pl-12 pr-6 py-4 font-figtree text-lg bg-[#FFF9ED] border-2 border-[#669bbc] rounded-lg focus:border-[#780000] focus:outline-none focus:ring-4 focus:ring-[#780000]/20 text-[#003049] placeholder:text-[#003049]/50 transition-all shadow-md hover:shadow-xl font-medium"
             />
           </div>
 
           <!-- Active filters display -->
-          <div id="activeFilters" class="hidden md:block font-figtree text-sm text-[#003049]/60">
-            Active filters: <span id="filterList" class="font-bold text-[#780000]"></span>
+          <div id="activeFilters" class="hidden md:block font-figtree text-sm bg-[#003049] text-[#FFF9ED] px-4 py-2 rounded-lg shadow-md">
+            Active filters: <span id="filterList" class="font-bold text-[#669bbc]"></span>
           </div>
         </div>
 
         <!-- Category Filters -->
         <div class="flex flex-wrap gap-3 justify-center md:justify-start">
           <button
-            class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden active"
+            class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl active"
             data-category="all"
           >
             <span class="relative z-10 flex items-center gap-2">
-              All References <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">69</span>
+              All References <span class="count bg-[#FFF9ED]/20 px-2 py-1 rounded text-xs font-bold">69</span>
             </span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Core Reading">
-            <span class="relative z-10 flex items-center gap-2">Core Reading <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Core Reading">
+            <span class="relative z-10 flex items-center gap-2">Core Reading <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Trust & Trust Game">
-            <span class="relative z-10 flex items-center gap-2">Trust & Trust Game <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Trust & Trust Game">
+            <span class="relative z-10 flex items-center gap-2">Trust & Trust Game <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Risk & Decision Theory">
-            <span class="relative z-10 flex items-center gap-2">Risk & Decision Theory <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Risk & Decision Theory">
+            <span class="relative z-10 flex items-center gap-2">Risk & Decision Theory <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Trust-Risk Relationship">
-            <span class="relative z-10 flex items-center gap-2">Trust-Risk Relationship <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Trust-Risk Relationship">
+            <span class="relative z-10 flex items-center gap-2">Trust-Risk Relationship <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Social Preferences">
-            <span class="relative z-10 flex items-center gap-2">Social Preferences <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Social Preferences">
+            <span class="relative z-10 flex items-center gap-2">Social Preferences <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Neuroscience">
-            <span class="relative z-10 flex items-center gap-2">Neuroscience <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Neuroscience">
+            <span class="relative z-10 flex items-center gap-2">Neuroscience <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
-          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Methods & Computational">
-            <span class="relative z-10 flex items-center gap-2">Methods & Computational <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
+          <button class="filter-btn group relative px-6 py-3 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden shadow-md hover:shadow-xl" data-category="Methods & Computational">
+            <span class="relative z-10 flex items-center gap-2">Methods & Computational <span class="count bg-[#003049]/10 px-2 py-1 rounded text-xs font-bold">0</span></span>
           </button>
         </div>
       </div>
@@ -92,24 +110,26 @@ const base = import.meta.env.BASE_URL;
       <div class="max-w-6xl mx-auto">
         <!-- Loading state -->
         <div id="loading" class="text-center py-12">
-          <div class="inline-block w-12 h-12 border-4 border-[#003049]/20 border-t-[#780000] rounded-full animate-spin"></div>
-          <p class="font-figtree text-[#003049]/70 mt-4">Loading references...</p>
+          <div class="inline-block w-16 h-16 border-4 border-[#669bbc]/30 border-t-[#780000] rounded-full animate-spin"></div>
+          <p class="font-figtree text-[#003049] mt-4 text-lg font-medium">Loading references...</p>
         </div>
 
         <!-- No results message -->
-        <div id="noResults" class="hidden text-center py-12">
-          <p class="font-figtree text-xl text-[#003049]/70">No references found matching your criteria.</p>
+        <div id="noResults" class="hidden text-center py-12 bg-gradient-to-br from-[#669bbc]/10 to-[#780000]/10 rounded-lg border-2 border-[#003049]/20 p-12">
+          <svg class="w-20 h-20 mx-auto mb-4 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <p class="font-figtree text-2xl text-[#003049] mb-2 font-bold">No references found</p>
+          <p class="font-figtree text-lg text-[#003049]/70 mb-6">Try adjusting your filters or search query</p>
           <button
             onclick="resetFilters()"
-            class="mt-4 font-figtree px-6 py-3 bg-[#780000] text-white rounded-lg hover:bg-[#780000]/90 transition-colors font-semibold"
+            class="font-figtree px-8 py-3 bg-gradient-to-r from-[#780000] to-[#003049] text-[#FFF9ED] rounded-lg hover:from-[#003049] hover:to-[#780000] transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Clear all filters
           </button>
         </div>
 
         <!-- Results count -->
-        <div id="resultsCount" class="hidden mb-6 font-figtree text-[#003049]/70">
-          Showing <span id="countNumber" class="font-bold text-[#780000]">0</span> references
+        <div id="resultsCount" class="hidden mb-8 font-figtree bg-gradient-to-r from-[#003049] to-[#669bbc] text-[#FFF9ED] px-6 py-4 rounded-lg inline-block shadow-md">
+          Showing <span id="countNumber" class="font-bold text-2xl mx-1">0</span> references
         </div>
 
         <!-- References container -->
@@ -119,11 +139,16 @@ const base = import.meta.env.BASE_URL;
   </main>
 
   <!-- Footer -->
-  <footer class="py-12 px-6 bg-[#003049] text-[#FFF9ED]">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="font-figtree text-lg mb-4 font-semibold">Himalaya Girard</p>
-      <p class="font-figtree text-[#669bbc] mb-6">{t('footer.position', lang)}</p>
-      <p class="font-figtree text-sm text-[#669bbc]/70 mt-8">
+  <footer class="py-12 px-6 bg-gradient-to-br from-[#003049] via-[#669bbc] to-[#780000] text-[#FFF9ED] relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-[#FFF9ED]/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#780000]/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <p class="font-figtree text-2xl mb-4 font-bold">Himalaya Girard</p>
+      <p class="font-figtree text-[#FFF9ED]/90 mb-6 text-lg">{t('footer.position', lang)}</p>
+      <div class="my-8 h-px bg-gradient-to-r from-transparent via-[#FFF9ED]/30 to-transparent"></div>
+      <p class="font-figtree text-sm text-[#FFF9ED]/70">
         {t('footer.rights', lang)}
       </p>
     </div>
@@ -137,36 +162,39 @@ const base = import.meta.env.BASE_URL;
 <style>
   /* Filter button styles */
   .filter-btn {
-    background-color: transparent;
-    border: 1px solid rgba(0, 48, 73, 0.1);
+    background: linear-gradient(135deg, #FFF9ED 0%, rgba(102, 155, 188, 0.1) 100%);
+    border: 2px solid #669bbc;
     color: #003049;
   }
 
   .filter-btn:hover {
-    background-color: rgba(0, 48, 73, 0.05);
-    border-color: rgba(0, 48, 73, 0.2);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background: linear-gradient(135deg, #669bbc 0%, #003049 100%);
+    border-color: #669bbc;
+    color: #FFF9ED;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 155, 188, 0.4);
   }
 
   .filter-btn.active {
-    background-color: #003049;
+    background: linear-gradient(135deg, #003049 0%, #669bbc 100%);
     border-color: #003049;
     color: #FFF9ED;
-    box-shadow: 0 4px 6px rgba(0, 48, 73, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 48, 73, 0.4);
+    transform: scale(1.02);
   }
 
   .filter-btn.active .count {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 249, 237, 0.3);
     color: #FFF9ED;
+    border: 1px solid rgba(255, 249, 237, 0.5);
   }
 
-  /* Core Reading gets special red color when active */
+  /* Core Reading gets special burgundy gradient when active */
   .filter-btn[data-category="Core Reading"].active {
-    background-color: #780000;
+    background: linear-gradient(135deg, #780000 0%, #003049 100%);
     border-color: #780000;
     color: #FFF9ED;
-    box-shadow: 0 4px 6px rgba(120, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(120, 0, 0, 0.4);
   }
 
   /* Category tag colors - NO RED ON BLUE! */
@@ -377,49 +405,62 @@ const base = import.meta.env.BASE_URL;
   function createReferenceCard(ref) {
     const doiLink = ref.doi ? `https://doi.org/${ref.doi}` : '#';
 
+    // Determine card border color based on categories
+    let borderColor = '#669bbc'; // default light blue
+    if (ref.categories.includes('Core Reading')) {
+      borderColor = '#780000'; // burgundy
+    } else if (ref.categories.includes('Trust & Trust Game')) {
+      borderColor = '#003049'; // navy
+    } else if (ref.categories.includes('Trust-Risk Relationship')) {
+      borderColor = '#780000'; // burgundy
+    }
+
     const categoryTags = ref.categories.map(cat => {
       const tagClass = categoryTagClass[cat] || 'bg-gray-500 text-white';
       const isActive = activeCategories.has(cat);
-      
+
       // Use same style as filter buttons
       if (isActive) {
         // Active state - matches active filter button style
         const activeClass = cat === 'Core Reading' ? 'bg-[#780000] border-[#780000]' : 'bg-[#003049] border-[#003049]';
-        return `<span class="inline-block px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 ${activeClass} text-[#FFF9ED] shadow-md">${cat}</span>`;
+        return `<span class="inline-block px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 ${activeClass} text-[#FFF9ED] shadow-md">${cat}</span>`;
       } else {
-        // Inactive state - matches inactive filter button style  
-        return `<span class="inline-block px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 bg-transparent border border-[#003049]/10 text-[#003049] hover:bg-[#003049]/5">${cat}</span>`;
+        // Inactive state - more colorful
+        return `<span class="inline-block px-4 py-2 rounded-lg text-xs font-bold transition-all duration-300 bg-[#669bbc]/20 border-2 border-[#669bbc]/40 text-[#003049] hover:bg-[#669bbc] hover:text-[#FFF9ED] hover:border-[#669bbc]">${cat}</span>`;
       }
     }).join(' ');
 
     return `
       <div class="group perspective-[1000px] h-[420px]">
         <div class="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg hover:shadow-2xl rounded-lg">
-          
+
           <!-- Front Face -->
-          <div class="absolute inset-0 [backface-visibility:hidden] bg-[#FFF9ED] border-l-4 border-[#780000] border-y-2 border-r-2 border-[#003049]/20 rounded-lg p-8 flex flex-col justify-between overflow-hidden shadow-md">
-            <div>
+          <div class="absolute inset-0 [backface-visibility:hidden] bg-gradient-to-br from-[#FFF9ED] to-[rgba(102,155,188,0.05)] border-l-4 border-y-2 border-r-2 border-[#003049]/20 rounded-lg p-8 flex flex-col justify-between overflow-hidden shadow-md" style="border-left-color: ${borderColor};">
+            <!-- Decorative corner accent -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[${borderColor}]/10 to-transparent rounded-bl-full"></div>
+
+            <div class="relative z-10">
               <div class="font-figtree mb-3">
                 <p class="text-[#003049] font-bold text-2xl mb-4 leading-tight tracking-tight">
                   ${ref.title}
                 </p>
                 <div class="flex items-center gap-2 text-[#003049]/80 font-medium text-base mb-3">
-                  <svg class="w-4 h-4 text-[#780000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                  <svg class="w-5 h-5 text-[${borderColor}]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                   <span>${ref.authors}</span>
                 </div>
-                <div class="flex items-center gap-2 text-[#003049]/60 text-sm italic">
-                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div class="flex items-center gap-2 text-[#003049]/60 text-sm italic bg-[#669bbc]/10 px-3 py-1.5 rounded-lg inline-flex">
+                   <svg class="w-4 h-4 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                    <span>${ref.year}</span>
                    ${ref.journal ? `<span class="mx-1">•</span><span>${ref.journal}</span>` : ''}
                 </div>
               </div>
             </div>
-            
+
             <div class="mt-3">
               <div class="flex flex-wrap gap-2">
                 ${categoryTags}
               </div>
-              <div class="mt-6 flex items-center justify-center gap-2 text-[#780000] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+              <div class="mt-6 flex items-center justify-center gap-2 text-[${borderColor}] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
                 <span>View Details</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
               </div>
@@ -427,32 +468,32 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <!-- Back Face -->
-          <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#003049] text-[#FFF9ED] rounded-lg p-8 flex flex-col h-full shadow-inner border border-[#FFF9ED]/10">
+          <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-gradient-to-br from-[#003049] to-[#669bbc] text-[#FFF9ED] rounded-lg p-8 flex flex-col h-full shadow-inner border-2 border-[#669bbc]">
             <div class="flex-grow overflow-y-auto custom-scrollbar pr-2">
-              <h3 class="font-bold text-lg mb-4 text-[#669bbc] flex items-center gap-2">
+              <h3 class="font-bold text-lg mb-4 text-[#FFF9ED] flex items-center gap-2 bg-[#FFF9ED]/10 px-4 py-2 rounded-lg">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 Why this matters
               </h3>
-              <p class="font-figtree text-base leading-relaxed text-[#FFF9ED]/90 font-light">
+              <p class="font-figtree text-base leading-relaxed text-[#FFF9ED] font-light">
                 ${ref.relevance}
               </p>
             </div>
-            
-            <div class="mt-6 pt-6 border-t border-[#FFF9ED]/10 flex-shrink-0">
+
+            <div class="mt-6 pt-6 border-t-2 border-[#FFF9ED]/20 flex-shrink-0">
               ${ref.doi ? `
                 <a href="${doiLink}" target="_blank" rel="noopener"
-                   class="group/btn flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#780000]/90 transition-all duration-300 font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-[#780000]/40 hover:-translate-y-0.5">
+                   class="group/btn flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#FFF9ED] hover:text-[#780000] transition-all duration-300 font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-1 border-2 border-[#780000] hover:border-[#FFF9ED]">
                   <span>Read Paper</span>
                   <svg class="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
               ` : `
-                <div class="block w-full text-center px-6 py-4 bg-[#FFF9ED]/5 text-[#FFF9ED]/40 rounded-lg text-sm font-medium cursor-not-allowed border border-[#FFF9ED]/10">
+                <div class="block w-full text-center px-6 py-4 bg-[#FFF9ED]/5 text-[#FFF9ED]/40 rounded-lg text-sm font-medium cursor-not-allowed border-2 border-[#FFF9ED]/10">
                   No DOI Available
                 </div>
               `}
             </div>
           </div>
-          
+
         </div>
       </div>
     `;
