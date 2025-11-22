@@ -7,8 +7,8 @@ const lang = 'en';
 ---
 
 <Layout title="Explore Prospect Theory | Himalaya Girard">
-	<Navigation lang={lang} currentPath="/explore" />
-	<main class="min-h-screen bg-[#FFF9ED]">
+	<Navigation lang={lang} currentPath="/explore" spacerBg="bg-[#003049]" />
+	<main class="min-h-screen bg-[#003049]">
 		<!-- Hero Section -->
 		<section class="py-20 px-6 bg-[#003049]">
 			<div class="max-w-5xl mx-auto text-center">
@@ -22,21 +22,71 @@ const lang = 'en';
 			</div>
 		</section>
 
+		<!-- Introduction Section -->
+		<section class="py-16 px-6 bg-[#FFF9ED]">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="font-figtree text-3xl md:text-4xl font-bold text-[#003049] mb-6 text-center">
+					How do people really make decisions when facing uncertainty?
+				</h2>
+				<p class="font-figtree text-lg text-[#003049]/80 mb-8 leading-relaxed text-center max-w-3xl mx-auto">
+					In 1979, Kahneman and Tversky published Prospect Theory, showing that humans don't just calculate expected values. Instead, we follow consistent patterns:
+				</p>
+
+				<div class="grid md:grid-cols-3 gap-6 mt-10">
+					<!-- Loss Aversion -->
+					<div class="bg-[#780000] p-6 rounded-lg">
+						<h3 class="font-figtree text-xl font-bold text-[#FFF9ED] mb-3">Loss Aversion</h3>
+						<p class="font-figtree text-[#FFF9ED]/90 mb-3 leading-relaxed">
+							We feel losses more intensely than equivalent gains
+						</p>
+						<p class="font-figtree text-sm text-[#FFF9ED]/70 italic">
+							Losing $10 hurts more than finding $10 feels good
+						</p>
+					</div>
+
+					<!-- Diminishing Sensitivity -->
+					<div class="bg-[#003049] p-6 rounded-lg">
+						<h3 class="font-figtree text-xl font-bold text-[#FFF9ED] mb-3">Diminishing Sensitivity</h3>
+						<p class="font-figtree text-[#FFF9ED]/90 mb-3 leading-relaxed">
+							The first dollar matters more than the next dollar
+						</p>
+						<p class="font-figtree text-sm text-[#FFF9ED]/70 italic">
+							The jump from $0 to $100 feels bigger than from $900 to $1,000
+						</p>
+					</div>
+
+					<!-- Probability Distortion -->
+					<div class="bg-[#669bbc] p-6 rounded-lg">
+						<h3 class="font-figtree text-xl font-bold text-[#FFF9ED] mb-3">Probability Distortion</h3>
+						<p class="font-figtree text-[#FFF9ED]/90 mb-3 leading-relaxed">
+							We overweight small probabilities and underweight large ones
+						</p>
+						<p class="font-figtree text-sm text-[#FFF9ED]/70 italic">
+							A 1% chance feels more significant than reality; a 90% chance feels less certain
+						</p>
+					</div>
+				</div>
+
+				<p class="font-figtree text-lg text-[#003049]/80 mt-10 leading-relaxed text-center">
+					This work earned Kahneman the Nobel Prize in 2002. Below, you can explore these principles and see how they apply to trust decisions.
+				</p>
+			</div>
+		</section>
+
 		<!-- Value Function Section -->
 		<section class="py-16 px-6 bg-[#FFF9ED]">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#780000] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">Value Function</h2>
+					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">Sensitivity to Outcomes</h2>
 					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-						The value function describes how people perceive gains and losses.
-						Key insight: <strong>losses loom larger than gains</strong> (loss aversion).
+						The value function shows how we perceive gains and losses. The key insight: <strong>losses loom larger than gains</strong> (loss aversion), and <strong>marginal value decreases</strong> as amounts grow.
 					</p>
 				</div>
 
 				<div class="grid md:grid-cols-2 gap-8">
 					<!-- Chart -->
-					<div class="bg-white p-6 rounded-lg shadow-lg border-2 border-[#003049]/10">
-						<canvas id="valueChart"></canvas>
+					<div class="bg-[#FFF9ED] p-6 rounded-lg shadow-lg border-2 border-[#003049]/10 h-[500px] flex items-center">
+						<canvas id="valueChart" class="w-full h-full"></canvas>
 					</div>
 
 					<!-- Controls -->
@@ -44,9 +94,12 @@ const lang = 'en';
 						<!-- Alpha (Curvature) -->
 						<div class="bg-[#003049] p-6 rounded-lg">
 							<div class="flex justify-between items-center mb-4">
-								<label class="font-figtree text-lg font-semibold text-[#FFF9ED]">
-									α (Alpha): Curvature
-								</label>
+								<div>
+									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+										Sensitivity to Amounts
+									</label>
+									<span class="font-figtree text-sm text-[#669bbc]">α (alpha) - curvature parameter</span>
+								</div>
 								<span id="alphaValue" class="font-figtree text-2xl font-bold text-[#669bbc]">0.88</span>
 							</div>
 							<input
@@ -59,17 +112,19 @@ const lang = 'en';
 								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#780000]"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-3 leading-relaxed">
-								Controls risk attitude: Lower values mean more risk aversion (curve bends more).
-								Typical range: 0.5 to 1.0
+								How much you care about the amount versus simply winning or losing. Lower values = the curve bends more (stronger diminishing sensitivity).
 							</p>
 						</div>
 
 						<!-- Lambda (Loss Aversion) -->
 						<div class="bg-[#780000] p-6 rounded-lg">
 							<div class="flex justify-between items-center mb-4">
-								<label class="font-figtree text-lg font-semibold text-[#FFF9ED]">
-									λ (Lambda): Loss Aversion
-								</label>
+								<div>
+									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+										How Much Losses Hurt
+									</label>
+									<span class="font-figtree text-sm text-[#669bbc]">λ (lambda) - loss aversion coefficient</span>
+								</div>
 								<span id="lambdaValue" class="font-figtree text-2xl font-bold text-[#669bbc]">2.25</span>
 							</div>
 							<input
@@ -82,8 +137,7 @@ const lang = 'en';
 								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#003049]"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-3 leading-relaxed">
-								How much more painful losses are than gains are pleasant.
-								A value of 2.25 means losses hurt 2.25× more than equivalent gains feel good.
+								λ = 2.25 means a $10 loss feels like a $22.50 gain would feel good. Higher values = losses hurt more.
 							</p>
 						</div>
 
@@ -114,17 +168,16 @@ const lang = 'en';
 		<section class="py-16 px-6 bg-[#003049]">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#669bbc] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-4">Probability Weighting</h2>
+					<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-4">How We Distort Probabilities</h2>
 					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed">
-						People don't perceive probabilities linearly. Small probabilities are overweighted,
-						medium and large probabilities are underweighted.
+						We don't perceive probabilities linearly. Small chances feel bigger than they are, while medium and high probabilities feel less certain.
 					</p>
 				</div>
 
 				<div class="grid md:grid-cols-2 gap-8">
 					<!-- Chart -->
-					<div class="bg-white p-6 rounded-lg shadow-lg">
-						<canvas id="weightChart"></canvas>
+					<div class="bg-[#FFF9ED] p-6 rounded-lg shadow-lg border-2 border-[#003049]/10 h-[500px] flex items-center">
+						<canvas id="weightChart" class="w-full h-full"></canvas>
 					</div>
 
 					<!-- Controls -->
@@ -132,9 +185,12 @@ const lang = 'en';
 						<!-- Gamma (Gains) -->
 						<div class="bg-[#780000] p-6 rounded-lg">
 							<div class="flex justify-between items-center mb-4">
-								<label class="font-figtree text-lg font-semibold text-[#FFF9ED]">
-									γ⁺ (Gamma): Gains Weighting
-								</label>
+								<div>
+									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+										Probability Distortion (Gains)
+									</label>
+									<span class="font-figtree text-sm text-[#669bbc]">γ⁺ (gamma) - weighting parameter</span>
+								</div>
 								<span id="gammaGainValue" class="font-figtree text-2xl font-bold text-[#669bbc]">0.61</span>
 							</div>
 							<input
@@ -147,17 +203,19 @@ const lang = 'en';
 								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#669bbc]"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-3 leading-relaxed">
-								Controls the curvature of probability weighting for gains.
-								Lower values mean more distortion (overweight small probabilities).
+								Lower values = more distortion. When γ is low, small probabilities loom larger and high probabilities feel less certain.
 							</p>
 						</div>
 
 						<!-- Gamma (Losses) -->
 						<div class="bg-[#669bbc] p-6 rounded-lg">
 							<div class="flex justify-between items-center mb-4">
-								<label class="font-figtree text-lg font-semibold text-[#FFF9ED]">
-									γ⁻ (Gamma): Losses Weighting
-								</label>
+								<div>
+									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+										Probability Distortion (Losses)
+									</label>
+									<span class="font-figtree text-sm text-[#003049]">γ⁻ (gamma) - weighting parameter</span>
+								</div>
 								<span id="gammaLossValue" class="font-figtree text-2xl font-bold text-[#003049]">0.69</span>
 							</div>
 							<input
@@ -170,26 +228,25 @@ const lang = 'en';
 								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#780000]"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/90 mt-3 leading-relaxed">
-								Controls the curvature of probability weighting for losses.
-								Typically slightly different from gains weighting.
+								Same concept as gains, but for losses. Typically similar to γ⁺ but empirically slightly different.
 							</p>
 						</div>
 
 						<!-- Key Insights -->
 						<div class="bg-[#FFF9ED] p-6 rounded-lg">
-							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Why This Matters</h3>
+							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Real-World Examples</h3>
 							<ul class="space-y-2 font-figtree text-[#003049]/80 text-sm">
 								<li class="flex items-start gap-2">
 									<span class="text-[#780000] mt-0.5">→</span>
-									<span>Explains why people buy lottery tickets (overweight tiny chances of winning)</span>
+									<span>Lottery tickets: we overweight the tiny 0.00001% chance of winning millions</span>
 								</li>
 								<li class="flex items-start gap-2">
 									<span class="text-[#780000] mt-0.5">→</span>
-									<span>Explains why people buy insurance (overweight small risks of disaster)</span>
+									<span>Insurance: we overweight small disaster risks and pay premiums to avoid them</span>
 								</li>
 								<li class="flex items-start gap-2">
 									<span class="text-[#780000] mt-0.5">→</span>
-									<span>The diagonal line represents perfect rationality (actual probability = perceived probability)</span>
+									<span>The diagonal line shows perfect calibration (objective = subjective probability)</span>
 								</li>
 							</ul>
 						</div>
@@ -198,15 +255,35 @@ const lang = 'en';
 			</div>
 		</section>
 
+		<!-- Transition Section -->
+		<section class="py-12 px-6 bg-[#FFF9ED]">
+			<div class="max-w-4xl mx-auto">
+				<div class="bg-[#003049] p-8 rounded-lg text-center">
+					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-4">From Risk to Trust</h2>
+					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed">
+						Prospect Theory explains how people handle random uncertainty: like coin flips or dice rolls. But what if we add a social component, when outcomes depend on another person's choice?
+					</p>
+				</div>
+			</div>
+		</section>
+
 		<!-- Comparison Tool Section -->
 		<section class="py-16 px-6 bg-[#FFF9ED]">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#780000] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">Trust vs Risk: See The Difference</h2>
-					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-						Compare how the same person might behave differently in trust (human uncertainty)
-						versus risk (random uncertainty) scenarios, even with identical probability distributions.
+					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">Applying Prospect Theory</h2>
+					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed mb-4">
+						Now, let's apply this framework to two scenarios: trusting a person versus taking a random gamble.
+						<strong>Adjust the parameters for each scenario separately</strong> to see how the same situation can feel different depending on your preferences.
 					</p>
+					<div class="bg-[#003049] p-4 rounded-lg">
+						<p class="font-figtree text-[#FFF9ED] mb-2">
+							<strong class="text-[#669bbc]">How attractive is this option?</strong>
+						</p>
+						<p class="font-figtree text-sm text-[#FFF9ED]/80">
+							The score combines all your preferences. <strong>Positive = you'd likely accept. Negative = you'd likely reject.</strong> Higher score = more attractive option.
+						</p>
+					</div>
 				</div>
 
 				<div class="grid md:grid-cols-2 gap-6">
@@ -237,9 +314,51 @@ const lang = 'en';
 								<span class="font-figtree text-xl font-bold text-[#669bbc]">-$<span id="trustLoss">10</span></span>
 							</div>
 						</div>
+						
+						<!-- Trust Parameters (Compact) -->
+						<div class="space-y-2 mb-4">
+							<p class="font-figtree text-xs text-[#FFF9ED] font-semibold mb-2">Adjust Trust Parameters:</p>
+							<div class="bg-[#FFF9ED]/10 px-3 py-2 rounded">
+								<div class="flex justify-between items-center mb-1">
+									<span class="font-figtree text-xs text-[#FFF9ED]/70">α</span>
+									<span id="trustAlphaVal" class="font-figtree text-xs font-bold text-[#669bbc]">0.88</span>
+								</div>
+								<input type="range" id="trustAlpha" min="0.1" max="1.5" step="0.01" value="0.88" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+							</div>
+							<div class="bg-[#FFF9ED]/10 px-3 py-2 rounded">
+								<div class="flex justify-between items-center mb-1">
+									<span class="font-figtree text-xs text-[#FFF9ED]/70">λ</span>
+									<span id="trustLambdaVal" class="font-figtree text-xs font-bold text-[#669bbc]">2.25</span>
+								</div>
+								<input type="range" id="trustLambda" min="1.0" max="4.0" step="0.05" value="2.25" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+							</div>
+							<div class="grid grid-cols-2 gap-2">
+								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
+									<div class="flex justify-between items-center mb-1">
+										<span class="font-figtree text-xs text-[#FFF9ED]/70">γ⁺</span>
+										<span id="trustGammaGVal" class="font-figtree text-xs font-bold text-[#669bbc]">0.61</span>
+									</div>
+									<input type="range" id="trustGammaG" min="0.3" max="1.0" step="0.01" value="0.61" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+								</div>
+								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
+									<div class="flex justify-between items-center mb-1">
+										<span class="font-figtree text-xs text-[#FFF9ED]/70">γ⁻</span>
+										<span id="trustGammaLVal" class="font-figtree text-xs font-bold text-[#669bbc]">0.69</span>
+									</div>
+									<input type="range" id="trustGammaL" min="0.3" max="1.0" step="0.01" value="0.69" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+								</div>
+							</div>
+						</div>
+
 						<div class="bg-[#669bbc] p-4 rounded-lg">
-							<p class="font-figtree text-sm text-[#FFF9ED] mb-2">Prospect Theory Value:</p>
-							<p class="font-figtree text-3xl font-bold text-[#FFF9ED]" id="trustValue">+2.4</p>
+							<p class="font-figtree text-sm text-[#FFF9ED] mb-3">Prospect Theory Value:</p>
+							<!-- Progress Bar -->
+							<div class="w-full bg-[#FFF9ED]/30 rounded-full h-6 mb-2">
+								<div id="trustBar" class="bg-[#FFF9ED] h-6 rounded-full transition-all duration-300 flex items-center justify-end pr-3" style="width: 50%">
+									<span class="font-figtree text-sm font-bold text-[#780000]">2.4</span>
+								</div>
+							</div>
+							<p class="font-figtree text-xs text-[#FFF9ED]/70 text-right" id="trustValue">+2.4</p>
 						</div>
 					</div>
 
@@ -270,9 +389,51 @@ const lang = 'en';
 								<span class="font-figtree text-xl font-bold text-[#003049]">-$<span id="riskLoss">10</span></span>
 							</div>
 						</div>
+						
+						<!-- Risk Parameters (Compact) -->
+						<div class="space-y-2 mb-4">
+							<p class="font-figtree text-xs text-[#FFF9ED] font-semibold mb-2">Adjust Risk Parameters:</p>
+							<div class="bg-[#FFF9ED]/10 px-3 py-2 rounded">
+								<div class="flex justify-between items-center mb-1">
+									<span class="font-figtree text-xs text-[#FFF9ED]/70">α</span>
+									<span id="riskAlphaVal" class="font-figtree text-xs font-bold text-[#003049]">0.88</span>
+								</div>
+								<input type="range" id="riskAlpha" min="0.1" max="1.5" step="0.01" value="0.88" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+							</div>
+							<div class="bg-[#FFF9ED]/10 px-3 py-2 rounded">
+								<div class="flex justify-between items-center mb-1">
+									<span class="font-figtree text-xs text-[#FFF9ED]/70">λ</span>
+									<span id="riskLambdaVal" class="font-figtree text-xs font-bold text-[#003049]">2.25</span>
+								</div>
+								<input type="range" id="riskLambda" min="1.0" max="4.0" step="0.05" value="2.25" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+							</div>
+							<div class="grid grid-cols-2 gap-2">
+								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
+									<div class="flex justify-between items-center mb-1">
+										<span class="font-figtree text-xs text-[#FFF9ED]/70">γ⁺</span>
+										<span id="riskGammaGVal" class="font-figtree text-xs font-bold text-[#003049]">0.61</span>
+									</div>
+									<input type="range" id="riskGammaG" min="0.3" max="1.0" step="0.01" value="0.61" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+								</div>
+								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
+									<div class="flex justify-between items-center mb-1">
+										<span class="font-figtree text-xs text-[#FFF9ED]/70">γ⁻</span>
+										<span id="riskGammaLVal" class="font-figtree text-xs font-bold text-[#003049]">0.69</span>
+									</div>
+									<input type="range" id="riskGammaL" min="0.3" max="1.0" step="0.01" value="0.69" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+								</div>
+							</div>
+						</div>
+
 						<div class="bg-[#003049] p-4 rounded-lg">
-							<p class="font-figtree text-sm text-[#FFF9ED]/70 mb-2">Prospect Theory Value:</p>
-							<p class="font-figtree text-3xl font-bold text-[#FFF9ED]" id="riskValue">+2.4</p>
+							<p class="font-figtree text-sm text-[#FFF9ED]/70 mb-3">Prospect Theory Value:</p>
+							<!-- Progress Bar -->
+							<div class="w-full bg-[#FFF9ED]/30 rounded-full h-6 mb-2">
+								<div id="riskBar" class="bg-[#669bbc] h-6 rounded-full transition-all duration-300 flex items-center justify-end pr-3" style="width: 50%">
+									<span class="font-figtree text-sm font-bold text-[#FFF9ED]">2.4</span>
+								</div>
+							</div>
+							<p class="font-figtree text-xs text-[#FFF9ED]/70 text-right" id="riskValue">+2.4</p>
 						</div>
 					</div>
 				</div>
@@ -303,39 +464,73 @@ const lang = 'en';
 		</section>
 
 		<!-- CTA Section -->
-		<section class="py-16 px-6 bg-[#780000]">
-			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">
-					Want to Learn More?
-				</h2>
-				<p class="font-figtree text-lg text-[#FFF9ED]/85 mb-8 leading-relaxed">
-					Explore the research journey to see how we designed experiments to test these predictions.
-				</p>
-				<div class="flex gap-4 justify-center flex-wrap">
-					<a href={import.meta.env.BASE_URL + "journey"} class="font-figtree px-8 py-3 bg-[#FFF9ED] text-[#780000] rounded-lg hover:bg-[#FFF9ED]/90 transition-colors font-semibold">
-						Research Journey
-					</a>
-					<a href={import.meta.env.BASE_URL + "references"} class="font-figtree px-8 py-3 border-2 border-[#FFF9ED] text-[#FFF9ED] rounded-lg hover:bg-[#FFF9ED] hover:text-[#780000] transition-colors font-semibold">
-						Read the Literature
-					</a>
+		<section class="py-16 px-6 bg-[#003049]">
+			<div class="max-w-4xl mx-auto">
+				<div class="bg-[#780000] p-8 rounded-lg">
+					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-4 text-center">
+						Want to Learn More?
+					</h2>
+					<p class="font-figtree text-lg text-[#FFF9ED]/85 mb-6 leading-relaxed text-center">
+						Explore the research journey to see how we designed experiments to test these predictions.
+					</p>
+					<div class="flex gap-4 justify-center flex-wrap">
+						<a href={import.meta.env.BASE_URL + "journey"} class="font-figtree px-8 py-3 bg-[#FFF9ED] text-[#780000] rounded-lg hover:bg-[#FFF9ED]/90 transition-colors font-semibold">
+							Research Journey
+						</a>
+						<a href={import.meta.env.BASE_URL + "references"} class="font-figtree px-8 py-3 border-2 border-[#FFF9ED] text-[#FFF9ED] rounded-lg hover:bg-[#FFF9ED] hover:text-[#780000] transition-colors font-semibold">
+							Read the Literature
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
+
+		<!-- Footer -->
+		<footer class="py-10 px-6 bg-[#003049] text-[#FFF9ED]">
+			<div class="max-w-4xl mx-auto text-center">
+				<p class="font-figtree text-lg mb-3 font-semibold">Himalaya Girard</p>
+				<p class="font-figtree text-[#669bbc] mb-5">Research Assistant in Cognitive Neuroscience</p>
+				<div class="flex justify-center gap-6">
+					<a href="mailto:himalaya.girard@donders.ru.nl" class="font-figtree hover:text-[#780000] transition-colors">
+						Email
+					</a>
+					<a href="https://www.linkedin.com/in/himalaya-girard" target="_blank" rel="noopener" class="font-figtree hover:text-[#780000] transition-colors">
+						LinkedIn
+					</a>
+				</div>
+				<p class="font-figtree text-sm text-[#669bbc]/70 mt-6">
+					© 2024 Himalaya Girard. All rights reserved.
+				</p>
+			</div>
+		</footer>
 	</main>
 </Layout>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
+window.addEventListener('load', function() {
 	// Wait for Chart.js to load
 	if (typeof Chart === 'undefined') {
 		console.error('Chart.js failed to load');
+		return;
 	}
 
-	// Parameters
+	// Parameters for main charts (Value Function and Probability Weighting)
 	let alpha = 0.88;
 	let lambda = 2.25;
 	let gammaGain = 0.61;
 	let gammaLoss = 0.69;
+	
+	// Parameters for Trust and Risk scenarios (separate)
+	let trustAlpha = 0.88;
+	let trustLambda = 2.25;
+	let trustGammaGain = 0.61;
+	let trustGammaLoss = 0.69;
+	
+	let riskAlpha = 0.88;
+	let riskLambda = 2.25;
+	let riskGammaGain = 0.61;
+	let riskGammaLoss = 0.69;
 
 	// Value function: v(x) = x^α for gains, -λ * |x|^α for losses
 	function valueFunction(x, a, l) {
@@ -390,7 +585,7 @@ const lang = 'en';
 		},
 		options: {
 			responsive: true,
-			maintainAspectRatio: true,
+			maintainAspectRatio: false,
 			scales: {
 				x: {
 					type: 'linear',
@@ -466,7 +661,7 @@ const lang = 'en';
 		},
 		options: {
 			responsive: true,
-			maintainAspectRatio: true,
+			maintainAspectRatio: false,
 			scales: {
 				x: {
 					type: 'linear',
@@ -540,11 +735,30 @@ const lang = 'en';
 
 	// Update comparison values
 	function updateComparison() {
-		const trustVal = calculateProspectValue(30, 10, 0.6, true, alpha, lambda, gammaGain, gammaLoss);
-		const riskVal = calculateProspectValue(30, 10, 0.6, true, alpha, lambda, gammaGain, gammaLoss);
+		const trustVal = calculateProspectValue(30, 10, 0.6, true, trustAlpha, trustLambda, trustGammaGain, trustGammaLoss);
+		const riskVal = calculateProspectValue(30, 10, 0.6, true, riskAlpha, riskLambda, riskGammaGain, riskGammaLoss);
 
-		document.getElementById('trustValue').textContent = trustVal.toFixed(2);
-		document.getElementById('riskValue').textContent = riskVal.toFixed(2);
+		// Update text values
+		document.getElementById('trustValue').textContent = (trustVal >= 0 ? '+' : '') + trustVal.toFixed(2);
+		document.getElementById('riskValue').textContent = (riskVal >= 0 ? '+' : '') + riskVal.toFixed(2);
+
+		// Update progress bars
+		// Scale: -10 to +10 maps to 0% to 100%
+		const maxValue = 10;
+		const minValue = -10;
+		
+		const trustPercent = Math.max(0, Math.min(100, ((trustVal - minValue) / (maxValue - minValue)) * 100));
+		const riskPercent = Math.max(0, Math.min(100, ((riskVal - minValue) / (maxValue - minValue)) * 100));
+		
+		const trustBar = document.getElementById('trustBar');
+		const riskBar = document.getElementById('riskBar');
+		
+		trustBar.style.width = trustPercent + '%';
+		riskBar.style.width = riskPercent + '%';
+		
+		// Update number inside bar
+		trustBar.querySelector('span').textContent = trustVal.toFixed(1);
+		riskBar.querySelector('span').textContent = riskVal.toFixed(1);
 	}
 
 	// Alpha slider
@@ -583,6 +797,57 @@ const lang = 'en';
 		updateWeightChart();
 	});
 
+	// Trust scenario sliders
+	document.getElementById('trustAlpha').addEventListener('input', (e) => {
+		trustAlpha = parseFloat(e.target.value);
+		document.getElementById('trustAlphaVal').textContent = trustAlpha.toFixed(2);
+		updateComparison();
+	});
+
+	document.getElementById('trustLambda').addEventListener('input', (e) => {
+		trustLambda = parseFloat(e.target.value);
+		document.getElementById('trustLambdaVal').textContent = trustLambda.toFixed(2);
+		updateComparison();
+	});
+
+	document.getElementById('trustGammaG').addEventListener('input', (e) => {
+		trustGammaGain = parseFloat(e.target.value);
+		document.getElementById('trustGammaGVal').textContent = trustGammaGain.toFixed(2);
+		updateComparison();
+	});
+
+	document.getElementById('trustGammaL').addEventListener('input', (e) => {
+		trustGammaLoss = parseFloat(e.target.value);
+		document.getElementById('trustGammaLVal').textContent = trustGammaLoss.toFixed(2);
+		updateComparison();
+	});
+
+	// Risk scenario sliders
+	document.getElementById('riskAlpha').addEventListener('input', (e) => {
+		riskAlpha = parseFloat(e.target.value);
+		document.getElementById('riskAlphaVal').textContent = riskAlpha.toFixed(2);
+		updateComparison();
+	});
+
+	document.getElementById('riskLambda').addEventListener('input', (e) => {
+		riskLambda = parseFloat(e.target.value);
+		document.getElementById('riskLambdaVal').textContent = riskLambda.toFixed(2);
+		updateComparison();
+	});
+
+	document.getElementById('riskGammaG').addEventListener('input', (e) => {
+		riskGammaGain = parseFloat(e.target.value);
+		document.getElementById('riskGammaGVal').textContent = riskGammaGain.toFixed(2);
+		updateComparison();
+	});
+
+	document.getElementById('riskGammaL').addEventListener('input', (e) => {
+		riskGammaLoss = parseFloat(e.target.value);
+		document.getElementById('riskGammaLVal').textContent = riskGammaLoss.toFixed(2);
+		updateComparison();
+	});
+
 	// Initialize comparison
 	updateComparison();
+});
 </script>
