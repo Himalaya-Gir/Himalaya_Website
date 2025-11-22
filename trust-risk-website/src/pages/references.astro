@@ -100,6 +100,28 @@ const base = import.meta.env.BASE_URL;
     <!-- References Grid -->
     <section class="py-12 px-6">
       <div class="max-w-6xl mx-auto">
+        <!-- TEST CARD -->
+        <div class="mb-8">
+          <h3 class="font-figtree text-xl font-bold text-[#780000] mb-4">🧪 Test Flip Card:</h3>
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="font-figtree mb-4">
+                  <p class="text-[#003049] font-semibold text-lg mb-2">Test Author (2024)</p>
+                  <p class="text-[#003049]/90 italic mb-2">Test flip card - hover me!</p>
+                </div>
+                <p class="hover-hint font-figtree italic text-center absolute bottom-4 left-0 right-0">Hover to flip</p>
+              </div>
+              <div class="flip-card-back">
+                <div>
+                  <h3 class="font-figtree text-2xl font-bold text-[#669bbc] mb-4">✨ It Works!</h3>
+                  <p class="font-figtree text-[#FFF9ED] text-lg">If you can read this, the flip animation works!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Loading state -->
         <div id="loading" class="text-center py-12">
           <div class="inline-block w-12 h-12 border-4 border-[#003049]/20 border-t-[#780000] rounded-full animate-spin"></div>
