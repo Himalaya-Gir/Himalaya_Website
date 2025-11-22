@@ -231,7 +231,7 @@ const base = import.meta.env.BASE_URL;
   async function loadReferences() {
     try {
       console.log('🔍 Attempting to load references.json...');
-      const response = await fetch(BASE_URL + '/references.json');
+      const response = await fetch(BASE_URL + 'references.json');
       console.log('📡 Response status:', response.status, response.statusText);
 
       if (!response.ok) {
