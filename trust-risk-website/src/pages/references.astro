@@ -13,86 +13,76 @@ const base = import.meta.env.BASE_URL;
 
   <main class="min-h-screen bg-[#FFF9ED]">
     <!-- Hero Section -->
-    <section class="py-16 px-6">
+    <section class="py-24 px-6">
       <div class="max-w-6xl mx-auto text-center">
-        <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6">
-          Interactive Reference Library
+        <h1 class="font-figtree text-5xl md:text-7xl font-bold text-[#003049] mb-8 tracking-tight">
+          Interactive References
         </h1>
-        <p class="font-figtree text-xl text-[#003049]/80 max-w-4xl mx-auto leading-relaxed">
-          Explore the research landscape behind <em class="italic">"Deconvolving Trust and Risk: A Computational Approach"</em>.
-          Filter by topic, search by keyword, and discover the foundational work shaping our understanding of trust and risk.
+        <p class="font-figtree text-xl md:text-2xl text-[#003049]/70 max-w-3xl mx-auto leading-relaxed font-light">
+          Explore the research landscape behind <em class="italic font-serif text-[#780000]">"Deconvolving Trust and Risk"</em>.
+          Discover the foundational work shaping our understanding.
         </p>
       </div>
     </section>
 
     <!-- Filters & Search Section -->
-    <section class="py-8 px-6 bg-[#FFF9ED] backdrop-blur-sm sticky top-0 z-40 border-b-2 border-[#003049]/10">
-      <div class="max-w-6xl mx-auto">
-        <!-- Search Bar -->
-        <div class="mb-6">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search references..."
-            class="w-full px-6 py-4 font-figtree text-lg border-2 border-[#003049]/20 rounded-lg focus:border-[#780000] focus:outline-none focus:ring-2 focus:ring-[#780000]/20 bg-[#FFF9ED] text-[#003049] placeholder:text-[#003049]/50 transition-all"
-          />
+    <section class="py-8 px-6 sticky top-0 z-40 transition-all duration-300" id="filterSection">
+      <div class="absolute inset-0 bg-[#FFF9ED]/95 backdrop-blur-md border-b border-[#003049]/5 shadow-sm"></div>
+      
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row gap-6 items-center justify-between mb-8">
+          <!-- Search Bar -->
+          <div class="w-full md:w-1/3 relative group">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-[#003049]/40 group-focus-within:text-[#780000] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by author, title, or keyword..."
+              class="w-full pl-12 pr-6 py-4 font-figtree text-lg bg-[#FFF9ED] border-2 border-[#003049]/20 rounded-lg focus:border-[#780000] focus:outline-none focus:ring-4 focus:ring-[#780000]/5 text-[#003049] placeholder:text-[#003049]/40 transition-all shadow-sm hover:shadow-md"
+            />
+          </div>
+
+          <!-- Active filters display -->
+          <div id="activeFilters" class="hidden md:block font-figtree text-sm text-[#003049]/60">
+            Active filters: <span id="filterList" class="font-bold text-[#780000]"></span>
+          </div>
         </div>
 
         <!-- Category Filters -->
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
           <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105 active"
+            class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden active"
             data-category="all"
           >
-            All References (<span class="count">69</span>)
+            <span class="relative z-10 flex items-center gap-2">
+              All References <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">69</span>
+            </span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Core Reading"
-          >
-            Core Reading (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Core Reading">
+            <span class="relative z-10 flex items-center gap-2">Core Reading <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Trust & Trust Game"
-          >
-            Trust & Trust Game (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Trust & Trust Game">
+            <span class="relative z-10 flex items-center gap-2">Trust & Trust Game <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Risk & Decision Theory"
-          >
-            Risk & Decision Theory (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Risk & Decision Theory">
+            <span class="relative z-10 flex items-center gap-2">Risk & Decision Theory <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Trust-Risk Relationship"
-          >
-            Trust-Risk Relationship (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Trust-Risk Relationship">
+            <span class="relative z-10 flex items-center gap-2">Trust-Risk Relationship <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Social Preferences"
-          >
-            Social Preferences (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Social Preferences">
+            <span class="relative z-10 flex items-center gap-2">Social Preferences <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Neuroscience"
-          >
-            Neuroscience (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Neuroscience">
+            <span class="relative z-10 flex items-center gap-2">Neuroscience <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-          <button
-            class="filter-btn font-figtree px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:scale-105"
-            data-category="Methods & Computational"
-          >
-            Methods & Computational (<span class="count">0</span>)
+          <button class="filter-btn group relative px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden" data-category="Methods & Computational">
+            <span class="relative z-10 flex items-center gap-2">Methods & Computational <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-xs">0</span></span>
           </button>
-        </div>
-
-        <!-- Active filters display -->
-        <div id="activeFilters" class="mt-4 font-figtree text-sm text-[#003049]/70 hidden">
-          Filtering by: <span id="filterList" class="font-semibold text-[#780000]"></span>
         </div>
       </div>
     </section>
@@ -123,7 +113,7 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <!-- References container -->
-        <div id="referencesContainer" class="space-y-6"></div>
+        <div id="referencesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
       </div>
     </section>
   </main>
@@ -147,19 +137,27 @@ const base = import.meta.env.BASE_URL;
 <style>
   /* Filter button styles */
   .filter-btn {
-    background-color: #FFF9ED;
-    border: 2px solid #003049;
+    background-color: transparent;
+    border: 1px solid rgba(0, 48, 73, 0.1);
     color: #003049;
   }
 
   .filter-btn:hover {
-    background-color: #003049;
-    color: #FFF9ED;
+    background-color: rgba(0, 48, 73, 0.05);
+    border-color: rgba(0, 48, 73, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
   .filter-btn.active {
-    background-color: #669bbc;
-    border-color: #669bbc;
+    background-color: #003049;
+    border-color: #003049;
+    color: #FFF9ED;
+    box-shadow: 0 4px 6px rgba(0, 48, 73, 0.2);
+  }
+
+  .filter-btn.active .count {
+    background-color: rgba(255, 255, 255, 0.2);
     color: #FFF9ED;
   }
 
@@ -168,6 +166,7 @@ const base = import.meta.env.BASE_URL;
     background-color: #780000;
     border-color: #780000;
     color: #FFF9ED;
+    box-shadow: 0 4px 6px rgba(120, 0, 0, 0.2);
   }
 
   /* Category tag colors - NO RED ON BLUE! */
@@ -205,6 +204,21 @@ const base = import.meta.env.BASE_URL;
     background-color: #669bbc;
     color: white;
   }
+
+  /* Custom Scrollbar for back of card */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 249, 237, 0.05);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 249, 237, 0.2);
+    border-radius: 2px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 249, 237, 0.4);
+  }
 </style>
 
 <script is:inline>
@@ -231,11 +245,33 @@ const base = import.meta.env.BASE_URL;
   async function loadReferences() {
     try {
       console.log('🔍 Attempting to load references.json...');
-      const response = await fetch(BASE_URL + 'references.json');
-      console.log('📡 Response status:', response.status, response.statusText);
+      // Try multiple paths to be robust
+      const paths = [
+        'references.json',
+        '/references.json',
+        BASE_URL + 'references.json',
+        '/trust-risk-website/references.json'
+      ];
+      
+      let response;
+      let loaded = false;
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      for (const path of paths) {
+        try {
+          console.log(`Trying path: ${path}`);
+          response = await fetch(path);
+          if (response.ok) {
+            loaded = true;
+            console.log(`✅ Success loading from: ${path}`);
+            break;
+          }
+        } catch (e) {
+          console.log(`Failed path: ${path}`);
+        }
+      }
+
+      if (!loaded) {
+        throw new Error(`Could not load references.json from any path. Last status: ${response ? response.status : 'unknown'}`);
       }
 
       const data = await response.json();
@@ -287,15 +323,18 @@ const base = import.meta.env.BASE_URL;
     });
   }
 
-  // Filter references
+  // Filter references with AND logic (intersection)
   function filterReferences() {
     let filtered = allReferences;
 
-    // Apply category filter
+    // Apply category filter with AND logic (intersection)
     if (!activeCategories.has('all') && activeCategories.size > 0) {
-      filtered = filtered.filter(ref =>
-        ref.categories.some(cat => activeCategories.has(cat))
-      );
+      filtered = filtered.filter(ref => {
+        // Reference must have ALL active categories
+        return Array.from(activeCategories).every(activeCat => 
+          ref.categories.includes(activeCat)
+        );
+      });
     }
 
     // Apply search query
@@ -340,45 +379,80 @@ const base = import.meta.env.BASE_URL;
 
     const categoryTags = ref.categories.map(cat => {
       const tagClass = categoryTagClass[cat] || 'bg-gray-500 text-white';
-      return `<span class="inline-block px-3 py-1.5 rounded-lg text-xs font-semibold ${tagClass}">${cat}</span>`;
+      const isActive = activeCategories.has(cat);
+      
+      // Use same style as filter buttons
+      if (isActive) {
+        // Active state - matches active filter button style
+        const activeClass = cat === 'Core Reading' ? 'bg-[#780000] border-[#780000]' : 'bg-[#003049] border-[#003049]';
+        return `<span class="inline-block px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 ${activeClass} text-[#FFF9ED] shadow-md">${cat}</span>`;
+      } else {
+        // Inactive state - matches inactive filter button style  
+        return `<span class="inline-block px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 bg-transparent border border-[#003049]/10 text-[#003049] hover:bg-[#003049]/5">${cat}</span>`;
+      }
     }).join(' ');
 
     return `
-      <div class="reference-card bg-[#FFF9ED] border-l-4 border-[#780000] rounded-lg p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
-        <!-- Citation -->
-        <div class="font-figtree mb-4">
-          <p class="text-[#003049] font-semibold text-lg mb-2">
-            ${ref.authors} (${ref.year})
-          </p>
-          <p class="text-[#003049]/90 italic mb-2">
-            ${ref.title}
-          </p>
-          ${ref.journal ? `<p class="text-[#003049]/70 text-sm">${ref.journal}${ref.volume ? `, ${ref.volume}` : ''}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
-          ${ref.book ? `<p class="text-[#003049]/70 text-sm">In: ${ref.book}${ref.pages ? `, ${ref.pages}` : ''}</p>` : ''}
-          ${ref.publisher ? `<p class="text-[#003049]/70 text-sm">${ref.publisher}</p>` : ''}
-        </div>
+      <div class="group perspective-[1000px] h-[420px]">
+        <div class="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-lg hover:shadow-2xl rounded-lg">
+          
+          <!-- Front Face -->
+          <div class="absolute inset-0 [backface-visibility:hidden] bg-[#FFF9ED] border-l-4 border-[#780000] border-y-2 border-r-2 border-[#003049]/20 rounded-lg p-8 flex flex-col justify-between overflow-hidden shadow-md">
+            <div>
+              <div class="font-figtree mb-3">
+                <p class="text-[#003049] font-bold text-2xl mb-4 leading-tight tracking-tight">
+                  ${ref.title}
+                </p>
+                <div class="flex items-center gap-2 text-[#003049]/80 font-medium text-base mb-3">
+                  <svg class="w-4 h-4 text-[#780000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                  <span>${ref.authors}</span>
+                </div>
+                <div class="flex items-center gap-2 text-[#003049]/60 text-sm italic">
+                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                   <span>${ref.year}</span>
+                   ${ref.journal ? `<span class="mx-1">•</span><span>${ref.journal}</span>` : ''}
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-3">
+              <div class="flex flex-wrap gap-2">
+                ${categoryTags}
+              </div>
+              <div class="mt-6 flex items-center justify-center gap-2 text-[#780000] text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                <span>View Details</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </div>
+            </div>
+          </div>
 
-        <!-- DOI Link -->
-        ${ref.doi ? `
-          <a href="${doiLink}" target="_blank" rel="noopener"
-             class="inline-flex items-center gap-2 font-figtree text-sm font-semibold text-[#780000] hover:text-[#780000]/80 transition-colors mb-4">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-            Read paper (DOI: ${ref.doi})
-          </a>
-        ` : ''}
-
-        <!-- Category Tags -->
-        <div class="flex flex-wrap gap-2 mb-4">
-          ${categoryTags}
-        </div>
-
-        <!-- Relevance -->
-        <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-4 rounded">
-          <p class="font-figtree text-sm text-[#003049]">
-            <strong class="text-[#780000]">Why this matters:</strong> ${ref.relevance}
-          </p>
+          <!-- Back Face -->
+          <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#003049] text-[#FFF9ED] rounded-lg p-8 flex flex-col h-full shadow-inner border border-[#FFF9ED]/10">
+            <div class="flex-grow overflow-y-auto custom-scrollbar pr-2">
+              <h3 class="font-bold text-lg mb-4 text-[#669bbc] flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Why this matters
+              </h3>
+              <p class="font-figtree text-base leading-relaxed text-[#FFF9ED]/90 font-light">
+                ${ref.relevance}
+              </p>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-[#FFF9ED]/10 flex-shrink-0">
+              ${ref.doi ? `
+                <a href="${doiLink}" target="_blank" rel="noopener"
+                   class="group/btn flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#780000]/90 transition-all duration-300 font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-[#780000]/40 hover:-translate-y-0.5">
+                  <span>Read Paper</span>
+                  <svg class="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+              ` : `
+                <div class="block w-full text-center px-6 py-4 bg-[#FFF9ED]/5 text-[#FFF9ED]/40 rounded-lg text-sm font-medium cursor-not-allowed border border-[#FFF9ED]/10">
+                  No DOI Available
+                </div>
+              `}
+            </div>
+          </div>
+          
         </div>
       </div>
     `;
