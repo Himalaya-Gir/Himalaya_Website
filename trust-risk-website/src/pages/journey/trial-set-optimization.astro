@@ -28,9 +28,9 @@ const base = import.meta.env.BASE_URL;
         <!-- Title -->
         <div class="mb-8">
           <div class="text-sm font-semibold text-[#780000] mb-3 uppercase tracking-wide font-figtree">Phase 3</div>
-          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Trial Set Optimization</h1>
-          <p class="text-lg text-[#003049]/70 leading-relaxed font-figtree max-w-3xl">
-            Using <em class="italic">Fisher Information Matrix</em> and <em class="italic">Bayesian optimization</em> to select <strong>286 optimal trials</strong> across 32 nested models for maximum parameter discriminability.
+          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Building the Machine</h1>
+          <p class="font-figtree text-xl text-[#003049]/70 leading-relaxed">
+            How do you pick 286 trials out of 17,955 possible choices?
           </p>
         </div>
       </div>
@@ -40,174 +40,358 @@ const base = import.meta.env.BASE_URL;
     <section class="py-16 px-6">
       <div class="max-w-5xl mx-auto space-y-12">
 
-        <!-- Overview -->
+        <!-- 1. The Problem -->
         <div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
-          <!-- Split background -->
           <div class="grid grid-cols-12">
             <div class="col-span-3 bg-[#780000] p-10 flex items-center justify-center">
               <div class="font-figtree text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">01</div>
             </div>
-            <div class="col-span-9 bg-[#FFF9ED] p-10">
-              <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">Overview</h2>
+            <div class="col-span-9 bg-[#FFF9ED] p-10 border-4 border-[#780000] border-l-0">
+              <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">The Problem</h2>
               <div class="space-y-4">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  The challenge: how do you design an experiment that can distinguish between <strong>32 different computational models</strong> of decision-making, each with up to <strong>6 parameters</strong>?
+                  The design calls for 300 trials. But <strong>which 300?</strong>
                 </p>
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  Traditional experimental design would require <strong>thousands of trials</strong>. We needed a <em class="italic">smarter approach</em>.
+                  Investments range from 1–10 tokens. Probabilities from 5%–95%. Outcomes from 0–39 tokens. The full factorial space contains <strong>17,955 possible trials</strong>.
                 </p>
+                <div class="bg-[#003049]/5 border border-[#003049]/10 p-6 rounded-lg">
+                  <p class="font-figtree font-semibold text-[#780000] mb-3">The challenge:</p>
+                  <p class="font-figtree text-[#003049]/80 leading-relaxed">
+                    Not all trials are equally informative. Some tell us a lot about Prospect Theory parameters. Others are redundant or uninformative. We need a <em class="italic">systematic method</em> to select the best ones.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- The Challenge -->
+        <!-- 2. Step 1: Generate Trial Space -->
         <div class="border-l-4 border-[#669bbc] pl-8 py-6">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">The Challenge</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Step 1: Generate Trial Space</h2>
 
-          <div class="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Model Space</h3>
-              <ul class="space-y-3 text-[#003049]/80 font-figtree">
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span><strong>32 hierarchically nested models</strong></span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span>Each combining different <em class="italic">Prospect Theory</em> parameters</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span>α (value sensitivity), γ (probability weighting), δ (trust weighting), λ (loss aversion), τ (choice stochasticity), φ (belief updating)</span>
-                </li>
-              </ul>
-            </div>
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              First, create all possible trials. For each investment level (1–10 tokens), generate all combinations of outcomes and probabilities.
+            </p>
 
-            <div>
-              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Constraints</h3>
-              <ul class="space-y-3 text-[#003049]/80 font-figtree">
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span>Participant <em class="italic">fatigue</em> limits trial count</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span>Need <strong>balanced coverage</strong> of probability space</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span>Must work across <strong>Trust and Risk games</strong></span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Solution -->
-        <div class="bg-[#003049] px-8 py-8 rounded-lg">
-          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">The Solution</h2>
-          <h3 class="font-figtree text-2xl font-semibold text-[#669bbc] mb-8"><em class="italic">Fisher Information Optimization</em></h3>
-
-          <div class="space-y-8">
-            <div>
-              <h4 class="font-figtree text-xl font-semibold text-[#FFF9ED] mb-3">Step 1: Parameter Space Sampling</h4>
-              <p class="font-figtree text-[#FFF9ED]/85 leading-relaxed mb-4">
-                Generated <strong>10,000 parameter combinations</strong> across the 6-dimensional parameter space, using realistic ranges derived from <em class="italic">literature review</em>.
-              </p>
-              <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 text-[#FFF9ED] p-4 rounded font-mono text-sm overflow-x-auto">
-                α ∈ [0.3, 1.5]  <span class="text-[#669bbc]"># Value sensitivity</span><br/>
-                γ ∈ [0.3, 1.5]  <span class="text-[#669bbc]"># Probability weighting</span><br/>
-                δ ∈ [0.0, 1.0]  <span class="text-[#669bbc]"># Trust-specific weighting</span><br/>
-                λ ∈ [1.0, 3.0]  <span class="text-[#669bbc]"># Loss aversion</span><br/>
-                τ ∈ [0.1, 5.0]  <span class="text-[#669bbc]"># Choice stochasticity</span><br/>
-                φ ∈ [0.0, 1.0]  <span class="text-[#669bbc]"># Belief updating rate</span>
+            <div class="bg-[#FFF9ED] border-2 border-[#669bbc] p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#669bbc] mb-3">Full Factorial Design:</p>
+              <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                <p><strong>Investments:</strong> 1–10 tokens (initial wallet = 10)</p>
+                <p><strong>Outcomes:</strong> Net losses (-1 to -investment) and net gains (+1 to max gain based on 4× multiplier)</p>
+                <p><strong>Probabilities:</strong> 5%, 10%, 15%, ..., 95% (19 levels)</p>
               </div>
             </div>
 
-            <div>
-              <h4 class="font-figtree text-xl font-semibold text-[#FFF9ED] mb-3">Step 2: Fisher Information Matrix</h4>
-              <p class="font-figtree text-[#FFF9ED]/85 leading-relaxed mb-4">
-                For each parameter combination and trial configuration, computed the <strong>Fisher Information Matrix</strong>, a measure of how much <em class="italic">information</em> a trial provides about the parameters.
-              </p>
-              <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 text-[#FFF9ED] p-4 rounded font-mono text-sm overflow-x-auto">
-                <span class="text-[#669bbc]">def</span> <span class="text-[#FFF9ED]">fisher_information</span>(trial, params):<br/>
-                &nbsp;&nbsp;<span class="text-[#669bbc]/80"># Compute gradient of log-likelihood</span><br/>
-                &nbsp;&nbsp;grad = ∇<sub>θ</sub> log P(choice | trial, θ)<br/>
-                &nbsp;&nbsp;<span class="text-[#669bbc]">return</span> grad @ grad.T
+            <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-6 rounded-r-lg mt-6">
+              <p class="font-figtree text-sm font-bold text-[#780000] mb-2">Result:</p>
+              <p class="font-figtree text-3xl font-black text-[#780000]">17,955</p>
+              <p class="font-figtree text-xs text-[#003049]/60 mt-1">possible trials generated</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Step 2: Create Parameter Space -->
+        <div class="bg-[#003049] px-8 py-10 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">Step 2: Create Parameter Space</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
+              Define the complete 4D parameter space for Prospect Theory. For each parameter, create a fine-grained grid of possible values.
+            </p>
+
+            <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#FFF9ED] mb-3">Parameter Grids (50 values each):</p>
+              <div class="space-y-2 font-figtree text-sm text-[#FFF9ED]/80 font-mono">
+                <p>α: 50 values from 0.5 to 1.0</p>
+                <p>γ⁺: 50 values from 0.4 to 3.0</p>
+                <p>γ⁻: 50 values from 0.4 to 3.0</p>
+                <p>λ: 50 values from 1.0 to 6.0</p>
               </div>
             </div>
 
-            <div>
-              <h4 class="font-figtree text-xl font-semibold text-[#FFF9ED] mb-3">Step 3: Bayesian Optimization</h4>
-              <p class="font-figtree text-[#FFF9ED]/85 leading-relaxed">
-                Used <strong>Bayesian optimization</strong> to select the <strong>286 trials</strong> that maximize the determinant of the Fisher Information Matrix (<em class="italic">D-optimality criterion</em>) averaged across all parameter combinations and models.
-              </p>
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-[#780000]/20 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#FFF9ED] mb-2">Parameter combinations:</p>
+                <p class="font-figtree text-2xl font-black text-[#FFF9ED]">6.25 million</p>
+                <p class="font-figtree text-xs text-[#FFF9ED]/60 mt-1">50 × 50 × 50 × 50</p>
+              </div>
+
+              <div class="bg-[#669bbc]/20 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#FFF9ED] mb-2">Parallel jobs:</p>
+                <p class="font-figtree text-2xl font-black text-[#FFF9ED]">250</p>
+                <p class="font-figtree text-xs text-[#FFF9ED]/60 mt-1">25,000 parameters per job</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Results -->
-        <div class="border-l-4 border-[#669bbc] pl-8 py-6">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Outcomes</h2>
-
-          <div class="grid md:grid-cols-3 gap-8">
-            <div>
-              <div class="font-figtree text-5xl font-bold text-[#780000] mb-2">286</div>
-              <div class="font-figtree text-sm text-[#003049] font-semibold mb-3 uppercase tracking-wide">Optimally Selected Trials</div>
-              <p class="font-figtree text-sm text-[#003049]/70 leading-relaxed">
-                Balanced across <em class="italic">probability distributions</em> and game types
-              </p>
-            </div>
-
-            <div>
-              <div class="font-figtree text-5xl font-bold text-[#780000] mb-2">~85%</div>
-              <div class="font-figtree text-sm text-[#003049] font-semibold mb-3 uppercase tracking-wide">Parameter Recovery</div>
-              <p class="font-figtree text-sm text-[#003049]/70 leading-relaxed">
-                Achieved <strong>high parameter discriminability</strong> across the model space
-              </p>
-            </div>
-
-            <div>
-              <div class="font-figtree text-5xl font-bold text-[#780000] mb-2">~45min</div>
-              <div class="font-figtree text-sm text-[#003049] font-semibold mb-3 uppercase tracking-wide">Experiment Duration</div>
-              <p class="font-figtree text-sm text-[#003049]/70 leading-relaxed">
-                Reasonable length while <em class="italic">maximizing information gain</em>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical Details -->
+        <!-- 4. Step 3: Calculate Certainty Equivalents -->
         <div class="border-l-4 border-[#780000] pl-8 py-6">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Technical Implementation</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Step 3: Calculate Certainty Equivalents</h2>
 
-          <div class="space-y-3 font-figtree text-[#003049]/80">
-            <div class="flex items-start gap-3">
-              <span class="text-[#780000] mt-1">•</span>
-              <div>
-                <strong class="text-[#003049]">Computing Environment:</strong> Python with <em class="italic">NumPy, SciPy, JAX</em> for automatic differentiation
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              For each parameter combination and each trial, compute the <strong>certainty equivalent (CE)</strong>—the value that makes someone indifferent between accepting and rejecting the bet.
+            </p>
+
+            <div class="bg-[#FFF9ED] border-2 border-[#003049] p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#003049] mb-3">Prospect Theory Implementation:</p>
+              <div class="space-y-3 font-figtree text-sm text-[#003049]/80 font-mono">
+                <p>Value function: v(x) = x^α for gains, v(x) = -λ × |x|^α for losses</p>
+                <p>Probability weighting: w(p) = p^γ / (p^γ + (1-p)^γ)^(1/γ)</p>
+                <p>CE = v(gain) × w(p_gain) + v(loss) × w(p_loss)</p>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#780000] mt-1">•</span>
-              <div>
-                <strong class="text-[#003049]">Optimization:</strong> <strong>Gaussian Process-based Bayesian Optimization</strong> (scikit-optimize)
+
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#780000] mb-2">CE calculations:</p>
+                <p class="font-figtree text-3xl font-black text-[#780000]">112 billion</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">6.25M params × 17,955 trials</p>
               </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#780000] mt-1">•</span>
-              <div>
-                <strong class="text-[#003049]">Validation:</strong> <em class="italic">Monte Carlo simulations</em> with synthetic agents to verify parameter recovery
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="text-[#780000] mt-1">•</span>
-              <div>
-                <strong class="text-[#003049]">Computation Time:</strong> <strong>~72 hours</strong> on a 16-core workstation
+
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#669bbc] mb-2">Runtime:</p>
+                <p class="font-figtree text-3xl font-black text-[#669bbc]">~63</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">CPU-hours (250 parallel jobs)</p>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- 5. Step 4: Filter to Discriminative Trials -->
+        <div class="border-l-4 border-[#669bbc] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Step 4: Filter to Discriminative Trials</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              First, eliminate trials that don't vary with parameter values. If everyone accepts a trial (or everyone rejects it) regardless of their <strong>α, λ, γ⁺, γ⁻</strong>, it provides <em class="italic">no information</em>.
+            </p>
+
+            <div class="bg-[#FFF9ED] border-2 border-[#669bbc] p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#669bbc] mb-3">Filtering Criteria:</p>
+              <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                <p><strong>1. Threshold crossing:</strong> Trial must have certainty equivalent (CE) values both above and below 0 across the parameter space</p>
+                <p><strong>2. Sufficient range:</strong> Range of CE predictions ≥ 0.5</p>
+                <p><strong>3. Avoid consensus:</strong> Exclude trials where &gt;95% of parameters make the same choice</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#780000] mb-2">Before filtering:</p>
+                <p class="font-figtree text-3xl font-black text-[#780000]">17,955</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">All possible trials</p>
+              </div>
+
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#669bbc] mb-2">After filtering:</p>
+                <p class="font-figtree text-3xl font-black text-[#669bbc]">7,169</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">Discriminative trials (60.1% retained)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Step 5: Calculate Derivatives -->
+        <div class="bg-[#003049] px-8 py-10 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">Step 5: Calculate Derivatives for Fisher Information</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
+              Fisher Information quantifies how much a trial tells you about a parameter. It's based on <strong>derivatives</strong>: how much does the certainty equivalent change when you tweak α, λ, γ⁺, or γ⁻?
+            </p>
+
+            <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#FFF9ED] mb-3">The Math:</p>
+              <div class="space-y-3 font-figtree text-sm text-[#FFF9ED]/80 font-mono">
+                <p>∂CE/∂α: How CE changes with outcome sensitivity</p>
+                <p>∂CE/∂λ: How CE changes with loss aversion</p>
+                <p>∂CE/∂γ⁺: How CE changes with gain probability weighting</p>
+                <p>∂CE/∂γ⁻: How CE changes with loss probability weighting</p>
+              </div>
+            </div>
+
+            <p class="font-figtree text-[#FFF9ED]/80 leading-relaxed">
+              For each of the 7,169 discriminative trials, we computed derivatives at 6,250,000 parameter combinations using <strong>central differences</strong> (forward/backward at boundaries).
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-[#780000]/20 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#FFF9ED] mb-2">Computational scale:</p>
+                <p class="font-figtree text-2xl font-black text-[#FFF9ED]">179 trillion</p>
+                <p class="font-figtree text-xs text-[#FFF9ED]/60 mt-1">derivatives computed</p>
+              </div>
+
+              <div class="bg-[#669bbc]/20 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#FFF9ED] mb-2">Processing time:</p>
+                <p class="font-figtree text-2xl font-black text-[#FFF9ED]">~15,000</p>
+                <p class="font-figtree text-xs text-[#FFF9ED]/60 mt-1">CPU-hours on HPC cluster</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Step 6: D-optimal Sequential Selection -->
+        <div class="border-l-4 border-[#780000] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Step 6: D-optimal Sequential Selection</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              Now comes the optimization. We want trials that <strong>maximize information</strong> while maintaining <strong>balance</strong> across all four parameters.
+            </p>
+
+            <div class="bg-[#FFF9ED] border-2 border-[#003049] p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#003049] mb-3">The Algorithm:</p>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xs">1</div>
+                  <p class="font-figtree text-sm text-[#003049]/80">Start with empty trial set</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xs">2</div>
+                  <p class="font-figtree text-sm text-[#003049]/80">Compute Fisher Information Matrix for each candidate trial: <strong>F = Σ [∂CE/∂θ × ∂CE/∂θ'] / variance</strong></p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xs">3</div>
+                  <p class="font-figtree text-sm text-[#003049]/80">Add trial that maximizes <strong>determinant</strong> of combined Fisher matrix (overall information)</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xs">4</div>
+                  <p class="font-figtree text-sm text-[#003049]/80">Ensure <strong>balance</strong> constraint: min/max diagonal ratio ≥ 0.05</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="flex-shrink-0 w-6 h-6 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xs">5</div>
+                  <p class="font-figtree text-sm text-[#003049]/80">Repeat until target reached</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+              <p class="font-figtree font-bold text-[#669bbc] mb-3">Pre-selection strategy:</p>
+              <p class="font-figtree text-sm text-[#003049]/80">
+                From 2,644,999 trials with computable Fisher matrices, we pre-selected 375 top candidates (5× oversampling) before running greedy sequential selection.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#780000] mb-2">Target:</p>
+                <p class="font-figtree text-3xl font-black text-[#780000]">300</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">trials</p>
+              </div>
+
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#669bbc] mb-2">Final selection:</p>
+                <p class="font-figtree text-3xl font-black text-[#669bbc]">286</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">optimal trials (no more suitable candidates)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. The Result: Precision Estimates -->
+        <div class="bg-[#FFF9ED] border-4 border-[#003049] p-8 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">The Result: What We Can Measure</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              The Fisher Information Matrix tells us how precisely we can estimate each parameter with these 286 trials. Precision is measured by <strong>standard errors</strong> (SE)—smaller is better.
+            </p>
+
+            <div class="grid md:grid-cols-4 gap-4 mt-8">
+              <!-- Alpha -->
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-5 rounded-r-lg">
+                <p class="font-figtree text-xs font-bold text-[#780000] mb-2 uppercase tracking-wide">α (outcome sensitivity)</p>
+                <p class="font-figtree text-2xl font-black text-[#003049]">0.0147</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-2">Excellent precision</p>
+              </div>
+
+              <!-- Gamma Gain -->
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-5 rounded-r-lg">
+                <p class="font-figtree text-xs font-bold text-[#669bbc] mb-2 uppercase tracking-wide">γ⁺ (gain weighting)</p>
+                <p class="font-figtree text-2xl font-black text-[#003049]">0.0296</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-2">Very good precision</p>
+              </div>
+
+              <!-- Gamma Loss -->
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-5 rounded-r-lg">
+                <p class="font-figtree text-xs font-bold text-[#780000] mb-2 uppercase tracking-wide">γ⁻ (loss weighting)</p>
+                <p class="font-figtree text-2xl font-black text-[#003049]">0.0538</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-2">Good precision</p>
+              </div>
+
+              <!-- Lambda -->
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-5 rounded-r-lg">
+                <p class="font-figtree text-xs font-bold text-[#669bbc] mb-2 uppercase tracking-wide">λ (loss aversion)</p>
+                <p class="font-figtree text-2xl font-black text-[#003049]">0.0761</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-2">Acceptable precision</p>
+              </div>
+            </div>
+
+            <div class="bg-[#003049] p-6 rounded-lg mt-8">
+              <p class="font-figtree font-semibold text-[#FFF9ED] mb-3">What this means:</p>
+              <p class="font-figtree text-[#FFF9ED]/90 leading-relaxed">
+                These 286 trials provide <strong>balanced information</strong> about all four Prospect Theory parameters. We can now run the experiment and estimate how each parameter differs between trust and risk contexts.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Validation: Parameter Recovery -->
+        <div class="border-l-4 border-[#669bbc] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Validation: Parameter Recovery</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              Theory is one thing. <em class="italic">Practice</em> is another. Before collecting real data, we validated the design with simulations.
+            </p>
+
+            <div class="bg-[#FFF9ED] border-2 border-[#669bbc] p-6 rounded-lg">
+              <p class="font-figtree text-sm font-bold text-[#669bbc] mb-3">The Test:</p>
+              <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                <p><strong>1.</strong> Sample 50 parameter combinations (Latin Hypercube Sampling)</p>
+                <p><strong>2.</strong> Simulate choice data using the 286 selected trials</p>
+                <p><strong>3.</strong> Add noise: logit(choice) ~ N(CE, σ²) with two noise levels (σ=0.25, 0.50)</p>
+                <p><strong>4.</strong> Re-estimate parameters via maximum likelihood</p>
+                <p><strong>5.</strong> Calculate recovery error: estimated - true</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#780000] mb-2">Simulations run:</p>
+                <p class="font-figtree text-3xl font-black text-[#780000]">502</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">50 params × 2 noise × 5 reps + diagnostics</p>
+              </div>
+
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree text-sm font-bold text-[#669bbc] mb-2">Convergence rate:</p>
+                <p class="font-figtree text-3xl font-black text-[#669bbc]">99.6%</p>
+                <p class="font-figtree text-xs text-[#003049]/60 mt-1">500/502 successful recoveries</p>
+              </div>
+            </div>
+
+            <div class="bg-[#003049]/5 border border-[#003049]/10 p-6 rounded-lg mt-6">
+              <p class="font-figtree font-semibold text-[#003049] mb-3">Recovery quality: Moderate</p>
+              <p class="font-figtree text-sm text-[#003049]/80 leading-relaxed">
+                Mean absolute errors ranged from 22%–30% of parameter ranges. Not perfect—but <strong>adequate</strong> for the research goal. Since we're comparing parameters <em class="italic">within subjects</em> (trust vs. risk), systematic estimation errors cancel out. The design is robust for detecting parameter differences between conditions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. The Path Forward -->
+        <div class="bg-[#669bbc]/10 border border-[#669bbc]/30 p-8 rounded-lg">
+          <h2 class="font-figtree text-2xl font-bold text-[#003049] mb-4">Next: Making It Real</h2>
+          <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+            The math is done. The trials are selected. The design is validated. Now comes the hard part: building the actual experiment.
+          </p>
+          <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed mt-4">
+            Phase 4 is about <strong>implementation</strong>—turning theory into code, pilots into protocols, and simulations into real decisions.
+          </p>
         </div>
 
       </div>
@@ -217,7 +401,7 @@ const base = import.meta.env.BASE_URL;
   <!-- Footer -->
   <footer class="py-12 px-6 bg-[#003049] text-[#FFF9ED]">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="font-poppins text-lg mb-4 font-semibold">Himalaya Girard</p>
+      <p class="font-figtree text-lg mb-4 font-semibold">Himalaya Girard</p>
       <p class="font-figtree text-[#669bbc] mb-6">{t('footer.position', lang)}</p>
       <p class="font-figtree text-sm text-[#669bbc]/70 mt-8">
         {t('footer.rights', lang)}

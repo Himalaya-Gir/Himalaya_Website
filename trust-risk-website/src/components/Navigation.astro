@@ -49,14 +49,6 @@ const switchUrl = lang === 'fr'
             {item.label}
           </a>
         ))}
-
-        <!-- Language Switcher -->
-        <a
-          href={switchUrl}
-          class="font-figtree px-3 py-1 border-2 border-[#669bbc] text-[#FFF9ED] rounded hover:bg-[#669bbc] transition-colors text-sm font-medium"
-        >
-          {otherLangLabel}
-        </a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -81,12 +73,6 @@ const switchUrl = lang === 'fr'
           {item.label}
         </a>
       ))}
-      <a
-        href={switchUrl}
-        class="font-figtree block px-3 py-2 border-2 border-[#669bbc] text-[#FFF9ED] rounded hover:bg-[#669bbc] transition-colors text-sm font-medium text-center"
-      >
-        {otherLangLabel}
-      </a>
     </div>
   </div>
 </nav>
