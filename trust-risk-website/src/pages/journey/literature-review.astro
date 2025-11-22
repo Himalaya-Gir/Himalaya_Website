@@ -8,7 +8,7 @@ const lang = 'en';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Literature Review | Research Journey">
+<Layout title="Down the Rabbit Hole | Research Journey">
   <Navigation lang={lang} currentPath="/journey" />
 
   <main class="min-h-screen bg-[#FFF9ED]">
@@ -28,10 +28,7 @@ const base = import.meta.env.BASE_URL;
         <!-- Title -->
         <div class="mb-8">
           <div class="text-sm font-semibold text-[#780000] mb-3 uppercase tracking-wide font-figtree">Phase 1</div>
-          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Literature Review</h1>
-          <p class="text-lg text-[#003049]/70 leading-relaxed font-figtree max-w-3xl">
-            Identifying the <em class="italic">theoretical gap</em> between <strong>trust</strong> and <strong>risk</strong> in behavioral economics through extensive literature review.
-          </p>
+          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Down the Rabbit Hole</h1>
         </div>
       </div>
     </section>
@@ -40,100 +37,279 @@ const base = import.meta.env.BASE_URL;
     <section class="py-16 px-6">
       <div class="max-w-5xl mx-auto space-y-12">
 
-        <!-- Overview -->
+        <!-- 1. The Starting Point -->
         <div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
-          <!-- Split background -->
           <div class="grid grid-cols-12">
             <div class="col-span-3 bg-[#780000] p-10 flex items-center justify-center">
               <div class="font-figtree text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">01</div>
             </div>
-            <div class="col-span-9 bg-[#FFF9ED] p-10">
+            <div class="col-span-9 bg-[#FFF9ED] p-10 border-4 border-[#780000] border-l-0">
               <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">The Puzzle</h2>
               <div class="space-y-4">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  Traditional <em class="italic">game theory</em> predicts that <strong>no one</strong> should trust strangers with their money. Yet people do, consistently and across cultures.
+                  Traditional <em class="italic">game theory</em> says <strong>no one</strong> should trust strangers with their money. The rational move is to keep it. Yet in Berg, Dickhaut, & McCabe's (1995) Trust Game, people invest. Consistently. Across cultures.
                 </p>
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  Why? The literature offers two competing explanations: <em class="italic">social preferences</em> (altruism, reciprocity) or <em class="italic">risk attitudes</em> (different perceptions of uncertainty).
+                  <strong>Why?</strong> Trust is complicated. The literature offered two main explanations:
                 </p>
+                <div class="grid md:grid-cols-2 gap-4 mt-6">
+                  <div class="bg-[#003049]/5 border border-[#003049]/10 p-4 rounded-lg">
+                    <p class="font-figtree font-semibold text-[#780000] mb-2">Social Preferences</p>
+                    <p class="font-figtree text-sm text-[#003049]/80">Altruism, reciprocity, fairness norms—we trust because we care about others.</p>
+                  </div>
+                  <div class="bg-[#003049]/5 border border-[#003049]/10 p-4 rounded-lg">
+                    <p class="font-figtree font-semibold text-[#669bbc] mb-2">Risk Attitudes</p>
+                    <p class="font-figtree text-sm text-[#003049]/80">Different perceptions of uncertainty—maybe trust is just how we handle social risk.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Key Findings -->
+        <!-- 2. The Confusion -->
         <div class="border-l-4 border-[#669bbc] pl-8 py-6">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Key Findings from Literature</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">The Confusion</h2>
 
-          <div class="space-y-8">
-            <!-- Finding 1 -->
-            <div>
-              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">The Trust Game Paradigm</h3>
-              <p class="font-figtree text-[#003049]/80 leading-relaxed mb-3">
-                Berg, Dickhaut, & McCabe (1995) introduced the <strong>Trust Game</strong> where Player A sends money to Player B, it gets tripled, and Player B decides how much to return.
-              </p>
-              <div class="bg-[#003049]/5 border border-[#003049]/10 p-4 rounded-lg">
-                <p class="font-figtree text-sm text-[#003049]/80 italic">
-                  "The fact that investments and returns are positive in most experiments is a puzzle from a game-theoretic viewpoint."
-                </p>
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              The literature is full of contradictory findings. Two main problems emerged:
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-6 rounded-r-lg">
+                <p class="font-figtree font-bold text-[#780000] mb-3">Risk preferences don't predict trust:</p>
+                <p class="font-figtree text-[#003049]/80">Risk attitudes correlate with lottery behavior but <span class="font-bold text-[#780000]">not</span> with trust decisions.</p>
+                <p class="font-figtree text-sm text-[#003049]/60 mt-2 italic">Houser et al. (2010), Fairley et al. (2016), Eckel & Wilson (2004), Grapin et al. (2016), Ashraf et al. (2006)</p>
+              </div>
+
+              <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-6 rounded-r-lg">
+                <p class="font-figtree font-bold text-[#669bbc] mb-3">Actually, they do:</p>
+                <p class="font-figtree text-[#003049]/80">Risk preferences <span class="font-bold text-[#669bbc]">predict</span> trust when measured properly. Omitting risk controls changes regression coefficients.</p>
+                <p class="font-figtree text-sm text-[#003049]/60 mt-2 italic">Schechter (2007), Karlan (2005), Chetty et al. (2020), Nguyen (2016)</p>
               </div>
             </div>
 
-            <!-- Finding 2 -->
-            <div>
-              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">Prospect Theory & Risk Attitudes</h3>
-              <p class="font-figtree text-[#003049]/80 leading-relaxed mb-3">
-                Kahneman & Tversky's <strong>Prospect Theory</strong> (Nobel Prize 2002) explains how people make decisions under <em class="italic">risk</em>: they overweight small probabilities, underweight large ones, and are loss-averse.
+            <div class="bg-[#003049] p-6 rounded-lg mt-6">
+              <p class="font-figtree font-bold text-[#FFF9ED] mb-3">And then there's betrayal aversion:</p>
+              <p class="font-figtree text-[#FFF9ED]/90 leading-relaxed">
+                People trust <em class="italic">more</em> than their risk preferences suggest (Dunning & Fetchenhauer, 2010; Schlösser et al., 2015), but also require <em class="italic">higher</em> probabilities for social risks than mechanical ones (Bohnet & Zeckhauser, 2004). This gap persists even when probabilities are learned (Rățală et al., 2019).
               </p>
-              <ul class="space-y-2 font-figtree text-[#003049]/80">
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span><strong>Value function</strong>: People are more sensitive to losses than gains</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span><strong>Probability weighting</strong>: Small chances feel bigger than they are</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#780000] mt-1">•</span>
-                  <span><strong>Reference dependence</strong>: Gains and losses relative to a reference point</span>
-                </li>
-              </ul>
             </div>
 
-            <!-- Finding 3 -->
-            <div>
-              <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-4">The Methodological Gap</h3>
-              <p class="font-figtree text-[#003049]/80 leading-relaxed">
-                Most studies comparing trust and risk use <em class="italic">different probability distributions</em>, making it impossible to isolate whether differences come from <strong>social preferences</strong> or <strong>risk attitudes</strong>.
+            <div class="bg-[#780000]/5 border border-[#780000]/20 p-6 rounded-lg mt-6">
+              <p class="font-figtree text-lg text-[#003049] leading-relaxed">
+                How could smart researchers, running careful experiments, get <em class="italic">contradictory</em> results?
               </p>
             </div>
           </div>
         </div>
 
-        <!-- The Research Question -->
+        <!-- 3. The Pattern -->
+        <div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
+          <div class="grid grid-cols-12">
+            <div class="col-span-3 bg-[#003049] p-10 flex items-center justify-center">
+              <div class="font-figtree text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">02</div>
+            </div>
+            <div class="col-span-9 bg-[#FFF9ED] p-10 border-4 border-[#003049] border-l-0">
+              <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">Then I Saw It</h2>
+
+              <div class="space-y-6">
+                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                  I started tracking what each study actually <em class="italic">did</em>. Not what they concluded—what they <strong>measured</strong>.
+                </p>
+
+                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                  Two methodological problems kept appearing:
+                </p>
+
+                <!-- Problem 1: Stakes & Probabilities -->
+                <div class="bg-[#780000]/5 border border-[#780000]/20 rounded-lg p-6">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">
+                      1
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-figtree text-xl font-semibold text-[#780000] mb-3">Different Stakes, Different Probabilities</h3>
+                      <p class="font-figtree text-[#003049]/80 leading-relaxed mb-4">
+                        Stakes and probability ranges <strong>varied wildly</strong> across studies. Some used $5 bets, others $100. Some tested 10% vs 90% probabilities, others 40% vs 60%.
+                      </p>
+                      <div class="bg-[#FFF9ED] border border-[#780000]/20 p-4 rounded">
+                        <p class="font-figtree text-sm text-[#003049]/80 italic">
+                          Wait. <strong>Prospect Theory</strong> has different parameters for different contexts. What if low stakes show risk &gt; trust, but high stakes show trust &gt; risk? What if they were testing <em class="italic">different parts</em> of the same theory?
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Problem 2: Mismatched Uncertainty -->
+                <div class="bg-[#669bbc]/5 border border-[#669bbc]/20 rounded-lg p-6">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">
+                      2
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-3">Mismatched Uncertainty Levels</h3>
+                      <p class="font-figtree text-[#003049]/80 leading-relaxed mb-4">
+                        This was the big one. Studies were comparing <strong>apples to oranges</strong>:
+                      </p>
+                      <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-[#FFF9ED] border-2 border-[#780000] p-4 rounded-lg">
+                          <p class="font-figtree font-bold text-[#780000] mb-2">Risk Condition</p>
+                          <ul class="space-y-1 font-figtree text-sm text-[#003049]/80">
+                            <li class="flex items-start gap-2">
+                              <span class="text-[#780000] mt-0.5">✓</span>
+                              <span>Known outcomes</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                              <span class="text-[#780000] mt-0.5">✓</span>
+                              <span><strong>Known probabilities</strong></span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="bg-[#FFF9ED] border-2 border-[#669bbc] p-4 rounded-lg">
+                          <p class="font-figtree font-bold text-[#669bbc] mb-2">Trust Condition</p>
+                          <ul class="space-y-1 font-figtree text-sm text-[#003049]/80">
+                            <li class="flex items-start gap-2">
+                              <span class="text-[#669bbc] mt-0.5">✓</span>
+                              <span>Known outcomes</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                              <span class="text-[#669bbc] mt-0.5">✗</span>
+                              <span><strong>No objective probabilities</strong></span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p class="font-figtree text-sm text-[#003049]/70 mt-4 italic">
+                        In risk, you know the dice is fair. In trust, you have no idea what the other person will do. These are <em>fundamentally different types of uncertainty</em>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. The Breakthrough -->
+        <div class="bg-[#003049] px-8 py-10 rounded-lg">
+          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">The Breakthrough</h2>
+          <div class="space-y-6">
+            <p class="font-figtree text-xl text-[#FFF9ED] leading-relaxed font-semibold">
+              What if the contradiction wasn't <em class="italic">theoretical</em>, but <em class="italic">methodological</em>?
+            </p>
+
+            <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
+              Every study was testing something slightly different. Different stakes, different probabilities, different types of uncertainty.
+            </p>
+
+            <div class="border-l-4 border-[#669bbc] pl-6 py-2">
+              <p class="font-figtree text-[#FFF9ED] font-semibold mb-3">The real question became:</p>
+              <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
+                Can <strong>Prospect Theory</strong>—the Nobel Prize-winning framework for risk—explain trust behavior when we <em class="italic">properly control</em> for stakes, probabilities, and uncertainty levels?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. The Framework: Prospect Theory -->
+        <div class="border-l-4 border-[#780000] pl-8 py-6">
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">The Framework: Prospect Theory</h2>
+
+          <div class="space-y-6">
+            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+              Kahneman & Tversky's <strong>Prospect Theory</strong> (Nobel Prize 2002) explains how people make decisions under <em class="italic">risk</em>. Three core principles:
+            </p>
+
+            <div class="space-y-4">
+              <!-- Loss Aversion -->
+              <div class="border-l-4 border-[#780000] pl-6 py-4">
+                <h3 class="font-figtree text-lg font-bold text-[#780000] mb-2">Loss Aversion (λ)</h3>
+                <p class="font-figtree text-[#003049]/80 leading-relaxed">
+                  Losses hurt <strong>more than gains feel good</strong>. Losing $10 feels worse than gaining $10 feels good. This asymmetry drives behavior.
+                </p>
+              </div>
+
+              <!-- Diminishing Sensitivity -->
+              <div class="border-l-4 border-[#669bbc] pl-6 py-4">
+                <h3 class="font-figtree text-lg font-bold text-[#669bbc] mb-2">Diminishing Sensitivity (α)</h3>
+                <p class="font-figtree text-[#003049]/80 leading-relaxed">
+                  The difference between $0 and $10 <strong>feels bigger</strong> than between $100 and $110. We're sensitive to changes near our reference point.
+                </p>
+              </div>
+
+              <!-- Probability Weighting -->
+              <div class="border-l-4 border-[#003049] pl-6 py-4">
+                <h3 class="font-figtree text-lg font-bold text-[#003049] mb-2">Probability Weighting (γ⁺ for gains, γ⁻ for losses)</h3>
+                <p class="font-figtree text-[#003049]/80 leading-relaxed">
+                  We <strong>overweight small probabilities</strong> (lottery tickets!) and <strong>underweight large ones</strong>. A 1% chance feels bigger than it is. A 99% chance feels less certain. This distortion can differ between potential gains and potential losses.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-[#003049]/5 border border-[#003049]/10 p-6 rounded-lg">
+              <p class="font-figtree text-sm text-[#003049]/80 italic">
+                These principles explain gambling, insurance, stock market behavior. But nobody had rigorously tested if the <strong>same math</strong> explains trusting people—when we control for the type of uncertainty.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. The Path Forward -->
         <div class="bg-[#003049] px-8 py-8 rounded-lg">
-          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">The Research Question</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">What Needed to Happen</h2>
           <div class="space-y-6">
             <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
-              Can <strong>Prospect Theory</strong>, designed for risk, explain trust behavior when we <em class="italic">properly control</em> for the type of uncertainty involved?
+              To answer this question properly, I needed:
             </p>
-            <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-lg">
-              <p class="font-figtree text-[#FFF9ED] font-semibold mb-3">To answer this, we need:</p>
-              <ul class="space-y-2 font-figtree text-[#FFF9ED]/85">
-                <li class="flex items-start gap-2">
-                  <span class="text-[#669bbc] mt-1">→</span>
-                  <span><strong>Matched probability distributions</strong> across Trust and Risk games</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#669bbc] mt-1">→</span>
-                  <span>A <strong>comprehensive model comparison</strong> testing 32 nested models</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="text-[#669bbc] mt-1">→</span>
-                  <span><strong>Optimal experimental design</strong> to discriminate between models</span>
-                </li>
-              </ul>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-sm">
+                  1
+                </div>
+                <div>
+                  <p class="font-figtree text-[#FFF9ED] font-semibold mb-1">Matched Probability Distributions</p>
+                  <p class="font-figtree text-[#FFF9ED]/80 text-sm">Trust and Risk games with <strong>identical</strong> outcome probabilities. Same stakes, same ranges.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-sm">
+                  2
+                </div>
+                <div>
+                  <p class="font-figtree text-[#FFF9ED] font-semibold mb-1">Controlled Uncertainty</p>
+                  <p class="font-figtree text-[#FFF9ED]/80 text-sm">Match the <em>type</em> of uncertainty. If risk has known probabilities, trust needs known probabilities too.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-sm">
+                  3
+                </div>
+                <div>
+                  <p class="font-figtree text-[#FFF9ED] font-semibold mb-1">Optimal Experimental Design</p>
+                  <p class="font-figtree text-[#FFF9ED]/80 text-sm">Use Fisher Information to select highly informative trials that reveal Prospect Theory parameters across both contexts.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-sm">
+                  4
+                </div>
+                <div>
+                  <p class="font-figtree text-[#FFF9ED] font-semibold mb-1">Comprehensive Model Comparison</p>
+                  <p class="font-figtree text-[#FFF9ED]/80 text-sm">Test 16 nested models. Let the data tell us which parameters differ between trust and risk.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded mt-6">
+              <p class="font-figtree text-[#FFF9ED]/90 italic">
+                That's what Phase 2 and 3 are about. Building the experiment that can finally answer this question.
+              </p>
             </div>
           </div>
         </div>
@@ -142,18 +318,30 @@ const base = import.meta.env.BASE_URL;
         <div class="border-l-4 border-[#780000] pl-8 py-6">
           <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Key References</h2>
           <div class="space-y-3 font-figtree text-sm text-[#003049]/80">
-            <div>
+            <a href={base + "references#berg-1995"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-4 rounded hover:bg-[#669bbc]/5 transition-colors">
               <strong class="text-[#003049]">Berg, J., Dickhaut, J., & McCabe, K. (1995).</strong> Trust, reciprocity, and social history. <em class="italic">Games and Economic Behavior</em>, 10(1), 122-142.
-            </div>
-            <div>
+              <p class="text-xs text-[#003049]/60 mt-1">The original Trust Game. The puzzle that started it all.</p>
+            </a>
+            <a href={base + "references#kahneman-1979"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-4 rounded hover:bg-[#669bbc]/5 transition-colors">
               <strong class="text-[#003049]">Kahneman, D., & Tversky, A. (1979).</strong> Prospect theory: An analysis of decision under risk. <em class="italic">Econometrica</em>, 47(2), 263-291.
-            </div>
-            <div>
+              <p class="text-xs text-[#003049]/60 mt-1">The Nobel Prize-winning framework. The math I'm testing on trust.</p>
+            </a>
+            <a href={base + "references#houser-2010"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-4 rounded hover:bg-[#669bbc]/5 transition-colors">
+              <strong class="text-[#003049]">Houser, D., Schunk, D., & Winter, J. (2010).</strong> Distinguishing trust from risk: An anatomy of the investment game. <em class="italic">Journal of Economic Behavior & Organization</em>, 74(1-2), 72-81.
+              <p class="text-xs text-[#003049]/60 mt-1">Risk preferences don't predict trust decisions.</p>
+            </a>
+            <a href={base + "references#schechter-2007"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-4 rounded hover:bg-[#669bbc]/5 transition-colors">
+              <strong class="text-[#003049]">Schechter, L. (2007).</strong> Traditional trust measurement and the risk confound: An experiment in rural Paraguay. <em class="italic">Journal of Economic Behavior & Organization</em>, 62(2), 272-292.
+              <p class="text-xs text-[#003049]/60 mt-1">Omitting risk controls changes regression coefficients significantly.</p>
+            </a>
+            <a href={base + "references#bohnet-2004"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-4 rounded hover:bg-[#669bbc]/5 transition-colors">
               <strong class="text-[#003049]">Bohnet, I., & Zeckhauser, R. (2004).</strong> Trust, risk and betrayal. <em class="italic">Journal of Economic Behavior & Organization</em>, 55(4), 467-484.
-            </div>
-            <div>
-              <strong class="text-[#003049]">Fetchenhauer, D., & Dunning, D. (2009).</strong> Do people trust too much or too little? <em class="italic">Journal of Economic Psychology</em>, 30(3), 263-276.
-            </div>
+              <p class="text-xs text-[#003049]/60 mt-1">People require higher probabilities for social risks than mechanical ones.</p>
+            </a>
+            <a href={base + "references#ratala-2019"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-4 rounded hover:bg-[#669bbc]/5 transition-colors">
+              <strong class="text-[#003049]">Rățală, C., Galvan, E., & Sanfey, A. G. (2019).</strong> Trust and risk revisited. Unpublished manuscript.
+              <p class="text-xs text-[#003049]/60 mt-1">The gap between trust and risk persists even when probabilities are learned.</p>
+            </a>
           </div>
         </div>
 

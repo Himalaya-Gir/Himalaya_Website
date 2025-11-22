@@ -33,46 +33,19 @@ const lang = 'en';
 							<strong>Donders Institute</strong>, fascinated by why humans trust, or don't.
 						</p>
 						<p class="font-figtree text-xl md:text-2xl text-[#FFF9ED]/90 leading-relaxed">
-							Working with <span class="font-semibold">Elijah Galvan</span>, <span class="font-semibold">Cătălina Rățală</span>, and <span class="font-semibold">Alan Sanfey</span>,
+							For my research project, supervised by <span class="font-semibold">Elijah Galvan</span>, <span class="font-semibold">Cătălina Rățală</span>, and <span class="font-semibold">Alan Sanfey</span>,
 							I'm applying <strong>Prospect Theory</strong>, a Nobel Prize-winning framework, to trust for the first time.
+						</p>
+						<p class="font-figtree text-lg md:text-xl text-[#FFF9ED]/80 mt-6 leading-relaxed">
+							<strong>Want to see how research actually happens?</strong> Scroll down to explore how I'm testing if trust and risk follow different behavioral and neural patterns.
 						</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Scroll indicator -->
-			<a href="#hook" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-				<svg class="w-12 h-12 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-				</svg>
-			</a>
-		</section>
-
-		<!-- Hero Section -->
-		<section id="hook" class="relative min-h-screen flex items-center justify-center bg-[#FFF9ED]">
-			<div class="max-w-4xl mx-auto px-6 text-center">
-				<h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight" set:html={t('hero.title', lang)} />
-				<p class="font-figtree text-xl md:text-2xl text-[#003049]/70 mb-8">
-					<em class="italic">{t('hero.subtitle', lang)}</em>
-				</p>
-				<p class="font-figtree text-lg text-[#003049]/80 max-w-2xl mx-auto leading-relaxed" set:html={t('hero.intro', lang)} />
-
-				<div class="mt-12 flex gap-4 justify-center flex-wrap">
-					<a href={import.meta.env.BASE_URL + "explore"} class="font-figtree px-8 py-3 bg-[#003049] text-[#FFF9ED] rounded-lg hover:bg-[#002033] transition-colors font-medium">
-						Explore Prospect Theory
-					</a>
-					<a href={import.meta.env.BASE_URL + "journey"} class="font-figtree px-8 py-3 bg-[#780000] text-[#FFF9ED] rounded-lg hover:bg-[#5a0000] transition-colors font-medium">
-						{t('nav.journey', lang)}
-					</a>
-					<a href={import.meta.env.BASE_URL + "about"} class="font-figtree px-8 py-3 border-2 border-[#669bbc] text-[#003049] rounded-lg hover:bg-[#669bbc] hover:text-[#FFF9ED] transition-colors font-medium">
-						{t('nav.about', lang)}
-					</a>
-				</div>
-			</div>
-
-			<!-- Scroll indicator -->
 			<a href="#question" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-				<svg class="w-12 h-12 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<svg class="w-12 h-12 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
 				</svg>
 			</a>
@@ -81,9 +54,15 @@ const lang = 'en';
 		<!-- The Question Section -->
 		<section id="question" class="py-20 px-6 bg-[#003049]">
 			<div class="max-w-5xl mx-auto">
-				<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-8 text-center">
-					{t('question.title', lang)}
+				<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-4 text-center">
+					Would you trust a stranger with $10?
 				</h2>
+				<p class="font-figtree text-xl text-[#FFF9ED]/70 mb-6 text-center max-w-3xl mx-auto">
+					<em class="italic">What if it was a dice roll instead?</em>
+				</p>
+				<p class="font-figtree text-lg text-[#FFF9ED]/80 mb-12 text-center max-w-3xl mx-auto leading-relaxed">
+					Traditional economics treats trust and risk as identical. But <em class="italic">behaviorally</em> and <em class="italic">neurally</em>, they're profoundly different. This research uses <strong>Prospect Theory</strong> to understand why.
+				</p>
 
 				<div class="grid md:grid-cols-2 gap-8 mt-12">
 					<!-- Trust Game -->
@@ -117,13 +96,88 @@ const lang = 'en';
 					</div>
 				</div>
 
-				<div class="mt-12 p-6 bg-[#669bbc]/20 rounded-lg border border-[#669bbc]/30">
+				<a href={import.meta.env.BASE_URL + "references#berg-1995"} class="block mt-12 p-6 bg-[#669bbc]/20 rounded-lg border border-[#669bbc]/30 hover:bg-[#669bbc]/30 transition-colors">
 					<p class="font-figtree text-lg text-[#FFF9ED] text-center">
 						<em class="italic">{t('question.quote', lang)}</em>
 					</p>
 					<p class="font-figtree text-sm text-[#669bbc] text-center mt-2">
 						{t('question.quoteAuthor', lang)}
 					</p>
+				</a>
+			</div>
+		</section>
+
+		<!-- Our Approach Section -->
+		<section class="py-16 px-6 bg-[#780000]">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="font-figtree text-4xl md:text-5xl font-bold text-[#FFF9ED] mb-6">
+					My Approach
+				</h2>
+				<p class="font-figtree text-xl text-[#FFF9ED]/90 mb-8 leading-relaxed">
+					I'm testing if <strong>Prospect Theory</strong>, the Nobel Prize-winning math of gambling, can explain why we trust strangers.
+				</p>
+				<div class="grid md:grid-cols-3 gap-6 text-[#FFF9ED]">
+					<div class="p-6 bg-[#FFF9ED]/10 rounded-lg">
+						<p class="font-bold text-lg mb-2">The Framework</p>
+						<p class="text-[#FFF9ED]/80">Prospect Theory</p>
+					</div>
+					<div class="p-6 bg-[#FFF9ED]/10 rounded-lg">
+						<p class="font-bold text-lg mb-2">The Innovation</p>
+						<p class="text-[#FFF9ED]/80">Inverted Trust Game</p>
+					</div>
+					<div class="p-6 bg-[#FFF9ED]/10 rounded-lg">
+						<p class="font-bold text-lg mb-2">The Goal</p>
+						<p class="text-[#FFF9ED]/80">Deconvolve trust from risk</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Explore the Research -->
+		<section class="py-16 px-6 bg-[#FFF9ED]">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="font-figtree text-3xl md:text-4xl font-bold text-[#003049] mb-6 text-center">
+					Explore the Research
+				</h2>
+				<p class="font-figtree text-lg text-[#003049]/80 mb-10 text-center max-w-2xl mx-auto">
+					Dive into the theory, see the methodology, or read the papers that shaped this work.
+				</p>
+				<div class="grid md:grid-cols-3 gap-6">
+					<a href={import.meta.env.BASE_URL + "explore"} class="group p-6 bg-[#FFF9ED] rounded-lg border-2 border-[#003049] hover:bg-[#003049] transition-all hover:shadow-xl">
+						<div class="flex items-center gap-3 mb-3">
+							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+							</svg>
+							<h3 class="font-figtree text-xl font-bold text-[#003049] group-hover:text-[#FFF9ED] transition-colors">The Theory</h3>
+						</div>
+						<p class="font-figtree text-[#003049]/80 group-hover:text-[#FFF9ED]/80 transition-colors">
+							Interactive Prospect Theory demo. Adjust parameters and see how trust differs from risk.
+						</p>
+					</a>
+
+					<a href={import.meta.env.BASE_URL + "journey"} class="group p-6 bg-[#FFF9ED] rounded-lg border-2 border-[#003049] hover:bg-[#003049] transition-all hover:shadow-xl">
+						<div class="flex items-center gap-3 mb-3">
+							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+							</svg>
+							<h3 class="font-figtree text-xl font-bold text-[#003049] group-hover:text-[#FFF9ED] transition-colors">The Process</h3>
+						</div>
+						<p class="font-figtree text-[#003049]/80 group-hover:text-[#FFF9ED]/80 transition-colors">
+							From literature review to experiment design. See how we got here and where we're going.
+						</p>
+					</a>
+
+					<a href={import.meta.env.BASE_URL + "references"} class="group p-6 bg-[#FFF9ED] rounded-lg border-2 border-[#003049] hover:bg-[#003049] transition-all hover:shadow-xl">
+						<div class="flex items-center gap-3 mb-3">
+							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+							</svg>
+							<h3 class="font-figtree text-xl font-bold text-[#003049] group-hover:text-[#FFF9ED] transition-colors">The Literature</h3>
+						</div>
+						<p class="font-figtree text-[#003049]/80 group-hover:text-[#FFF9ED]/80 transition-colors">
+							69 papers that shaped this research. Browse by category, search by topic.
+						</p>
+					</a>
 				</div>
 			</div>
 		</section>
