@@ -206,13 +206,13 @@ const base = import.meta.env.BASE_URL;
     color: white;
   }
 
-  /* Flip card styles */
-  .flip-card {
+  /* Flip card styles - GLOBAL pour fonctionner avec le HTML généré par JS */
+  :global(.flip-card) {
     perspective: 1000px;
     height: 400px;
   }
 
-  .flip-card-inner {
+  :global(.flip-card-inner) {
     position: relative;
     width: 100%;
     height: 100%;
@@ -221,27 +221,28 @@ const base = import.meta.env.BASE_URL;
     transform-style: preserve-3d;
   }
 
-  .flip-card:hover .flip-card-inner {
+  :global(.flip-card:hover .flip-card-inner) {
     transform: rotateY(180deg);
   }
 
-  .flip-card-front, .flip-card-back {
+  :global(.flip-card-front), :global(.flip-card-back) {
     position: absolute;
     width: 100%;
     height: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 0.5rem;
     padding: 1.5rem;
     overflow-y: auto;
   }
 
-  .flip-card-front {
+  :global(.flip-card-front) {
     background-color: #FFF9ED;
     border-left: 4px solid #780000;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 
-  .flip-card-back {
+  :global(.flip-card-back) {
     background-color: #003049;
     transform: rotateY(180deg);
     display: flex;
@@ -249,7 +250,7 @@ const base = import.meta.env.BASE_URL;
     justify-content: center;
   }
 
-  .hover-hint {
+  :global(.hover-hint) {
     opacity: 0.7;
     font-size: 0.75rem;
     color: #669bbc;
