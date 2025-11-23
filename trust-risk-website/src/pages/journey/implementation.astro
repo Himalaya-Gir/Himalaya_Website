@@ -13,139 +13,154 @@ const base = import.meta.env.BASE_URL;
 
   <main class="min-h-screen bg-[#FFF9ED]">
     <!-- Hero Section -->
-    <section class="py-16 px-6">
-      <div class="max-w-5xl mx-auto">
+    <section class="relative py-20 px-6 overflow-hidden">
+      <div class="absolute inset-0 opacity-5 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid-impl" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#003049" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-impl)" />
+        </svg>
+      </div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
         <!-- Breadcrumb -->
-        <div class="mb-6">
-          <a href={base + "journey"} class="text-sm text-[#003049] hover:text-[#780000] transition-colors inline-flex items-center gap-1.5 font-figtree font-medium">
-            <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <div class="mb-8">
+          <a href={base + "journey"} class="text-sm text-[#003049]/60 hover:text-[#780000] transition-colors inline-flex items-center gap-2 font-figtree font-bold uppercase tracking-wider">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
-            Back to Research Journey
+            Back to Journey
           </a>
         </div>
 
         <!-- Title -->
         <div class="mb-8">
-          <div class="text-sm font-semibold text-[#780000] mb-3 uppercase tracking-wide font-figtree">Phase 4 • Current Phase</div>
-          <h1 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-4">Making It Real</h1>
-          <p class="text-lg text-[#003049]/70 leading-relaxed font-figtree max-w-3xl">
-            From <strong>piloting</strong> to <em class="italic">behavioral testing</em> to <strong>fMRI</strong>. This is where theory meets human decision-making.
+          <div class="inline-block px-4 py-2 bg-[#780000]/10 text-[#780000] rounded-lg text-sm font-bold uppercase tracking-widest mb-6 border border-[#780000]/20">
+            Phase 5 • Current Phase
+          </div>
+          <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">Making It Real</h1>
+          <p class="font-figtree text-xl text-[#003049]/70 leading-relaxed max-w-3xl">
+            From <strong>piloting</strong> to <em class="italic font-serif">behavioral testing</em> to <strong>fMRI</strong>. This is where theory meets human decision-making.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Main Content -->
-    <section class="py-16 px-6">
-      <div class="max-w-5xl mx-auto space-y-12">
+    <section class="py-12 px-6">
+      <div class="max-w-5xl mx-auto space-y-16">
 
         <!-- Overview -->
-        <div class="relative overflow-hidden rounded-lg" style="clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 32px, 100% 100%, 0 100%);">
-          <!-- Split background -->
-          <div class="grid grid-cols-12">
-            <div class="col-span-3 bg-[#780000] p-10 flex items-center justify-center">
-              <div class="font-figtree text-7xl font-black text-[#FFF9ED]" style="writing-mode: vertical-rl; text-orientation: mixed; letter-spacing: -0.05em;">01</div>
+        <div class="bg-[#FFF9ED] border border-[#003049]/10 rounded-2xl overflow-hidden shadow-sm">
+          <div class="grid md:grid-cols-12">
+            <div class="md:col-span-1 bg-[#780000] flex items-center justify-center p-4">
+              <div class="font-figtree text-4xl font-black text-[#FFF9ED] opacity-50 rotate-90 md:rotate-0">01</div>
             </div>
-            <div class="col-span-9 bg-[#FFF9ED] p-10 border-4 border-[#780000] border-l-0">
-              <h2 class="font-figtree text-4xl font-bold text-[#003049] mb-6" style="text-wrap: balance; letter-spacing: -0.02em;">From Theory to Practice</h2>
-              <div class="space-y-4">
+            <div class="md:col-span-11 p-8 md:p-12">
+              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">From Theory to Practice</h2>
+              <div class="space-y-6">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  We have <strong>286 optimized trials</strong> that maximize parameter discriminability. We have <strong>16 nested models</strong> ready to test. Now comes the real work: testing this framework with <em class="italic">real human behavior</em>.
+                  We have <strong>286 optimized trials</strong> that maximize parameter discriminability. We have <strong>16 nested models</strong> ready to test. Now comes the real work: testing this framework with <em class="italic font-serif">real human behavior</em>.
                 </p>
-                <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  Three stages: <strong>Piloting</strong> to refine the experiment. <strong>Behavioral testing</strong> with 100 participants. <strong>fMRI</strong> to see what the brain is doing.
-                </p>
+                <div class="bg-[#003049]/5 border border-[#003049]/10 p-8 rounded-xl border-l-4 border-l-[#780000]">
+                  <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
+                    Three stages: <strong>Piloting</strong> to refine the experiment. <strong>Behavioral testing</strong> with 100 participants. <strong>fMRI</strong> to see what the brain is doing.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Three Stages -->
-        <div class="border-l-4 border-[#669bbc] pl-8 py-6">
+        <div class="pl-8 border-l-2 border-[#669bbc]/30">
           <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">The Experimental Pipeline</h2>
 
           <div class="space-y-8">
             <!-- Stage 1: Piloting -->
-            <div class="bg-[#FFF9ED] border-2 border-[#669bbc] p-6 rounded-lg">
-              <div class="flex items-start gap-4 mb-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">1</div>
-                <div class="flex-1">
-                  <h3 class="font-figtree text-2xl font-bold text-[#669bbc] mb-2">Piloting</h3>
-                  <p class="font-figtree text-sm font-semibold text-[#003049] uppercase tracking-wide">Currently Running</p>
+            <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-8 rounded-xl shadow-sm">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">1</div>
+                <div>
+                  <h3 class="font-figtree text-2xl font-bold text-[#669bbc]">Piloting</h3>
+                  <span class="inline-block px-2 py-0.5 bg-[#669bbc]/10 text-[#669bbc] text-xs font-bold uppercase rounded mt-1">Currently Running</span>
                 </div>
               </div>
 
-              <div class="space-y-4">
+              <div class="space-y-6">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
                   We're running pilot studies to optimize the experiment. Starting with 286 trials was too long—participants got fatigued. The goal: reduce to <strong>150 trials per condition</strong> without losing parameter discriminability.
                 </p>
 
-                <div class="bg-[#669bbc]/10 border-l-4 border-[#669bbc] p-4 rounded-r-lg">
-                  <p class="font-figtree text-sm font-bold text-[#669bbc] mb-2">What we're learning:</p>
-                  <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
-                    <p>• Which trials are most informative in practice</p>
-                    <p>• How to keep participants engaged throughout the study</p>
-                    <p>• What instructions actually make sense to real people</p>
-                    <p>• Response time patterns and attention checks that work</p>
-                  </div>
+                <div class="bg-[#669bbc]/5 border border-[#669bbc]/10 p-6 rounded-xl">
+                  <p class="font-figtree text-sm font-bold text-[#669bbc] mb-3">What we're learning:</p>
+                  <ul class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                    <li class="flex items-start gap-2"><span class="text-[#669bbc]">•</span> Which trials are most informative in practice</li>
+                    <li class="flex items-start gap-2"><span class="text-[#669bbc]">•</span> How to keep participants engaged throughout the study</li>
+                    <li class="flex items-start gap-2"><span class="text-[#669bbc]">•</span> What instructions actually make sense to real people</li>
+                    <li class="flex items-start gap-2"><span class="text-[#669bbc]">•</span> Response time patterns and attention checks that work</li>
+                  </ul>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-4 mt-4">
-                  <div class="bg-[#003049]/5 p-4 rounded">
-                    <p class="font-figtree text-sm text-[#003049]/60 mb-1">Current trial count</p>
-                    <p class="font-figtree text-2xl font-bold text-[#669bbc]">286</p>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="bg-[#FFF9ED] border border-[#003049]/5 p-4 rounded-lg text-center">
+                    <p class="font-figtree text-xs text-[#003049]/60 mb-1 uppercase tracking-wide">Current</p>
+                    <p class="font-figtree text-2xl font-black text-[#669bbc]">286</p>
                   </div>
-                  <div class="bg-[#003049]/5 p-4 rounded">
-                    <p class="font-figtree text-sm text-[#003049]/60 mb-1">Target trial count</p>
-                    <p class="font-figtree text-2xl font-bold text-[#003049]">150</p>
+                  <div class="bg-[#FFF9ED] border border-[#003049]/5 p-4 rounded-lg text-center">
+                    <p class="font-figtree text-xs text-[#003049]/60 mb-1 uppercase tracking-wide">Target</p>
+                    <p class="font-figtree text-2xl font-black text-[#003049]">150</p>
                   </div>
-                  <div class="bg-[#003049]/5 p-4 rounded">
-                    <p class="font-figtree text-sm text-[#003049]/60 mb-1">Per condition</p>
-                    <p class="font-figtree text-2xl font-bold text-[#003049]">2×</p>
+                  <div class="bg-[#FFF9ED] border border-[#003049]/5 p-4 rounded-lg text-center">
+                    <p class="font-figtree text-xs text-[#003049]/60 mb-1 uppercase tracking-wide">Conditions</p>
+                    <p class="font-figtree text-2xl font-black text-[#003049]">2×</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Stage 2: Behavioral -->
-            <div class="bg-[#FFF9ED] border-2 border-[#003049] p-6 rounded-lg">
-              <div class="flex items-start gap-4 mb-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-[#003049] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">2</div>
-                <div class="flex-1">
-                  <h3 class="font-figtree text-2xl font-bold text-[#003049] mb-2">Behavioral Experiment</h3>
-                  <p class="font-figtree text-sm font-semibold text-[#780000] uppercase tracking-wide">Next Phase</p>
+            <div class="bg-[#FFF9ED] border border-[#003049]/10 p-8 rounded-xl shadow-sm">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-[#003049] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">2</div>
+                <div>
+                  <h3 class="font-figtree text-2xl font-bold text-[#003049]">Behavioral Experiment</h3>
+                  <span class="inline-block px-2 py-0.5 bg-[#003049]/10 text-[#003049] text-xs font-bold uppercase rounded mt-1">Next Phase</span>
                 </div>
               </div>
 
-              <div class="space-y-4">
+              <div class="space-y-6">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
                   Once piloting is complete, we'll run the full behavioral study with <strong>100 participants</strong>. This will give us the data to test whether Prospect Theory can explain trust, or if we need additional social preference parameters.
                 </p>
 
-                <div class="grid md:grid-cols-2 gap-6">
+                <div class="grid md:grid-cols-2 gap-8">
                   <div>
-                    <p class="font-figtree text-sm font-bold text-[#003049] mb-3">Study Design:</p>
-                    <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
-                      <p>• <strong>N = 100 participants</strong></p>
-                      <p>• <strong>300 trials total</strong> (150 per condition)</p>
-                      <p>• Within-subject design (everyone plays both)</p>
-                      <p>• Real stakes (€8 base + performance bonus)</p>
-                    </div>
+                    <p class="font-figtree text-sm font-bold text-[#003049] mb-3 uppercase tracking-wide">Study Design</p>
+                    <ul class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> <strong>N = 100 participants</strong></li>
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> <strong>300 trials total</strong> (150 per condition)</li>
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> Within-subject design</li>
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> Real stakes (€8 base + bonus)</li>
+                    </ul>
                   </div>
 
                   <div>
-                    <p class="font-figtree text-sm font-bold text-[#003049] mb-3">What we'll test:</p>
-                    <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
-                      <p>• Do <strong>α, λ, γ⁺, γ⁻</strong> differ between Trust and Risk?</p>
-                      <p>• Which of 16 nested models fits best?</p>
-                      <p>• Can we predict individual differences?</p>
-                      <p>• Does betrayal aversion exist beyond loss aversion?</p>
-                    </div>
+                    <p class="font-figtree text-sm font-bold text-[#003049] mb-3 uppercase tracking-wide">Hypotheses</p>
+                    <ul class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> Do <strong>α, λ, γ⁺, γ⁻</strong> differ?</li>
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> Which of 16 models fits best?</li>
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> Individual differences prediction</li>
+                      <li class="flex items-start gap-2"><span class="text-[#003049] font-bold">•</span> Betrayal aversion existence</li>
+                    </ul>
                   </div>
                 </div>
 
-                <div class="bg-[#003049]/5 border border-[#003049]/10 p-4 rounded-lg mt-4">
+                <div class="bg-[#003049]/5 p-4 rounded-lg flex items-start gap-3">
+                  <svg class="w-5 h-5 text-[#003049] mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                   <p class="font-figtree text-sm text-[#003049]/80 leading-relaxed">
                     <strong>Power analysis:</strong> With 100 participants × 300 trials = 30,000 observations, we have &gt;95% power to detect medium effect sizes (Cohen's d = 0.5) in parameter differences.
                   </p>
@@ -154,39 +169,38 @@ const base = import.meta.env.BASE_URL;
             </div>
 
             <!-- Stage 3: fMRI -->
-            <div class="bg-[#FFF9ED] border-2 border-[#780000] p-6 rounded-lg">
-              <div class="flex items-start gap-4 mb-4">
-                <div class="flex-shrink-0 w-12 h-12 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">3</div>
-                <div class="flex-1">
-                  <h3 class="font-figtree text-2xl font-bold text-[#780000] mb-2">fMRI Study</h3>
-                  <p class="font-figtree text-sm font-semibold text-[#003049] uppercase tracking-wide">After Behavioral</p>
+            <div class="bg-[#FFF9ED] border border-[#780000]/20 p-8 rounded-xl shadow-sm">
+              <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-[#780000] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold text-xl">3</div>
+                <div>
+                  <h3 class="font-figtree text-2xl font-bold text-[#780000]">fMRI Study</h3>
+                  <span class="inline-block px-2 py-0.5 bg-[#780000]/10 text-[#780000] text-xs font-bold uppercase rounded mt-1">Future Phase</span>
                 </div>
               </div>
 
-              <div class="space-y-4">
+              <div class="space-y-6">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  Once we know which trials and parameters matter behaviorally, we'll run an fMRI study to see <em class="italic">where in the brain</em> these computations happen. Shorter design: <strong>70 trials per condition</strong>.
+                  Once we know which trials and parameters matter behaviorally, we'll run an fMRI study to see <em class="italic font-serif">where in the brain</em> these computations happen. Shorter design: <strong>70 trials per condition</strong>.
                 </p>
 
-                <div class="bg-[#780000]/10 border-l-4 border-[#780000] p-4 rounded-r-lg">
-                  <p class="font-figtree text-sm font-bold text-[#780000] mb-2">Why fMRI?</p>
-                  <div class="space-y-2 font-figtree text-sm text-[#003049]/80">
-                    <p>• See if <strong>brain regions</strong> differ between Trust and Risk</p>
-                    <p>• Test if <em class="italic">value signals</em> are computed differently</p>
-                    <p>• Look for neural signatures of betrayal aversion</p>
-                    <p>• Validate that the computational model reflects actual brain processes</p>
-                  </div>
+                <div class="bg-[#780000]/5 border border-[#780000]/10 p-6 rounded-xl">
+                  <p class="font-figtree text-sm font-bold text-[#780000] mb-3">Why fMRI?</p>
+                  <ul class="space-y-2 font-figtree text-sm text-[#003049]/80">
+                    <li class="flex items-start gap-2"><span class="text-[#780000]">•</span> See if <strong>brain regions</strong> differ between Trust and Risk</li>
+                    <li class="flex items-start gap-2"><span class="text-[#780000]">•</span> Test if <em class="italic font-serif">value signals</em> are computed differently</li>
+                    <li class="flex items-start gap-2"><span class="text-[#780000]">•</span> Look for neural signatures of betrayal aversion</li>
+                    <li class="flex items-start gap-2"><span class="text-[#780000]">•</span> Validate computational model neural correlates</li>
+                  </ul>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-4 mt-4">
-                  <div class="bg-[#003049]/5 p-4 rounded">
-                    <p class="font-figtree text-sm text-[#003049]/60 mb-1">Participants</p>
-                    <p class="font-figtree text-2xl font-bold text-[#780000]">55</p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-[#FFF9ED] border border-[#780000]/10 p-4 rounded-lg text-center">
+                    <p class="font-figtree text-xs text-[#003049]/60 mb-1 uppercase tracking-wide">Participants</p>
+                    <p class="font-figtree text-2xl font-black text-[#780000]">55</p>
                   </div>
-                  <div class="bg-[#003049]/5 p-4 rounded">
-                    <p class="font-figtree text-sm text-[#003049]/60 mb-1">Trials per condition</p>
-                    <p class="font-figtree text-2xl font-bold text-[#780000]">70</p>
-                    <p class="font-figtree text-xs text-[#003049]/60 mt-1">Optimized from behavioral results</p>
+                  <div class="bg-[#FFF9ED] border border-[#780000]/10 p-4 rounded-lg text-center">
+                    <p class="font-figtree text-xs text-[#003049]/60 mb-1 uppercase tracking-wide">Trials / Condition</p>
+                    <p class="font-figtree text-2xl font-black text-[#780000]">70</p>
                   </div>
                 </div>
               </div>
@@ -195,82 +209,70 @@ const base = import.meta.env.BASE_URL;
         </div>
 
         <!-- The Platform -->
-        <div class="bg-[#003049] px-8 py-8 rounded-lg">
-          <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">The Experimental Platform</h2>
+        <div class="bg-[#003049] p-12 rounded-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-[#780000] rounded-full filter blur-[100px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+          
+          <div class="relative z-10">
+            <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-8">The Experimental Platform</h2>
 
-          <div class="space-y-6">
-            <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
-              To run these experiments, we built a custom platform with <strong>real-time validation</strong>, <em class="italic">participant-friendly interface</em>, and automated computational modeling.
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <!-- Key Features -->
-              <div>
-                <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-4">Key Features</h3>
-                <div class="space-y-3 font-figtree text-[#FFF9ED]/85">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Data Quality:</strong> Response time monitoring, duplicate prevention, consistency checks
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Participant UX:</strong> Clear instructions, progress tracking, comprehension checks
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Modeling Pipeline:</strong> Automated fitting of 16 nested models to participant data
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Real Stakes:</strong> Performance-based bonuses to ensure genuine decision-making
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Tech Stack -->
-              <div>
-                <h3 class="font-figtree text-xl font-semibold text-[#669bbc] mb-4">Technology</h3>
-                <div class="space-y-3 font-figtree text-[#FFF9ED]/85">
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Frontend:</strong> React + TypeScript for reliability
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Backend:</strong> Python (FastAPI) for real-time processing
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Database:</strong> PostgreSQL for secure data storage
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-3">
-                    <span class="text-[#669bbc]">→</span>
-                    <div>
-                      <strong>Modeling:</strong> JAX for fast parameter estimation
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-4 rounded-lg mt-6">
-              <p class="font-figtree text-sm text-[#FFF9ED]/85 leading-relaxed">
-                <strong>Quality assurance:</strong> Before launching, we validated the platform with Monte Carlo simulations—synthetic agents with known parameters—to verify that our modeling pipeline could <em class="italic">recover the true parameter values</em>. This gave us confidence that the design works.
+            <div class="space-y-8">
+              <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed max-w-3xl">
+                To run these experiments, we built a custom platform with <strong>real-time validation</strong>, <em class="italic font-serif">participant-friendly interface</em>, and automated computational modeling.
               </p>
+
+              <div class="grid md:grid-cols-2 gap-8">
+                <!-- Key Features -->
+                <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-8 rounded-xl backdrop-blur-sm">
+                  <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-6">Key Features</h3>
+                  <ul class="space-y-4 font-figtree text-[#FFF9ED]/85">
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Data Quality:</strong> Response time monitoring, duplicate prevention, consistency checks</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Participant UX:</strong> Clear instructions, progress tracking, comprehension checks</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Modeling Pipeline:</strong> Automated fitting of 16 nested models</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Real Stakes:</strong> Performance-based bonuses</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-8 rounded-xl backdrop-blur-sm">
+                  <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-6">Technology</h3>
+                  <ul class="space-y-4 font-figtree text-[#FFF9ED]/85">
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Frontend:</strong> React + TypeScript for reliability</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Backend:</strong> Python (FastAPI) for real-time processing</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Database:</strong> PostgreSQL for secure data storage</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="text-[#669bbc] mt-1">→</span>
+                      <span><strong>Modeling:</strong> JAX for fast parameter estimation</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-[#FFF9ED]/5 border border-[#FFF9ED]/10 p-6 rounded-xl">
+                <p class="font-figtree text-sm text-[#FFF9ED]/85 leading-relaxed">
+                  <strong>Quality assurance:</strong> Before launching, we validated the platform with Monte Carlo simulations—synthetic agents with known parameters—to verify that our modeling pipeline could <em class="italic font-serif">recover the true parameter values</em>. This gave us confidence that the design works.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@ export const translations = {
     'about.researcher': 'Researcher:',
     'about.position': 'Research Assistant',
     'about.institution': 'Institution:',
-    'about.institutionName': 'Radboud University, Donders Institute',
+    'about.institutionName': 'Donders Institute, Radboud University',
     'about.lab': 'Lab:',
     'about.labName': 'Decision Neuroscience Lab',
     'about.supervisors': 'Supervisors:',
@@ -83,7 +83,7 @@ export const translations = {
     'process.step5.desc': 'Real participants. Real decisions. Finding out if I\'m right.',
 
     // Footer
-    'footer.position': 'Research Assistant in Cognitive Neuroscience',
+    'footer.position': 'Research Assistant at the Donders Institute',
     'footer.rights': '© 2025 Himalaya Girard. All rights reserved.',
   },
   fr: {
@@ -135,7 +135,7 @@ export const translations = {
     'about.researcher': 'Chercheuse :',
     'about.position': 'Assistante de Recherche',
     'about.institution': 'Institution :',
-    'about.institutionName': 'Université Radboud, Institut Donders',
+    'about.institutionName': 'Donders Institute, Radboud University',
     'about.lab': 'Laboratoire :',
     'about.labName': 'Decision Neuroscience Lab',
     'about.supervisors': 'Superviseurs :',
@@ -161,7 +161,7 @@ export const translations = {
     'process.step5.desc': 'Phase de recrutement et de tests prévue pour valider empiriquement le cadre théorique.',
 
     // Footer
-    'footer.position': 'Assistante de Recherche en Neurosciences Cognitives',
+    'footer.position': 'Assistant de Recherche à l\'Institut Donders',
     'footer.rights': '© 2025 Himalaya Girard. Tous droits réservés.',
   }
 } as const;

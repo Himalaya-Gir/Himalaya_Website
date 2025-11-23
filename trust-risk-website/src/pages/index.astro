@@ -8,175 +8,267 @@ const lang = 'en';
 ---
 
 <Layout title="Deconvolving Trust and Risk | Himalaya Girard">
-	<Navigation lang={lang} currentPath="/" spacerBg="bg-[#669bbc]" />
+	<Navigation lang={lang} currentPath="/" spacerBg="bg-[#003049]" />
 	<main class="min-h-screen bg-[#669bbc]">
-		<!-- About Me Section -->
-		<section class="relative min-h-screen flex items-center justify-center px-6 bg-[#669bbc]">
-			<div class="max-w-7xl mx-auto w-full">
-				<div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+		<!-- Hero Section -->
+		<section class="relative min-h-screen flex items-center justify-center px-6 bg-[#003049] overflow-hidden">
+			<!-- Background Pattern -->
+			<div class="absolute inset-0 opacity-10 pointer-events-none">
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+					<pattern id="grid-hero" width="40" height="40" patternUnits="userSpaceOnUse">
+						<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFF9ED" stroke-width="1"/>
+					</pattern>
+					<rect width="100%" height="100%" fill="url(#grid-hero)" />
+				</svg>
+			</div>
+
+			<div class="max-w-7xl mx-auto w-full relative z-10">
+				<div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
 					<!-- Photo -->
-					<div class="flex-shrink-0">
+					<div class="flex-shrink-0 relative group">
+						<div class="absolute -inset-2 bg-[#FFF9ED]/10 rounded-full opacity-0 group-hover:opacity-100 transition duration-500"></div>
 						<img
 							src={import.meta.env.BASE_URL + "images/himalaya-photo.png"}
 							alt="Himalaya Girard"
-							class="w-96 h-96 md:w-[28rem] md:h-[28rem] rounded-lg shadow-xl object-cover border-4 border-[#003049]"
+							class="relative w-64 h-64 md:w-[32rem] md:h-[32rem] rounded-full shadow-2xl object-cover border-4 border-[#FFF9ED]"
 						/>
 					</div>
 
 					<!-- Text -->
-					<div class="flex-1">
-						<h1 class="font-figtree text-6xl md:text-7xl font-bold text-[#FFF9ED] mb-8 leading-tight">
-							Hi, I'm <em class="italic whitespace-nowrap">Himalaya Girard</em>
+					<div class="flex-1 text-center md:text-left">
+						<h1 class="font-figtree text-5xl md:text-7xl font-bold text-[#FFF9ED] mb-6 leading-tight tracking-tight">
+							Hi, I'm <span class="text-[#669bbc]">Himalaya Girard</span>
 						</h1>
-						<p class="font-figtree text-xl md:text-2xl text-[#FFF9ED]/90 mb-6 leading-relaxed">
-							I'm a research assistant in cognitive neuroscience at the
-							<strong>Donders Institute</strong>, fascinated by why humans trust, or don't.
-						</p>
-						<p class="font-figtree text-xl md:text-2xl text-[#FFF9ED]/90 leading-relaxed">
-							For my research project, supervised by <span class="font-semibold">Elijah Galvan</span>, <span class="font-semibold">Cătălina Rățală</span>, and <span class="font-semibold">Alan Sanfey</span>,
-							I'm applying <strong>Prospect Theory</strong>, a Nobel Prize-winning framework, to trust for the first time.
-						</p>
-						<p class="font-figtree text-lg md:text-xl text-[#FFF9ED]/80 mt-6 leading-relaxed">
-							<strong>Want to see how research actually happens?</strong> Scroll down to explore how I'm testing if trust and risk follow different behavioral and neural patterns.
+						<p class="font-figtree text-xl md:text-2xl text-[#FFF9ED]/90 mb-8 leading-relaxed font-light">
+							Research Assistant at the <strong>Donders Institute</strong>.<br/>
+							Deconvolving <span class="text-[#669bbc] font-semibold">Trust</span> from <span class="text-[#780000] font-semibold">Risk</span> using Prospect Theory.
 						</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Scroll indicator -->
-			<a href="#question" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-				<svg class="w-12 h-12 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-				</svg>
+			<a href="#question" class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer group">
+				<div class="w-16 h-16 bg-[#FFF9ED]/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-[#FFF9ED]/20 group-hover:bg-[#FFF9ED]/20 transition-all shadow-lg">
+					<svg class="w-8 h-8 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+					</svg>
+				</div>
 			</a>
 		</section>
 
 		<!-- The Question Section -->
-		<section id="question" class="py-20 px-6 bg-[#003049]">
-			<div class="max-w-5xl mx-auto">
-				<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-4 text-center">
-					Would you trust a stranger with $10?
-				</h2>
-				<p class="font-figtree text-xl text-[#FFF9ED]/70 mb-6 text-center max-w-3xl mx-auto">
-					<em class="italic">What if it was a dice roll instead?</em>
-				</p>
-				<p class="font-figtree text-lg text-[#FFF9ED]/80 mb-12 text-center max-w-3xl mx-auto leading-relaxed">
-					Traditional economics treats trust and risk as identical. But <em class="italic">behaviorally</em> and <em class="italic">neurally</em>, they're profoundly different. This research uses <strong>Prospect Theory</strong> to understand why.
-				</p>
+		<section id="question" class="py-24 px-6 bg-[#FFF9ED]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<h2 class="font-figtree text-4xl md:text-5xl font-bold text-[#003049] mb-6">
+						Would you trust a <em class="italic text-[#780000]">stranger</em> with $10?
+					</h2>
+					<p class="font-figtree text-xl text-[#003049]/70 mb-4 max-w-3xl mx-auto">
+						<em class="italic">What if it was a dice roll instead?</em>
+					</p>
+					<p class="font-figtree text-lg text-[#003049]/80 max-w-3xl mx-auto leading-relaxed">
+						Traditional economics treats trust and risk as identical. But <em class="italic">behaviorally</em> and <em class="italic">neurally</em>, they're profoundly different. This research uses <strong>Prospect Theory</strong> to understand why.
+					</p>
+				</div>
 
-				<div class="grid md:grid-cols-2 gap-8 mt-12">
+				<div class="grid md:grid-cols-2 gap-8">
 					<!-- Trust Game -->
-					<div class="p-8 border-l-4 border-[#780000] bg-[#FFF9ED] rounded-lg">
-						<h3 class="font-figtree text-2xl font-bold text-[#780000] mb-4">{t('question.trust.title', lang)}</h3>
-						<div class="space-y-3 font-figtree text-[#003049]/80">
-							<p>{t('question.trust.step1', lang)}</p>
-							<p set:html={t('question.trust.step2', lang)} />
-							<p set:html={t('question.trust.step3', lang)} />
-							<p set:html={t('question.trust.step4', lang)} />
+					<div class="bg-[#780000] p-8 rounded-2xl shadow-xl text-[#FFF9ED] transform hover:-translate-y-1 transition-transform duration-300">
+						<div class="flex items-center gap-4 mb-6 pb-6 border-b border-[#FFF9ED]/20">
+							<div class="w-12 h-12 bg-[#FFF9ED] rounded-xl flex items-center justify-center shadow-inner">
+								<svg class="w-7 h-7 text-[#780000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+								</svg>
+							</div>
+							<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">{t('question.trust.title', lang)}</h3>
 						</div>
-						<div class="mt-6 p-4 bg-[#003049]/5 rounded-lg border border-[#003049]/10">
-							<p class="font-figtree text-sm font-semibold text-[#780000]">{t('question.trust.uncertainty', lang)}</p>
-							<p class="font-figtree text-[#003049]/80">{t('question.trust.uncertaintyDesc', lang)}</p>
+						
+						<div class="space-y-4 font-figtree text-[#FFF9ED]/90 mb-8">
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">01</span> <span>{t('question.trust.step1', lang)}</span></p>
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">02</span> <span set:html={t('question.trust.step2', lang)} /></p>
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">03</span> <span set:html={t('question.trust.step3', lang)} /></p>
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">04</span> <span set:html={t('question.trust.step4', lang)} /></p>
+						</div>
+
+						<div class="mt-auto p-4 bg-[#000000]/20 rounded-xl border border-[#FFF9ED]/10">
+							<p class="font-figtree text-xs font-bold uppercase tracking-widest text-[#FFF9ED]/60 mb-1">{t('question.trust.uncertainty', lang)}</p>
+							<p class="font-figtree text-[#FFF9ED]">{t('question.trust.uncertaintyDesc', lang)}</p>
 						</div>
 					</div>
 
 					<!-- Risk Game -->
-					<div class="p-8 border-l-4 border-[#669bbc] bg-[#FFF9ED] rounded-lg">
-						<h3 class="font-figtree text-2xl font-bold text-[#669bbc] mb-4">{t('question.risk.title', lang)}</h3>
-						<div class="space-y-3 font-figtree text-[#003049]/80">
-							<p>{t('question.risk.step1', lang)}</p>
-							<p set:html={t('question.risk.step2', lang)} />
-							<p set:html={t('question.risk.step3', lang)} />
-							<p set:html={t('question.risk.step4', lang)} />
+					<div class="bg-[#669bbc] p-8 rounded-2xl shadow-xl text-[#FFF9ED] transform hover:-translate-y-1 transition-transform duration-300">
+						<div class="flex items-center gap-4 mb-6 pb-6 border-b border-[#FFF9ED]/20">
+							<div class="w-12 h-12 bg-[#FFF9ED] rounded-xl flex items-center justify-center shadow-inner">
+								<svg class="w-7 h-7 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+								</svg>
+							</div>
+							<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">{t('question.risk.title', lang)}</h3>
 						</div>
-						<div class="mt-6 p-4 bg-[#003049]/5 rounded-lg border border-[#003049]/10">
-							<p class="font-figtree text-sm font-semibold text-[#669bbc]">{t('question.risk.uncertainty', lang)}</p>
-							<p class="font-figtree text-[#003049]/80">{t('question.risk.uncertaintyDesc', lang)}</p>
+
+						<div class="space-y-4 font-figtree text-[#FFF9ED]/90 mb-8">
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">01</span> <span>{t('question.risk.step1', lang)}</span></p>
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">02</span> <span set:html={t('question.risk.step2', lang)} /></p>
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">03</span> <span set:html={t('question.risk.step3', lang)} /></p>
+							<p class="flex gap-3"><span class="font-bold text-[#FFF9ED]/40">04</span> <span set:html={t('question.risk.step4', lang)} /></p>
+						</div>
+
+						<div class="mt-auto p-4 bg-[#000000]/20 rounded-xl border border-[#FFF9ED]/10">
+							<p class="font-figtree text-xs font-bold uppercase tracking-widest text-[#FFF9ED]/60 mb-1">{t('question.risk.uncertainty', lang)}</p>
+							<p class="font-figtree text-[#FFF9ED]">{t('question.risk.uncertaintyDesc', lang)}</p>
 						</div>
 					</div>
 				</div>
 
-				<a href={import.meta.env.BASE_URL + "references#berg-1995"} class="block mt-12 p-6 bg-[#669bbc]/20 rounded-lg border border-[#669bbc]/30 hover:bg-[#669bbc]/30 transition-colors">
-					<p class="font-figtree text-lg text-[#FFF9ED] text-center">
-						<em class="italic">{t('question.quote', lang)}</em>
-					</p>
-					<p class="font-figtree text-sm text-[#669bbc] text-center mt-2">
-						{t('question.quoteAuthor', lang)}
-					</p>
-				</a>
+				<div class="mt-16 text-center">
+					<blockquote class="font-figtree text-2xl text-[#003049] italic max-w-3xl mx-auto mb-4">
+						{t('question.quote', lang)}
+					</blockquote>
+					<cite class="font-figtree text-[#669bbc] font-semibold not-italic">
+						— {t('question.quoteAuthor', lang)}
+					</cite>
+					<div class="mt-8">
+						<a href={import.meta.env.BASE_URL + "references#berg-1995"} class="inline-flex items-center gap-2 text-[#780000] font-bold hover:gap-3 transition-all">
+							Read the original paper
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<!-- Our Approach Section -->
-		<section class="py-16 px-6 bg-[#780000]">
-			<div class="max-w-4xl mx-auto text-center">
+		<section class="py-24 px-6 bg-[#003049] relative overflow-hidden">
+			<!-- Background Pattern -->
+			<div class="absolute inset-0 opacity-5 pointer-events-none">
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+					<pattern id="grid-approach" width="40" height="40" patternUnits="userSpaceOnUse">
+						<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFF9ED" stroke-width="1"/>
+					</pattern>
+					<rect width="100%" height="100%" fill="url(#grid-approach)" />
+				</svg>
+			</div>
+
+			<div class="max-w-6xl mx-auto text-center relative z-10">
 				<h2 class="font-figtree text-4xl md:text-5xl font-bold text-[#FFF9ED] mb-6">
 					My Approach
 				</h2>
-				<p class="font-figtree text-xl text-[#FFF9ED]/90 mb-8 leading-relaxed">
+				<p class="font-figtree text-xl text-[#FFF9ED]/80 mb-12 leading-relaxed max-w-3xl mx-auto">
 					I'm testing if <strong>Prospect Theory</strong>, the Nobel Prize-winning math of gambling, can explain why we trust strangers.
 				</p>
-				<div class="grid md:grid-cols-3 gap-6 text-[#FFF9ED]">
-					<div class="p-6 bg-[#FFF9ED]/10 rounded-lg">
-						<p class="font-bold text-lg mb-2">The Framework</p>
-						<p class="text-[#FFF9ED]/80">Prospect Theory</p>
+				
+				<div class="grid md:grid-cols-3 gap-8">
+					<!-- Framework -->
+					<div class="bg-[#FFF9ED]/5 backdrop-blur-sm p-8 rounded-2xl border border-[#FFF9ED]/10 hover:bg-[#FFF9ED]/10 transition-all duration-300 group">
+						<div class="w-16 h-16 bg-[#780000] rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 transition-transform">
+							<svg class="w-8 h-8 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+							</svg>
+						</div>
+						<h3 class="font-figtree text-xl font-bold text-[#FFF9ED] mb-3">The Framework</h3>
+						<p class="font-figtree text-[#FFF9ED]/70">Prospect Theory</p>
 					</div>
-					<div class="p-6 bg-[#FFF9ED]/10 rounded-lg">
-						<p class="font-bold text-lg mb-2">The Innovation</p>
-						<p class="text-[#FFF9ED]/80">Inverted Trust Game</p>
+
+					<!-- Innovation -->
+					<div class="bg-[#FFF9ED]/5 backdrop-blur-sm p-8 rounded-2xl border border-[#FFF9ED]/10 hover:bg-[#FFF9ED]/10 transition-all duration-300 group">
+						<div class="w-16 h-16 bg-[#669bbc] rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 transition-transform">
+							<svg class="w-8 h-8 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+							</svg>
+						</div>
+						<h3 class="font-figtree text-xl font-bold text-[#FFF9ED] mb-3">The Innovation</h3>
+						<p class="font-figtree text-[#FFF9ED]/70">Inverted Trust Game</p>
 					</div>
-					<div class="p-6 bg-[#FFF9ED]/10 rounded-lg">
-						<p class="font-bold text-lg mb-2">The Goal</p>
-						<p class="text-[#FFF9ED]/80">Deconvolve trust from risk</p>
+
+					<!-- Goal -->
+					<div class="bg-[#FFF9ED]/5 backdrop-blur-sm p-8 rounded-2xl border border-[#FFF9ED]/10 hover:bg-[#FFF9ED]/10 transition-all duration-300 group">
+						<div class="w-16 h-16 bg-[#FFF9ED] rounded-xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 transition-transform">
+							<svg class="w-8 h-8 text-[#003049]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+							</svg>
+						</div>
+						<h3 class="font-figtree text-xl font-bold text-[#FFF9ED] mb-3">The Goal</h3>
+						<p class="font-figtree text-[#FFF9ED]/70">Deconvolve trust from risk</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Explore the Research -->
-		<section class="py-16 px-6 bg-[#FFF9ED]">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="font-figtree text-3xl md:text-4xl font-bold text-[#003049] mb-6 text-center">
-					Explore the Research
-				</h2>
-				<p class="font-figtree text-lg text-[#003049]/80 mb-10 text-center max-w-2xl mx-auto">
-					Dive into the theory, see the methodology, or read the papers that shaped this work.
-				</p>
-				<div class="grid md:grid-cols-3 gap-6">
-					<a href={import.meta.env.BASE_URL + "explore"} class="group p-6 bg-[#FFF9ED] rounded-lg border-2 border-[#003049] hover:bg-[#003049] transition-all hover:shadow-xl">
-						<div class="flex items-center gap-3 mb-3">
-							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		<section class="py-24 px-6 bg-[#FFF9ED]">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<h2 class="font-figtree text-3xl md:text-4xl font-bold text-[#003049] mb-6">
+						Explore the Research
+					</h2>
+					<p class="font-figtree text-lg text-[#003049]/80 mb-10 max-w-2xl mx-auto">
+						Dive into the theory, see the methodology, or read the papers that shaped this work.
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					<!-- Theory Card -->
+					<a href={import.meta.env.BASE_URL + "explore"} class="group bg-[#FFF9ED] p-8 rounded-2xl shadow-lg border-2 border-[#003049]/10 hover:border-[#780000] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+						<div class="absolute top-0 right-0 w-32 h-32 bg-[#780000]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500"></div>
+						
+						<div class="w-14 h-14 bg-[#780000]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#780000] transition-colors duration-300 relative z-10">
+							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
 							</svg>
-							<h3 class="font-figtree text-xl font-bold text-[#003049] group-hover:text-[#FFF9ED] transition-colors">The Theory</h3>
 						</div>
-						<p class="font-figtree text-[#003049]/80 group-hover:text-[#FFF9ED]/80 transition-colors">
+						
+						<h3 class="font-figtree text-xl font-bold text-[#003049] mb-3 group-hover:text-[#780000] transition-colors relative z-10">The Theory</h3>
+						<p class="font-figtree text-[#003049]/70 leading-relaxed relative z-10">
 							Interactive Prospect Theory demo. Adjust parameters and see how trust differs from risk.
 						</p>
+						
+						<div class="mt-6 flex items-center text-[#780000] font-bold text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+							Explore Demo <span class="ml-2">→</span>
+						</div>
 					</a>
 
-					<a href={import.meta.env.BASE_URL + "journey"} class="group p-6 bg-[#FFF9ED] rounded-lg border-2 border-[#003049] hover:bg-[#003049] transition-all hover:shadow-xl">
-						<div class="flex items-center gap-3 mb-3">
-							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<!-- Process Card -->
+					<a href={import.meta.env.BASE_URL + "journey"} class="group bg-[#FFF9ED] p-8 rounded-2xl shadow-lg border-2 border-[#003049]/10 hover:border-[#669bbc] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+						<div class="absolute top-0 right-0 w-32 h-32 bg-[#669bbc]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500"></div>
+						
+						<div class="w-14 h-14 bg-[#669bbc]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#669bbc] transition-colors duration-300 relative z-10">
+							<svg class="w-8 h-8 text-[#669bbc] group-hover:text-[#FFF9ED] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
 							</svg>
-							<h3 class="font-figtree text-xl font-bold text-[#003049] group-hover:text-[#FFF9ED] transition-colors">The Process</h3>
 						</div>
-						<p class="font-figtree text-[#003049]/80 group-hover:text-[#FFF9ED]/80 transition-colors">
+						
+						<h3 class="font-figtree text-xl font-bold text-[#003049] mb-3 group-hover:text-[#669bbc] transition-colors relative z-10">The Process</h3>
+						<p class="font-figtree text-[#003049]/70 leading-relaxed relative z-10">
 							From literature review to experiment design. See how we got here and where we're going.
 						</p>
+						
+						<div class="mt-6 flex items-center text-[#669bbc] font-bold text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+							View Journey <span class="ml-2">→</span>
+						</div>
 					</a>
 
-					<a href={import.meta.env.BASE_URL + "references"} class="group p-6 bg-[#FFF9ED] rounded-lg border-2 border-[#003049] hover:bg-[#003049] transition-all hover:shadow-xl">
-						<div class="flex items-center gap-3 mb-3">
-							<svg class="w-8 h-8 text-[#780000] group-hover:text-[#FFF9ED] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<!-- Literature Card -->
+					<a href={import.meta.env.BASE_URL + "references"} class="group bg-[#FFF9ED] p-8 rounded-2xl shadow-lg border-2 border-[#003049]/10 hover:border-[#003049] hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+						<div class="absolute top-0 right-0 w-32 h-32 bg-[#003049]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500"></div>
+						
+						<div class="w-14 h-14 bg-[#003049]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#003049] transition-colors duration-300 relative z-10">
+							<svg class="w-8 h-8 text-[#003049] group-hover:text-[#FFF9ED] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
 							</svg>
-							<h3 class="font-figtree text-xl font-bold text-[#003049] group-hover:text-[#FFF9ED] transition-colors">The Literature</h3>
 						</div>
-						<p class="font-figtree text-[#003049]/80 group-hover:text-[#FFF9ED]/80 transition-colors">
+						
+						<h3 class="font-figtree text-xl font-bold text-[#003049] mb-3 group-hover:text-[#003049] transition-colors relative z-10">The Literature</h3>
+						<p class="font-figtree text-[#003049]/70 leading-relaxed relative z-10">
 							69 papers that shaped this research. Browse by category, search by topic.
 						</p>
+						
+						<div class="mt-6 flex items-center text-[#003049] font-bold text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+							Read Papers <span class="ml-2">→</span>
+						</div>
 					</a>
 				</div>
 			</div>

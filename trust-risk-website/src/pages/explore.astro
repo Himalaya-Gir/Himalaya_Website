@@ -8,14 +8,28 @@ const lang = 'en';
 
 <Layout title="Explore Prospect Theory | Himalaya Girard">
 	<Navigation lang={lang} currentPath="/explore" spacerBg="bg-[#003049]" />
-	<main class="min-h-screen bg-[#003049]">
+	<main class="min-h-screen bg-[#FFF9ED]">
 		<!-- Hero Section -->
-		<section class="py-20 px-6 bg-[#003049]">
-			<div class="max-w-5xl mx-auto text-center">
-				<h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#FFF9ED] mb-6 leading-tight">
+		<section class="relative py-20 px-6 overflow-hidden">
+			<div class="absolute inset-0 opacity-5 pointer-events-none">
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+					<defs>
+						<pattern id="grid-explore" width="40" height="40" patternUnits="userSpaceOnUse">
+							<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#003049" stroke-width="1"/>
+						</pattern>
+					</defs>
+					<rect width="100%" height="100%" fill="url(#grid-explore)" />
+				</svg>
+			</div>
+
+			<div class="max-w-5xl mx-auto text-center relative z-10">
+				<div class="inline-block px-4 py-2 bg-[#003049]/5 text-[#003049] rounded-lg text-sm font-bold uppercase tracking-widest mb-6 border border-[#003049]/10">
+					Interactive Playground
+				</div>
+				<h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">
 					Explore Prospect Theory
 				</h1>
-				<p class="font-figtree text-xl text-[#FFF9ED]/85 leading-relaxed max-w-3xl mx-auto">
+				<p class="font-figtree text-xl text-[#003049]/70 leading-relaxed max-w-3xl mx-auto">
 					Interact with the Nobel Prize-winning framework that explains how people make decisions under uncertainty.
 					Adjust parameters in real-time and see how they shape behavior.
 				</p>
@@ -23,27 +37,34 @@ const lang = 'en';
 		</section>
 
 		<!-- Narrative Hook -->
-		<section class="py-12 px-6 bg-[#780000]">
+		<section class="py-12 px-6">
 			<div class="max-w-4xl mx-auto">
-				<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6 text-center">
-					Your Brain Doesn't Calculate. It Distorts.
-				</h2>
-				<div class="space-y-4 text-[#FFF9ED]/90 font-figtree text-lg leading-relaxed">
-					<p>
-						In 1979, Kahneman and Tversky asked people to choose between bets. Simple gambles with clear odds. Then they reverse-engineered the "math" people's brains were using.
-					</p>
-					<p>
-						Turns out we don't calculate expected value. We do something weirder. <strong>We distort probabilities. We feel losses more than gains. We follow patterns.</strong>
-					</p>
-					<p class="font-semibold text-[#FFF9ED]">
-						This work won the Nobel Prize in 2002. Now I'm testing if the same math explains trust.
-					</p>
+				<div class="bg-[#780000] p-10 rounded-2xl shadow-lg relative overflow-hidden">
+					<!-- Decorative circle -->
+					<div class="absolute top-0 right-0 w-64 h-64 bg-[#FFF9ED] rounded-full mix-blend-overlay opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
+
+					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6 text-center relative z-10">
+						Your Brain Doesn't Calculate. It Distorts.
+					</h2>
+					<div class="space-y-4 text-[#FFF9ED]/90 font-figtree text-lg leading-relaxed relative z-10">
+						<p>
+							In 1979, Kahneman and Tversky asked people to choose between bets. Simple gambles with clear odds. Then they reverse-engineered the "math" people's brains were using.
+						</p>
+						<p>
+							Turns out we don't calculate expected value. We do something weirder. <strong>We distort probabilities. We feel losses more than gains. We follow patterns.</strong>
+						</p>
+						<div class="bg-[#FFF9ED]/10 p-4 rounded-lg border-l-4 border-[#FFF9ED] mt-6">
+							<p class="font-semibold text-[#FFF9ED]">
+								This work won the Nobel Prize in 2002. Now I'm testing if the same math explains trust.
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Value Function Section -->
-		<section class="py-16 px-6 bg-[#FFF9ED]">
+		<section class="py-16 px-6">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#780000] pl-8 mb-12">
 					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">1. Sensitivity to Outcomes</h2>
@@ -54,22 +75,27 @@ const lang = 'en';
 
 				<div class="grid md:grid-cols-2 gap-8">
 					<!-- Chart -->
-					<div class="bg-[#FFF9ED] p-6 rounded-lg shadow-lg border-2 border-[#003049]/10 h-[500px] flex items-center">
-						<canvas id="valueChart" class="w-full h-full"></canvas>
+					<div class="bg-[#FFF9ED] p-6 rounded-2xl shadow-sm border border-[#003049]/10 h-[500px] flex items-center relative overflow-hidden">
+						<div class="absolute top-0 right-0 px-4 py-2 bg-[#003049]/5 text-[#003049] text-xs font-bold uppercase tracking-wider rounded-bl-xl">
+							Value Function v(x)
+						</div>
+						<canvas id="valueChart" class="w-full h-full relative z-10"></canvas>
 					</div>
 
 					<!-- Controls -->
 					<div class="space-y-6">
 						<!-- Alpha (Curvature) -->
-						<div class="bg-[#003049] p-6 rounded-lg">
-							<div class="flex justify-between items-center mb-4">
+						<div class="bg-[#003049] p-8 rounded-2xl shadow-lg text-[#FFF9ED]">
+							<div class="flex justify-between items-center mb-6">
 								<div>
-									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+									<label class="font-figtree text-xl font-bold block mb-1">
 										Sensitivity to Amounts
 									</label>
-									<span class="font-figtree text-sm text-[#669bbc]">α (alpha) - curvature parameter</span>
+									<span class="font-figtree text-sm text-[#669bbc] uppercase tracking-wide font-semibold">α (alpha) • Curvature</span>
 								</div>
-								<span id="alphaValue" class="font-figtree text-2xl font-bold text-[#669bbc]">0.88</span>
+								<div class="bg-[#FFF9ED]/10 px-4 py-2 rounded-lg border border-[#FFF9ED]/20">
+									<span id="alphaValue" class="font-figtree text-2xl font-bold text-[#669bbc]">0.88</span>
+								</div>
 							</div>
 							<input
 								type="range"
@@ -78,23 +104,25 @@ const lang = 'en';
 								max="1.5"
 								step="0.01"
 								value="0.88"
-								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#780000]"
+								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#669bbc] hover:accent-[#FFF9ED] transition-all"
 							/>
-							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-3 leading-relaxed">
+							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
 								How much you care about the amount versus simply winning or losing. Lower values = stronger diminishing sensitivity.
 							</p>
 						</div>
 
 						<!-- Lambda (Loss Aversion) -->
-						<div class="bg-[#780000] p-6 rounded-lg">
-							<div class="flex justify-between items-center mb-4">
+						<div class="bg-[#780000] p-8 rounded-2xl shadow-lg text-[#FFF9ED]">
+							<div class="flex justify-between items-center mb-6">
 								<div>
-									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+									<label class="font-figtree text-xl font-bold block mb-1">
 										How Much Losses Hurt
 									</label>
-									<span class="font-figtree text-sm text-[#669bbc]">λ (lambda) - loss aversion coefficient</span>
+									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">λ (lambda) • Loss Aversion</span>
 								</div>
-								<span id="lambdaValue" class="font-figtree text-2xl font-bold text-[#669bbc]">2.25</span>
+								<div class="bg-[#FFF9ED]/10 px-4 py-2 rounded-lg border border-[#FFF9ED]/20">
+									<span id="lambdaValue" class="font-figtree text-2xl font-bold text-[#FFF9ED]">2.25</span>
+								</div>
 							</div>
 							<input
 								type="range"
@@ -103,27 +131,36 @@ const lang = 'en';
 								max="4.0"
 								step="0.05"
 								value="2.25"
-								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#003049]"
+								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED] hover:accent-[#003049] transition-all"
 							/>
-							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-3 leading-relaxed">
+							<p class="font-figtree text-sm text-[#FFF9ED]/80 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
 								λ = 2.25 means a $10 loss feels like a $22.50 gain would feel good. Higher values = losses hurt more.
 							</p>
 						</div>
 
 						<!-- Key Insights -->
-						<div class="bg-[#669bbc] p-6 rounded-lg">
-							<h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Key Insights</h3>
-							<ul class="space-y-2 font-figtree text-[#FFF9ED]/90 text-sm">
-								<li class="flex items-start gap-2">
-									<span class="text-[#003049] mt-0.5">→</span>
+						<div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-2xl">
+							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+								Key Insights
+							</h3>
+							<ul class="space-y-3 font-figtree text-[#003049]/80 text-sm">
+								<li class="flex items-start gap-3">
+									<div class="mt-1 text-[#780000]">
+										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+									</div>
 									<span>The curve is steeper for losses than gains (asymmetry)</span>
 								</li>
-								<li class="flex items-start gap-2">
-									<span class="text-[#003049] mt-0.5">→</span>
+								<li class="flex items-start gap-3">
+									<div class="mt-1 text-[#780000]">
+										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+									</div>
 									<span>Both sides show diminishing sensitivity</span>
 								</li>
-								<li class="flex items-start gap-2">
-									<span class="text-[#003049] mt-0.5">→</span>
+								<li class="flex items-start gap-3">
+									<div class="mt-1 text-[#780000]">
+										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+									</div>
 									<span>People are risk-averse for gains but risk-seeking for losses</span>
 								</li>
 							</ul>
@@ -134,33 +171,50 @@ const lang = 'en';
 		</section>
 
 		<!-- Probability Weighting Section -->
-		<section class="py-16 px-6 bg-[#003049]">
-			<div class="max-w-6xl mx-auto">
+		<section class="py-16 px-6 relative overflow-hidden">
+			<!-- Background Pattern -->
+			<div class="absolute inset-0 opacity-5 pointer-events-none">
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+					<defs>
+						<pattern id="grid-prob" width="40" height="40" patternUnits="userSpaceOnUse">
+							<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#003049" stroke-width="1"/>
+						</pattern>
+					</defs>
+					<rect width="100%" height="100%" fill="url(#grid-prob)" />
+				</svg>
+			</div>
+
+			<div class="max-w-6xl mx-auto relative z-10">
 				<div class="border-l-4 border-[#669bbc] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-4">2. How We Distort Probabilities</h2>
-					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed">
+					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">2. How We Distort Probabilities</h2>
+					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
 						We don't perceive probabilities linearly. <strong>Small chances feel bigger</strong> than they are, while <strong>medium and high probabilities feel less certain.</strong>
 					</p>
 				</div>
 
 				<div class="grid md:grid-cols-2 gap-8">
 					<!-- Chart -->
-					<div class="bg-[#FFF9ED] p-6 rounded-lg shadow-lg border-2 border-[#003049]/10 h-[500px] flex items-center">
-						<canvas id="weightChart" class="w-full h-full"></canvas>
+					<div class="bg-[#FFF9ED] p-6 rounded-2xl shadow-sm border border-[#003049]/10 h-[500px] flex items-center relative overflow-hidden">
+						<div class="absolute top-0 right-0 px-4 py-2 bg-[#003049]/5 text-[#003049] text-xs font-bold uppercase tracking-wider rounded-bl-xl">
+							Weighting Function w(p)
+						</div>
+						<canvas id="weightChart" class="w-full h-full relative z-10"></canvas>
 					</div>
 
 					<!-- Controls -->
 					<div class="space-y-6">
 						<!-- Gamma (Gains) -->
-						<div class="bg-[#780000] p-6 rounded-lg">
-							<div class="flex justify-between items-center mb-4">
+						<div class="bg-[#780000] p-8 rounded-2xl shadow-lg text-[#FFF9ED]">
+							<div class="flex justify-between items-center mb-6">
 								<div>
-									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+									<label class="font-figtree text-xl font-bold block mb-1">
 										Probability Distortion (Gains)
 									</label>
-									<span class="font-figtree text-sm text-[#669bbc]">γ⁺ (gamma) - weighting parameter</span>
+									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">γ⁺ (gamma) • Gains</span>
 								</div>
-								<span id="gammaGainValue" class="font-figtree text-2xl font-bold text-[#669bbc]">0.61</span>
+								<div class="bg-[#FFF9ED]/10 px-4 py-2 rounded-lg border border-[#FFF9ED]/20">
+									<span id="gammaGainValue" class="font-figtree text-2xl font-bold text-[#FFF9ED]">0.61</span>
+								</div>
 							</div>
 							<input
 								type="range"
@@ -169,23 +223,25 @@ const lang = 'en';
 								max="1.0"
 								step="0.01"
 								value="0.61"
-								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#669bbc]"
+								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#669bbc] hover:accent-[#FFF9ED] transition-all"
 							/>
-							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-3 leading-relaxed">
+							<p class="font-figtree text-sm text-[#FFF9ED]/80 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
 								Lower values = more distortion. Small probabilities loom larger; high probabilities feel less certain.
 							</p>
 						</div>
 
 						<!-- Gamma (Losses) -->
-						<div class="bg-[#669bbc] p-6 rounded-lg">
-							<div class="flex justify-between items-center mb-4">
+						<div class="bg-[#669bbc] p-8 rounded-2xl shadow-lg text-[#FFF9ED]">
+							<div class="flex justify-between items-center mb-6">
 								<div>
-									<label class="font-figtree text-lg font-semibold text-[#FFF9ED] block mb-1">
+									<label class="font-figtree text-xl font-bold block mb-1">
 										Probability Distortion (Losses)
 									</label>
-									<span class="font-figtree text-sm text-[#003049]">γ⁻ (gamma) - weighting parameter</span>
+									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">γ⁻ (gamma) • Losses</span>
 								</div>
-								<span id="gammaLossValue" class="font-figtree text-2xl font-bold text-[#003049]">0.69</span>
+								<div class="bg-[#FFF9ED]/10 px-4 py-2 rounded-lg border border-[#FFF9ED]/20">
+									<span id="gammaLossValue" class="font-figtree text-2xl font-bold text-[#FFF9ED]">0.69</span>
+								</div>
 							</div>
 							<input
 								type="range"
@@ -194,27 +250,30 @@ const lang = 'en';
 								max="1.0"
 								step="0.01"
 								value="0.69"
-								class="w-full h-2 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#780000]"
+								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#780000] hover:accent-[#FFF9ED] transition-all"
 							/>
-							<p class="font-figtree text-sm text-[#FFF9ED]/90 mt-3 leading-relaxed">
+							<p class="font-figtree text-sm text-[#FFF9ED]/90 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
 								Same concept as gains, but for losses. Typically similar to γ⁺ but empirically slightly different.
 							</p>
 						</div>
 
 						<!-- Key Insights -->
-						<div class="bg-[#FFF9ED] p-6 rounded-lg">
-							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Real-World Examples</h3>
-							<ul class="space-y-2 font-figtree text-[#003049]/80 text-sm">
-								<li class="flex items-start gap-2">
-									<span class="text-[#780000] mt-0.5">→</span>
+						<div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-2xl">
+							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+								Real-World Examples
+							</h3>
+							<ul class="space-y-3 font-figtree text-[#003049]/80 text-sm">
+								<li class="flex items-start gap-3">
+									<span class="text-[#780000] mt-0.5 font-bold">•</span>
 									<span>Lottery tickets: we overweight the tiny chance of winning millions</span>
 								</li>
-								<li class="flex items-start gap-2">
-									<span class="text-[#780000] mt-0.5">→</span>
+								<li class="flex items-start gap-3">
+									<span class="text-[#780000] mt-0.5 font-bold">•</span>
 									<span>Insurance: we overweight small disaster risks</span>
 								</li>
-								<li class="flex items-start gap-2">
-									<span class="text-[#780000] mt-0.5">→</span>
+								<li class="flex items-start gap-3">
+									<span class="text-[#780000] mt-0.5 font-bold">•</span>
 									<span>The diagonal line shows perfect calibration</span>
 								</li>
 							</ul>
@@ -225,11 +284,19 @@ const lang = 'en';
 		</section>
 
 		<!-- Transition Section -->
-		<section class="py-12 px-6 bg-[#FFF9ED]">
+		<section class="py-12 px-6">
 			<div class="max-w-4xl mx-auto">
-				<div class="bg-[#003049] p-8 rounded-lg text-center">
-					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-4">From Risk to Trust</h2>
-					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed">
+				<div class="bg-[#003049] p-10 rounded-2xl text-center shadow-lg relative overflow-hidden">
+					<div class="absolute top-0 left-0 w-full h-full opacity-10">
+						<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+							<pattern id="grid-transition" width="20" height="20" patternUnits="userSpaceOnUse">
+								<circle cx="2" cy="2" r="1" fill="#FFF9ED" />
+							</pattern>
+							<rect width="100%" height="100%" fill="url(#grid-transition)" />
+						</svg>
+					</div>
+					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-4 relative z-10">From Risk to Trust</h2>
+					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed relative z-10 max-w-2xl mx-auto">
 						Prospect Theory works for coin flips and dice. <strong>But what about trusting people?</strong>
 					</p>
 				</div>
@@ -237,7 +304,7 @@ const lang = 'en';
 		</section>
 
 		<!-- Comparison Tool Section -->
-		<section class="py-16 px-6 bg-[#FFF9ED]">
+		<section class="py-16 px-6">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#780000] pl-8 mb-12">
 					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">3. Test It Yourself</h2>
@@ -247,232 +314,295 @@ const lang = 'en';
 				</div>
 
 				<!-- Common Scenario Description -->
-				<div class="bg-[#FFF9ED] border-4 border-[#003049] p-8 rounded-lg mb-6 relative">
+				<div class="bg-[#FFF9ED] border border-[#003049]/10 p-8 rounded-2xl mb-8 relative shadow-sm">
 					<!-- Left Arrow -->
-					<button id="prevScenario" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#003049] hover:bg-[#780000] text-[#FFF9ED] rounded-lg flex items-center justify-center transition-colors">
+					<button id="prevScenario" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#003049] hover:bg-[#780000] text-[#FFF9ED] rounded-full flex items-center justify-center transition-all shadow-md z-20">
 						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
 						</svg>
-					</button>
-
-					<!-- Right Arrow -->
-					<button id="nextScenario" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#003049] hover:bg-[#780000] text-[#FFF9ED] rounded-lg flex items-center justify-center transition-colors">
+					</button>					<!-- Right Arrow -->
+					<button id="nextScenario" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#003049] hover:bg-[#780000] text-[#FFF9ED] rounded-full flex items-center justify-center transition-all shadow-md z-20">
 						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
 						</svg>
 					</button>
 
-					<h3 class="font-figtree text-2xl font-bold text-[#003049] mb-6 text-center">The Scenario</h3>
-					<div id="scenarioContent" class="bg-[#003049]/5 p-6 rounded-lg max-w-2xl mx-auto transition-all duration-500">
-						<div class="flex justify-between items-center mb-3 pb-3 border-b border-[#003049]/20">
-							<span class="font-figtree text-[#003049] font-semibold">Your investment:</span>
-							<span id="scenarioInvestment" class="font-figtree text-2xl font-bold text-[#003049] transition-all duration-500">$10</span>
+					<h3 class="font-figtree text-2xl font-bold text-[#003049] mb-8 text-center uppercase tracking-widest text-sm">Current Scenario</h3>
+					
+					<div id="scenarioContent" class="bg-[#003049]/5 p-8 rounded-2xl max-w-3xl mx-auto transition-all duration-500 border border-[#003049]/5">
+						<div class="flex justify-between items-center mb-6 pb-6 border-b border-[#003049]/10">
+							<span class="font-figtree text-[#003049] font-bold text-xl">Your investment</span>
+							<span id="scenarioInvestment" class="font-figtree text-3xl font-black text-[#003049] transition-all duration-500">$10</span>
 						</div>
-						<div class="flex justify-between items-center mb-3">
-							<span class="font-figtree text-[#003049] font-semibold">If you win <span id="scenarioWinProb" class="text-[#669bbc] transition-all duration-500">(60% chance)</span>:</span>
-							<span id="scenarioWinAmount" class="font-figtree text-2xl font-bold text-[#669bbc] transition-all duration-500">+$30</span>
+						<div class="grid grid-cols-2 gap-8">
+							<div class="bg-[#FFF9ED] p-4 rounded-xl border border-[#669bbc]/20">
+								<div class="flex justify-between items-center mb-2">
+									<span class="font-figtree text-[#003049] font-semibold">If you win</span>
+									<span id="scenarioWinProb" class="text-[#669bbc] text-sm font-bold bg-[#669bbc]/10 px-2 py-1 rounded">60%</span>
+								</div>
+								<span id="scenarioWinAmount" class="font-figtree text-3xl font-bold text-[#669bbc] transition-all duration-500 block">+$30</span>
+							</div>
+							<div class="bg-[#FFF9ED] p-4 rounded-xl border border-[#780000]/20">
+								<div class="flex justify-between items-center mb-2">
+									<span class="font-figtree text-[#003049] font-semibold">If you lose</span>
+									<span id="scenarioLoseProb" class="text-[#780000] text-sm font-bold bg-[#780000]/10 px-2 py-1 rounded">40%</span>
+								</div>
+								<span id="scenarioLoseAmount" class="font-figtree text-3xl font-bold text-[#780000] transition-all duration-500 block">-$10</span>
+							</div>
 						</div>
-						<div class="flex justify-between items-center">
-							<span class="font-figtree text-[#003049] font-semibold">If you lose <span id="scenarioLoseProb" class="text-[#780000] transition-all duration-500">(40% chance)</span>:</span>
-							<span id="scenarioLoseAmount" class="font-figtree text-2xl font-bold text-[#780000] transition-all duration-500">-$10</span>
+
+						
+						<!-- Quick Comparison Summary (Mobile Optimized) -->
+						<div class="mt-8 pt-6 border-t border-[#003049]/10">
+							<p class="font-figtree text-sm text-[#003049]/60 font-bold uppercase tracking-widest mb-4 text-center">Quick Comparison</p>
+							<div class="grid grid-cols-2 gap-4">
+								<div class="bg-[#780000]/5 p-3 rounded-lg border border-[#780000]/10 text-center">
+									<span class="block font-figtree text-xs text-[#780000] font-bold uppercase mb-1">Trust Value</span>
+									<span id="quickTrustValue" class="font-figtree text-2xl font-black text-[#780000]">+2.4</span>
+								</div>
+								<div class="bg-[#669bbc]/5 p-3 rounded-lg border border-[#669bbc]/10 text-center">
+									<span class="block font-figtree text-xs text-[#669bbc] font-bold uppercase mb-1">Risk Value</span>
+									<span id="quickRiskValue" class="font-figtree text-2xl font-black text-[#669bbc]">+2.4</span>
+								</div>
+							</div>
 						</div>
 					</div>
-					<p class="font-figtree text-sm text-[#003049]/70 text-center mt-6 italic">
+					<p class="font-figtree text-sm text-[#003049]/60 text-center mt-6 italic">
 						Same numbers. Different sources. Does it change your decision?
 					</p>
 				</div>
 
-				<div class="grid md:grid-cols-2 gap-6">
+				<div class="grid md:grid-cols-2 gap-8">
 					<!-- Trust Scenario -->
-					<div class="bg-[#780000] p-8 rounded-lg">
-						<div class="flex items-center gap-3 mb-6">
-							<div class="w-12 h-12 bg-[#FFF9ED] rounded-lg flex items-center justify-center">
-								<svg class="w-6 h-6 text-[#780000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+					<div class="bg-[#780000] p-8 rounded-2xl shadow-xl text-[#FFF9ED] flex flex-col h-full">
+						<div class="flex items-center gap-4 mb-6 pb-6 border-b border-[#FFF9ED]/20">
+							<div class="w-14 h-14 bg-[#FFF9ED] rounded-xl flex items-center justify-center shadow-inner">
+								<svg class="w-8 h-8 text-[#780000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
 								</svg>
 							</div>
-							<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">Trust Game</h3>
+							<div>
+								<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">Trust Game</h3>
+								<p class="font-figtree text-[#FFF9ED]/80 text-sm">Social Context</p>
+							</div>
 						</div>
-						<p class="font-figtree text-[#FFF9ED]/90 mb-6 leading-relaxed">
-							A stranger decides. They reciprocate <span id="trustProbText" class="font-bold">60%</span> of the time.
-						</p>
+						
+						<div class="bg-[#FFF9ED]/10 p-4 rounded-xl mb-6 border border-[#FFF9ED]/10">
+							<p class="font-figtree text-[#FFF9ED]/90 leading-relaxed text-center">
+								A stranger decides. They reciprocate <span id="trustProbText" class="font-bold text-[#FFF9ED] bg-[#FFF9ED]/20 px-1 rounded">60%</span> of the time.
+							</p>
+						</div>
+
+						<!-- Result Display (Moved to Top) -->
+						<div class="bg-[#FFF9ED] p-6 rounded-xl transition-transform duration-300 shadow-lg mb-8">
+							<div class="flex justify-between items-end mb-2">
+								<p class="font-figtree text-sm text-[#780000] font-bold uppercase tracking-wide">Subjective Value</p>
+								<p class="font-figtree text-2xl font-black text-[#780000]" id="trustValue">+2.4</p>
+							</div>
+							
+							<!-- Progress Bar -->
+							<div class="w-full bg-[#780000]/10 rounded-full h-4 mb-4 overflow-hidden">
+								<div id="trustBar" class="bg-[#780000] h-4 rounded-full transition-all duration-300 flex items-center justify-end pr-2 relative" style="width: 50%">
+									<span class="font-figtree text-[10px] font-bold text-[#FFF9ED] absolute right-2 opacity-0">2.4</span>
+								</div>
+							</div>
+							
+							<div id="trustRecommendation" class="text-center border-t border-[#780000]/10 pt-4">
+								<p class="font-figtree text-lg font-bold text-[#780000]">Yes, it is worth it to invest</p>
+							</div>
+						</div>
 
 						<!-- Trust Parameters (Compact) -->
-						<div class="space-y-2 mb-4">
-							<p class="font-figtree text-xs text-[#FFF9ED] font-semibold mb-2">Adjust Trust Parameters:</p>
-							<div class="grid grid-cols-2 gap-2">
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Sensitivity to Amounts α</span>
-										<span id="trustAlphaVal" class="font-figtree text-sm font-bold text-[#669bbc]">0.95</span>
+						<div class="space-y-4 flex-grow">
+							<p class="font-figtree text-xs text-[#FFF9ED]/60 font-bold uppercase tracking-widest mb-2">Adjust Trust Parameters</p>
+							
+							<div class="space-y-3">
+								<!-- Alpha -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Sensitivity α</span>
+										<span id="trustAlphaVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.95</span>
 									</div>
-									<input type="range" id="trustAlpha" min="0.1" max="1.5" step="0.01" value="0.95" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+									<input type="range" id="trustAlpha" min="0.1" max="1.5" step="0.01" value="0.95" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Loss Aversion λ</span>
-										<span id="trustLambdaVal" class="font-figtree text-sm font-bold text-[#669bbc]">2.70</span>
+								
+								<!-- Lambda -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Loss Aversion λ</span>
+										<span id="trustLambdaVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">2.70</span>
 									</div>
-									<input type="range" id="trustLambda" min="0.1" max="4.0" step="0.01" value="2.70" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+									<input type="range" id="trustLambda" min="0.1" max="4.0" step="0.01" value="2.70" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-							</div>
-							<div class="grid grid-cols-2 gap-2">
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Probability Distortion (Gains) γ⁺</span>
-										<span id="trustGammaGVal" class="font-figtree text-sm font-bold text-[#669bbc]">2.01</span>
+								
+								<!-- Gamma Gain -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Gains) γ⁺</span>
+										<span id="trustGammaGVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">2.01</span>
 									</div>
-									<input type="range" id="trustGammaG" min="0.3" max="3.0" step="0.01" value="2.01" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+									<input type="range" id="trustGammaG" min="0.3" max="3.0" step="0.01" value="2.01" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Probability Distortion (Losses) δ⁻</span>
-										<span id="trustGammaLVal" class="font-figtree text-sm font-bold text-[#669bbc]">0.51</span>
+								
+								<!-- Gamma Loss -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Losses) δ⁻</span>
+										<span id="trustGammaLVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.51</span>
 									</div>
-									<input type="range" id="trustGammaL" min="0.3" max="1.0" step="0.01" value="0.51" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#669bbc]"/>
+									<input type="range" id="trustGammaL" min="0.3" max="1.0" step="0.01" value="0.51" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-							</div>
-						</div>
-
-						<div class="bg-[#669bbc] p-4 rounded-lg transition-transform duration-300">
-							<p class="font-figtree text-sm text-[#FFF9ED] mb-1">Prospect Theory Value:</p>
-							<p class="font-figtree text-xs text-[#FFF9ED]/70 mb-3 italic">Positive = Accept. Negative = Reject. Higher = More attractive.</p>
-							<!-- Progress Bar -->
-							<div class="w-full bg-[#FFF9ED]/30 rounded-full h-6 mb-2">
-								<div id="trustBar" class="bg-[#FFF9ED] h-6 rounded-full transition-all duration-300 flex items-center justify-end pr-3" style="width: 50%">
-									<span class="font-figtree text-sm font-bold text-[#780000]">2.4</span>
-								</div>
-							</div>
-							<p class="font-figtree text-xs text-[#FFF9ED]/70 text-right" id="trustValue">+2.4</p>
-							<div id="trustRecommendation" class="mt-3 text-center">
-								<p class="font-figtree text-lg font-bold text-[#FFF9ED]">Yes, it is worth it to invest</p>
 							</div>
 						</div>
 					</div>
 
 					<!-- Risk Scenario -->
-					<div class="bg-[#669bbc] p-8 rounded-lg">
-						<div class="flex items-center gap-3 mb-6">
-							<div class="w-12 h-12 bg-[#FFF9ED] rounded-lg flex items-center justify-center">
-								<svg class="w-6 h-6 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
+					<div class="bg-[#669bbc] p-8 rounded-2xl shadow-xl text-[#FFF9ED] flex flex-col h-full">
+						<div class="flex items-center gap-4 mb-6 pb-6 border-b border-[#FFF9ED]/20">
+							<div class="w-14 h-14 bg-[#FFF9ED] rounded-xl flex items-center justify-center shadow-inner">
+								<svg class="w-8 h-8 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
 								</svg>
 							</div>
-							<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">Risk Game</h3>
+							<div>
+								<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">Risk Game</h3>
+								<p class="font-figtree text-[#FFF9ED]/80 text-sm">Non-Social Context</p>
+							</div>
 						</div>
-						<p class="font-figtree text-[#FFF9ED]/90 mb-6 leading-relaxed">
-							A computer decides. <span id="riskProbText" class="font-bold">60%</span> chance to win.
-						</p>
+						
+						<div class="bg-[#FFF9ED]/10 p-4 rounded-xl mb-6 border border-[#FFF9ED]/10">
+							<p class="font-figtree text-[#FFF9ED]/90 leading-relaxed text-center">
+								A computer decides. <span id="riskProbText" class="font-bold text-[#FFF9ED] bg-[#FFF9ED]/20 px-1 rounded">60%</span> chance to win.
+							</p>
+						</div>
+
+						<!-- Result Display (Moved to Top) -->
+						<div class="bg-[#FFF9ED] p-6 rounded-xl transition-transform duration-300 shadow-lg mb-8">
+							<div class="flex justify-between items-end mb-2">
+								<p class="font-figtree text-sm text-[#669bbc] font-bold uppercase tracking-wide">Subjective Value</p>
+								<p class="font-figtree text-2xl font-black text-[#669bbc]" id="riskValue">+2.4</p>
+							</div>
+							
+							<!-- Progress Bar -->
+							<div class="w-full bg-[#669bbc]/10 rounded-full h-4 mb-4 overflow-hidden">
+								<div id="riskBar" class="bg-[#669bbc] h-4 rounded-full transition-all duration-300 flex items-center justify-end pr-2 relative" style="width: 50%">
+									<span class="font-figtree text-[10px] font-bold text-[#FFF9ED] absolute right-2 opacity-0">2.4</span>
+								</div>
+							</div>
+							
+							<div id="riskRecommendation" class="text-center border-t border-[#669bbc]/10 pt-4">
+								<p class="font-figtree text-lg font-bold text-[#669bbc]">Yes, it is worth it to invest</p>
+							</div>
+						</div>
 
 						<!-- Risk Parameters (Compact) -->
-						<div class="space-y-2 mb-4">
-							<p class="font-figtree text-xs text-[#FFF9ED] font-semibold mb-2">Adjust Risk Parameters:</p>
-							<div class="grid grid-cols-2 gap-2">
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Sensitivity to Amounts α</span>
-										<span id="riskAlphaVal" class="font-figtree text-sm font-bold text-[#003049]">0.88</span>
+						<div class="space-y-4 flex-grow">
+							<p class="font-figtree text-xs text-[#FFF9ED]/60 font-bold uppercase tracking-widest mb-2">Adjust Risk Parameters</p>
+							
+							<div class="space-y-3">
+								<!-- Alpha -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Sensitivity α</span>
+										<span id="riskAlphaVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.88</span>
 									</div>
-									<input type="range" id="riskAlpha" min="0.1" max="1.5" step="0.01" value="0.88" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+									<input type="range" id="riskAlpha" min="0.1" max="1.5" step="0.01" value="0.88" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Loss Aversion λ</span>
-										<span id="riskLambdaVal" class="font-figtree text-sm font-bold text-[#003049]">2.25</span>
+								
+								<!-- Lambda -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Loss Aversion λ</span>
+										<span id="riskLambdaVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">2.25</span>
 									</div>
-									<input type="range" id="riskLambda" min="1.0" max="4.0" step="0.05" value="2.25" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+									<input type="range" id="riskLambda" min="1.0" max="4.0" step="0.05" value="2.25" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-							</div>
-							<div class="grid grid-cols-2 gap-2">
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Probability Distortion (Gains) γ⁺</span>
-										<span id="riskGammaGVal" class="font-figtree text-sm font-bold text-[#003049]">0.61</span>
+								
+								<!-- Gamma Gain -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Gains) γ⁺</span>
+										<span id="riskGammaGVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.61</span>
 									</div>
-									<input type="range" id="riskGammaG" min="0.3" max="1.0" step="0.01" value="0.61" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+									<input type="range" id="riskGammaG" min="0.3" max="1.0" step="0.01" value="0.61" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-								<div class="bg-[#FFF9ED]/10 px-2 py-2 rounded">
-									<div class="flex justify-between items-center mb-1">
-										<span class="font-figtree text-sm text-[#FFF9ED]">Probability Distortion (Losses) δ⁻</span>
-										<span id="riskGammaLVal" class="font-figtree text-sm font-bold text-[#003049]">0.69</span>
+								
+								<!-- Gamma Loss -->
+								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
+									<div class="flex justify-between items-center mb-2">
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Losses) δ⁻</span>
+										<span id="riskGammaLVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.69</span>
 									</div>
-									<input type="range" id="riskGammaL" min="0.3" max="1.0" step="0.01" value="0.69" class="w-full h-1 bg-[#FFF9ED]/20 rounded appearance-none cursor-pointer accent-[#003049]"/>
+									<input type="range" id="riskGammaL" min="0.3" max="1.0" step="0.01" value="0.69" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
 								</div>
-							</div>
-						</div>
-
-						<div class="bg-[#003049] p-4 rounded-lg transition-transform duration-300">
-							<p class="font-figtree text-sm text-[#FFF9ED] mb-1">Prospect Theory Value:</p>
-							<p class="font-figtree text-xs text-[#FFF9ED]/70 mb-3 italic">Positive = Accept. Negative = Reject. Higher = More attractive.</p>
-							<!-- Progress Bar -->
-							<div class="w-full bg-[#FFF9ED]/30 rounded-full h-6 mb-2">
-								<div id="riskBar" class="bg-[#669bbc] h-6 rounded-full transition-all duration-300 flex items-center justify-end pr-3" style="width: 50%">
-									<span class="font-figtree text-sm font-bold text-[#FFF9ED]">2.4</span>
-								</div>
-							</div>
-							<p class="font-figtree text-xs text-[#FFF9ED]/70 text-right" id="riskValue">+2.4</p>
-							<div id="riskRecommendation" class="mt-3 text-center">
-								<p class="font-figtree text-lg font-bold text-[#FFF9ED]">Yes, it is worth it to invest</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- Explanation -->
-				<div class="mt-8 bg-[#003049] p-8 rounded-lg">
-					<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED] mb-4">The Point</h3>
-					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed mb-4">
-						Same bet. Different decision. Your parameters change how you see it.
-					</p>
-					<ul class="space-y-3 font-figtree text-[#FFF9ED]/80">
-						<li class="flex items-start gap-3">
-							<span class="text-[#669bbc] mt-1">→</span>
-							<span><strong class="text-[#FFF9ED]">Parameters = perception.</strong> Same numbers, different feelings.</span>
-						</li>
-						<li class="flex items-start gap-3">
-							<span class="text-[#669bbc] mt-1">→</span>
-							<span><strong class="text-[#FFF9ED]">High loss aversion?</strong> Even good bets feel scary.</span>
-						</li>
-						<li class="flex items-start gap-3">
-							<span class="text-[#669bbc] mt-1">→</span>
-							<span><strong class="text-[#FFF9ED]">Distort probabilities?</strong> Changes everything.</span>
-						</li>
-						<li class="flex items-start gap-3">
-							<span class="text-[#669bbc] mt-1">→</span>
-							<span><strong class="text-[#FFF9ED]">My research:</strong> Do trust and risk use different parameters?</span>
-						</li>
-					</ul>
+				<div class="mt-12 bg-[#003049] p-10 rounded-2xl shadow-lg relative overflow-hidden">
+					<div class="absolute top-0 right-0 w-64 h-64 bg-[#669bbc] rounded-full filter blur-[80px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+					
+					<div class="relative z-10">
+						<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED] mb-6 flex items-center gap-3">
+							<span class="bg-[#FFF9ED]/10 p-2 rounded-lg">💡</span>
+							The Point
+						</h3>
+						<p class="font-figtree text-xl text-[#FFF9ED]/90 leading-relaxed mb-8 max-w-3xl">
+							Same bet. Different decision. Your parameters change how you see it.
+						</p>
+						<div class="grid md:grid-cols-2 gap-6">
+							<ul class="space-y-4 font-figtree text-[#FFF9ED]/80">
+								<li class="flex items-start gap-3">
+									<span class="text-[#669bbc] mt-1 font-bold">→</span>
+									<span><strong class="text-[#FFF9ED]">Parameters = perception.</strong> Same numbers, different feelings.</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-[#669bbc] mt-1 font-bold">→</span>
+									<span><strong class="text-[#FFF9ED]">High loss aversion?</strong> Even good bets feel scary.</span>
+								</li>
+							</ul>
+							<ul class="space-y-4 font-figtree text-[#FFF9ED]/80">
+								<li class="flex items-start gap-3">
+									<span class="text-[#669bbc] mt-1 font-bold">→</span>
+									<span><strong class="text-[#FFF9ED]">Distort probabilities?</strong> Changes everything.</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-[#669bbc] mt-1 font-bold">→</span>
+									<span><strong class="text-[#FFF9ED]">My research:</strong> Do trust and risk use different parameters?</span>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- CTA Section -->
-		<section class="py-16 px-6 bg-[#003049]">
-			<div class="max-w-4xl mx-auto">
-				<div class="bg-[#780000] p-8 rounded-lg">
-					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6 text-center">
-						Think About It
-					</h2>
-					<div class="space-y-3 mb-8 text-center">
-						<p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
-							Will these parameters differ for Trust vs Risk?
-						</p>
-						<p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
-							Is betrayal worse than bad luck?
-						</p>
-						<p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed">
-							Do you weigh probabilities differently with people?
-						</p>
+		<section class="py-20 px-6">
+			<div class="max-w-4xl mx-auto text-center">
+				<div class="bg-[#003049] p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+					<!-- Background Pattern -->
+					<div class="absolute inset-0 opacity-10 pointer-events-none">
+						<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+							<pattern id="grid-cta" width="40" height="40" patternUnits="userSpaceOnUse">
+								<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFF9ED" stroke-width="1"/>
+							</pattern>
+							<rect width="100%" height="100%" fill="url(#grid-cta)" />
+						</svg>
 					</div>
-					<p class="font-figtree text-lg text-[#FFF9ED]/85 mb-6 leading-relaxed text-center">
-						See the hypotheses and how I got there.
-					</p>
-					<div class="flex gap-4 justify-center flex-wrap">
-						<a href={import.meta.env.BASE_URL + "journey"} class="font-figtree px-8 py-3 bg-[#FFF9ED] text-[#780000] rounded-lg hover:bg-[#FFF9ED]/90 transition-colors font-semibold">
-							Research Journey
-						</a>
-						<a href={import.meta.env.BASE_URL + "references"} class="font-figtree px-8 py-3 border-2 border-[#FFF9ED] text-[#FFF9ED] rounded-lg hover:bg-[#FFF9ED] hover:text-[#780000] transition-colors font-semibold">
-							Read the Literature
+
+					<div class="relative z-10">
+						<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-6">See How We Build This</h2>
+						<p class="font-figtree text-xl text-[#FFF9ED]/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+							Now that you understand the theory, see how we designed the experiment to measure these parameters in the brain.
+						</p>
+						<a href="/journey" class="inline-flex items-center gap-3 bg-[#780000] hover:bg-[#9a0000] text-[#FFF9ED] px-8 py-4 rounded-xl font-figtree font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
+							View Research Journey
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
 						</a>
 					</div>
 				</div>
@@ -819,6 +949,10 @@ window.addEventListener('load', function() {
 		// Update text values
 		document.getElementById('trustValue').textContent = (trustVal >= 0 ? '+' : '') + trustVal.toFixed(2);
 		document.getElementById('riskValue').textContent = (riskVal >= 0 ? '+' : '') + riskVal.toFixed(2);
+
+		// Update Quick Comparison values
+		document.getElementById('quickTrustValue').textContent = (trustVal >= 0 ? '+' : '') + trustVal.toFixed(2);
+		document.getElementById('quickRiskValue').textContent = (riskVal >= 0 ? '+' : '') + riskVal.toFixed(2);
 
 		// Update progress bars
 		// Scale: -10 to +10 maps to 0% to 100%
