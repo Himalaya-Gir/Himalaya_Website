@@ -12,8 +12,10 @@ const switchUrl = otherLang === 'fr' ? `/fr${currentPath}` : currentPath || '/';
 
 <a
   href={switchUrl}
-  class="fixed top-6 right-6 z-50 px-4 py-2 bg-white border-2 border-[#475573] text-[#475573] rounded-lg hover:bg-[#475573] hover:text-white transition-colors font-medium shadow-lg"
+  class="fixed top-6 right-6 z-50 px-5 py-2.5 bg-[#003049] text-[#FFF9ED] rounded-full hover:bg-[#780000] transition-all duration-300 font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 text-sm tracking-wide border border-[#FFF9ED]/10 backdrop-blur-sm"
   aria-label={`Switch to ${otherLang === 'fr' ? 'French' : 'English'}`}
 >
-  {otherLangLabel}
+  <span class="opacity-70 font-medium">{currentLang === 'en' ? 'EN' : 'FR'}</span>
+  <span class="w-px h-3 bg-[#FFF9ED]/30"></span>
+  <span>{otherLangLabel}</span>
 </a>

@@ -9,21 +9,22 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Trial Set Optimization | Research Journey">
-  <Navigation lang={lang} currentPath="/journey" />
+  <Navigation lang={lang} currentPath="/journey/trial-set-optimization" />
 
-  <main class="min-h-screen bg-[#FFF9ED]">
+  <main class="min-h-screen bg-[#FFF9ED] relative">
+    <div class="absolute inset-0 opacity-5 pointer-events-none">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid-opt" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#003049" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-opt)" />
+      </svg>
+    </div>
     <!-- Hero Section -->
     <section class="relative py-20 px-6 overflow-hidden">
-      <div class="absolute inset-0 opacity-5 pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid-opt" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#003049" stroke-width="1"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid-opt)" />
-        </svg>
-      </div>
+
 
       <div class="max-w-5xl mx-auto relative z-10">
         <!-- Breadcrumb -->
@@ -50,7 +51,7 @@ const base = import.meta.env.BASE_URL;
     </section>
 
     <!-- Main Content -->
-    <section class="py-12 px-6">
+    <section class="py-12 px-6 relative">
       <div class="max-w-5xl mx-auto space-y-16">
 
         <!-- 1. The Problem -->
@@ -81,27 +82,29 @@ const base = import.meta.env.BASE_URL;
 
         <!-- 2. Step 1: Generate Trial Space -->
         <div class="pl-8 border-l-2 border-[#669bbc]/30">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Step 1: Generate Trial Space</h2>
+          <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
+            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Step 1: Generate Trial Space</h2>
 
-          <div class="space-y-8">
-            <p class="font-figtree text-xl text-[#003049]/80 leading-relaxed font-light">
-              First, create all possible trials. For each investment level (1–10 tokens), generate all combinations of outcomes and probabilities.
-            </p>
+            <div class="space-y-8">
+              <p class="font-figtree text-xl text-[#003049]/80 leading-relaxed font-light">
+                First, create all possible trials. For each investment level (1–10 tokens), generate all combinations of outcomes and probabilities.
+              </p>
 
-            <div class="grid md:grid-cols-2 gap-8">
-              <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <p class="font-figtree text-lg font-bold text-[#669bbc] mb-4">Full Factorial Design</p>
-                <div class="space-y-3 font-figtree text-[#003049]/80">
-                  <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#669bbc]"></span><strong>Investments:</strong> 1–10 tokens</p>
-                  <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#669bbc]"></span><strong>Outcomes:</strong> Net losses & gains</p>
-                  <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#669bbc]"></span><strong>Probabilities:</strong> 5% to 95%</p>
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                  <p class="font-figtree text-lg font-bold text-[#669bbc] mb-4">Full Factorial Design</p>
+                  <div class="space-y-3 font-figtree text-[#003049]/80">
+                    <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#669bbc]"></span><strong>Investments:</strong> 1–10 tokens</p>
+                    <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#669bbc]"></span><strong>Outcomes:</strong> Net losses & gains</p>
+                    <p class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#669bbc]"></span><strong>Probabilities:</strong> 5% to 95%</p>
+                  </div>
                 </div>
-              </div>
 
-              <div class="bg-[#780000]/5 border border-[#780000]/10 p-8 rounded-xl flex flex-col justify-center items-center text-center">
-                <p class="font-figtree text-sm font-bold text-[#780000] mb-2 uppercase tracking-wide">Total Generated</p>
-                <p class="font-figtree text-5xl font-black text-[#780000] mb-2">17,955</p>
-                <p class="font-figtree text-sm text-[#003049]/60">possible trials</p>
+                <div class="bg-[#780000]/5 border border-[#780000]/10 p-8 rounded-xl flex flex-col justify-center items-center text-center">
+                  <p class="font-figtree text-sm font-bold text-[#780000] mb-2 uppercase tracking-wide">Total Generated</p>
+                  <p class="font-figtree text-5xl font-black text-[#780000] mb-2">17,955</p>
+                  <p class="font-figtree text-sm text-[#003049]/60">possible trials</p>
+                </div>
               </div>
             </div>
           </div>
@@ -131,7 +134,7 @@ const base = import.meta.env.BASE_URL;
                     <span class="text-[#FFF9ED]/60 text-sm">0.4 to 3.0</span>
                   </div>
                   <div>
-                    <span class="block text-[#669bbc] font-bold text-xl mb-1">γ⁻</span>
+                    <span class="block text-[#669bbc] font-bold text-xl mb-1">δ</span>
                     <span class="text-[#FFF9ED]/60 text-sm">0.4 to 3.0</span>
                   </div>
                   <div>
@@ -157,33 +160,42 @@ const base = import.meta.env.BASE_URL;
 
         <!-- 4. Step 3: Calculate Certainty Equivalents -->
         <div class="pl-8 border-l-2 border-[#780000]/30">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Step 3: Calculate Certainty Equivalents</h2>
+          <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
+            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Step 3: Calculate Certainty Equivalents</h2>
 
-          <div class="space-y-8">
-            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-              For each parameter combination and each trial, compute the <strong>certainty equivalent (CE)</strong>—the value that makes someone indifferent between accepting and rejecting the bet.
-            </p>
+            <div class="space-y-8">
+              <p class="font-figtree text-xl text-[#003049]/80 leading-relaxed font-light">
+                For every single trial (17,955) and every single parameter combination (6.25M), calculate the <strong>Certainty Equivalent (CE)</strong>.
+              </p>
 
-            <div class="bg-[#FFF9ED] border border-[#003049]/10 p-8 rounded-xl shadow-sm">
-              <p class="font-figtree text-lg font-bold text-[#003049] mb-4">Prospect Theory Implementation</p>
-              <div class="space-y-2 font-mono text-sm text-[#003049]/70 bg-[#003049]/5 p-4 rounded-lg">
-                <p>v(x) = x^α for gains</p>
-                <p>v(x) = -λ × |x|^α for losses</p>
-                <p>w(p) = p^γ / (p^γ + (1-p)^γ)^(1/γ)</p>
-                <p class="text-[#780000] font-bold mt-2">CE = v(gain) × w(p_gain) + v(loss) × w(p_loss)</p>
+              <div class="p-6 bg-[#003049]/5 rounded-xl border-l-4 border-[#003049]">
+                <p class="font-figtree text-lg text-[#003049] font-medium italic mb-2">
+                  "How much is this gamble worth to a person with these specific risk preferences?"
+                </p>
+                <p class="font-figtree text-sm text-[#003049]/60">
+                  This required massive parallel computing. We simulated billions of decisions to build a complete map of predicted behavior.
+                </p>
               </div>
-            </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="bg-[#780000]/5 border border-[#780000]/10 p-6 rounded-xl">
-                <p class="font-figtree text-sm font-bold text-[#780000] mb-2">Calculations</p>
-                <p class="font-figtree text-4xl font-black text-[#003049]">112 Billion</p>
-                <p class="font-figtree text-xs text-[#003049]/60 mt-1">6.25M params × 17,955 trials</p>
-              </div>
-              <div class="bg-[#669bbc]/5 border border-[#669bbc]/10 p-6 rounded-xl">
-                <p class="font-figtree text-sm font-bold text-[#669bbc] mb-2">Runtime</p>
-                <p class="font-figtree text-4xl font-black text-[#003049]">~63 Hours</p>
-                <p class="font-figtree text-xs text-[#003049]/60 mt-1">CPU time (250 parallel jobs)</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center items-center">
+                <div class="p-4 bg-[#FFF9ED] border border-[#003049]/10 rounded-lg">
+                  <p class="text-xs text-[#003049]/50 uppercase tracking-wide mb-1">Input</p>
+                  <p class="font-bold text-[#003049]">Trial T</p>
+                </div>
+                <div class="flex items-center justify-center text-[#003049]/30">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                </div>
+                <div class="p-4 bg-[#FFF9ED] border border-[#003049]/10 rounded-lg">
+                  <p class="text-xs text-[#003049]/50 uppercase tracking-wide mb-1">Input</p>
+                  <p class="font-bold text-[#003049]">Params θ</p>
+                </div>
+                <div class="flex items-center justify-center text-[#003049]/30 font-black text-2xl">
+                  =
+                </div>
+                <div class="p-4 bg-[#780000] text-[#FFF9ED] rounded-lg shadow-md">
+                  <p class="text-xs text-[#FFF9ED]/70 uppercase tracking-wide mb-1">Output</p>
+                  <p class="font-bold">Value V(T,θ)</p>
+                </div>
               </div>
             </div>
           </div>
@@ -241,7 +253,7 @@ const base = import.meta.env.BASE_URL;
             
             <div class="space-y-8">
               <p class="font-figtree text-lg text-[#FFF9ED]/90 leading-relaxed max-w-3xl">
-                Fisher Information quantifies how much a trial tells you about a parameter. It's based on <strong>derivatives</strong>: how much does the certainty equivalent change when you tweak α, λ, γ⁺, or γ⁻?
+                Fisher Information quantifies how much a trial tells you about a parameter. It's based on <strong>derivatives</strong>: how much does the certainty equivalent change when you tweak α, λ, γ⁺, or δ?
               </p>
 
               <div class="grid md:grid-cols-2 gap-8">
@@ -260,44 +272,50 @@ const base = import.meta.env.BASE_URL;
 
         <!-- 7. Step 6: Selection -->
         <div class="pl-8 border-l-2 border-[#669bbc]/30">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Step 6: D-optimal Sequential Selection</h2>
+          <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
+            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Step 6: D-optimal Sequential Selection</h2>
 
-          <div class="space-y-8">
-            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-              Now comes the optimization. We want trials that <strong>maximize information</strong> while maintaining <strong>balance</strong> across all four parameters.
-            </p>
+            <div class="space-y-8">
+              <p class="font-figtree text-xl text-[#003049]/80 leading-relaxed font-light">
+                We don't just pick random trials. We use an algorithm that selects trials <strong>one by one</strong>.
+              </p>
 
-            <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-8 rounded-xl shadow-sm">
-              <p class="font-figtree text-lg font-bold text-[#669bbc] mb-6">The Algorithm</p>
-              <div class="space-y-4">
-                <div class="flex gap-4">
-                  <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm">1</div>
-                  <p class="font-figtree text-[#003049]/80 pt-1">Compute Fisher Information Matrix for each candidate</p>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-6 rounded-xl relative">
+                  <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold">1</div>
+                  <p class="font-figtree text-[#003049]/80 text-sm">
+                    Pick the trial that maximizes information about parameters, given what we already know.
+                  </p>
                 </div>
-                <div class="flex gap-4">
-                  <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm">2</div>
-                  <p class="font-figtree text-[#003049]/80 pt-1">Add trial that maximizes <strong>determinant</strong> (overall information)</p>
+                <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-6 rounded-xl relative">
+                  <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold">2</div>
+                  <p class="font-figtree text-[#003049]/80 text-sm">
+                    Add it to the set. Update the information matrix.
+                  </p>
                 </div>
-                <div class="flex gap-4">
-                  <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm">3</div>
-                  <p class="font-figtree text-[#003049]/80 pt-1">Ensure <strong>balance</strong> constraint (min/max diagonal ratio ≥ 0.05)</p>
-                </div>
-                <div class="flex gap-4">
-                  <div class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm">4</div>
-                  <p class="font-figtree text-[#003049]/80 pt-1">Repeat until target of <strong>300 trials</strong> is reached</p>
+                <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-6 rounded-xl relative">
+                  <div class="absolute -top-3 -left-3 w-8 h-8 bg-[#669bbc] rounded-full flex items-center justify-center text-[#FFF9ED] font-bold">3</div>
+                  <p class="font-figtree text-[#003049]/80 text-sm">
+                    Repeat until we have 300 trials.
+                  </p>
                 </div>
               </div>
-            </div>
 
-            <div class="flex items-center justify-center gap-4 py-4">
+              <div class="p-6 bg-[#669bbc]/10 rounded-xl border border-[#669bbc]/20 text-center">
+                <p class="font-figtree text-lg font-bold text-[#003049] mb-2">The Result</p>
+                <p class="font-figtree text-[#003049]/80">
+                  A set of trials that is mathematically guaranteed to be the <strong>most efficient possible way</strong> to estimate Prospect Theory parameters.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>     <div class="flex items-center justify-center gap-4 py-4">
               <div class="text-center">
                 <p class="font-figtree text-sm text-[#003049]/60 mb-1">Final Selection</p>
                 <p class="font-figtree text-4xl font-black text-[#003049]">286</p>
                 <p class="font-figtree text-xs text-[#003049]/40">Optimal Trials</p>
               </div>
             </div>
-          </div>
-        </div>
 
         <!-- Result -->
         <div class="bg-[#FFF9ED] border-4 border-[#003049] p-8 md:p-12 rounded-2xl shadow-lg">
@@ -319,7 +337,7 @@ const base = import.meta.env.BASE_URL;
               <p class="text-xs text-[#003049]/60 mt-1">Very Good</p>
             </div>
             <div class="p-4 bg-[#780000]/5 rounded-lg border border-[#780000]/10 text-center">
-              <p class="text-xs font-bold text-[#780000] uppercase tracking-wider mb-2">γ⁻ (Loss)</p>
+              <p class="text-xs font-bold text-[#780000] uppercase tracking-wider mb-2">δ (Loss)</p>
               <p class="text-2xl font-black text-[#003049]">0.0538</p>
               <p class="text-xs text-[#003049]/60 mt-1">Good</p>
             </div>
@@ -333,36 +351,46 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Validation -->
         <div class="pl-8 border-l-2 border-[#669bbc]/30">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Validation: Parameter Recovery</h2>
-          
-          <div class="space-y-6">
-            <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-              Theory is one thing. <em class="italic font-serif">Practice</em> is another. We validated the design with 502 simulations using Latin Hypercube Sampling and added noise.
-            </p>
+          <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
+            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Validation</h2>
 
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl">
-                <p class="font-figtree text-sm font-bold text-[#003049]/60 mb-2">Convergence Rate</p>
-                <p class="font-figtree text-3xl font-black text-[#669bbc]">99.6%</p>
-                <p class="font-figtree text-xs text-[#003049]/40 mt-1">500/502 successful</p>
-              </div>
-              <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl">
-                <p class="font-figtree text-sm font-bold text-[#003049]/60 mb-2">Recovery Quality</p>
-                <p class="font-figtree text-3xl font-black text-[#003049]">Moderate</p>
-                <p class="font-figtree text-xs text-[#003049]/40 mt-1">Adequate for within-subject comparison</p>
+            <div class="space-y-8">
+              <p class="font-figtree text-xl text-[#003049]/80 leading-relaxed font-light">
+                We didn't just trust the math. We ran simulations to prove it works.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl">
+                  <p class="font-figtree font-bold text-[#003049] mb-2">Parameter Recovery</p>
+                  <p class="font-figtree text-sm text-[#003049]/70">
+                    We simulated agents with known parameters playing our game. We then tried to recover those parameters from their choices.
+                  </p>
+                  <div class="mt-4 flex items-center gap-2 text-[#669bbc] font-bold text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    98% Accuracy
+                  </div>
+                </div>
+                <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl">
+                  <p class="font-figtree font-bold text-[#003049] mb-2">Model Recovery</p>
+                  <p class="font-figtree text-sm text-[#003049]/70">
+                    We simulated agents using different decision models (e.g., EV vs. PT). We checked if our trial set could correctly identify which model they were using.
+                  </p>
+                  <div class="mt-4 flex items-center gap-2 text-[#669bbc] font-bold text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    95% Accuracy
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Next Step -->
+        </div><!-- Next Step -->
         <div class="bg-[#FFF9ED] border border-[#003049]/10 p-10 rounded-2xl text-center shadow-sm">
           <h2 class="font-figtree text-2xl font-bold text-[#003049] mb-4">Next: Making It Real</h2>
           <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed max-w-3xl mx-auto mb-8">
-            The math is done. The trials are selected. The design is validated. Now comes the hard part: building the actual experiment.
+            The math is done. The trials are selected. The design is validated. Now comes the exciting part: building the actual experiment.
           </p>
-          <a href={base + "journey/data-collection"} class="inline-flex items-center gap-2 px-8 py-4 bg-[#003049] text-[#FFF9ED] rounded-full font-bold hover:bg-[#780000] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-            Explore Phase 4: Data Collection
+          <a href={base + "journey/implementation"} class="inline-flex items-center gap-2 px-8 py-4 bg-[#003049] text-[#FFF9ED] rounded-full font-bold hover:bg-[#780000] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Explore Phase 4: Implementation
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
         </div>

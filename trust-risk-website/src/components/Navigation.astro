@@ -22,9 +22,16 @@ const otherLang = lang === 'fr' ? 'en' : 'fr';
 const otherLangLabel = lang === 'fr' ? 'EN' : 'FR';
 
 // Map current path to other language
-const switchUrl = lang === 'fr'
-  ? currentPath.replace(/^\/fr/, '') || '/'
-  : `/fr${currentPath}`;
+// Ensure we always have a proper path starting with /
+let switchPath = currentPath || '/';
+if (lang === 'fr') {
+  // Going from FR to EN: remove /fr prefix
+  switchPath = switchPath.replace(/^\/fr/, '') || '/';
+} else {
+  // Going from EN to FR: add /fr prefix
+  switchPath = '/fr' + switchPath;
+}
+const switchUrl = switchPath;
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-[#003049] shadow-lg">
@@ -49,6 +56,17 @@ const switchUrl = lang === 'fr'
             {item.label}
           </a>
         ))}
+        
+        <!-- Language Switcher -->
+        <a
+          href={switchUrl}
+          class="px-4 py-2 bg-[#FFF9ED] text-[#003049] rounded-full font-figtree font-bold text-sm hover:bg-[#780000] hover:text-[#FFF9ED] transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg flex items-center gap-2"
+          title={`Switch to ${otherLang === 'fr' ? 'Français' : 'English'}`}
+        >
+          <span class="opacity-50 font-medium text-xs">{lang === 'en' ? 'EN' : 'FR'}</span>
+          <span class="w-px h-3 bg-current opacity-20"></span>
+          <span>{otherLangLabel}</span>
+        </a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -73,6 +91,16 @@ const switchUrl = lang === 'fr'
           {item.label}
         </a>
       ))}
+      
+      <!-- Language Switcher (Mobile) -->
+      <a
+        href={switchUrl}
+        class="flex items-center justify-center gap-2 px-4 py-2 bg-[#FFF9ED] text-[#003049] rounded-full font-figtree font-bold text-sm hover:bg-[#780000] hover:text-[#FFF9ED] transition-colors"
+      >
+        <span class="opacity-50 font-medium text-xs">{lang === 'en' ? 'EN' : 'FR'}</span>
+        <span class="w-px h-3 bg-current opacity-20"></span>
+        <span>{otherLangLabel}</span>
+      </a>
     </div>
   </div>
 </nav>

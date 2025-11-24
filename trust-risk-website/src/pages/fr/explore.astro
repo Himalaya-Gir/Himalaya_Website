@@ -1,14 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import '../../styles/global.css';
+import { t } from '../../i18n/translations';
+import Footer from '../../components/Footer.astro';
 
-const lang = 'en';
+const lang = 'fr';
 ---
 
-<Layout title="Explore Prospect Theory | Himalaya Girard">
-	<Navigation lang={lang} currentPath="/explore" spacerBg="bg-[#003049]" />
+<Layout title="Explorer la Théorie des Perspectives | Himalaya Girard">
+	<Navigation lang={lang} currentPath="/fr/explore" spacerBg="bg-[#003049]" />
 	<main class="min-h-screen bg-[#FFF9ED]">
 		<!-- Hero Section -->
 		<section class="relative py-20 px-6 overflow-hidden">
@@ -25,14 +26,13 @@ const lang = 'en';
 
 			<div class="max-w-5xl mx-auto text-center relative z-10">
 				<div class="inline-block px-4 py-2 bg-[#003049]/5 text-[#003049] rounded-lg text-sm font-bold uppercase tracking-widest mb-6 border border-[#003049]/10">
-					Interactive Playground
+					{t("explore.badge", lang)}
 				</div>
 				<h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">
-					Explore <span class="text-[#780000]">Prospect Theory</span>
+					{t("explore.title", lang)} <span class="text-[#780000]">{t("explore.titleHighlight", lang)}</span>
 				</h1>
 				<p class="font-figtree text-xl text-[#003049]/70 leading-relaxed max-w-3xl mx-auto">
-					Interact with the Nobel Prize-winning framework that explains how people make decisions under uncertainty.
-					Adjust parameters in real-time and see how they shape behavior.
+					{t("explore.subtitle", lang)}
 				</p>
 			</div>
 		</section>
@@ -45,18 +45,18 @@ const lang = 'en';
 					<div class="absolute top-0 right-0 w-64 h-64 bg-[#FFF9ED] rounded-full mix-blend-overlay opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
 
 					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6 text-center relative z-10">
-						Your Brain Doesn't Calculate. It Distorts.
+						Votre Cerveau ne Calcule Pas. Il Déforme.
 					</h2>
 					<div class="space-y-4 text-[#FFF9ED]/90 font-figtree text-lg leading-relaxed relative z-10">
 						<p>
-							In 1979, Kahneman and Tversky asked people to choose between bets. Simple gambles with clear odds. Then they reverse-engineered the "math" people's brains were using.
+							En 1979, Kahneman et Tversky ont demandé aux gens de choisir entre différents paris. Des jeux simples avec des probabilités claires. Puis ils ont rétro-conçu les "mathématiques" que le cerveau des gens utilisait.
 						</p>
 						<p>
-							Turns out we don't calculate expected value. We do something weirder. <strong>We distort probabilities. We feel losses more than gains. We follow patterns.</strong>
+							Il s'avère que nous ne calculons pas la valeur attendue. Nous faisons quelque chose de plus étrange. <strong>Nous distordons les probabilités. Nous ressentons les pertes plus que les gains. Nous suivons des patterns.</strong>
 						</p>
 						<div class="bg-[#FFF9ED]/10 p-4 rounded-lg border-l-4 border-[#FFF9ED] mt-6">
 							<p class="font-semibold text-[#FFF9ED]">
-								This work won the Nobel Prize in 2002. Now I'm testing if the same math explains trust.
+								Ce travail a remporté le Prix Nobel en 2002. Maintenant je teste si les mêmes mathématiques expliquent la confiance.
 							</p>
 						</div>
 					</div>
@@ -64,13 +64,13 @@ const lang = 'en';
 			</div>
 		</section>
 
-		<!-- Value Function Section -->
+		<!-- {t("explore.math.value", lang)} Section -->
 		<section class="py-16 px-6">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#780000] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">1. Sensitivity to Outcomes</h2>
+					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">1. Sensibilité aux Résultats</h2>
 					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-						How we perceive gains and losses. <strong>Losses loom larger than gains</strong> (loss aversion), and <strong>marginal value decreases</strong> as amounts grow.
+						Comment nous percevons les gains et les pertes. <strong>Les pertes semblent plus grandes que les gains</strong> (loss aversion), and <strong>la valeur marginale diminue</strong> as amounts grow.
 					</p>
 				</div>
 
@@ -78,7 +78,7 @@ const lang = 'en';
 					<!-- Chart -->
 					<div class="bg-[#FFF9ED] p-6 rounded-2xl shadow-sm border border-[#003049]/10 h-[500px] flex items-center relative overflow-hidden">
 						<div class="absolute top-0 right-0 px-4 py-2 bg-[#003049]/5 text-[#003049] text-xs font-bold uppercase tracking-wider rounded-bl-xl">
-							Value Function v(x)
+							{t("explore.math.value", lang)} v(x)
 						</div>
 						<canvas id="valueChart" class="w-full h-full relative z-10"></canvas>
 					</div>
@@ -90,7 +90,7 @@ const lang = 'en';
 							<div class="flex justify-between items-center mb-6">
 								<div>
 									<label class="font-figtree text-xl font-bold block mb-1">
-										Sensitivity to Amounts
+										Sensibilité aux Montants
 									</label>
 									<span class="font-figtree text-sm text-[#669bbc] uppercase tracking-wide font-semibold">α (alpha) • Curvature</span>
 								</div>
@@ -108,18 +108,18 @@ const lang = 'en';
 								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#669bbc] hover:accent-[#FFF9ED] transition-all"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/70 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
-								How much you care about the amount versus simply winning or losing. Lower values = stronger diminishing sensitivity.
+								L'importance accordée au montant par rapport au simple fait de gagner ou perdre. Valeurs plus faibles = sensibilité décroissante plus forte.
 							</p>
 						</div>
 
-						<!-- Lambda (Loss Aversion) -->
+						<!-- Lambda ({t("explore.lossAversion.title", lang)}) -->
 						<div class="bg-[#780000] p-8 rounded-2xl shadow-lg text-[#FFF9ED]">
 							<div class="flex justify-between items-center mb-6">
 								<div>
 									<label class="font-figtree text-xl font-bold block mb-1">
-										How Much Losses Hurt
+										À Quel Point les Pertes Font Mal
 									</label>
-									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">λ (lambda) • Loss Aversion</span>
+									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">λ (lambda) • {t("explore.lossAversion.title", lang)}</span>
 								</div>
 								<div class="bg-[#FFF9ED]/10 px-4 py-2 rounded-lg border border-[#FFF9ED]/20">
 									<span id="lambdaValue" class="font-figtree text-2xl font-bold text-[#FFF9ED]">2.25</span>
@@ -135,34 +135,34 @@ const lang = 'en';
 								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED] hover:accent-[#003049] transition-all"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/80 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
-								λ = 2.25 means a $10 loss feels like a $22.50 gain would feel good. Higher values = losses hurt more.
+								λ = 2,25 signifie qu'une perte de 10$ est ressentie aussi intensément qu'un gain de 22,50$. Valeurs plus élevées = les pertes font plus mal.
 							</p>
 						</div>
 
-						<!-- Key Insights -->
+						<!-- Points Clés -->
 						<div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-2xl">
 							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-4 flex items-center gap-2">
 								<svg class="w-5 h-5 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-								Key Insights
+								Points Clés
 							</h3>
 							<ul class="space-y-3 font-figtree text-[#003049]/80 text-sm">
 								<li class="flex items-start gap-3">
 									<div class="mt-1 text-[#780000]">
 										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
 									</div>
-									<span>The curve is steeper for losses than gains (asymmetry)</span>
+									<span>La courbe est plus raide pour les pertes que pour les gains (asymétrie)</span>
 								</li>
 								<li class="flex items-start gap-3">
 									<div class="mt-1 text-[#780000]">
 										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
 									</div>
-									<span>Both sides show diminishing sensitivity</span>
+									<span>Les deux côtés montrent une sensibilité décroissante</span>
 								</li>
 								<li class="flex items-start gap-3">
 									<div class="mt-1 text-[#780000]">
 										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
 									</div>
-									<span>People are risk-averse for gains but risk-seeking for losses</span>
+									<span>Les gens sont averses au risque pour les gains mais recherchent le risque pour les pertes</span>
 								</li>
 							</ul>
 						</div>
@@ -171,7 +171,7 @@ const lang = 'en';
 			</div>
 		</section>
 
-		<!-- Probability Weighting Section -->
+		<!-- {t("explore.math.prob", lang)} Section -->
 		<section class="py-16 px-6 relative overflow-hidden">
 			<!-- Background Pattern -->
 			<div class="absolute inset-0 opacity-5 pointer-events-none">
@@ -187,9 +187,9 @@ const lang = 'en';
 
 			<div class="max-w-6xl mx-auto relative z-10">
 				<div class="border-l-4 border-[#669bbc] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">2. How We Distort Probabilities</h2>
+					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">2. Comment Nous Distordons les Probabilités</h2>
 					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-						We don't perceive probabilities linearly. <strong>Small chances feel bigger</strong> than they are, while <strong>medium and high probabilities feel less certain.</strong>
+						Nous ne percevons pas les probabilités de manière linéaire. <strong>Les petites chances semblent plus grandes</strong> qu'elles ne le sont, tandis que <strong>les probabilités moyennes et élevées semblent moins certaines.</strong>
 					</p>
 				</div>
 
@@ -197,7 +197,7 @@ const lang = 'en';
 					<!-- Chart -->
 					<div class="bg-[#FFF9ED] p-6 rounded-2xl shadow-sm border border-[#003049]/10 h-[500px] flex items-center relative overflow-hidden">
 						<div class="absolute top-0 right-0 px-4 py-2 bg-[#003049]/5 text-[#003049] text-xs font-bold uppercase tracking-wider rounded-bl-xl">
-							Weighting Function w(p)
+							Fonction de Pondération w(p)
 						</div>
 						<canvas id="weightChart" class="w-full h-full relative z-10"></canvas>
 					</div>
@@ -209,7 +209,7 @@ const lang = 'en';
 							<div class="flex justify-between items-center mb-6">
 								<div>
 									<label class="font-figtree text-xl font-bold block mb-1">
-										Probability Distortion (Gains)
+										{t("explore.probDistortion.title", lang)} (Gains)
 									</label>
 									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">(Gains) γ⁺</span>
 								</div>
@@ -227,7 +227,7 @@ const lang = 'en';
 								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#669bbc] hover:accent-[#FFF9ED] transition-all"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/80 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
-								Lower values = more distortion. Small probabilities loom larger; high probabilities feel less certain.
+								Valeurs plus faibles = plus de distorsion. Les petites probabilités semblent plus grandes ; les probabilités élevées semblent moins certaines.
 							</p>
 						</div>
 
@@ -236,7 +236,7 @@ const lang = 'en';
 							<div class="flex justify-between items-center mb-6">
 								<div>
 									<label class="font-figtree text-xl font-bold block mb-1">
-										Probability Distortion (Losses)
+										{t("explore.probDistortion.title", lang)} (Pertes)
 									</label>
 									<span class="font-figtree text-sm text-[#FFF9ED]/80 uppercase tracking-wide font-semibold">(Losses) δ⁻</span>
 								</div>
@@ -254,28 +254,28 @@ const lang = 'en';
 								class="w-full h-3 bg-[#000000]/30 rounded-lg appearance-none cursor-pointer accent-[#780000] hover:accent-[#FFF9ED] transition-all"
 							/>
 							<p class="font-figtree text-sm text-[#FFF9ED]/90 mt-4 leading-relaxed border-t border-[#FFF9ED]/10 pt-4">
-								Same concept as gains, but for losses. Typically similar to γ⁺ but empirically slightly different.
+								Même concept que pour les gains, mais pour les pertes. Généralement similaire à γ⁺ mais empiriquement légèrement différent.
 							</p>
 						</div>
 
-						<!-- Key Insights -->
+						<!-- Points Clés -->
 						<div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-2xl">
-							<h3 class="font-figtree text-lg font-bold text-[#003049] mb-4 flex items-center gap-2">
+								<h3 class="font-figtree text-lg font-bold text-[#003049] mb-4 flex items-center gap-2">
 								<svg class="w-5 h-5 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-								Real-World Examples
+								Exemples du Monde Réel
 							</h3>
 							<ul class="space-y-3 font-figtree text-[#003049]/80 text-sm">
 								<li class="flex items-start gap-3">
 									<span class="text-[#780000] mt-0.5 font-bold">•</span>
-									<span>Lottery tickets: we overweight the tiny chance of winning millions</span>
+									<span>Billets de loterie : nous surpondérons la faible chance de gagner des millions</span>
 								</li>
 								<li class="flex items-start gap-3">
 									<span class="text-[#780000] mt-0.5 font-bold">•</span>
-									<span>Insurance: we overweight small disaster risks</span>
+									<span>Assurance : nous surpondérons les petits risques de catastrophe</span>
 								</li>
 								<li class="flex items-start gap-3">
 									<span class="text-[#780000] mt-0.5 font-bold">•</span>
-									<span>The diagonal line shows perfect calibration</span>
+									<span>La ligne diagonale montre une calibration parfaite</span>
 								</li>
 							</ul>
 						</div>
@@ -298,7 +298,7 @@ const lang = 'en';
 					</div>
 					<h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-4 relative z-10">From Risk to Trust</h2>
 					<p class="font-figtree text-lg text-[#FFF9ED]/85 leading-relaxed relative z-10 max-w-2xl mx-auto">
-						Prospect Theory works for coin flips and dice. <strong>But what about trusting people?</strong>
+						La Théorie des Perspectives fonctionne pour les lancers de pièce et les dés. <strong>Mais qu'en est-il de faire confiance aux gens ?</strong>
 					</p>
 				</div>
 			</div>
@@ -308,13 +308,13 @@ const lang = 'en';
 		<section class="py-16 px-6">
 			<div class="max-w-6xl mx-auto">
 				<div class="border-l-4 border-[#780000] pl-8 mb-12">
-					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">3. Test It Yourself</h2>
+					<h2 class="font-figtree text-4xl font-bold text-[#003049] mb-4">3. Testez par Vous-Même</h2>
 					<p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-						Same bet. Different source. <strong>Adjust the sliders</strong> to see how your perception changes.
+						Même pari. Source différente. <strong>Ajustez les curseurs</strong> to see how your perception changes.
 					</p>
 				</div>
 
-				<!-- Common Scenario Description -->
+				<!-- Description du Scénario Commun -->
 				<div class="bg-[#FFF9ED] border border-[#003049]/10 p-8 rounded-2xl mb-8 relative shadow-sm">
 					<!-- Left Arrow -->
 					<button id="prevScenario" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#003049] hover:bg-[#780000] text-[#FFF9ED] rounded-full flex items-center justify-center transition-all shadow-md z-20">
@@ -328,24 +328,24 @@ const lang = 'en';
 						</svg>
 					</button>
 
-					<h3 class="font-figtree text-2xl font-bold text-[#003049] mb-8 text-center uppercase tracking-widest text-sm">Current Scenario</h3>
+					<h3 class="font-figtree text-2xl font-bold text-[#003049] mb-8 text-center uppercase tracking-widest text-sm">Scénario Actuel</h3>
 					
 					<div id="scenarioContent" class="bg-[#003049]/5 p-8 rounded-2xl max-w-3xl mx-auto transition-all duration-500 border border-[#003049]/5">
 						<div class="flex justify-between items-center mb-6 pb-6 border-b border-[#003049]/10">
-							<span class="font-figtree text-[#003049] font-bold text-xl">Your investment</span>
+							<span class="font-figtree text-[#003049] font-bold text-xl">Votre investissement</span>
 							<span id="scenarioInvestment" class="font-figtree text-3xl font-black text-[#003049] transition-all duration-500">$10</span>
 						</div>
 						<div class="grid grid-cols-2 gap-8">
 							<div class="bg-[#FFF9ED] p-4 rounded-xl border border-[#669bbc]/20">
 								<div class="flex justify-between items-center mb-2">
-									<span class="font-figtree text-[#003049] font-semibold">If you win</span>
+									<span class="font-figtree text-[#003049] font-semibold">Si vous gagnez</span>
 									<span id="scenarioWinProb" class="text-[#669bbc] text-sm font-bold bg-[#669bbc]/10 px-2 py-1 rounded">60%</span>
 								</div>
 								<span id="scenarioWinAmount" class="font-figtree text-3xl font-bold text-[#669bbc] transition-all duration-500 block">+$30</span>
 							</div>
 							<div class="bg-[#FFF9ED] p-4 rounded-xl border border-[#780000]/20">
 								<div class="flex justify-between items-center mb-2">
-									<span class="font-figtree text-[#003049] font-semibold">If you lose</span>
+									<span class="font-figtree text-[#003049] font-semibold">Si vous perdez</span>
 									<span id="scenarioLoseProb" class="text-[#780000] text-sm font-bold bg-[#780000]/10 px-2 py-1 rounded">40%</span>
 								</div>
 								<span id="scenarioLoseAmount" class="font-figtree text-3xl font-bold text-[#780000] transition-all duration-500 block">-$10</span>
@@ -353,23 +353,23 @@ const lang = 'en';
 						</div>
 
 						
-						<!-- Quick Comparison Summary (Mobile Optimized) -->
+						<!-- Comparaison Rapide Summary (Mobile Optimized) -->
 						<div class="mt-8 pt-6 border-t border-[#003049]/10">
-							<p class="font-figtree text-sm text-[#003049]/60 font-bold uppercase tracking-widest mb-4 text-center">Quick Comparison</p>
+							<p class="font-figtree text-sm text-[#003049]/60 font-bold uppercase tracking-widest mb-4 text-center">Comparaison Rapide</p>
 							<div class="grid grid-cols-2 gap-4">
 								<div class="bg-[#780000]/5 p-3 rounded-lg border border-[#780000]/10 text-center">
-									<span class="block font-figtree text-xs text-[#780000] font-bold uppercase mb-1">Trust Value</span>
+									<span class="block font-figtree text-xs text-[#780000] font-bold uppercase mb-1">Valeur Confiance</span>
 									<span id="quickTrustValue" class="font-figtree text-2xl font-black text-[#780000]">+2.4</span>
 								</div>
 								<div class="bg-[#669bbc]/5 p-3 rounded-lg border border-[#669bbc]/10 text-center">
-									<span class="block font-figtree text-xs text-[#669bbc] font-bold uppercase mb-1">Risk Value</span>
+									<span class="block font-figtree text-xs text-[#669bbc] font-bold uppercase mb-1">Valeur Risque</span>
 									<span id="quickRiskValue" class="font-figtree text-2xl font-black text-[#669bbc]">+2.4</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<p class="font-figtree text-sm text-[#003049]/60 text-center mt-6 italic">
-						Same numbers. Different sources. Does it change your decision?
+						Mêmes chiffres. Sources différentes. Cela change-t-il votre décision ?
 					</p>
 				</div>
 
@@ -383,21 +383,21 @@ const lang = 'en';
 								</svg>
 							</div>
 							<div>
-								<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">Trust Game</h3>
-								<p class="font-figtree text-[#FFF9ED]/80 text-sm">Social Context</p>
+								<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">{t("explore.scenarios.trust.title", lang)}</h3>
+								<p class="font-figtree text-[#FFF9ED]/80 text-sm">Contexte Social</p>
 							</div>
 						</div>
 						
 						<div class="bg-[#FFF9ED]/10 p-4 rounded-xl mb-6 border border-[#FFF9ED]/10">
 							<p class="font-figtree text-[#FFF9ED]/90 leading-relaxed text-center">
-								A stranger decides. They reciprocate <span id="trustProbText" class="font-bold text-[#FFF9ED] bg-[#FFF9ED]/20 px-1 rounded">60%</span> of the time.
+								Un inconnu décide. Il rend la pareille <span id="trustProbText" class="font-bold text-[#FFF9ED] bg-[#FFF9ED]/20 px-1 rounded">60%</span> of the time.
 							</p>
 						</div>
 
 						<!-- Result Display (Moved to Top) -->
 						<div class="bg-[#FFF9ED] p-6 rounded-xl transition-transform duration-300 shadow-lg mb-8">
 							<div class="flex justify-between items-end mb-2">
-								<p class="font-figtree text-sm text-[#780000] font-bold uppercase tracking-wide">Subjective Value</p>
+								<p class="font-figtree text-sm text-[#780000] font-bold uppercase tracking-wide">Valeur Subjective</p>
 								<p class="font-figtree text-2xl font-black text-[#780000]" id="trustValue">+2.4</p>
 							</div>
 							
@@ -409,13 +409,13 @@ const lang = 'en';
 							</div>
 							
 							<div id="trustRecommendation" class="text-center border-t border-[#780000]/10 pt-4">
-								<p class="font-figtree text-lg font-bold text-[#780000]">Yes, it is worth it to invest</p>
+								<p class="font-figtree text-lg font-bold text-[#780000]">Oui, cela vaut la peine d'investir</p>
 							</div>
 						</div>
 
 						<!-- Trust Parameters (Compact) -->
 						<div class="space-y-4 flex-grow">
-							<p class="font-figtree text-xs text-[#FFF9ED]/60 font-bold uppercase tracking-widest mb-2">Adjust Trust Parameters</p>
+							<p class="font-figtree text-xs text-[#FFF9ED]/60 font-bold uppercase tracking-widest mb-2">Ajuster les Paramètres de Confiance</p>
 							
 							<div class="space-y-3">
 								<!-- Alpha -->
@@ -430,7 +430,7 @@ const lang = 'en';
 								<!-- Lambda -->
 								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
 									<div class="flex justify-between items-center mb-2">
-										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Loss Aversion λ</span>
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">{t("explore.lossAversion.title", lang)} λ</span>
 										<span id="trustLambdaVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">2.70</span>
 									</div>
 									<input type="range" id="trustLambda" min="0.1" max="4.0" step="0.01" value="2.70" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
@@ -439,7 +439,7 @@ const lang = 'en';
 								<!-- Gamma Gain -->
 								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
 									<div class="flex justify-between items-center mb-2">
-										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Gains) γ⁺</span>
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distorsion (Gains) γ⁺</span>
 										<span id="trustGammaGVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">2.01</span>
 									</div>
 									<input type="range" id="trustGammaG" min="0.5" max="2.5" step="0.01" value="2.01" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
@@ -448,7 +448,7 @@ const lang = 'en';
 								<!-- Gamma Loss -->
 								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
 									<div class="flex justify-between items-center mb-2">
-										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Losses) δ⁻</span>
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distorsion (Pertes) δ⁻</span>
 										<span id="trustGammaLVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.51</span>
 									</div>
 									<input type="range" id="trustGammaL" min="0.5" max="2.5" step="0.01" value="0.51" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
@@ -466,21 +466,21 @@ const lang = 'en';
 								</svg>
 							</div>
 							<div>
-								<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">Risk Game</h3>
-								<p class="font-figtree text-[#FFF9ED]/80 text-sm">Non-Social Context</p>
+								<h3 class="font-figtree text-2xl font-bold text-[#FFF9ED]">{t("explore.scenarios.risk.title", lang)}</h3>
+								<p class="font-figtree text-[#FFF9ED]/80 text-sm">Non-Social</p>
 							</div>
 						</div>
 						
 						<div class="bg-[#FFF9ED]/10 p-4 rounded-xl mb-6 border border-[#FFF9ED]/10">
 							<p class="font-figtree text-[#FFF9ED]/90 leading-relaxed text-center">
-								A computer decides. <span id="riskProbText" class="font-bold text-[#FFF9ED] bg-[#FFF9ED]/20 px-1 rounded">60%</span> chance to win.
+								Un ordinateur décide. <span id="riskProbText" class="font-bold text-[#FFF9ED] bg-[#FFF9ED]/20 px-1 rounded">60%</span> chance de gagner.
 							</p>
 						</div>
 
 						<!-- Result Display (Moved to Top) -->
 						<div class="bg-[#FFF9ED] p-6 rounded-xl transition-transform duration-300 shadow-lg mb-8">
 							<div class="flex justify-between items-end mb-2">
-								<p class="font-figtree text-sm text-[#669bbc] font-bold uppercase tracking-wide">Subjective Value</p>
+								<p class="font-figtree text-sm text-[#669bbc] font-bold uppercase tracking-wide">Valeur Subjective</p>
 								<p class="font-figtree text-2xl font-black text-[#669bbc]" id="riskValue">+2.4</p>
 							</div>
 							
@@ -492,13 +492,13 @@ const lang = 'en';
 							</div>
 							
 							<div id="riskRecommendation" class="text-center border-t border-[#669bbc]/10 pt-4">
-								<p class="font-figtree text-lg font-bold text-[#669bbc]">Yes, it is worth it to invest</p>
+								<p class="font-figtree text-lg font-bold text-[#669bbc]">Oui, cela vaut la peine d'investir</p>
 							</div>
 						</div>
 
 						<!-- Risk Parameters (Compact) -->
 						<div class="space-y-4 flex-grow">
-							<p class="font-figtree text-xs text-[#FFF9ED]/60 font-bold uppercase tracking-widest mb-2">Adjust Risk Parameters</p>
+							<p class="font-figtree text-xs text-[#FFF9ED]/60 font-bold uppercase tracking-widest mb-2">Ajuster les Paramètres de Risque</p>
 							
 							<div class="space-y-3">
 								<!-- Alpha -->
@@ -513,7 +513,7 @@ const lang = 'en';
 								<!-- Lambda -->
 								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
 									<div class="flex justify-between items-center mb-2">
-										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Loss Aversion λ</span>
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">{t("explore.lossAversion.title", lang)} λ</span>
 										<span id="riskLambdaVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">2.25</span>
 									</div>
 									<input type="range" id="riskLambda" min="1.0" max="4.0" step="0.05" value="2.25" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
@@ -522,7 +522,7 @@ const lang = 'en';
 								<!-- Gamma Gain -->
 								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
 									<div class="flex justify-between items-center mb-2">
-										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Gains) γ⁺</span>
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distorsion (Gains) γ⁺</span>
 										<span id="riskGammaGVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.61</span>
 									</div>
 									<input type="range" id="riskGammaG" min="0.5" max="2.5" step="0.01" value="0.61" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
@@ -531,7 +531,7 @@ const lang = 'en';
 								<!-- Gamma Loss -->
 								<div class="bg-[#000000]/20 px-4 py-3 rounded-xl">
 									<div class="flex justify-between items-center mb-2">
-										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distortion (Losses) δ⁻</span>
+										<span class="font-figtree text-sm text-[#FFF9ED] font-medium">Distorsion (Pertes) δ⁻</span>
 										<span id="riskGammaLVal" class="font-figtree text-sm font-bold text-[#FFF9ED]">0.69</span>
 									</div>
 									<input type="range" id="riskGammaL" min="0.5" max="2.5" step="0.01" value="0.69" class="w-full h-1.5 bg-[#FFF9ED]/20 rounded-lg appearance-none cursor-pointer accent-[#FFF9ED]"/>
@@ -550,30 +550,30 @@ const lang = 'en';
 							<span class="bg-[#FFF9ED]/10 p-2 rounded-lg">
 								<svg class="w-6 h-6 text-[#FFF9ED]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
 							</span>
-							The Point
+							Le Point Principal
 						</h3>
 						<p class="font-figtree text-xl text-[#FFF9ED]/90 leading-relaxed mb-8 max-w-3xl">
-							Same bet. Different decision. Your parameters change how you see it.
+							Même pari. Décision différente. Vos paramètres changent votre perception.
 						</p>
 						<div class="grid md:grid-cols-2 gap-6">
 							<ul class="space-y-4 font-figtree text-[#FFF9ED]/80">
 								<li class="flex items-start gap-3">
 									<span class="text-[#669bbc] mt-1 font-bold">→</span>
-									<span><strong class="text-[#FFF9ED]">Parameters = perception.</strong> Same numbers, different feelings.</span>
+									<span><strong class="text-[#FFF9ED]">Paramètres = perception.</strong> Mêmes chiffres, ressentis différents.</span>
 								</li>
 								<li class="flex items-start gap-3">
 									<span class="text-[#669bbc] mt-1 font-bold">→</span>
-									<span><strong class="text-[#FFF9ED]">High loss aversion?</strong> Even good bets feel scary.</span>
+									<span><strong class="text-[#FFF9ED]">Aversion aux pertes élevée ?</strong> Même les bons paris font peur.</span>
 								</li>
 							</ul>
 							<ul class="space-y-4 font-figtree text-[#FFF9ED]/80">
 								<li class="flex items-start gap-3">
 									<span class="text-[#669bbc] mt-1 font-bold">→</span>
-									<span><strong class="text-[#FFF9ED]">Distort probabilities?</strong> Changes everything.</span>
+									<span><strong class="text-[#FFF9ED]">Distordre les probabilités ?</strong> Change tout.</span>
 								</li>
 								<li class="flex items-start gap-3">
 									<span class="text-[#669bbc] mt-1 font-bold">→</span>
-									<span><strong class="text-[#FFF9ED]">My research:</strong> Do trust and risk use different parameters?</span>
+									<span><strong class="text-[#FFF9ED]">Ma recherche :</strong> La confiance et le risque utilisent-ils des paramètres différents ?</span>
 								</li>
 							</ul>
 						</div>
@@ -597,12 +597,12 @@ const lang = 'en';
 					</div>
 
 					<div class="relative z-10">
-						<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-6">See How We Build This</h2>
+						<h2 class="font-figtree text-4xl font-bold text-[#FFF9ED] mb-6">Découvrez Comment Nous Construisons Cela</h2>
 						<p class="font-figtree text-xl text-[#FFF9ED]/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-							Now that you understand the theory, see how we designed the experiment to measure these parameters in the brain.
+							Maintenant que vous comprenez la théorie, découvrez comment nous avons conçu l'expérience pour mesurer ces paramètres dans le cerveau.
 						</p>
-						<a href="/journey" class="inline-flex items-center gap-3 bg-[#780000] hover:bg-[#9a0000] text-[#FFF9ED] px-8 py-4 rounded-xl font-figtree font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
-							View Research Journey
+						<a href="/fr/journey" class="inline-flex items-center gap-3 bg-[#780000] hover:bg-[#9a0000] text-[#FFF9ED] px-8 py-4 rounded-xl font-figtree font-bold text-lg transition-all transform hover:scale-105 shadow-lg">
+							{t("explore.cta.button", lang)}
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
 							</svg>
@@ -618,7 +618,7 @@ const lang = 'en';
 </Layout>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script>
+<script define:vars={{ valueLabel: t("explore.math.value", lang) }}>
 window.addEventListener('load', function() {
 	// Wait for Chart.js to load
 	if (typeof Chart === 'undefined') {
@@ -714,7 +714,7 @@ window.addEventListener('load', function() {
 		data: {
 			datasets: [
 				{
-					label: 'Value Function',
+					label: valueLabel,
 					data: generateValueData(alpha, lambda),
 					borderColor: '#780000',
 					backgroundColor: 'rgba(120, 0, 0, 0.1)',
@@ -723,7 +723,7 @@ window.addEventListener('load', function() {
 					tension: 0.4
 				},
 				{
-					label: 'Perfect Rationality',
+					label: 'Rationalité Parfaite',
 					data: [{ x: -50, y: -50 }, { x: 50, y: 50 }],
 					borderColor: '#003049',
 					borderWidth: 2,
@@ -740,7 +740,7 @@ window.addEventListener('load', function() {
 					type: 'linear',
 					title: {
 						display: true,
-						text: 'Outcome (gains/losses)',
+						text: 'Résultat (gains/pertes)',
 						font: { size: 14, family: 'Figtree', weight: 'bold' },
 						color: '#003049'
 					},
@@ -750,7 +750,7 @@ window.addEventListener('load', function() {
 				y: {
 					title: {
 						display: true,
-						text: 'Subjective Value',
+						text: 'Valeur Subjective',
 						font: { size: 14, family: 'Figtree', weight: 'bold' },
 						color: '#003049'
 					},
@@ -775,7 +775,7 @@ window.addEventListener('load', function() {
 					bodyFont: { family: 'Figtree', size: 12 },
 					callbacks: {
 						label: function(context) {
-							return `Value: ${context.parsed.y.toFixed(2)}`;
+							return `Valeur : ${context.parsed.y.toFixed(2)}`;
 						}
 					}
 				}
@@ -790,7 +790,7 @@ window.addEventListener('load', function() {
 		data: {
 			datasets: [
 				{
-					label: 'Gains Weighting',
+					label: 'Pondération des Gains',
 					data: generateWeightData(gammaGain),
 					borderColor: '#780000',
 					backgroundColor: 'rgba(120, 0, 0, 0.1)',
@@ -799,7 +799,7 @@ window.addEventListener('load', function() {
 					tension: 0.4
 				},
 				{
-					label: 'Losses Weighting',
+					label: 'Pondération des Pertes',
 					data: generateWeightData(gammaLoss),
 					borderColor: '#669bbc',
 					backgroundColor: 'rgba(102, 155, 188, 0.1)',
@@ -808,7 +808,7 @@ window.addEventListener('load', function() {
 					tension: 0.4
 				},
 				{
-					label: 'Perfect Rationality',
+					label: 'Rationalité Parfaite',
 					data: [{ x: 0, y: 0 }, { x: 1, y: 1 }],
 					borderColor: '#003049',
 					borderWidth: 2,
@@ -827,7 +827,7 @@ window.addEventListener('load', function() {
 					max: 1,
 					title: {
 						display: true,
-						text: 'Objective Probability',
+						text: 'Probabilité Objective',
 						font: { size: 14, family: 'Figtree', weight: 'bold' },
 						color: '#003049'
 					},
@@ -839,7 +839,7 @@ window.addEventListener('load', function() {
 					max: 1,
 					title: {
 						display: true,
-						text: 'Decision Weight',
+						text: 'Poids Décisionnel',
 						font: { size: 14, family: 'Figtree', weight: 'bold' },
 						color: '#003049'
 					},
@@ -906,8 +906,8 @@ window.addEventListener('load', function() {
 			document.getElementById('scenarioInvestment').textContent = `$${scenario.investment}`;
 			document.getElementById('scenarioWinAmount').textContent = `+$${scenario.winAmount}`;
 			document.getElementById('scenarioLoseAmount').textContent = `-$${scenario.loseAmount}`;
-			document.getElementById('scenarioWinProb').textContent = `(${(scenario.winProb * 100).toFixed(0)}% chance)`;
-			document.getElementById('scenarioLoseProb').textContent = `(${(scenario.loseProb * 100).toFixed(0)}% chance)`;
+			document.getElementById('scenarioWinProb').textContent = `(${(scenario.winProb * 100).toFixed(0)}% de chance)`;
+			document.getElementById('scenarioLoseProb').textContent = `(${(scenario.loseProb * 100).toFixed(0)}% de chance)`;
 
 			// Update probability in Trust and Risk cards
 			const probPercent = (scenario.winProb * 100).toFixed(0);
@@ -937,7 +937,7 @@ window.addEventListener('load', function() {
 		document.getElementById('trustValue').textContent = (trustVal >= 0 ? '+' : '') + trustVal.toFixed(2);
 		document.getElementById('riskValue').textContent = (riskVal >= 0 ? '+' : '') + riskVal.toFixed(2);
 
-		// Update Quick Comparison values
+		// Update Comparaison Rapide values
 		document.getElementById('quickTrustValue').textContent = (trustVal >= 0 ? '+' : '') + trustVal.toFixed(2);
 		document.getElementById('quickRiskValue').textContent = (riskVal >= 0 ? '+' : '') + riskVal.toFixed(2);
 
@@ -978,15 +978,15 @@ window.addEventListener('load', function() {
 		const riskRecommendation = document.getElementById('riskRecommendation');
 
 		if (trustVal >= 0) {
-			trustRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#780000]">Yes, it is worth it to invest</p>';
+			trustRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#780000]">Oui, cela vaut la peine d\'investir</p>';
 		} else {
-			trustRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#780000]">No, it is not worth it to invest</p>';
+			trustRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#780000]">Non, cela ne vaut pas la peine d\'investir</p>';
 		}
 
 		if (riskVal >= 0) {
-			riskRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#669bbc]">Yes, it is worth it to invest</p>';
+			riskRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#669bbc]">Oui, cela vaut la peine d\'investir</p>';
 		} else {
-			riskRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#669bbc]">No, it is not worth it to invest</p>';
+			riskRecommendation.innerHTML = '<p class="font-figtree text-lg font-bold text-[#669bbc]">Non, cela ne vaut pas la peine d\'investir</p>';
 		}
 	}
 

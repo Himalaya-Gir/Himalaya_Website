@@ -1,16 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import { t } from '../i18n/translations';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import { t } from '../../i18n/translations';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
 
-const lang = 'en';
+const lang = 'fr';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="References | Research Library">
-  <Navigation lang={lang} currentPath="/references" />
+<Layout title="Références | Research Library">
+  <Navigation lang={lang} currentPath="/fr/references" />
 
   <main class="min-h-screen bg-[#FFF9ED]">
     <!-- Hero Section -->
@@ -84,7 +84,7 @@ const base = import.meta.env.BASE_URL;
             <input
               type="text"
               id="searchInput"
-              placeholder="Search library..."
+              placeholder="Rechercher dans la bibliothèque..."
               class="w-full pl-12 pr-6 py-3 font-figtree text-base bg-white/50 border border-[#003049]/10 rounded-xl focus:border-[#780000] focus:outline-none focus:ring-4 focus:ring-[#780000]/5 text-[#003049] placeholder:text-[#003049]/40 transition-all shadow-sm hover:shadow-md hover:bg-white/80"
             />
           </div>
@@ -102,20 +102,20 @@ const base = import.meta.env.BASE_URL;
             data-category="all"
           >
             <span class="relative z-10 flex items-center gap-2">
-              All <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">69</span>
+              Tout <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">69</span>
             </span>
           </button>
           <button class="filter-btn group relative px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden border border-[#003049]/10 hover:border-[#003049]/30 bg-white/50" data-category="Core Reading">
-            <span class="relative z-10 flex items-center gap-2">Core Reading <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
+            <span class="relative z-10 flex items-center gap-2">Lecture Essentielle <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
           </button>
           <button class="filter-btn group relative px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden border border-[#003049]/10 hover:border-[#003049]/30 bg-white/50" data-category="Trust & Trust Game">
-            <span class="relative z-10 flex items-center gap-2">Trust <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
+            <span class="relative z-10 flex items-center gap-2">Confiance <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
           </button>
           <button class="filter-btn group relative px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden border border-[#003049]/10 hover:border-[#003049]/30 bg-white/50" data-category="Risk & Decision Theory">
-            <span class="relative z-10 flex items-center gap-2">Risk <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
+            <span class="relative z-10 flex items-center gap-2">Risque <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
           </button>
           <button class="filter-btn group relative px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden border border-[#003049]/10 hover:border-[#003049]/30 bg-white/50" data-category="Trust-Risk Relationship">
-            <span class="relative z-10 flex items-center gap-2">Trust-Risk <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
+            <span class="relative z-10 flex items-center gap-2">Confiance-Risque <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
           </button>
           <button class="filter-btn group relative px-4 py-2 rounded-lg text-sm font-bold transition-all duration-300 overflow-hidden border border-[#003049]/10 hover:border-[#003049]/30 bg-white/50" data-category="Social Preferences">
             <span class="relative z-10 flex items-center gap-2">Social <span class="count bg-[#003049]/10 px-1.5 py-0.5 rounded text-[10px]">0</span></span>
@@ -136,23 +136,23 @@ const base = import.meta.env.BASE_URL;
         <!-- Loading state -->
         <div id="loading" class="text-center py-12">
           <div class="inline-block w-12 h-12 border-4 border-[#FFF9ED]/20 border-t-[#780000] rounded-full animate-spin"></div>
-          <p class="font-figtree text-[#FFF9ED]/70 mt-4">Loading references...</p>
+          <p class="font-figtree text-[#FFF9ED]/70 mt-4">Chargement des références...</p>
         </div>
 
         <!-- No results message -->
         <div id="noResults" class="hidden text-center py-12">
-          <p class="font-figtree text-xl text-[#FFF9ED]/70">No references found matching your criteria.</p>
+          <p class="font-figtree text-xl text-[#FFF9ED]/70">Aucune référence ne correspond à vos critères.</p>
           <button
             onclick="resetFilters()"
             class="mt-4 font-figtree px-6 py-3 bg-[#780000] text-white rounded-lg hover:bg-[#780000]/90 transition-colors font-semibold"
           >
-            Clear all filters
+            Effacer tous les filtres
           </button>
         </div>
 
         <!-- Results count -->
         <div id="resultsCount" class="hidden mb-6 font-figtree text-[#FFF9ED]/70">
-          Showing <span id="countNumber" class="font-bold text-[#780000]">0</span> references
+          Affichage de <span id="countNumber" class="font-bold text-[#780000]">0</span> références
         </div>
 
         <!-- References container -->
@@ -275,16 +275,27 @@ const base = import.meta.env.BASE_URL;
     'Methods & Computational': 'tag-methods'
   };
 
+  // French category names
+  const categoryNamesFR = {
+    'Core Reading': 'Lecture Essentielle',
+    'Trust & Trust Game': 'Confiance & Jeu de Confiance',
+    'Risk & Decision Theory': 'Risque & Théorie de la Décision',
+    'Trust-Risk Relationship': 'Relation Confiance-Risque',
+    'Social Preferences': 'Préférences Sociales',
+    'Neuroscience': 'Neurosciences',
+    'Methods & Computational': 'Méthodes & Informatique'
+  };
+
   // Load references on page load
   async function loadReferences() {
     try {
       console.log('🔍 Attempting to load references.json...');
-      // Try multiple paths to be robust
+      // Try multiple paths to be robust - load French version
       const paths = [
-        'references.json',
-        '/references.json',
-        BASE_URL + 'references.json',
-        '/trust-risk-website/references.json'
+        'references-fr.json',
+        '/references-fr.json',
+        BASE_URL + 'references-fr.json',
+        '/trust-risk-website/references-fr.json'
       ];
       
       let response;
@@ -414,15 +425,16 @@ const base = import.meta.env.BASE_URL;
     const categoryTags = ref.categories.map(cat => {
       const tagClass = categoryTagClass[cat] || 'bg-[#003049] text-[#FFF9ED]';
       const isActive = activeCategories.has(cat);
+      const catNameFR = categoryNamesFR[cat] || cat; // Use French name or fallback to original
       
       // Use same style as filter buttons
       if (isActive) {
         // Active state - matches active filter button style
         const activeClass = cat === 'Core Reading' ? 'bg-[#780000] border-[#780000]' : 'bg-[#003049] border-[#003049]';
-        return `<span class="inline-block px-3 py-1 rounded-md text-xs font-bold transition-all duration-300 ${activeClass} text-[#FFF9ED] shadow-sm">${cat}</span>`;
+        return `<span class="inline-block px-3 py-1 rounded-md text-xs font-bold transition-all duration-300 ${activeClass} text-[#FFF9ED] shadow-sm">${catNameFR}</span>`;
       } else {
         // Inactive state - matches inactive filter button style  
-        return `<span class="inline-block px-3 py-1 rounded-md text-xs font-bold transition-all duration-300 bg-transparent border border-[#003049]/10 text-[#003049]/70 hover:bg-[#003049]/5">${cat}</span>`;
+        return `<span class="inline-block px-3 py-1 rounded-md text-xs font-bold transition-all duration-300 bg-transparent border border-[#003049]/10 text-[#003049]/70 hover:bg-[#003049]/5">${catNameFR}</span>`;
       }
     }).join(' ');
 
@@ -457,21 +469,20 @@ const base = import.meta.env.BASE_URL;
               </div>
               
               <div class="flex items-center justify-between pt-4 border-t border-[#003049]/5">
-                <span class="text-[#003049]/40 text-xs font-semibold">Hover to flip</span>
+                <span class="text-[#003049]/40 text-xs font-semibold">Survoler pour retourner</span>
                 <div class="flex items-center gap-1 text-[#003049] text-xs font-bold uppercase tracking-widest group-hover:text-[#780000] transition-colors">
-                  <span>Details</span>
+                  <span>Détails</span>
                   <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Back Face -->
           <div class="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-[#669bbc] text-[#003049] rounded-2xl p-8 flex flex-col h-full shadow-inner border border-[#003049]/10">
             <div class="flex-grow overflow-y-auto custom-scrollbar pr-2">
               <h3 class="font-bold text-lg mb-4 text-[#FFF9ED] flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                Why this matters
+                Pourquoi c'est important
               </h3>
               <p class="font-figtree text-base leading-relaxed text-[#003049]/90 font-medium">
                 ${ref.relevance}
@@ -482,12 +493,12 @@ const base = import.meta.env.BASE_URL;
               ${ref.doi ? `
                 <a href="${doiLink}" target="_blank" rel="noopener"
                    class="group/btn flex items-center justify-center gap-2 w-full px-6 py-4 bg-[#780000] text-[#FFF9ED] rounded-xl hover:bg-[#5a0000] transition-all duration-300 font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-[#780000]/40 hover:-translate-y-0.5">
-                  <span>Read Paper</span>
+                  <span>Lire l'Article</span>
                   <svg class="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
               ` : `
                 <div class="block w-full text-center px-6 py-4 bg-[#FFF9ED]/10 text-[#003049]/60 rounded-xl text-sm font-medium cursor-not-allowed border border-[#003049]/5">
-                  No DOI Available
+                  Pas de DOI Disponible
                 </div>
               `}
             </div>

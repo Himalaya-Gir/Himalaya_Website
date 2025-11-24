@@ -12,7 +12,7 @@
         "Trust & Trust Game",
         "Core Reading"
       ],
-      "relevance": "Foundational - establishes Trust Game paradigm showing positive investments contradict rational predictions"
+      "relevance": "Fondamental - établit le paradigme du Jeu de Confiance montrant que les investissements positifs contredisent les prédictions rationnelles"
     },
     {
       "authors": "Bohnet, I., & Zeckhauser, R.",
@@ -27,7 +27,7 @@
         "Trust-Risk Relationship",
         "Core Reading"
       ],
-      "relevance": "Introduces 'betrayal aversion' concept - differentiates trust from pure risk via MAPs"
+      "relevance": "Introduit le concept d'« aversion à la trahison » - différencie la confiance du risque pur via les MAPs"
     },
     {
       "authors": "Kahneman, D., & Tversky, A.",
@@ -41,7 +41,7 @@
         "Risk & Decision Theory",
         "Core Reading"
       ],
-      "relevance": "Central theoretical framework - provides base parameters (α, λ, γ) for modeling decisions"
+      "relevance": "Cadre théorique central - fournit les paramètres de base (α, λ, γ) pour modéliser les décisions"
     },
     {
       "authors": "Tversky, A., & Kahneman, D.",
@@ -55,7 +55,7 @@
         "Risk & Decision Theory",
         "Core Reading"
       ],
-      "relevance": "CPT extension with empirical parameter values (α≈0.88, γ≈0.61) used as baseline"
+      "relevance": "Extension CPT avec valeurs de paramètres empiriques (α≈0,88, γ≈0,61) utilisées comme référence"
     },
     {
       "authors": "Eckel, C. C., & Wilson, R. K.",
@@ -69,7 +69,7 @@
         "Trust-Risk Relationship",
         "Core Reading"
       ],
-      "relevance": "Pioneering study finding null correlations between risk preferences and trust behavior"
+      "relevance": "Étude pionnière trouvant des corrélations nulles entre préférences au risque et comportement de confiance"
     },
     {
       "authors": "Houser, D., Schunk, D., & Winter, J.",
@@ -82,7 +82,7 @@
       "categories": [
         "Trust-Risk Relationship"
       ],
-      "relevance": "Isolates risk assessment from prosocial motivations - shows trust/risk independence"
+      "relevance": "Isole l'évaluation du risque des motivations prosociales - montre l'indépendance confiance/risque"
     },
     {
       "authors": "Fairley, K., Sanfey, A., Vyrastekova, J., & Weitzel, U.",
@@ -97,7 +97,7 @@
         "Methods & Computational",
         "Core Reading"
       ],
-      "relevance": "Introduces Risky Trust Game (RTG) to standardize first-order risk in trust contexts"
+      "relevance": "Introduit le Jeu de Confiance Risqué (RTG) pour standardiser le risque de premier ordre dans les contextes de confiance"
     },
     {
       "authors": "Fairley, K., Vyrastekova, J., Weitzel, U., & Sanfey, A. G.",
@@ -110,7 +110,7 @@
         "Trust-Risk Relationship",
         "Neuroscience"
       ],
-      "relevance": "Shows differential ventral striatum activation between trust and risk despite behavioral similarities"
+      "relevance": "Montre une activation différentielle du striatum ventral entre confiance et risque malgré des similitudes comportementales"
     },
     {
       "authors": "Aimone, J. A., Houser, D., & Weber, B.",
@@ -123,7 +123,7 @@
         "Neuroscience",
         "Trust & Trust Game"
       ],
-      "relevance": "Localizes betrayal aversion to right anterior insula - distinct neural signature from loss aversion"
+      "relevance": "Localise l'aversion à la trahison dans l'insula antérieure droite - signature neuronale distincte de l'aversion aux pertes"
     },
     {
       "authors": "Murphy, R. O., Ackermann, K. A., & Handgraaf, M. J. J.",
@@ -138,7 +138,7 @@
         "Methods & Computational",
         "Core Reading"
       ],
-      "relevance": "SVO measure used to quantify social preferences (φ) and validate the model"
+      "relevance": "Mesure SVO utilisée pour quantifier les préférences sociales (φ) et valider le modèle"
     },
     {
       "authors": "Ashraf, N., Bohnet, I., & Piankov, N.",
@@ -152,7 +152,7 @@
         "Trust & Trust Game",
         "Social Preferences"
       ],
-      "relevance": "Decomposes trust into unconditional kindness and reciprocity expectations - 62% variance explained"
+      "relevance": "Décompose la confiance en gentillesse inconditionnelle et attentes de réciprocité - 62% de variance expliquée"
     },
     {
       "authors": "Schechter, L.",
@@ -165,7 +165,7 @@
       "categories": [
         "Trust-Risk Relationship"
       ],
-      "relevance": "Finds positive trust-risk correlations with dice-betting paradigm - methodological contradictions"
+      "relevance": "Trouve des corrélations positives confiance-risque avec le paradigme de paris aux dés - contradictions méthodologiques"
     },
     {
       "authors": "Chetty, R., Hofmeyr, A., Kincaid, H., & Monroe, B.",
@@ -178,7 +178,7 @@
         "Trust-Risk Relationship",
         "Methods & Computational"
       ],
-      "relevance": "Extensive elicitation (40 lotteries) shows 20% shared variance - measurement resolution matters"
+      "relevance": "Élicitation extensive (40 loteries) montre 20% de variance partagée - la résolution de mesure importe"
     },
     {
       "authors": "Johnson, N. D., & Mislin, A. A.",
@@ -192,7 +192,7 @@
         "Trust & Trust Game",
         "Core Reading"
       ],
-      "relevance": "Meta-analysis of 162 replications - transfers ~50% endowments, reciprocity ~1/3"
+      "relevance": "Méta-analyse de 162 réplications - transferts ~50% des dotations, réciprocité ~1/3"
     },
     {
       "authors": "Kanagaretnam, K., Mestelman, S., Shehata, M., & Nainar, K.",
@@ -204,7 +204,7 @@
         "Social Preferences",
         "Trust-Risk Relationship"
       ],
-      "relevance": "SVO significantly predicts trust (p=.002) but risk attitudes do not"
+      "relevance": "SVO prédit significativement la confiance (p=0,002) mais pas les attitudes au risque"
     },
     {
       "authors": "Nguyen, Q., Villeval, M. C., & Xu, H.",
@@ -218,7 +218,7 @@
         "Risk & Decision Theory",
         "Trust-Risk Relationship"
       ],
-      "relevance": "Only prior application of Prospect Theory to trust - limiting methodological asymmetry"
+      "relevance": "Seule application antérieure de la Théorie des Perspectives à la confiance - limite l'asymétrie méthodologique"
     },
     {
       "authors": "Stott, H. P.",
@@ -232,7 +232,7 @@
         "Risk & Decision Theory",
         "Methods & Computational"
       ],
-      "relevance": "Evaluation of 256 CPT variants - guides choice of value and weighting functions"
+      "relevance": "Évaluation de 256 variantes CPT - guide le choix des fonctions de valeur et de pondération"
     },
     {
       "authors": "Lauharatanahirun, N., Christopoulos, G. I., & King-Casas, B.",
@@ -245,7 +245,7 @@
         "Neuroscience",
         "Trust-Risk Relationship"
       ],
-      "relevance": "Behavioral trust-risk correlation (ρ=.60) but distinct neural mechanisms via amygdala"
+      "relevance": "Corrélation comportementale confiance-risque (ρ=0,60) mais mécanismes neuronaux distincts via l'amygdale"
     },
     {
       "authors": "Krain, A. L., Wilson, A. M., Arbuckle, R., et al.",
@@ -260,7 +260,7 @@
         "Risk & Decision Theory",
         "Core Reading"
       ],
-      "relevance": "Meta-analysis showing distinct neural networks for 1st vs 2nd order risk - explains confound"
+      "relevance": "Méta-analyse montrant des réseaux neuronaux distincts pour le risque de 1er vs 2ème ordre - explique le biais"
     },
     {
       "authors": "Bohnet, I., Greig, F., Herrmann, B., & Zeckhauser, R.",
@@ -274,7 +274,7 @@
         "Trust & Trust Game",
         "Trust-Risk Relationship"
       ],
-      "relevance": "Cross-cultural validation of betrayal aversion - universal τ parameter"
+      "relevance": "Validation interculturelle de l'aversion à la trahison - paramètre τ universel"
     },
     {
       "authors": "Cox, J. C.",
@@ -288,7 +288,7 @@
         "Trust & Trust Game",
         "Methods & Computational"
       ],
-      "relevance": "Method to separate trust and altruism via TG/Dictator Game comparison"
+      "relevance": "Méthode pour séparer confiance et altruisme via comparaison JC/Jeu du Dictateur"
     },
     {
       "authors": "Tom, S. M., Fox, C. R., Trepel, C., & Poldrack, R. A.",
@@ -302,7 +302,7 @@
         "Neuroscience",
         "Risk & Decision Theory"
       ],
-      "relevance": "Neural basis of loss aversion (λ) - striatal deactivation doubles activation for gains"
+      "relevance": "Base neuronale de l'aversion aux pertes (λ) - désactivation striatale double l'activation pour les gains"
     },
     {
       "authors": "Hsu, M., Krajbich, I., Zhao, C., & Camerer, C. F.",
@@ -316,7 +316,7 @@
         "Neuroscience",
         "Risk & Decision Theory"
       ],
-      "relevance": "Nonlinear neural encoding of probabilities - validates inverse-S weighting function"
+      "relevance": "Codage neuronal non linéaire des probabilités - valide la fonction de pondération en S inversé"
     },
     {
       "authors": "Imaizumi, Y., Tymula, A., Tsubo, Y., Matsumoto, M., & Yamada, H.",
@@ -329,7 +329,7 @@
         "Neuroscience",
         "Risk & Decision Theory"
       ],
-      "relevance": "Unit recordings showing parametric integration in orbitofrontal cortex and striatum"
+      "relevance": "Enregistrements unitaires montrant l'intégration paramétrique dans le cortex orbitofrontal et le striatum"
     },
     {
       "authors": "Cosmides, L., & Tooby, J.",
@@ -342,7 +342,7 @@
         "Social Preferences",
         "Risk & Decision Theory"
       ],
-      "relevance": "Social contract theory - specialized cognitive mechanisms for detecting cooperation"
+      "relevance": "Théorie du contrat social - mécanismes cognitifs spécialisés pour détecter la coopération"
     },
     {
       "authors": "Coleman, J. S.",
@@ -353,7 +353,7 @@
         "Trust & Trust Game",
         "Risk & Decision Theory"
       ],
-      "relevance": "Conceptualizes trust as rational calculation - predicts trust-risk correlations"
+      "relevance": "Conceptualise la confiance comme calcul rationnel - prédit des corrélations confiance-risque"
     },
     {
       "authors": "Evans, A. M., & Krueger, J. I.",
@@ -367,7 +367,7 @@
         "Trust & Trust Game",
         "Risk & Decision Theory"
       ],
-      "relevance": "Proposes identical computational processes for social and non-social prospects"
+      "relevance": "Propose des processus computationnels identiques pour les perspectives sociales et non sociales"
     },
     {
       "authors": "Knight, F. H.",
@@ -377,7 +377,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Fundamental distinction between risk (known probabilities) vs uncertainty (unknown probabilities)"
+      "relevance": "Distinction fondamentale entre risque (probabilités connues) et incertitude (probabilités inconnues)"
     },
     {
       "authors": "Ellsberg, D.",
@@ -390,7 +390,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Establishes uncertainty taxonomy - ambiguity when neither outcomes nor probabilities known"
+      "relevance": "Établit une taxonomie de l'incertitude - ambiguïté quand ni résultats ni probabilités connus"
     },
     {
       "authors": "Knack, S., & Keefer, P.",
@@ -403,7 +403,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "10% increase in societal trust = 0.5% higher annual economic growth"
+      "relevance": "10% d'augmentation de la confiance sociétale = 0,5% de croissance économique annuelle supplémentaire"
     },
     {
       "authors": "Zak, P. J., & Knack, S.",
@@ -416,7 +416,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "Identifies causal pathway trust → growth via investment rate"
+      "relevance": "Identifie le chemin causal confiance → croissance via le taux d'investissement"
     },
     {
       "authors": "Brown, S., Gray, D., McHardy, J., & Taylor, K.",
@@ -429,7 +429,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "Trust enhances financial performance by reducing monitoring costs"
+      "relevance": "La confiance améliore la performance financière en réduisant les coûts de surveillance"
     },
     {
       "authors": "Zand, D. E.",
@@ -442,7 +442,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "Definition of trust: willingness to increase vulnerability without control over others"
+      "relevance": "Définition de la confiance : volonté d'augmenter sa vulnérabilité sans contrôle sur autrui"
     },
     {
       "authors": "Glimcher, P. W.",
@@ -453,7 +453,7 @@
         "Neuroscience",
         "Risk & Decision Theory"
       ],
-      "relevance": "Defines risk in neuroeconomics as variance over probability distribution of outcomes"
+      "relevance": "Définit le risque en neuroéconomie comme variance sur la distribution de probabilité des résultats"
     },
     {
       "authors": "Keynes, J. M.",
@@ -466,7 +466,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Early contribution to uncertainty taxonomy"
+      "relevance": "Contribution précoce à la taxonomie de l'incertitude"
     },
     {
       "authors": "Karlan, D. S.",
@@ -478,7 +478,7 @@
       "categories": [
         "Trust-Risk Relationship"
       ],
-      "relevance": "Trust behavior predicts real financial decisions - savings and default"
+      "relevance": "Le comportement de confiance prédit les décisions financières réelles - épargne et défaut"
     },
     {
       "authors": "Fehr, E.",
@@ -492,7 +492,7 @@
         "Trust & Trust Game",
         "Trust-Risk Relationship"
       ],
-      "relevance": "SOEP risk willingness modestly predicts trust but betrayal aversion stronger"
+      "relevance": "La disposition au risque SOEP prédit modestement la confiance mais l'aversion à la trahison est plus forte"
     },
     {
       "authors": "Dohmen, T., Falk, A., Huffman, D., et al.",
@@ -506,7 +506,7 @@
         "Risk & Decision Theory",
         "Methods & Computational"
       ],
-      "relevance": "Validation of SOEP risk willingness measure"
+      "relevance": "Validation de la mesure de disposition au risque SOEP"
     },
     {
       "authors": "Ben-Ner, A., & Halldorsson, F.",
@@ -520,7 +520,7 @@
         "Trust & Trust Game",
         "Trust-Risk Relationship"
       ],
-      "relevance": "No relationship between behavioral and survey trust measures"
+      "relevance": "Pas de relation entre mesures comportementales et mesures de confiance par sondage"
     },
     {
       "authors": "Etang, A., Fielding, D., & Knowles, S.",
@@ -533,7 +533,7 @@
       "categories": [
         "Trust-Risk Relationship"
       ],
-      "relevance": "Field evidence from Cameroon - non-significant trust-risk correlation (β=0.09, p>.05)"
+      "relevance": "Preuves de terrain du Cameroun - corrélation confiance-risque non significative (β=0,09, p>0,05)"
     },
     {
       "authors": "Garapin, A., Muller, L., & Rahali, B.",
@@ -547,7 +547,7 @@
         "Trust-Risk Relationship",
         "Social Preferences"
       ],
-      "relevance": "Within-subject design - social preferences predict but minimal variance (R²≈.14-.18)"
+      "relevance": "Design intra-sujet - les préférences sociales prédisent mais variance minimale (R²≈0,14-0,18)"
     },
     {
       "authors": "Breuer, W., Helduser, C., & Schade, P.",
@@ -558,7 +558,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "Higher trustworthiness expectations correlate with lower trust willingness - complex dynamics"
+      "relevance": "Des attentes de fiabilité plus élevées corrèlent avec une moindre volonté de faire confiance - dynamiques complexes"
     },
     {
       "authors": "Derks, J., Lee, N. C., & Krabbendam, L.",
@@ -572,7 +572,7 @@
         "Social Preferences",
         "Trust & Trust Game"
       ],
-      "relevance": "SVO predicts trust in adolescents (β=-0.31, p<.001)"
+      "relevance": "SVO prédit la confiance chez les adolescents (β=-0,31, p<0,001)"
     },
     {
       "authors": "Wei, Z.",
@@ -583,7 +583,7 @@
         "Social Preferences",
         "Trust & Trust Game"
       ],
-      "relevance": "Prosocials (M=0.62) trust more than proselfs (M=0.51, p<.001)"
+      "relevance": "Les prosociaux (M=0,62) font plus confiance que les proselfs (M=0,51, p<0,001)"
     },
     {
       "authors": "Snijders, C. C. P.",
@@ -594,7 +594,7 @@
         "Social Preferences",
         "Trust & Trust Game"
       ],
-      "relevance": "Prosocial orientation correlates with trust propensity"
+      "relevance": "L'orientation prosociale corrèle avec la propension à la confiance"
     },
     {
       "authors": "Lambert, B., Declerck, C. H., Emonds, G., & Boone, C.",
@@ -608,7 +608,7 @@
         "Social Preferences",
         "Neuroscience"
       ],
-      "relevance": "SVO modulates neural substrates of cooperative learning"
+      "relevance": "SVO module les substrats neuronaux de l'apprentissage coopératif"
     },
     {
       "authors": "Liebrand, W. B. G.",
@@ -622,7 +622,7 @@
         "Social Preferences",
         "Methods & Computational"
       ],
-      "relevance": "Original Ring Measure for SVO - methodological foundation"
+      "relevance": "Mesure Ring originale pour SVO - fondation méthodologique"
     },
     {
       "authors": "Trautmann, S. T., Vieider, F. M., & Wakker, P. P.",
@@ -635,7 +635,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Social losses signal poor social judgment - additional dimensions"
+      "relevance": "Les pertes sociales signalent un mauvais jugement social - dimensions additionnelles"
     },
     {
       "authors": "Falk, A., & Fischbacher, U.",
@@ -649,7 +649,7 @@
         "Social Preferences",
         "Trust & Trust Game"
       ],
-      "relevance": "Theory of reciprocity including intentionality evaluations"
+      "relevance": "Théorie de la réciprocité incluant les évaluations d'intentionnalité"
     },
     {
       "authors": "Ma, I., Sanfey, A. G., & Ma, W. J.",
@@ -662,7 +662,7 @@
         "Trust & Trust Game",
         "Neuroscience"
       ],
-      "relevance": "Reputation processing in trust decisions"
+      "relevance": "Traitement de la réputation dans les décisions de confiance"
     },
     {
       "authors": "Kugler, T., Ye, B., Motro, D., & Noussair, C. N.",
@@ -675,7 +675,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "Moral emotions in trust - additional mechanisms"
+      "relevance": "Émotions morales dans la confiance - mécanismes additionnels"
     },
     {
       "authors": "Schlösser, T., Mensching, O., Dunning, D., & Fetchenhauer, D.",
@@ -689,7 +689,7 @@
         "Trust & Trust Game",
         "Risk & Decision Theory"
       ],
-      "relevance": "Norm adherence - distinguishes social vs natural risks"
+      "relevance": "Adhésion aux normes - distingue risques sociaux vs naturels"
     },
     {
       "authors": "Dunning, D., & Fetchenhauer, D.",
@@ -702,7 +702,7 @@
       "categories": [
         "Trust & Trust Game"
       ],
-      "relevance": "Trust as expressive act - can exceed risk in certain contexts"
+      "relevance": "La confiance comme acte expressif - peut dépasser le risque dans certains contextes"
     },
     {
       "authors": "Kahneman, D., Knetsch, J. L., & Thaler, R. H.",
@@ -715,7 +715,7 @@
         "Risk & Decision Theory",
         "Social Preferences"
       ],
-      "relevance": "Introduces Dictator Game - measures pure altruism"
+      "relevance": "Introduit le Jeu du Dictateur - mesure l'altruisme pur"
     },
     {
       "authors": "Derks, J., Van Scheppingen, M. A., Lee, N. C., & Krabbendam, L.",
@@ -728,7 +728,7 @@
         "Social Preferences",
         "Trust & Trust Game"
       ],
-      "relevance": "SVO moderates relationship between theory of mind and trust"
+      "relevance": "SVO modère la relation entre théorie de l'esprit et confiance"
     },
     {
       "authors": "Holt, C. A., & Laury, S. K.",
@@ -742,7 +742,7 @@
         "Risk & Decision Theory",
         "Methods & Computational"
       ],
-      "relevance": "Multiple price list for risk preference elicitation - standard method"
+      "relevance": "Liste de prix multiples pour élicitation des préférences au risque - méthode standard"
     },
     {
       "authors": "Zuckerman, M.",
@@ -753,7 +753,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Sensation-seeking scale - measures individual differences"
+      "relevance": "Échelle de recherche de sensations - mesure les différences individuelles"
     },
     {
       "authors": "Rogers, R. D., Lancaster, M., Wakeley, J., & Bhagwagar, Z.",
@@ -767,7 +767,7 @@
         "Neuroscience",
         "Risk & Decision Theory"
       ],
-      "relevance": "β-adrenergic antagonists selectively reduce loss sensitivity"
+      "relevance": "Les antagonistes β-adrénergiques réduisent sélectivement la sensibilité aux pertes"
     },
     {
       "authors": "Lichtenstein, S., & Slovic, P.",
@@ -780,7 +780,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Preference reversals - anomaly predicted by Prospect Theory"
+      "relevance": "Inversions de préférences - anomalie prédite par la Théorie des Perspectives"
     },
     {
       "authors": "Grether, D. M., & Plott, C. R.",
@@ -792,7 +792,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Confirms preference reversals - violates standard theory"
+      "relevance": "Confirme les inversions de préférences - viole la théorie standard"
     },
     {
       "authors": "Tversky, A., & Kahneman, D.",
@@ -805,7 +805,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Framing effects - identical outcomes described as gains vs losses"
+      "relevance": "Effets de cadrage - résultats identiques décrits comme gains vs pertes"
     },
     {
       "authors": "Kühberger, A.",
@@ -818,7 +818,7 @@
       "categories": [
         "Risk & Decision Theory"
       ],
-      "relevance": "Meta-analysis of framing effects - general validity"
+      "relevance": "Méta-analyse des effets de cadrage - validité générale"
     },
     {
       "authors": "Booij, G. E.",
@@ -828,7 +828,7 @@
       "categories": [
         "Methods & Computational"
       ],
-      "relevance": "Dutch phonotactic rules for creating non-social identifiers"
+      "relevance": "Règles phonotactiques néerlandaises pour créer des identifiants non sociaux"
     },
     {
       "authors": "Hammond, M.",
@@ -838,7 +838,7 @@
       "categories": [
         "Methods & Computational"
       ],
-      "relevance": "English phonotactic rules for non-word validation"
+      "relevance": "Règles phonotactiques anglaises pour validation de non-mots"
     },
     {
       "authors": "Baayen, R H., Piepenbrock, R, & Gulikers, L.",
@@ -849,7 +849,7 @@
       "categories": [
         "Methods & Computational"
       ],
-      "relevance": "Lexical database for verifying non-word status of identifiers"
+      "relevance": "Base de données lexicale pour vérifier le statut de non-mot des identifiants"
     },
     {
       "authors": "Yarkoni, T., Balota, D., & Yap, M.",
@@ -862,19 +862,7 @@
       "categories": [
         "Methods & Computational"
       ],
-      "relevance": "OLD20 for measuring orthographic neighborhood density"
-    },
-    {
-      "authors": "Rățală, C. E., Fallon, S. J., van der Schaaf, M. E., ter Huurne, N., Cools, R., & Sanfey, A. G.",
-      "year": 2019,
-      "title": "Catecholaminergic modulation of trust decisions",
-      "journal": "Psychopharmacology",
-      "doi": "10.1007/s00213-019-5165-z",
-      "categories": [
-        "Neuroscience",
-        "Trust-Risk Relationship"
-      ],
-      "relevance": "Investigates the neurochemical modulation of trust, showing distinct mechanisms for social vs non-social risk."
+      "relevance": "OLD20 pour mesurer la densité du voisinage orthographique"
     }
   ],
   "categories": [

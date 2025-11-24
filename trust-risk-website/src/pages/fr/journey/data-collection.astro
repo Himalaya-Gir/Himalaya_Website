@@ -1,16 +1,16 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
-import { t } from '../../i18n/translations';
-import Footer from '../../components/Footer.astro';
-import '../../styles/global.css';
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import { t } from '../../../i18n/translations';
+import Footer from '../../../components/Footer.astro';
+import '../../../styles/global.css';
 
-const lang = 'en';
+const lang = 'fr';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Data Collection | Research Journey">
-  <Navigation lang={lang} currentPath="/journey/data-collection" />
+<Layout title="Collecte de Données | Parcours de Recherche">
+  <Navigation lang={lang} currentPath="/fr/journey/data-collection" />
 
   <main class="min-h-screen bg-[#FFF9ED] relative">
     <div class="absolute inset-0 opacity-5 pointer-events-none">
@@ -30,22 +30,22 @@ const base = import.meta.env.BASE_URL;
       <div class="max-w-5xl mx-auto relative z-10">
         <!-- Breadcrumb -->
         <div class="mb-8">
-          <a href={base + "journey"} class="text-sm text-[#003049]/60 hover:text-[#780000] transition-colors inline-flex items-center gap-2 font-figtree font-bold uppercase tracking-wider">
+          <a href={base + "fr/journey"} class="text-sm text-[#003049]/60 hover:text-[#780000] transition-colors inline-flex items-center gap-2 font-figtree font-bold uppercase tracking-wider">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
-            Back to Journey
+            Retour au Parcours
           </a>
         </div>
 
         <!-- Title -->
         <div class="mb-8">
           <div class="inline-block px-4 py-2 bg-[#669bbc]/10 text-[#669bbc] rounded-lg text-sm font-bold uppercase tracking-widest mb-6 border border-[#669bbc]/20">
-            Phase 5 • Upcoming
+            Phase 5 • À Venir
           </div>
-          <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">Data Collection</h1>
+          <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">Collecte de Données</h1>
           <p class="font-figtree text-xl text-[#003049]/70 leading-relaxed max-w-3xl">
-            Planned recruitment and testing phase to <em class="italic font-serif">empirically validate</em> the theoretical framework with <strong>real participants</strong>.
+            Phase planifiée de recrutement et de tests pour <em class="italic font-serif">valider empiriquement</em> le cadre théorique avec de <strong>vrais participants</strong>.
           </p>
         </div>
       </div>
@@ -62,14 +62,14 @@ const base = import.meta.env.BASE_URL;
               <div class="font-figtree text-4xl font-black text-[#FFF9ED] opacity-50 rotate-90 md:rotate-0">01</div>
             </div>
             <div class="md:col-span-11 p-8 md:p-12">
-              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">The Final Test</h2>
+              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Le Test Final</h2>
               <div class="space-y-6">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  After months of <em class="italic font-serif">theoretical work</em>, <strong>experimental design</strong>, and <em class="italic font-serif">optimization</em>, it's time to test the framework with real human behavior.
+                  Après des mois de <em class="italic font-serif">travail théorique</em>, de <strong>conception expérimentale</strong> et d'<em class="italic font-serif">optimisation</em>, il est temps de tester le cadre avec le comportement humain réel.
                 </p>
                 <div class="bg-[#003049]/5 border border-[#003049]/10 p-8 rounded-xl border-l-4 border-l-[#669bbc]">
                   <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                    Can <strong>Prospect Theory</strong> explain trust decisions? Or do we need additional <em class="italic font-serif">social preference</em> parameters?
+                    La <strong>Théorie des Perspectives</strong> peut-elle expliquer les décisions de confiance ? Ou avons-nous besoin de paramètres de <em class="italic font-serif">préférence sociale</em> supplémentaires ?
                   </p>
                 </div>
               </div>
@@ -80,30 +80,30 @@ const base = import.meta.env.BASE_URL;
         <!-- Recruitment Plan -->
         <div class="pl-8 border-l-2 border-[#669bbc]/30">
           <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
-            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Recruitment Strategy</h2>
+            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Stratégie de Recrutement</h2>
 
             <div class="grid md:grid-cols-2 gap-8">
               <!-- Target Sample -->
               <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-8 rounded-xl shadow-sm">
                 <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-6 flex items-center gap-2">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                  Target Sample
-                </h3>
-                <div class="space-y-4 font-figtree text-[#003049]/80">
-                  <div class="flex justify-between border-b border-[#003049]/5 pb-2">
-                    <span class="font-bold text-[#003049]">Sample Size</span>
-                    <span>100 (Behav) / 55 (fMRI)</span>
-                  </div>
-                  <div class="flex justify-between border-b border-[#003049]/5 pb-2">
-                    <span class="font-bold text-[#003049]">Age Range</span>
-                    <span>18-65 years</span>
+                   Échantillon Cible
+                 </h3>
+                 <div class="space-y-4 font-figtree text-[#003049]/80">
+                   <div class="flex justify-between border-b border-[#003049]/5 pb-2">
+                     <span class="font-bold text-[#003049]">Taille Échantillon</span>
+                     <span>100 (Comp.) / 55 (IRMf)</span>
+                   </div>
+                   <div class="flex justify-between border-b border-[#003049]/5 pb-2">
+                     <span class="font-bold text-[#003049]">Âge</span>
+                    <span>18-65 ans</span>
                   </div>
                   <div class="flex justify-between border-b border-[#003049]/5 pb-2">
                     <span class="font-bold text-[#003049]">Source</span>
-                    <span>University</span>
+                    <span>Université</span>
                   </div>
                   <div class="flex justify-between">
-                    <span class="font-bold text-[#003049]">Duration</span>
+                    <span class="font-bold text-[#003049]">Durée</span>
                     <span>~2h</span>
                   </div>
                 </div>
@@ -113,23 +113,23 @@ const base = import.meta.env.BASE_URL;
               <div class="bg-[#FFF9ED] border border-[#669bbc]/20 p-8 rounded-xl shadow-sm">
                 <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-6 flex items-center gap-2">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  Compensation
+                   Rémunération
                 </h3>
                 <div class="space-y-4 font-figtree text-[#003049]/80">
                   <div class="flex justify-between border-b border-[#003049]/5 pb-2">
-                    <span class="font-bold text-[#003049]">Base Pay</span>
-                    <span>€35.00</span>
+                    <span class="font-bold text-[#003049]">Rémunération de Base</span>
+                    <span>35,00€</span>
                   </div>
                   <div class="flex justify-between border-b border-[#003049]/5 pb-2">
                     <span class="font-bold text-[#003049]">Bonus</span>
-                    <span>Performance based</span>
+                    <span>Basé sur la performance</span>
                   </div>
                   <div class="flex justify-between border-b border-[#003049]/5 pb-2">
                     <span class="font-bold text-[#003049]">Total Est.</span>
-                    <span>~€55</span>
+                    <span>~55€</span>
                   </div>
                   <div class="text-sm pt-2 text-[#003049]/60 italic">
-                    Incentivized for genuine decisions
+                    Incité pour des décisions authentiques
                   </div>
                 </div>
               </div>
@@ -140,27 +140,27 @@ const base = import.meta.env.BASE_URL;
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
               <div>
-                <h3 class="font-figtree text-lg font-bold text-[#003049] mb-4">Power Analysis & Resources</h3>
+                <h3 class="font-figtree text-lg font-bold text-[#003049] mb-4">Analyse de Puissance & Ressources</h3>
                 <div class="grid md:grid-cols-2 gap-6 font-figtree text-sm text-[#003049]/80">
                   <div>
-                    <p class="font-bold text-[#669bbc] mb-2">Behavioral</p>
+                    <p class="font-bold text-[#669bbc] mb-2">Comportemental</p>
                     <ul class="space-y-1">
-                      <li>• <strong>100 subjects</strong></li>
-                      <li>• ≈ 80% power for d = 0.28</li>
-                      <li>• ≈ 200 hours cubicle time (10 GB)</li>
+                      <li>• <strong>100 sujets</strong></li>
+                      <li>• ≈ 80% de puissance pour d = 0.28</li>
+                      <li>• ≈ 200h en cabine (10 GB)</li>
                     </ul>
                   </div>
                   <div>
-                    <p class="font-bold text-[#780000] mb-2">fMRI</p>
+                    <p class="font-bold text-[#780000] mb-2">IRMf</p>
                     <ul class="space-y-1">
-                      <li>• <strong>55 subjects</strong> (50 + 10% attrition)</li>
-                      <li>• ≈ 80% power for d = 0.68</li>
-                      <li>• ≈ 82.5h MRI + 82.5h cubicle (825 GB)</li>
+                      <li>• <strong>55 sujets</strong> (50 + 10% d'attrition)</li>
+                      <li>• ≈ 80% de puissance pour d = 0.68</li>
+                      <li>• ≈ 82.5h IRM + 82.5h cabine (825 GB)</li>
                     </ul>
                   </div>
                 </div>
                 <div class="mt-4 pt-4 border-t border-[#669bbc]/20">
-                  <p class="font-figtree text-sm text-[#003049]/80"><strong>Protocol:</strong> MB3ME3</p>
+                  <p class="font-figtree text-sm text-[#003049]/80"><strong>Protocole :</strong> MB3ME3</p>
                 </div>
               </div>
             </div>
@@ -172,60 +172,60 @@ const base = import.meta.env.BASE_URL;
           <div class="absolute top-0 left-0 w-64 h-64 bg-[#669bbc] rounded-full filter blur-[100px] opacity-20 transform -translate-x-1/2 -translate-y-1/2"></div>
           
           <div class="relative z-10">
-            <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-8">Study Phases</h2>
+            <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-8">Étapes de l'Étude</h2>
 
             <div class="grid md:grid-cols-3 gap-6">
               <!-- Phase 1 -->
               <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-xl backdrop-blur-sm hover:bg-[#FFF9ED]/15 transition-colors">
                 <div class="font-figtree text-5xl font-black text-[#669bbc] mb-4 opacity-50">01</div>
-                <h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Trustee Role</h3>
+                <h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Rôle du Trustee</h3>
                 <p class="font-figtree text-sm text-[#FFF9ED]/75 leading-relaxed">
-                  Participants first play the role of the trustee to establish their baseline social preferences and reciprocity levels.
+                  Les participants jouent d'abord le rôle du trustee pour établir leurs préférences sociales de base et leurs niveaux de réciprocité.
                 </p>
               </div>
 
               <!-- Phase 2 -->
               <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-xl backdrop-blur-sm hover:bg-[#FFF9ED]/15 transition-colors">
                 <div class="font-figtree text-5xl font-black text-[#669bbc] mb-4 opacity-50">02</div>
-                <h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Inverted Trust Game</h3>
+                <h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Jeu de Confiance Inversé</h3>
                 <p class="font-figtree text-sm text-[#FFF9ED]/75 leading-relaxed">
-                  The main experiment. Participants make decisions in both <strong>Social</strong> (Trust) and <strong>Non-Social</strong> (Risk) conditions.
+                  L'expérience principale. Les participants prennent des décisions dans des conditions <strong>Sociales</strong> (Confiance) et <strong>Non-Sociales</strong> (Risque).
                 </p>
               </div>
 
               <!-- Phase 3 -->
               <div class="bg-[#FFF9ED]/10 border border-[#FFF9ED]/20 p-6 rounded-xl backdrop-blur-sm hover:bg-[#FFF9ED]/15 transition-colors">
                 <div class="font-figtree text-5xl font-black text-[#669bbc] mb-4 opacity-50">03</div>
-                <h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Additional Measures</h3>
+                <h3 class="font-figtree text-lg font-bold text-[#FFF9ED] mb-3">Mesures Additionnelles</h3>
                 <p class="font-figtree text-sm text-[#FFF9ED]/75 leading-relaxed">
-                  Measurement of prosociality levels and various questionnaires. Participants receive ~€55 for their participation.
+                  Mesure du niveau de prosocialité et divers questionnaires. Les participants reçoivent ~55€ pour leur participation.
                 </p>
               </div>
             </div>
 
             <div class="mt-8 pt-8 border-t border-[#FFF9ED]/10">
-              <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-6">Quality Control</h3>
+              <h3 class="font-figtree text-xl font-bold text-[#669bbc] mb-6">Contrôle Qualité</h3>
               <div class="grid md:grid-cols-2 gap-8">
                 <div>
                   <p class="font-figtree font-bold text-[#FFF9ED] mb-3 flex items-center gap-2">
                     <svg class="w-5 h-5 text-[#669bbc]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    Inclusion Criteria
+                    Critères d'Inclusion
                   </p>
                   <ul class="space-y-2 font-figtree text-sm text-[#FFF9ED]/70">
-                    <li>• Passed comprehension checks</li>
-                    <li>• Response times within plausible range</li>
-                    <li>• Completed &gt;90% of trials</li>
+                    <li>• Réussi les contrôles de compréhension</li>
+                    <li>• Temps de réponse dans une plage plausible</li>
+                    <li>• Complété >90% des essais</li>
                   </ul>
                 </div>
                 <div>
                   <p class="font-figtree font-bold text-[#FFF9ED] mb-3 flex items-center gap-2">
                     <svg class="w-5 h-5 text-[#780000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    Exclusion Criteria
+                    Critères d'Exclusion
                   </p>
                   <ul class="space-y-2 font-figtree text-sm text-[#FFF9ED]/70">
-                    <li>• Failed attention checks</li>
-                    <li>• Suspiciously fast responses (&lt;200ms)</li>
-                    <li>• Invariant responding (same answer)</li>
+                    <li>• Échoué aux contrôles d'attention</li>
+                    <li>• Réponses suspectes trop rapides (<200ms)</li>
+                    <li>• Réponses invariantes (même réponse)</li>
                   </ul>
                 </div>
               </div>
@@ -235,49 +235,49 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Analysis Plan -->
         <div class="pl-8 border-l-2 border-[#780000]/30">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Planned Analyses</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Analyses Planifiées</h2>
 
           <div class="space-y-8">
             <!-- Primary -->
             <div class="bg-[#FFF9ED] border border-[#780000]/20 p-8 rounded-xl shadow-sm">
-              <h3 class="font-figtree text-xl font-bold text-[#780000] mb-4">Primary Analysis</h3>
+              <h3 class="font-figtree text-xl font-bold text-[#780000] mb-4">Analyse Primaire</h3>
               <p class="font-figtree text-[#003049]/80 leading-relaxed mb-6">
-                <strong>Hierarchical model comparison</strong> of 16 nested Prospect Theory models, testing whether Trust and Risk games share the same parameters or require <em class="italic font-serif">distinct</em> parameter values.
+                <strong>Comparaison de modèles hiérarchiques</strong> de 16 modèles imbriqués de Théorie des Perspectives, testant si les jeux de Confiance et de Risque partagent les mêmes paramètres ou nécessitent des valeurs de paramètres <em class="italic font-serif">distinctes</em>.
               </p>
               <div class="bg-[#780000]/5 border border-[#780000]/10 p-4 rounded-lg font-mono text-sm text-[#780000]">
-                <p>H₀: θ<sub>trust</sub> = θ<sub>risk</sub> (Same parameters)</p>
-                <p>H₁: θ<sub>trust</sub> ≠ θ<sub>risk</sub> (Different parameters)</p>
+                <p>H₀: θ<sub>trust</sub> = θ<sub>risk</sub> (Mêmes paramètres)</p>
+                <p>H₁: θ<sub>trust</sub> ≠ θ<sub>risk</sub> (Paramètres différents)</p>
               </div>
             </div>
 
             <!-- Secondary -->
             <div class="grid md:grid-cols-2 gap-6">
                <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl">
-                 <h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Secondary Analyses</h3>
+                 <h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Analyses Secondaires</h3>
                  <ul class="space-y-3 font-figtree text-sm text-[#003049]/80">
                    <li class="flex items-start gap-2">
                      <span class="text-[#780000] mt-0.5">•</span>
-                     <span><strong>Parameter Recovery:</strong> Validation of individual-level estimates</span>
+                     <span><strong>Récupération des Paramètres :</strong> Validation des estimations au niveau individuel</span>
                    </li>
                    <li class="flex items-start gap-2">
                      <span class="text-[#780000] mt-0.5">•</span>
-                     <span><strong>Individual Differences:</strong> Correlation with personality traits</span>
+                     <span><strong>Différences Individuelles :</strong> Corrélation avec les traits de personnalité</span>
                    </li>
                    <li class="flex items-start gap-2">
                      <span class="text-[#780000] mt-0.5">•</span>
-                     <span><strong>Inverted Trust:</strong> Reciprocity validation</span>
+                     <span><strong>Confiance Inversée :</strong> Validation de la réciprocité</span>
                    </li>
                  </ul>
                </div>
 
                <div class="bg-[#669bbc]/10 border border-[#669bbc]/30 p-6 rounded-xl">
-                 <h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Open Science</h3>
+                 <h3 class="font-figtree text-lg font-bold text-[#003049] mb-3">Science Ouverte</h3>
                  <p class="font-figtree text-sm text-[#003049]/80 leading-relaxed mb-4">
-                   Preregistered on OSF. All analysis code, anonymized data, and materials will be made <em class="italic font-serif">publicly available</em>.
+                   Préenregistré sur OSF. Tout le code d'analyse, les données anonymisées et les matériaux seront rendus <em class="italic font-serif">publiquement disponibles</em>.
                  </p>
                  <div class="flex items-center gap-2 text-xs font-bold text-[#669bbc] uppercase tracking-wide">
                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                   Preregistered • Open Data
+                   Préenregistré • Données Ouvertes
                  </div>
                </div>
             </div>
@@ -286,7 +286,7 @@ const base = import.meta.env.BASE_URL;
 
         <!-- Timeline -->
         <div class="bg-[#FFF9ED] border border-[#003049]/10 p-10 rounded-2xl shadow-sm">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8 text-center">Projected Timeline</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8 text-center">Calendrier Projeté</h2>
           
           <div class="relative">
             <!-- Line -->
@@ -297,7 +297,7 @@ const base = import.meta.env.BASE_URL;
               <div class="relative flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                 <div class="md:w-5/12 text-center md:text-right">
                   <h3 class="font-figtree text-xl font-bold text-[#669bbc]">Q1 2025</h3>
-                  <p class="font-figtree text-[#003049]/70">Ethics approval + Preregistration</p>
+                  <p class="font-figtree text-[#003049]/70">Approbation éthique + Préenregistrement</p>
                 </div>
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#669bbc] rounded-full border-4 border-[#FFF9ED] hidden md:block"></div>
                 <div class="md:w-5/12"></div>
@@ -309,7 +309,7 @@ const base = import.meta.env.BASE_URL;
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#003049] rounded-full border-4 border-[#FFF9ED] hidden md:block"></div>
                 <div class="md:w-5/12 text-center md:text-left">
                   <h3 class="font-figtree text-xl font-bold text-[#003049]">Q2 2025</h3>
-                  <p class="font-figtree text-[#003049]/70">Pilot testing (N=20) + experiment refinement</p>
+                  <p class="font-figtree text-[#003049]/70">Tests pilotes (N=20) + raffinement de l'expérience</p>
                 </div>
               </div>
 
@@ -317,7 +317,7 @@ const base = import.meta.env.BASE_URL;
               <div class="relative flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                 <div class="md:w-5/12 text-center md:text-right">
                   <h3 class="font-figtree text-xl font-bold text-[#003049]">Q3-Q4 2025</h3>
-                  <p class="font-figtree text-[#003049]/70">Main data collection (N=200)</p>
+                  <p class="font-figtree text-[#003049]/70">Collecte de données principale (N=200)</p>
                 </div>
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#003049] rounded-full border-4 border-[#FFF9ED] hidden md:block"></div>
                 <div class="md:w-5/12"></div>
@@ -329,7 +329,7 @@ const base = import.meta.env.BASE_URL;
                 <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#780000] rounded-full border-4 border-[#FFF9ED] hidden md:block"></div>
                 <div class="md:w-5/12 text-center md:text-left">
                   <h3 class="font-figtree text-xl font-bold text-[#780000]">Q1 2026</h3>
-                  <p class="font-figtree text-[#003049]/70">Data analysis + Manuscript preparation</p>
+                  <p class="font-figtree text-[#003049]/70">Analyse de données + Préparation du manuscrit</p>
                 </div>
               </div>
             </div>

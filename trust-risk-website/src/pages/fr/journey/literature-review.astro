@@ -1,15 +1,15 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/Navigation.astro';
-import { t } from '../../i18n/translations';
-import '../../styles/global.css';
+import Layout from '../../../layouts/Layout.astro';
+import Navigation from '../../../components/Navigation.astro';
+import { t } from '../../../i18n/translations';
+import '../../../styles/global.css';
 
-const lang = 'en';
+const lang = 'fr';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Down the Rabbit Hole | Research Journey">
-  <Navigation lang={lang} currentPath="/journey/literature-review" />
+<Layout title="Au Fond du Terrier | Parcours de Recherche">
+  <Navigation lang={lang} currentPath="/fr/journey/literature-review" />
 
   <main class="min-h-screen bg-[#FFF9ED] relative">
     <div class="absolute inset-0 opacity-5 pointer-events-none">
@@ -29,11 +29,11 @@ const base = import.meta.env.BASE_URL;
       <div class="max-w-5xl mx-auto relative z-10">
         <!-- Breadcrumb -->
         <div class="mb-8">
-          <a href={base + "journey"} class="text-sm text-[#003049]/60 hover:text-[#780000] transition-colors inline-flex items-center gap-2 font-figtree font-bold uppercase tracking-wider">
+          <a href={base + "fr/journey"} class="text-sm text-[#003049]/60 hover:text-[#780000] transition-colors inline-flex items-center gap-2 font-figtree font-bold uppercase tracking-wider">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
-            Back to Journey
+            Retour au Parcours
           </a>
         </div>
 
@@ -42,7 +42,7 @@ const base = import.meta.env.BASE_URL;
           <div class="inline-block px-4 py-2 bg-[#780000]/10 text-[#780000] rounded-lg text-sm font-bold uppercase tracking-widest mb-6 border border-[#780000]/20">
             Phase 1
           </div>
-          <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">Down the Rabbit Hole</h1>
+          <h1 class="font-figtree text-5xl md:text-6xl font-bold text-[#003049] mb-6 leading-tight">Au Fond du Terrier</h1>
         </div>
       </div>
     </section>
@@ -58,23 +58,23 @@ const base = import.meta.env.BASE_URL;
               <div class="font-figtree text-4xl font-black text-[#FFF9ED] opacity-50 rotate-90 md:rotate-0">01</div>
             </div>
             <div class="md:col-span-11 p-8 md:p-12">
-              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">The Puzzle</h2>
+              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Le Casse-Tête</h2>
               <div class="space-y-6">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  Traditional <em class="italic font-serif text-[#780000]">game theory</em> says <strong>no one</strong> should trust strangers with their money. The rational move is to keep it. Yet in Berg, Dickhaut, & McCabe's (1995) Trust Game, people invest. Consistently. Across cultures.
+                  La <em class="italic font-serif text-[#780000]">théorie des jeux</em> traditionnelle dit que <strong>personne</strong> ne devrait confier son argent à des inconnus. Le choix rationnel est de le garder. Pourtant, dans le Jeu de Confiance de Berg, Dickhaut et McCabe (1995), les gens investissent. Systématiquement. Quelles que soient les cultures.
                 </p>
                 <div class="p-6 bg-[#003049]/5 rounded-xl border-l-4 border-[#003049]">
                   <p class="font-figtree text-lg text-[#003049] font-medium mb-4">
-                    <strong>Why?</strong> The literature offered two main explanations:
+                    <strong>Pourquoi ?</strong> La littérature propose deux explications principales :
                   </p>
                   <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                      <p class="font-figtree font-bold text-[#780000] mb-1">Social Preferences</p>
-                      <p class="font-figtree text-sm text-[#003049]/70">Altruism, reciprocity, fairness norms—we trust because we care about others.</p>
+                      <p class="font-figtree font-bold text-[#780000] mb-1">Préférences Sociales</p>
+                      <p class="font-figtree text-sm text-[#003049]/70">Altruisme, réciprocité, normes d'équité—nous faisons confiance parce que nous nous soucions des autres.</p>
                     </div>
                     <div>
-                      <p class="font-figtree font-bold text-[#669bbc] mb-1">Risk Attitudes</p>
-                      <p class="font-figtree text-sm text-[#003049]/70">Different perceptions of uncertainty—maybe trust is just how we handle social risk.</p>
+                      <p class="font-figtree font-bold text-[#669bbc] mb-1">Attitudes face au Risque</p>
+                      <p class="font-figtree text-sm text-[#003049]/70">Perceptions différentes de l'incertitude—peut-être que la confiance n'est que notre façon de gérer le risque social.</p>
                     </div>
                   </div>
                 </div>
@@ -83,14 +83,14 @@ const base = import.meta.env.BASE_URL;
           </div>
         </div>
 
-        <!-- 2. The Confusion -->
+        <!-- 2. La Confusion -->
         <div class="pl-8 border-l-2 border-[#669bbc]/30">
           <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
-            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">The Confusion</h2>
+            <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">La Confusion</h2>
 
             <div class="space-y-8">
               <p class="font-figtree text-xl text-[#003049]/80 leading-relaxed font-light">
-                The literature is full of contradictory findings. Two main problems emerged:
+                La littérature regorge de résultats contradictoires. Deux problèmes principaux ont émergé :
               </p>
 
               <div class="grid md:grid-cols-2 gap-6">
@@ -98,8 +98,8 @@ const base = import.meta.env.BASE_URL;
                   <div class="w-10 h-10 bg-[#780000]/10 rounded-lg flex items-center justify-center text-[#780000] mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                   </div>
-                  <p class="font-figtree font-bold text-[#003049] text-lg mb-2">Prediction vs. No Prediction</p>
-                  <p class="font-figtree text-[#003049]/70 mb-4">Some studies find risk preferences predict trust. Others find they don't.</p>
+                  <p class="font-figtree font-bold text-[#003049] text-lg mb-2">Prédiction vs Non-prédiction</p>
+                  <p class="font-figtree text-[#003049]/70 mb-4">Certaines études trouvent que les préférences de risque prédisent la confiance. D'autres non.</p>
                   <p class="font-figtree text-xs text-[#003049]/40 italic">Houser et al. (2010) vs. Schechter (2007)</p>
                 </div>
 
@@ -107,8 +107,8 @@ const base = import.meta.env.BASE_URL;
                   <div class="w-10 h-10 bg-[#669bbc]/10 rounded-lg flex items-center justify-center text-[#669bbc] mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
-                  <p class="font-figtree font-bold text-[#003049] text-lg mb-2">Exceeds vs. Does Not Exceed</p>
-                  <p class="font-figtree text-[#003049]/70 mb-4">Some find trust levels exceed risk taking. Others find risk taking exceeds trust.</p>
+                  <p class="font-figtree font-bold text-[#003049] text-lg mb-2">Dépasse vs Ne dépasse pas</p>
+                  <p class="font-figtree text-[#003049]/70 mb-4">Certains trouvent que la confiance dépasse la prise de risque. D'autres trouvent l'inverse.</p>
                   <p class="font-figtree text-xs text-[#003049]/40 italic">Bohnet & Zeckhauser (2004) vs. Rățală et al. (2019)</p>
                 </div>
               </div>
@@ -123,11 +123,11 @@ const base = import.meta.env.BASE_URL;
               <div class="font-figtree text-4xl font-black text-[#FFF9ED] opacity-50 rotate-90 md:rotate-0">02</div>
             </div>
             <div class="md:col-span-11 p-8 md:p-12">
-              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Then I Saw It</h2>
+              <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-6">Alors J'ai Compris</h2>
 
               <div class="space-y-8">
                 <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed">
-                  I started tracking what each study actually <em class="italic font-serif">did</em>. Not what they concluded—what they <strong>measured</strong>. Two methodological problems kept appearing:
+                  J'ai commencé à suivre ce que chaque étude faisait <em class="italic font-serif">réellement</em>. Pas ce qu'elles concluaient—ce qu'elles <strong>mesuraient</strong>. Deux problèmes méthodologiques revenaient sans cesse :
                 </p>
 
                 <div class="grid md:grid-cols-2 gap-8">
@@ -135,14 +135,14 @@ const base = import.meta.env.BASE_URL;
                   <div>
                     <div class="flex items-center gap-3 mb-4">
                       <span class="flex-shrink-0 w-8 h-8 bg-[#780000] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm">1</span>
-                      <h3 class="font-figtree text-lg font-bold text-[#780000]">Different Stakes & Probabilities</h3>
+                      <h3 class="font-figtree text-lg font-bold text-[#780000]">Enjeux et Probabilités Différents</h3>
                     </div>
                     <p class="font-figtree text-[#003049]/70 leading-relaxed mb-4">
-                      Stakes and probability ranges <strong>varied wildly</strong>. Some used $5 bets, others $100. Some tested 10% vs 90% probabilities, others 40% vs 60%.
+                      Les enjeux et les plages de probabilité <strong>variaient énormément</strong>. Certaines utilisaient des paris de 5$, d'autres de 100$. Certaines testaient 10% vs 90% de probabilités, d'autres 40% vs 60%.
                     </p>
                     <div class="p-4 bg-[#780000]/5 rounded-lg border border-[#780000]/10">
                       <p class="font-figtree text-sm text-[#780000] italic">
-                        <strong>Insight:</strong> Prospect Theory has different parameters for different contexts. Maybe they were testing different parts of the curve?
+                        <strong>Insight :</strong> La Théorie des Perspectives a différents paramètres pour différents contextes. Peut-être testaient-elles différentes parties de la courbe ?
                       </p>
                     </div>
                   </div>
@@ -151,14 +151,14 @@ const base = import.meta.env.BASE_URL;
                   <div>
                     <div class="flex items-center gap-3 mb-4">
                       <span class="flex-shrink-0 w-8 h-8 bg-[#669bbc] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm">2</span>
-                      <h3 class="font-figtree text-lg font-bold text-[#669bbc]">Mismatched Uncertainty</h3>
+                      <h3 class="font-figtree text-lg font-bold text-[#669bbc]">Incertitude non Appariée</h3>
                     </div>
                     <p class="font-figtree text-[#003049]/70 leading-relaxed mb-4">
-                      Studies were comparing <strong>apples to oranges</strong>. In risk, you know the dice is fair (Known Probabilities). In trust, you have no idea (Ambiguity).
+                      Les études comparaient <strong>des choux et des carottes</strong>. Dans le risque, vous savez que le dé est équitable (Probabilités Connues). Dans la confiance, vous n'avez aucune idée (Ambiguïté).
                     </p>
                     <div class="p-4 bg-[#669bbc]/5 rounded-lg border border-[#669bbc]/10">
                       <p class="font-figtree text-sm text-[#669bbc] italic">
-                        <strong>Insight:</strong> These are fundamentally different types of uncertainty. We need to control for this.
+                        <strong>Insight :</strong> Ce sont des types d'incertitude fondamentalement différents. Nous devons contrôler cela.
                       </p>
                     </div>
                   </div>
@@ -179,61 +179,61 @@ const base = import.meta.env.BASE_URL;
              </svg>
           </div>
           <div class="relative z-10 max-w-3xl mx-auto">
-            <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">The Breakthrough Question</h2>
+            <h2 class="font-figtree text-3xl font-bold text-[#FFF9ED] mb-6">La Question Décisive</h2>
             <p class="font-figtree text-xl text-[#FFF9ED]/90 leading-relaxed font-light mb-8">
-              Can <strong>Prospect Theory</strong>—the Nobel Prize-winning framework for risk—explain trust behavior when we <em class="italic font-serif">properly control</em> for stakes, probabilities, and uncertainty levels?
+              La <strong>Théorie des Perspectives</strong>—le cadre primé par le Prix Nobel pour le risque—peut-elle expliquer le comportement de confiance lorsque nous <em class="italic font-serif">contrôlons correctement</em> les enjeux, les probabilités et les niveaux d'incertitude ?
             </p>
             <div class="inline-block px-6 py-3 border border-[#FFF9ED]/30 rounded-lg text-[#FFF9ED] font-figtree font-bold uppercase tracking-widest text-sm">
-              This became the thesis
+              Ceci est devenu la thèse
             </div>
           </div>
         </div>
 
         <!-- 5. The Framework -->
         <div class="pl-8 border-l-2 border-[#780000]/30">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">The Framework: Prospect Theory</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Le Cadre : Théorie des Perspectives</h2>
           
           <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 transition-colors group">
-              <h3 class="font-figtree text-lg font-bold text-[#780000] mb-3 group-hover:translate-x-1 transition-transform">Loss Aversion (λ)</h3>
+              <h3 class="font-figtree text-lg font-bold text-[#780000] mb-3 group-hover:translate-x-1 transition-transform">Aversion aux Pertes (λ)</h3>
               <p class="font-figtree text-[#003049]/70 text-sm leading-relaxed">
-                Losses hurt <strong>more than gains feel good</strong>. Losing $10 feels worse than gaining $10 feels good.
+                Les pertes font <strong>plus mal que les gains ne font du bien</strong>. Perdre 10$ fait plus mal que gagner 10$ ne fait du bien.
               </p>
             </div>
 
             <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#669bbc]/30 transition-colors group">
-              <h3 class="font-figtree text-lg font-bold text-[#669bbc] mb-3 group-hover:translate-x-1 transition-transform">Diminishing Sensitivity (α)</h3>
+              <h3 class="font-figtree text-lg font-bold text-[#669bbc] mb-3 group-hover:translate-x-1 transition-transform">Sensibilité Décroissante (α)</h3>
               <p class="font-figtree text-[#003049]/70 text-sm leading-relaxed">
-                The difference between $0 and $10 <strong>feels bigger</strong> than between $100 and $110.
+                La différence entre 0$ et 10$ <strong>semble plus grande</strong> que celle entre 100$ et 110$.
               </p>
             </div>
 
             <div class="bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#003049]/30 transition-colors group">
-              <h3 class="font-figtree text-lg font-bold text-[#003049] mb-3 group-hover:translate-x-1 transition-transform">Probability Weighting (γ, δ)</h3>
+              <h3 class="font-figtree text-lg font-bold text-[#003049] mb-3 group-hover:translate-x-1 transition-transform">Pondération des Probabilités (γ, δ)</h3>
               <p class="font-figtree text-[#003049]/70 text-sm leading-relaxed">
-                We <strong>overweight small probabilities</strong> and underweight large ones. A 1% chance feels huge.
+                Nous <strong>surpondérons les petites probabilités</strong> et sous-pondérons les grandes. Une chance de 1% semble énorme.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- 6. What Needed to Happen -->
+        <!-- 6. Ce qui Devait se Passer -->
         <div class="bg-[#FFF9ED] border border-[#003049]/10 rounded-2xl p-8 md:p-12">
-          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">What Needed to Happen</h2>
+          <h2 class="font-figtree text-3xl font-bold text-[#003049] mb-8">Ce qui Devait se Passer</h2>
           <div class="grid md:grid-cols-2 gap-8">
             <div class="space-y-6">
               <div class="flex gap-4">
                 <div class="w-8 h-8 bg-[#003049] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm flex-shrink-0">1</div>
                 <div>
-                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Matched Probabilities</h4>
-                  <p class="font-figtree text-sm text-[#003049]/70">Trust and Risk games with <strong>identical</strong> outcome probabilities.</p>
+                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Probabilités Appariées</h4>
+                  <p class="font-figtree text-sm text-[#003049]/70">Jeux de Confiance et de Risque avec des probabilités de résultats <strong>identiques</strong>.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-8 h-8 bg-[#003049] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm flex-shrink-0">2</div>
                 <div>
-                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Controlled Uncertainty</h4>
-                  <p class="font-figtree text-sm text-[#003049]/70">Match the <em>type</em> of uncertainty. Known probabilities for both.</p>
+                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Incertitude Contrôlée</h4>
+                  <p class="font-figtree text-sm text-[#003049]/70">Apparier le <em>type</em> d'incertitude. Probabilités connues pour les deux.</p>
                 </div>
               </div>
             </div>
@@ -241,39 +241,39 @@ const base = import.meta.env.BASE_URL;
               <div class="flex gap-4">
                 <div class="w-8 h-8 bg-[#003049] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm flex-shrink-0">3</div>
                 <div>
-                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Optimal Design</h4>
-                  <p class="font-figtree text-sm text-[#003049]/70">Use Fisher Information to select highly informative trials.</p>
+                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Conception Optimale</h4>
+                  <p class="font-figtree text-sm text-[#003049]/70">Utiliser l'Information de Fisher pour sélectionner des essais hautement informatifs.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-8 h-8 bg-[#003049] rounded-lg flex items-center justify-center text-[#FFF9ED] font-bold text-sm flex-shrink-0">4</div>
                 <div>
-                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Model Comparison</h4>
-                  <p class="font-figtree text-sm text-[#003049]/70">Test 16 nested models to see what really differs.</p>
+                  <h4 class="font-figtree font-bold text-[#003049] mb-1">Comparaison de Modèles</h4>
+                  <p class="font-figtree text-sm text-[#003049]/70">Tester 16 modèles imbriqués pour voir ce qui diffère réellement.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Key References -->
+        <!-- Références Clés -->
         <div class="pl-8 border-l-2 border-[#780000]/30">
           <div class="bg-[#FFF9ED] p-8 rounded-2xl border border-[#003049]/10 shadow-sm">
-            <h2 class="font-figtree text-2xl font-bold text-[#003049] mb-6">Key References</h2>
+            <h2 class="font-figtree text-2xl font-bold text-[#003049] mb-6">Références Clés</h2>
             <div class="grid md:grid-cols-2 gap-4">
-              <a href={base + "references#berg-1995"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
+              <a href={base + "fr/references#berg-1995"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
                 <strong class="text-[#003049] group-hover:text-[#780000] transition-colors">Berg, J., Dickhaut, J., & McCabe, K. (1995)</strong>
                 <p class="text-sm text-[#003049]/60 mt-2">The original Trust Game. The puzzle that started it all.</p>
               </a>
-              <a href={base + "references#kahneman-1979"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
+              <a href={base + "fr/references#kahneman-1979"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
                 <strong class="text-[#003049] group-hover:text-[#780000] transition-colors">Kahneman, D., & Tversky, A. (1979)</strong>
                 <p class="text-sm text-[#003049]/60 mt-2">Prospect theory: An analysis of decision under risk.</p>
               </a>
-              <a href={base + "references#houser-2010"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
+              <a href={base + "fr/references#houser-2010"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
                 <strong class="text-[#003049] group-hover:text-[#780000] transition-colors">Houser, D., Schunk, D., & Winter, J. (2010)</strong>
                 <p class="text-sm text-[#003049]/60 mt-2">Distinguishing trust from risk: An anatomy of the investment game.</p>
               </a>
-              <a href={base + "references#bohnet-2004"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
+              <a href={base + "fr/references#bohnet-2004"} class="block bg-[#FFF9ED] border border-[#003049]/10 p-6 rounded-xl hover:border-[#780000]/30 hover:shadow-sm transition-all group">
                 <strong class="text-[#003049] group-hover:text-[#780000] transition-colors">Bohnet, I., & Zeckhauser, R. (2004)</strong>
                 <p class="text-sm text-[#003049]/60 mt-2">Trust, risk and betrayal.</p>
               </a>
@@ -284,10 +284,10 @@ const base = import.meta.env.BASE_URL;
         <!-- Next Phase Button -->
         <div class="text-center mt-16 pt-16 border-t border-[#003049]/10">
           <p class="font-figtree text-lg text-[#003049]/80 leading-relaxed max-w-3xl mx-auto mb-8">
-            The literature shows a clear gap. We have the theory. Now we need a way to test it properly.
+            La littérature montre une lacune claire. Nous avons la théorie. Maintenant, nous avons besoin d'un moyen de la tester correctement.
           </p>
-          <a href={base + "journey/experimental-design"} class="inline-flex items-center gap-2 px-8 py-4 bg-[#003049] text-[#FFF9ED] rounded-full font-bold hover:bg-[#780000] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-            Explore Phase 2: Experimental Design
+          <a href={base + "fr/journey/experimental-design"} class="inline-flex items-center gap-2 px-8 py-4 bg-[#003049] text-[#FFF9ED] rounded-full font-bold hover:bg-[#780000] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Explorer la Phase 2 : Design Expérimental
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
         </div>
