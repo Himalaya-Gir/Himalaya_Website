@@ -42,7 +42,7 @@ export const translations = {
     'question.quoteAuthor': 'Berg, Dickhaut, & McCabe (1995)',
 
     // About Section
-    'about.title': 'About This Research',
+    'about.title': 'About <span class="text-[#780000]">This Research</span>',
     'about.intro': 'This research project investigates whether <strong>Prospect Theory</strong>, a <em class="italic">Nobel Prize-winning</em> framework for understanding risk decisions, can explain trust behavior when we properly control for the type of <em class="italic">uncertainty</em> involved.',
     'about.previewTitle': 'This Website is Just a Preview',
     'about.previewText': 'What you see here is a <strong>small snapshot</strong> of the full research project. Many aspects haven\'t been shown on this website, including:',
@@ -250,7 +250,7 @@ export const translations = {
     'question.quoteAuthor': 'Berg, Dickhaut, & McCabe (1995)',
 
     // About Section
-    'about.title': 'À Propos de Cette Recherche',
+    'about.title': 'À Propos de <span class="text-[#780000]">Cette Recherche</span>',
     'about.intro': 'Ce projet examine si la <strong>Théorie des Perspectives</strong> (récompensée par le <em class="italic">prix Nobel</em>) peut expliquer nos comportements de confiance, en distinguant précisément les différents types d\'<em class="italic">incertitude</em>.',
     'about.previewTitle': 'Ce Site Web n\'est qu\'un Aperçu',
     'about.previewText': 'Ce que vous voyez ici est un <strong>petit échantillon</strong> du projet de recherche complet. De nombreux aspects n\'ont pas été montrés sur ce site, notamment :',
